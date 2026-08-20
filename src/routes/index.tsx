@@ -36,6 +36,7 @@ function Index() {
         secondaryCta={{ label: "View Lookbook", to: "/lookbook" }}
       />
       <MarqueeSection />
+      <FeaturedCollections />
     </>
   );
 }
