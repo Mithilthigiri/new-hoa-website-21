@@ -40,7 +40,7 @@ export function FeaturedCollections({
 
       {/* Mobile: contained horizontal editorial scroll. Desktop: three columns. */}
       <div className="mt-space-2xl md:hidden">
-        <ul className="flex snap-x snap-mandatory gap-space-lg overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul className="flex snap-x snap-mandatory gap-space-lg overflow-x-auto scroll-pl-page-gutter px-page-gutter pb-space-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {collections.map((collection) => (
             <li
               key={collection.handle}
