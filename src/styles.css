@@ -25,7 +25,9 @@
   /* Semantic roles */
   --color-background: var(--background);
   --color-background-alt: var(--background-alt);
+  --color-background-dark: var(--background-dark);
   --color-foreground: var(--foreground);
+  --color-foreground-inverse: var(--foreground-inverse);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -33,18 +35,28 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-gold-button: var(--gold-button);
+  --color-gold-button-foreground: var(--gold-button-foreground);
+  --color-gold-button-hover: var(--gold-button-hover);
+  --color-outline-hover: var(--outline-hover);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-alt: var(--accent-alt);
+  --color-accent-soft: var(--accent-soft);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
+  --color-border-gold: var(--border-gold);
+  --color-border-inverse: var(--border-inverse);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
 
   /* Typography families */
   --font-display: "Playfair Display", Georgia, serif;
