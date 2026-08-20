@@ -14,45 +14,45 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 bg-espresso text-ivory">
-      <Container className="flex h-16 items-center justify-between gap-6 lg:h-nav">
+      <Container className="grid h-16 grid-cols-3 items-center lg:h-nav">
         <div className="flex items-center">
           <button
             type="button"
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className={iconClass}
+            className={cn(iconClass, "lg:hidden")}
           >
             <Menu className="size-5" strokeWidth={1.25} />
           </button>
-        </div>
 
-        <nav
-          aria-label="Primary navigation"
-          className="hidden items-center gap-10 lg:flex"
-        >
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              to={link.to}
-              className={cn(
-                "type-label transition-colors duration-300 hover:text-gold-soft",
-                link.accent ? "text-gold" : "text-ivory/85",
-              )}
-              activeProps={{ className: "text-gold-soft" }}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center gap-10 lg:flex"
+          >
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                className={cn(
+                  "type-label transition-colors duration-300 hover:text-gold-soft",
+                  link.accent ? "text-gold" : "text-ivory/85",
+                )}
+                activeProps={{ className: "text-gold-soft" }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         <Link
           to="/"
-          className="type-wordmark text-ivory transition-colors duration-300 hover:text-gold-soft lg:absolute lg:left-1/2 lg:-translate-x-1/2"
+          className="type-wordmark justify-self-center text-ivory transition-colors duration-300 hover:text-gold-soft"
         >
           House of Aira
         </Link>
 
-        <div className="flex items-center gap-1 md:gap-2">
+        <div className="flex items-center justify-end gap-1 md:gap-2">
           <button type="button" aria-label="Search" className={iconClass}>
             <Search className="size-4" strokeWidth={1.25} />
           </button>
