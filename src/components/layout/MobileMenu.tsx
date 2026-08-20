@@ -19,6 +19,9 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
   return (
     <div
+      // `inert` removes every descendant from the tab order and a11y tree while
+      // closed, so the slide transition can still be preserved.
+      inert={!open}
       aria-hidden={!open}
       className={cn(
         "fixed inset-0 z-50",
@@ -45,7 +48,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="p-2 text-ivory/80 transition-colors hover:text-gold"
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ivory/80 transition-colors hover:text-gold"
           >
             <X className="size-4" strokeWidth={1.25} />
           </button>
@@ -60,7 +63,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 to={link.to}
                 onClick={onClose}
                 className={cn(
-                  "type-label transition-colors hover:text-gold-soft",
+                  "type-label inline-flex min-h-11 items-center transition-colors hover:text-gold-soft",
                   link.accent ? "text-gold" : "text-ivory",
                 )}
               >
@@ -78,7 +81,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               <Link
                 to={link.to}
                 onClick={onClose}
-                className="type-label text-ivory/65 transition-colors hover:text-gold-soft"
+                className="type-label inline-flex min-h-11 items-center text-ivory/65 transition-colors hover:text-gold-soft"
               >
                 {link.label}
               </Link>

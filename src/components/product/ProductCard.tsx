@@ -90,7 +90,7 @@ export function ProductCard({
       </div>
 
       <div className="mt-space-md">
-        <h3 className="font-sans text-sm font-normal tracking-[0.06em] text-foreground">
+        <h3 className="type-h4 text-foreground">
           <Link
             to="/product/$handle"
             params={{ handle }}
