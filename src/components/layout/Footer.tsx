@@ -79,9 +79,9 @@ export function Footer() {
             ))}
             <li>
               <a
-                href="https://instagram.com"
+                href={INSTAGRAM_PROFILE_URL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="type-label text-ivory/55 transition-colors duration-300 hover:text-gold-soft"
               >
                 Instagram
