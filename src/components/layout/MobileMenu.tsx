@@ -35,7 +35,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       <nav
         aria-label="Mobile navigation"
         className={cn(
-          "absolute inset-y-0 right-0 flex w-[82%] max-w-sm flex-col bg-espresso px-gutter py-8 text-ivory transition-transform duration-400 ease-out",
+          "absolute inset-y-0 right-0 flex w-[82%] max-w-sm flex-col bg-espresso px-page-gutter py-8 text-ivory transition-transform duration-400 ease-out",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
@@ -53,7 +53,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         <div className="rule-gold mt-6" />
 
-        <ul className="mt-block flex flex-col gap-6">
+        <ul className="mt-component flex flex-col gap-6">
           {NAV_LINKS.map((link) => (
             <li key={link.to}>
               <Link
@@ -70,7 +70,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           ))}
         </ul>
 
-        <div className="rule-gold mt-block" />
+        <div className="rule-gold mt-component" />
 
         <ul className="mt-6 flex flex-col gap-4">
           {SECONDARY_LINKS.map((link) => (

@@ -32,7 +32,7 @@ export function Footer() {
   return (
     <footer className="bg-espresso text-ivory">
       <Container className="py-section-sm md:py-section">
-        <div className="grid gap-block md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
+        <div className="grid gap-component md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <span className="type-wordmark text-ivory">House of Aira</span>
             <p className="type-sub mt-5 max-w-xs text-ivory/70">
