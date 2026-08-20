@@ -360,18 +360,23 @@
 }
 
 .marquee-track {
-  --marquee-duration: 30s;
+  --marquee-duration: 40s;
 }
 
 @media (max-width: 768px) {
   .marquee-track {
-    --marquee-duration: 45s;
+    /* Slower on mobile so the shorter viewport doesn't feel rushed */
+    --marquee-duration: 70s;
+  }
+  .marquee-item {
+    letter-spacing: 0.1em;
   }
 }
 
 @utility animate-marquee {
-  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+  animation: marquee-scroll var(--marquee-duration, 40s) linear infinite;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
