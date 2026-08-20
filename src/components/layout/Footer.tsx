@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
-import { AiraButton } from "@/components/ui/aira-button";
+import { NewsletterForm } from "@/components/home/NewsletterForm";
+import { INSTAGRAM_PROFILE_URL } from "@/components/home/instagram-data";
 import {
   FOOTER_LEGAL_LINKS,
   FOOTER_SERVICE_LINKS,
