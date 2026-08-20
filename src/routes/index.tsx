@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { HeroSection } from "@/components/home/HeroSection";
+import heroImage from "@/assets/hero-placeholder.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,10 +23,14 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <PagePlaceholder
-      eyebrow="Home"
-      title="House of Aira"
-      description="Old money maximalism · Luxury contemporary ethnic. Page content arrives in the next phase."
+    <HeroSection
+      imageSrc={heroImage.url}
+      imageAlt="House of Aira campaign image featuring a woman in an opulent rust and ivory ensemble within a grand heritage interior."
+      eyebrow="The new era of Indian luxury"
+      headline="Dressed in Heritage"
+      supportingCopy="Contemporary pieces rooted in the opulence of old India. Made for women who wear power gracefully."
+      primaryCta={{ label: "Explore Collection", to: "/collections" }}
+      secondaryCta={{ label: "View Lookbook", to: "/lookbook" }}
     />
   );
 }
