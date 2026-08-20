@@ -25,7 +25,9 @@
   /* Semantic roles */
   --color-background: var(--background);
   --color-background-alt: var(--background-alt);
+  --color-background-dark: var(--background-dark);
   --color-foreground: var(--foreground);
+  --color-foreground-inverse: var(--foreground-inverse);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -33,18 +35,28 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-gold-button: var(--gold-button);
+  --color-gold-button-foreground: var(--gold-button-foreground);
+  --color-gold-button-hover: var(--gold-button-hover);
+  --color-outline-hover: var(--outline-hover);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-alt: var(--accent-alt);
+  --color-accent-soft: var(--accent-soft);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
+  --color-border-gold: var(--border-gold);
+  --color-border-inverse: var(--border-inverse);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
 
   /* Typography families */
   --font-display: "Playfair Display", Georgia, serif;
@@ -72,43 +84,61 @@
 }
 
 :root {
-  /* Brand palette */
-  --rust-deep: oklch(0.451 0.098 43.2);
-  --rust-warm: oklch(0.596 0.106 51.3);
-  --ivory: oklch(0.876 0.052 84.7);
-  --parchment: oklch(0.953 0.024 88.3);
-  --gold: oklch(0.729 0.106 87.4);
-  --gold-soft: oklch(0.851 0.086 87.8);
-  --espresso: oklch(0.219 0.036 42.6);
+  /* Brand palette — exact House of Aira hex values */
+  --rust-deep: #8b4a2f;
+  --rust-warm: #c4733a;
+  --ivory: #e8d5b7;
+  --parchment: #f5efe0;
+  --gold: #c9a84c;
+  --gold-soft: #e8c97a;
+  --espresso: #2c1810;
 
-  /* Semantic roles */
-  --background: var(--parchment);
-  --background-alt: var(--ivory);
-  --foreground: var(--espresso);
-  --muted-foreground: oklch(0.451 0.032 45 / 78%);
-  --muted: oklch(0.92 0.02 86);
+  /* Semantic roles — backgrounds */
+  --background: var(--parchment);       /* primary background */
+  --background-alt: var(--ivory);       /* secondary background */
+  --background-dark: var(--espresso);   /* inverted surfaces (nav, footer) */
+  --muted: color-mix(in oklab, var(--ivory) 55%, var(--parchment));
 
-  --card: oklch(0.985 0.012 88);
+  --card: #faf6ec;
   --card-foreground: var(--espresso);
   --popover: var(--parchment);
   --popover-foreground: var(--espresso);
 
+  /* Text */
+  --foreground: var(--espresso);        /* primary text */
+  --muted-foreground: color-mix(in oklab, var(--espresso) 68%, var(--parchment)); /* secondary text */
+  --foreground-inverse: var(--ivory);   /* text on dark surfaces */
+
+  /* Accents */
+  --accent: var(--gold);                /* primary accent */
+  --accent-foreground: var(--espresso);
+  --accent-alt: var(--rust-warm);       /* secondary accent */
+  --accent-soft: var(--gold-soft);
+
+  /* Buttons */
   --primary: var(--espresso);
   --primary-foreground: var(--ivory);
+  --primary-hover: color-mix(in oklab, var(--espresso) 82%, var(--rust-deep));
   --secondary: var(--rust-deep);
   --secondary-foreground: var(--parchment);
-  --accent: var(--gold);
-  --accent-foreground: var(--espresso);
-  --accent-alt: var(--rust-warm);
+  --secondary-hover: var(--rust-warm);
+  --gold-button: var(--gold);
+  --gold-button-foreground: var(--espresso);
+  --gold-button-hover: var(--gold-soft);
+  --outline-hover: color-mix(in oklab, var(--espresso) 8%, transparent);
 
-  --destructive: oklch(0.505 0.163 25.5);
+  --destructive: #9c3b28;
   --destructive-foreground: var(--parchment);
 
-  --border: oklch(0.219 0.036 42.6 / 14%);
-  --border-strong: oklch(0.219 0.036 42.6 / 32%);
-  --input: oklch(0.219 0.036 42.6 / 22%);
+  /* Borders & dividers */
+  --border: color-mix(in oklab, var(--espresso) 14%, transparent);
+  --border-strong: color-mix(in oklab, var(--espresso) 32%, transparent);
+  --border-gold: color-mix(in oklab, var(--gold) 55%, transparent);
+  --border-inverse: color-mix(in oklab, var(--ivory) 22%, transparent);
+  --input: color-mix(in oklab, var(--espresso) 22%, transparent);
   --ring: var(--gold);
 }
+
 
 @layer base {
   * {
@@ -198,4 +228,45 @@
 @utility rule-gold {
   height: 1px;
   background-color: color-mix(in oklab, var(--color-gold) 55%, transparent);
+}
+
+@utility type-h4 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@utility type-body-lg {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(0.9375rem, 1.8vw, 1rem);
+  line-height: 1.85;
+}
+
+@utility type-small {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+@utility type-caption {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+@utility type-button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
