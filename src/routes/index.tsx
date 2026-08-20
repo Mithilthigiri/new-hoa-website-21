@@ -40,6 +40,7 @@ function Index() {
       <MarqueeSection />
       <FeaturedCollections />
       <NewArrivals />
+      <BrandStory />
     </>
   );
 }
