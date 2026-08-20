@@ -4,6 +4,7 @@ import { MarqueeSection } from "@/components/home/MarqueeSection";
 import { FeaturedCollections } from "@/components/home/FeaturedCollections";
 import { NewArrivals } from "@/components/home/NewArrivals";
 import { BrandStory } from "@/components/home/BrandStory";
+import { InstagramFeed } from "@/components/home/InstagramFeed";
 import heroImage from "@/assets/hero-placeholder.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -41,6 +42,7 @@ function Index() {
       <FeaturedCollections />
       <NewArrivals />
       <BrandStory />
+      <InstagramFeed />
     </>
   );
 }
