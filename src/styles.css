@@ -63,14 +63,33 @@
   --font-editorial: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
 
-  /* Editorial spacing scale */
-  --spacing-gutter: 1.5rem;
-  --spacing-section-sm: 3.5rem;
-  --spacing-section: 5.5rem;
-  --spacing-section-lg: 8rem;
-  --spacing-block: 2.5rem;
-  --spacing-stack: 1.25rem;
-  --spacing-nav: 4.5rem;
+  /* ── Spacing system ────────────────────────────────────────── */
+
+  /* Base increments — used for padding, margin and gap utilities */
+  --spacing-xs: 0.25rem;    /* 4px  — micro gaps, icon offsets */
+  --spacing-sm: 0.5rem;     /* 8px  — tight internal padding */
+  --spacing-md: 1rem;       /* 16px — default component padding */
+  --spacing-lg: 1.5rem;     /* 24px — relaxed component padding */
+  --spacing-xl: 2.5rem;     /* 40px — large component gaps */
+  --spacing-2xl: 4rem;      /* 64px — section breaks */
+  --spacing-3xl: 6rem;      /* 96px — major section breaks */
+  --spacing-4xl: 8rem;      /* 128px — hero/landing section breaks */
+
+  /* Semantic roles — prefer these for layout consistency */
+  --spacing-page-gutter: 1.5rem;      /* horizontal page padding (mobile) */
+  --spacing-page-gutter-lg: 3rem;     /* horizontal page padding (desktop) */
+  --spacing-section-sm: 3.5rem;       /* compact vertical section padding */
+  --spacing-section: 5.5rem;          /* default vertical section padding */
+  --spacing-section-lg: 8rem;         /* generous vertical section padding */
+  --spacing-component-sm: 1.25rem;    /* gap between related components */
+  --spacing-component: 2.5rem;        /* gap between major components */
+  --spacing-element: 0.75rem;         /* inline element gaps */
+  --spacing-stack: 1.25rem;           /* vertical text / item stacks */
+  --spacing-grid: 1.5rem;             /* default grid gap */
+  --spacing-grid-lg: 2.5rem;          /* large grid gap */
+  --spacing-card: 1rem;               /* internal card padding */
+  --spacing-card-lg: 1.5rem;          /* internal card padding (desktop) */
+  --spacing-nav: 4.5rem;              /* global navbar height */
 
   /* Restrained radius system */
   --radius-xs: 1px;
@@ -252,6 +271,52 @@
   font-size: 0.75rem;
   line-height: 1.6;
   letter-spacing: 0.01em;
+}
+
+/* ── Spacing utilities ─────────────────────────────────────── */
+
+@utility section-py {
+  padding-block: var(--spacing-section);
+}
+
+@utility section-py-sm {
+  padding-block: var(--spacing-section-sm);
+}
+
+@utility section-py-lg {
+  padding-block: var(--spacing-section-lg);
+}
+
+@utility page-gutter {
+  padding-inline: var(--spacing-page-gutter);
+}
+
+@utility page-gutter-lg {
+  padding-inline: var(--spacing-page-gutter-lg);
+}
+
+@utility gap-grid {
+  gap: var(--spacing-grid);
+}
+
+@utility gap-grid-lg {
+  gap: var(--spacing-grid-lg);
+}
+
+@utility gap-component {
+  gap: var(--spacing-component);
+}
+
+@utility gap-component-sm {
+  gap: var(--spacing-component-sm);
+}
+
+@utility gap-stack {
+  gap: var(--spacing-stack);
+}
+
+@utility gap-element {
+  gap: var(--spacing-element);
 }
 
 @utility type-caption {
