@@ -12,6 +12,16 @@ const iconClass =
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => {
+      if (mq.matches) setOpen(false);
+    };
+    closeOnDesktop();
+    mq.addEventListener("change", closeOnDesktop);
+    return () => mq.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   return (
     <header className="sticky top-0 z-40 bg-espresso text-ivory">
       <Container className="grid h-16 grid-cols-3 items-center lg:h-nav">
