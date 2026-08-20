@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-espresso text-ivory">
       <Container className="flex h-16 items-center justify-between gap-6 lg:h-nav">
-        <div className="flex items-center lg:hidden">
+        <div className="flex items-center">
           <button
             type="button"
             aria-label="Open menu"
