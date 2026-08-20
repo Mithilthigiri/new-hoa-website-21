@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroSection } from "@/components/home/HeroSection";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
+import { FeaturedCollections } from "@/components/home/FeaturedCollections";
 import heroImage from "@/assets/hero-placeholder.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
