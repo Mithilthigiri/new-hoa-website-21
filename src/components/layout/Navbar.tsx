@@ -14,8 +14,8 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 bg-espresso text-ivory">
-      <Container className="flex h-16 items-center justify-between gap-6 md:h-nav">
-        <div className="flex items-center md:hidden">
+      <Container className="flex h-16 items-center justify-between gap-6 lg:h-nav">
+        <div className="flex items-center lg:hidden">
           <button
             type="button"
             aria-label="Open menu"
@@ -28,7 +28,7 @@ export function Navbar() {
 
         <nav
           aria-label="Primary navigation"
-          className="hidden items-center gap-6 md:flex lg:gap-10"
+          className="hidden items-center gap-10 lg:flex"
         >
           {NAV_LINKS.map((link) => (
             <Link
@@ -47,7 +47,7 @@ export function Navbar() {
 
         <Link
           to="/"
-          className="type-wordmark text-ivory transition-colors duration-300 hover:text-gold-soft md:absolute md:left-1/2 md:-translate-x-1/2"
+          className="type-wordmark text-ivory transition-colors duration-300 hover:text-gold-soft lg:absolute lg:left-1/2 lg:-translate-x-1/2"
         >
           House of Aira
         </Link>
