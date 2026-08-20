@@ -44,6 +44,7 @@ function Index() {
       <NewArrivals />
       <BrandStory />
       <InstagramFeed />
+      <NewsletterSignup />
     </>
   );
 }
