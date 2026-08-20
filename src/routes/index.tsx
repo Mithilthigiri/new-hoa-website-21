@@ -24,14 +24,17 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <HeroSection
-      imageSrc={heroImage.url}
-      imageAlt="House of Aira campaign image featuring a woman in an opulent rust and ivory ensemble within a grand heritage interior."
-      eyebrow="The new era of Indian luxury"
-      headline="Dressed in Heritage"
-      supportingCopy="Contemporary pieces rooted in the opulence of old India. Made for women who wear power gracefully."
-      primaryCta={{ label: "Explore Collection", to: "/collections" }}
-      secondaryCta={{ label: "View Lookbook", to: "/lookbook" }}
-    />
+    <>
+      <HeroSection
+        imageSrc={heroImage.url}
+        imageAlt="House of Aira campaign image featuring a woman in an opulent rust and ivory ensemble within a grand heritage interior."
+        eyebrow="The new era of Indian luxury"
+        headline="Dressed in Heritage"
+        supportingCopy="Contemporary pieces rooted in the opulence of old India. Made for women who wear power gracefully."
+        primaryCta={{ label: "Explore Collection", to: "/collections" }}
+        secondaryCta={{ label: "View Lookbook", to: "/lookbook" }}
+      />
+      <MarqueeSection />
+    </>
   );
 }
