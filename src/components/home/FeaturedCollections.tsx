@@ -38,29 +38,18 @@ export function FeaturedCollections({
         </header>
       </Container>
 
-      {/* Mobile: contained horizontal editorial scroll. Desktop: three columns. */}
-      <div className="mt-space-2xl md:hidden">
-        <ul className="flex snap-x snap-mandatory gap-space-lg overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {collections.map((collection) => (
-            <li
-              key={collection.handle}
-              className="w-[80%] shrink-0 snap-start scroll-ml-page-gutter last:mr-page-gutter"
-            >
-              <CollectionCard collection={collection} />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <Container width="wide" className="hidden md:block">
-        <ul className="mt-space-2xl grid grid-cols-3 gap-space-xl">
-          {collections.map((collection) => (
-            <li key={collection.handle}>
-              <CollectionCard collection={collection} />
-            </li>
-          ))}
-        </ul>
-      </Container>
+      {/* Single DOM set: contained horizontal editorial scroll on mobile,
+          three-column grid from md up. */}
+      <ul className="mx-auto mt-space-2xl flex w-full max-w-[100rem] snap-x snap-mandatory gap-space-lg overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] md:grid md:grid-cols-3 md:gap-space-xl md:overflow-visible md:pb-0 lg:px-page-gutter-lg [&::-webkit-scrollbar]:hidden">
+        {collections.map((collection) => (
+          <li
+            key={collection.handle}
+            className="w-[80%] shrink-0 snap-start scroll-ml-page-gutter last:mr-page-gutter md:w-auto md:shrink md:last:mr-0"
+          >
+            <CollectionCard collection={collection} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
