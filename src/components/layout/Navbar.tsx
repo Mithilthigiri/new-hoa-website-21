@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Search, ShoppingBag, User } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
 import { NAV_LINKS } from "./nav-links";
