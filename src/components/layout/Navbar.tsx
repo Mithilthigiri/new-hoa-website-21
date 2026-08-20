@@ -47,7 +47,7 @@ export function Navbar() {
 
         <Link
           to="/"
-          className="type-wordmark text-ivory transition-colors duration-300 hover:text-gold-soft lg:absolute lg:left-1/2 lg:-translate-x-1/2"
+          className="type-wordmark text-ivory transition-colors duration-300 hover:text-gold-soft md:absolute md:left-1/2 md:-translate-x-1/2"
         >
           House of Aira
         </Link>
