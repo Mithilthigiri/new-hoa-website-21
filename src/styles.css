@@ -273,6 +273,52 @@
   letter-spacing: 0.01em;
 }
 
+/* ── Spacing utilities ─────────────────────────────────────── */
+
+@utility section-py {
+  padding-block: var(--spacing-section);
+}
+
+@utility section-py-sm {
+  padding-block: var(--spacing-section-sm);
+}
+
+@utility section-py-lg {
+  padding-block: var(--spacing-section-lg);
+}
+
+@utility page-gutter {
+  padding-inline: var(--spacing-page-gutter);
+}
+
+@utility page-gutter-lg {
+  padding-inline: var(--spacing-page-gutter-lg);
+}
+
+@utility gap-grid {
+  gap: var(--spacing-grid);
+}
+
+@utility gap-grid-lg {
+  gap: var(--spacing-grid-lg);
+}
+
+@utility gap-component {
+  gap: var(--spacing-component);
+}
+
+@utility gap-component-sm {
+  gap: var(--spacing-component-sm);
+}
+
+@utility gap-stack {
+  gap: var(--spacing-stack);
+}
+
+@utility gap-element {
+  gap: var(--spacing-element);
+}
+
 @utility type-caption {
   font-family: var(--font-editorial);
   font-weight: 300;
