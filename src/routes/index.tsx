@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
 import { FeaturedCollections } from "@/components/home/FeaturedCollections";
 import { NewArrivals } from "@/components/home/NewArrivals";
+import { BrandStory } from "@/components/home/BrandStory";
 import heroImage from "@/assets/hero-placeholder.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
