@@ -35,7 +35,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       <nav
         aria-label="Mobile navigation"
         className={cn(
-          "absolute inset-y-0 right-0 flex w-[82%] max-w-sm flex-col bg-espresso px-page-gutter py-8 text-ivory transition-transform duration-400 ease-out",
+          "absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-espresso px-page-gutter py-8 text-ivory transition-transform duration-300 ease-out",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
