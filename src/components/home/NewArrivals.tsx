@@ -37,30 +37,18 @@ export function NewArrivals({
         </header>
       </Container>
 
-      {/* Mobile: contained horizontal editorial scroll. */}
-      <div className="mt-space-2xl lg:hidden">
-        <ul className="flex snap-x snap-mandatory gap-space-lg overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {products.map((product) => (
-            <li
-              key={product.id}
-              className="w-[82%] shrink-0 snap-start scroll-ml-page-gutter last:mr-page-gutter sm:w-[46%]"
-            >
-              <ProductCard product={product} />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Desktop: four across, remaining pieces wrap into the same rhythm. */}
-      <Container width="wide" className="hidden lg:block">
-        <ul className="mt-space-2xl grid grid-cols-4 gap-x-space-lg gap-y-space-2xl">
-          {products.map((product) => (
-            <li key={product.id}>
-              <ProductCard product={product} />
-            </li>
-          ))}
-        </ul>
-      </Container>
+      {/* Single DOM set: contained horizontal editorial scroll below lg,
+          four-column grid from lg up. */}
+      <ul className="mx-auto mt-space-2xl flex w-full max-w-[100rem] snap-x snap-mandatory gap-space-lg overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] lg:grid lg:grid-cols-4 lg:gap-x-space-lg lg:gap-y-space-2xl lg:overflow-visible lg:px-page-gutter-lg lg:pb-0 [&::-webkit-scrollbar]:hidden">
+        {products.map((product) => (
+          <li
+            key={product.id}
+            className="w-[82%] shrink-0 snap-start scroll-ml-page-gutter last:mr-page-gutter sm:w-[46%] lg:w-auto lg:shrink lg:last:mr-0"
+          >
+            <ProductCard product={product} />
+          </li>
+        ))}
+      </ul>
 
       <Container width="wide">
         <div className="mt-space-2xl flex justify-center">

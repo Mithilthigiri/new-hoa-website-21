@@ -88,30 +88,18 @@ export function InstagramFeed({
         </header>
       </Container>
 
-      {/* Mobile / tablet: contained horizontal editorial scroll. */}
-      <div className="mt-space-xl lg:hidden">
-        <ul className="flex snap-x snap-mandatory gap-space-sm overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {posts.map((post) => (
-            <li
-              key={post.id}
-              className="w-[76%] shrink-0 snap-start scroll-ml-page-gutter last:mr-page-gutter sm:w-[32%]"
-            >
-              <InstagramPostTile post={post} />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Desktop: six across, visually connected. */}
-      <Container width="wide" className="hidden lg:block">
-        <ul className="mt-space-xl grid grid-cols-6 gap-space-sm">
-          {posts.map((post) => (
-            <li key={post.id}>
-              <InstagramPostTile post={post} />
-            </li>
-          ))}
-        </ul>
-      </Container>
+      {/* Single DOM set: contained horizontal editorial scroll below lg,
+          six across from lg up. */}
+      <ul className="mx-auto mt-space-xl flex w-full max-w-[100rem] snap-x snap-mandatory gap-space-sm overflow-x-auto px-page-gutter pb-space-sm [scrollbar-width:none] lg:grid lg:grid-cols-6 lg:overflow-visible lg:px-page-gutter-lg lg:pb-0 [&::-webkit-scrollbar]:hidden">
+        {posts.map((post) => (
+          <li
+            key={post.id}
+            className="w-[76%] shrink-0 snap-start scroll-ml-page-gutter last:mr-page-gutter sm:w-[32%] lg:w-auto lg:shrink lg:last:mr-0"
+          >
+            <InstagramPostTile post={post} />
+          </li>
+        ))}
+      </ul>
 
       <Container width="wide">
         <div className="mt-space-xl flex justify-center">

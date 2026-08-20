@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
-import { AiraButton } from "@/components/ui/aira-button";
+import { NewsletterForm } from "@/components/home/NewsletterForm";
+import { INSTAGRAM_PROFILE_URL } from "@/components/home/instagram-data";
 import {
   FOOTER_LEGAL_LINKS,
   FOOTER_SERVICE_LINKS,
@@ -49,23 +50,13 @@ export function Footer() {
             <p className="type-body mt-6 text-ivory/70">
               Private previews and collection notes.
             </p>
-            <form
-              className="mt-6 flex flex-col gap-3 sm:flex-row"
-              onSubmit={(event) => event.preventDefault()}
-            >
-              <label className="sr-only" htmlFor="footer-email">
-                Email address
-              </label>
-              <input
-                id="footer-email"
-                type="email"
-                placeholder="Email address"
-                className="type-body h-11 w-full rounded-sm border border-ivory/25 bg-transparent px-4 text-ivory placeholder:text-ivory/45 focus:border-gold focus:outline-none"
-              />
-              <AiraButton variant="gold" size="md" type="submit">
-                Join
-              </AiraButton>
-            </form>
+            <NewsletterForm
+              idPrefix="footer-newsletter"
+              variant="inverse"
+              ctaLabel="Join"
+              successMessage="Welcome to the House."
+              className="mt-6"
+            />
           </div>
         </div>
 
@@ -88,9 +79,9 @@ export function Footer() {
             ))}
             <li>
               <a
-                href="https://instagram.com"
+                href={INSTAGRAM_PROFILE_URL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="type-label text-ivory/55 transition-colors duration-300 hover:text-gold-soft"
               >
                 Instagram

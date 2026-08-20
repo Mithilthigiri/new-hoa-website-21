@@ -21,7 +21,7 @@ export function Container({
   return (
     <Tag
       className={cn(
-        "mx-auto w-full px-page-gutter md:px-8 lg:px-12",
+        "mx-auto w-full px-page-gutter lg:px-page-gutter-lg",
         widths[width],
         className,
       )}
