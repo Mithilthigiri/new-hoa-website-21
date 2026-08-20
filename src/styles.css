@@ -347,3 +347,34 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+
+/* ── Marquee animation ───────────────────────────────────────── */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  --marquee-duration: 30s;
+}
+
+@media (max-width: 768px) {
+  .marquee-track {
+    --marquee-duration: 45s;
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
