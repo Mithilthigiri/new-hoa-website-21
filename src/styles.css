@@ -72,43 +72,61 @@
 }
 
 :root {
-  /* Brand palette */
-  --rust-deep: oklch(0.451 0.098 43.2);
-  --rust-warm: oklch(0.596 0.106 51.3);
-  --ivory: oklch(0.876 0.052 84.7);
-  --parchment: oklch(0.953 0.024 88.3);
-  --gold: oklch(0.729 0.106 87.4);
-  --gold-soft: oklch(0.851 0.086 87.8);
-  --espresso: oklch(0.219 0.036 42.6);
+  /* Brand palette — exact House of Aira hex values */
+  --rust-deep: #8b4a2f;
+  --rust-warm: #c4733a;
+  --ivory: #e8d5b7;
+  --parchment: #f5efe0;
+  --gold: #c9a84c;
+  --gold-soft: #e8c97a;
+  --espresso: #2c1810;
 
-  /* Semantic roles */
-  --background: var(--parchment);
-  --background-alt: var(--ivory);
-  --foreground: var(--espresso);
-  --muted-foreground: oklch(0.451 0.032 45 / 78%);
-  --muted: oklch(0.92 0.02 86);
+  /* Semantic roles — backgrounds */
+  --background: var(--parchment);       /* primary background */
+  --background-alt: var(--ivory);       /* secondary background */
+  --background-dark: var(--espresso);   /* inverted surfaces (nav, footer) */
+  --muted: color-mix(in oklab, var(--ivory) 55%, var(--parchment));
 
-  --card: oklch(0.985 0.012 88);
+  --card: #faf6ec;
   --card-foreground: var(--espresso);
   --popover: var(--parchment);
   --popover-foreground: var(--espresso);
 
+  /* Text */
+  --foreground: var(--espresso);        /* primary text */
+  --muted-foreground: color-mix(in oklab, var(--espresso) 68%, var(--parchment)); /* secondary text */
+  --foreground-inverse: var(--ivory);   /* text on dark surfaces */
+
+  /* Accents */
+  --accent: var(--gold);                /* primary accent */
+  --accent-foreground: var(--espresso);
+  --accent-alt: var(--rust-warm);       /* secondary accent */
+  --accent-soft: var(--gold-soft);
+
+  /* Buttons */
   --primary: var(--espresso);
   --primary-foreground: var(--ivory);
+  --primary-hover: color-mix(in oklab, var(--espresso) 82%, var(--rust-deep));
   --secondary: var(--rust-deep);
   --secondary-foreground: var(--parchment);
-  --accent: var(--gold);
-  --accent-foreground: var(--espresso);
-  --accent-alt: var(--rust-warm);
+  --secondary-hover: var(--rust-warm);
+  --gold-button: var(--gold);
+  --gold-button-foreground: var(--espresso);
+  --gold-button-hover: var(--gold-soft);
+  --outline-hover: color-mix(in oklab, var(--espresso) 8%, transparent);
 
-  --destructive: oklch(0.505 0.163 25.5);
+  --destructive: #9c3b28;
   --destructive-foreground: var(--parchment);
 
-  --border: oklch(0.219 0.036 42.6 / 14%);
-  --border-strong: oklch(0.219 0.036 42.6 / 32%);
-  --input: oklch(0.219 0.036 42.6 / 22%);
+  /* Borders & dividers */
+  --border: color-mix(in oklab, var(--espresso) 14%, transparent);
+  --border-strong: color-mix(in oklab, var(--espresso) 32%, transparent);
+  --border-gold: color-mix(in oklab, var(--gold) 55%, transparent);
+  --border-inverse: color-mix(in oklab, var(--ivory) 22%, transparent);
+  --input: color-mix(in oklab, var(--espresso) 22%, transparent);
   --ring: var(--gold);
 }
+
 
 @layer base {
   * {
