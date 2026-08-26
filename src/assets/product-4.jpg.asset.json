@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "5e64e9a9-d8be-42a5-8495-7f7ab89ccc08",
-  "project_id": "2f93b52a-2479-45ec-a4ad-f08146058541",
-  "url": "/__l5e/assets-v1/5e64e9a9-d8be-42a5-8495-7f7ab89ccc08/product-4.jpg",
-  "r2_key": "a/v1/2f93b52a-2479-45ec-a4ad-f08146058541/5e64e9a9-d8be-42a5-8495-7f7ab89ccc08/product-4.jpg",
-  "original_filename": "product-4.jpg",
-  "size": 102657,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-20T19:32:50Z"
+  "created_at": "2026-08-20T19:32:50Z",
+  "original_filename": "product-4.jpg",
+  "project_id": "55580038-abb4-4577-b026-099e7a3c7cfe",
+  "r2_key": "a/v1/55580038-abb4-4577-b026-099e7a3c7cfe/5e64e9a9-d8be-42a5-8495-7f7ab89ccc08/product-4.jpg",
+  "size": 102657,
+  "url": "/__l5e/assets-v1/5e64e9a9-d8be-42a5-8495-7f7ab89ccc08/product-4.jpg",
+  "version": 1
 }

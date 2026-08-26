@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "3a9c2ca2-e046-4ebd-985d-851da63ab8c8",
-  "project_id": "2f93b52a-2479-45ec-a4ad-f08146058541",
-  "url": "/__l5e/assets-v1/3a9c2ca2-e046-4ebd-985d-851da63ab8c8/instagram-4.jpg",
-  "r2_key": "a/v1/2f93b52a-2479-45ec-a4ad-f08146058541/3a9c2ca2-e046-4ebd-985d-851da63ab8c8/instagram-4.jpg",
-  "original_filename": "instagram-4.jpg",
-  "size": 83048,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-20T19:46:08Z"
+  "created_at": "2026-08-20T19:46:08Z",
+  "original_filename": "instagram-4.jpg",
+  "project_id": "55580038-abb4-4577-b026-099e7a3c7cfe",
+  "r2_key": "a/v1/55580038-abb4-4577-b026-099e7a3c7cfe/3a9c2ca2-e046-4ebd-985d-851da63ab8c8/instagram-4.jpg",
+  "size": 83048,
+  "url": "/__l5e/assets-v1/3a9c2ca2-e046-4ebd-985d-851da63ab8c8/instagram-4.jpg",
+  "version": 1
 }
