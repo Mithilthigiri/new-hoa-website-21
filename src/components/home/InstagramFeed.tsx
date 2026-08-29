@@ -1,6 +1,7 @@
 import { Instagram } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
+import { AiraImage } from "@/components/ui/aira-image";
 import {
   INSTAGRAM_POSTS,
   INSTAGRAM_PROFILE_URL,
@@ -21,15 +22,14 @@ function InstagramPostTile({ post }: { post: InstagramPost }) {
           post.aspectRatio === "square" ? "aspect-square" : "aspect-[3/4]",
         )}
       >
-        <img
+        <AiraImage
           src={post.image}
           alt={post.imageAlt}
-          loading="lazy"
-          decoding="async"
+          fill
           width={896}
           height={1152}
           sizes="(max-width: 1024px) 76vw, 16vw"
-          className="absolute inset-0 h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.02]"
+          imgClassName="motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.02]"
         />
         <span
           aria-hidden="true"

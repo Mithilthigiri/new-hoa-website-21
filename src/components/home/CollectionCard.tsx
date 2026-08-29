@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { AiraImage } from "@/components/ui/aira-image";
 import type { FeaturedCollection } from "./collections-data";
 
 type CollectionCardProps = {
@@ -20,14 +21,14 @@ export function CollectionCard({ collection, className }: CollectionCardProps) {
       )}
     >
       <div className="relative overflow-hidden bg-background-alt">
-        <img
+        <AiraImage
           src={image}
           alt={imageAlt}
+          ratio="3/4"
           width={1024}
           height={1408}
-          loading="lazy"
-          decoding="async"
-          className="aspect-[3/4] w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03] motion-reduce:transition-none"
+          sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
+          imgClassName="transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03] motion-reduce:transition-none"
         />
       </div>
 
