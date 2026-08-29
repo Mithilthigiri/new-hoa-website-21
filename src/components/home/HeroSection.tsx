@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { AiraButton } from "@/components/ui/aira-button";
 import { cn } from "@/lib/utils";
+import { AiraImage } from "@/components/ui/aira-image";
 
 type HeroSectionProps = {
   imageSrc: string;
@@ -32,15 +33,16 @@ export function HeroSection({
       )}
     >
       {/* Hero image */}
-      <img
+      <AiraImage
         src={imageSrc}
         alt={imageAlt}
+        fill
         width={1920}
         height={1080}
         sizes="100vw"
         loading="eager"
-        decoding="async"
-        className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out will-change-transform hover:scale-[1.02]"
+        fetchPriority="high"
+        imgClassName="transition-transform duration-700 ease-out will-change-transform hover:scale-[1.02]"
       />
 
       {/* Subtle brand-colour overlay for text contrast */}

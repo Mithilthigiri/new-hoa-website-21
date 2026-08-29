@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/layout/Container";
 import { AiraButton } from "@/components/ui/aira-button";
+import { AiraImage } from "@/components/ui/aira-image";
 import brandStoryImage from "@/assets/DSC03791.jpg.asset.json";
 
 export type BrandStoryProps = {
@@ -33,13 +34,12 @@ export function BrandStory({
         <div className="grid grid-cols-1 items-stretch gap-0 lg:grid-cols-2">
           {/* Image column */}
           <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] lg:aspect-auto lg:min-h-[44rem]">
-            <img
+            <AiraImage
               src={imageSrc}
               alt={imageAlt}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:hover:scale-[1.02]"
+              fill
               sizes="(max-width: 1024px) 100vw, 55vw"
+              imgClassName="motion-safe:transition-transform motion-safe:duration-700 motion-safe:hover:scale-[1.02]"
             />
           </div>
 
