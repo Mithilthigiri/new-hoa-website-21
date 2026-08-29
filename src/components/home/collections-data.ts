@@ -1,6 +1,6 @@
-import ethnicImage from "@/assets/collection-ethnic.jpg.asset.json";
-import contemporaryImage from "@/assets/collection-contemporary.jpg.asset.json";
-import westernImage from "@/assets/collection-western.jpg.asset.json";
+import ethnicImage from "@/assets/DSC03915.jpg.asset.json";
+import contemporaryImage from "@/assets/DSC04471.jpg.asset.json";
+import westernImage from "@/assets/DSC03534.jpg.asset.json";
 
 /**
  * Shape mirrors the fields a Shopify collection provides (title, description,
@@ -23,7 +23,7 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     subtitle: "Rooted in heritage",
     image: ethnicImage.url,
     imageAlt:
-      "Model wearing a hand-embroidered deep rust and gold lehenga with antique gold jewellery in a heritage courtyard.",
+      "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top in a heritage doorway.",
     href: "/collections",
   },
   {
@@ -32,7 +32,7 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     subtitle: "Tradition, reimagined",
     image: contemporaryImage.url,
     imageAlt:
-      "Model wearing an ivory draped modern saree-gown with fine gold embroidery against a textured plaster wall.",
+      "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
     href: "/collections",
   },
   {
@@ -41,7 +41,7 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     subtitle: "Modern silhouettes",
     image: westernImage.url,
     imageAlt:
-      "Model wearing a tailored ivory and rust suit with gold detailing in a warm minimal interior.",
+      "Model wearing a rust paisley printed cami top styled with denim against a weathered shutter.",
     href: "/collections",
   },
 ];

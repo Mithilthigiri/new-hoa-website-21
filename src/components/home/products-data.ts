@@ -1,9 +1,17 @@
-import product1 from "@/assets/product-1.jpg.asset.json";
-import product2 from "@/assets/product-2.jpg.asset.json";
-import product3 from "@/assets/product-3.jpg.asset.json";
-import product4 from "@/assets/product-4.jpg.asset.json";
-import product5 from "@/assets/product-5.jpg.asset.json";
-import product6 from "@/assets/product-6.jpg.asset.json";
+import navyFloralFront from "@/assets/DSC03342.jpg.asset.json";
+import navyFloralFull from "@/assets/DSC03445.jpg.asset.json";
+import rustCamiFront from "@/assets/DSC03534.jpg.asset.json";
+import rustCamiBack from "@/assets/DSC03545.jpg.asset.json";
+import rustCamiDetail from "@/assets/DSC03630.jpg.asset.json";
+import emeraldBack from "@/assets/DSC03786.jpg.asset.json";
+import emeraldSide from "@/assets/DSC03791.jpg.asset.json";
+import purpleSkirtStanding from "@/assets/DSC03915.jpg.asset.json";
+import purpleSkirtSeated from "@/assets/DSC03946.jpg.asset.json";
+import ivoryLehengaSeated from "@/assets/DSC04224.jpg.asset.json";
+import ivoryLehengaSwing from "@/assets/DSC04261.jpg.asset.json";
+import ikatPalazzo from "@/assets/DSC04402.jpg.asset.json";
+import indigoKanthaFull from "@/assets/DSC04471.jpg.asset.json";
+import indigoKanthaDetail from "@/assets/DSC04487.jpg.asset.json";
 
 /** Reusable badge vocabulary. Later mapped from a Shopify tag/metafield. */
 export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
@@ -12,13 +20,22 @@ export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
 export type ProductSize = "XS" | "S" | "M" | "L" | "XL";
 
 /** Colour vocabulary. Later maps to a Shopify variant option named "Colour". */
-export type ProductColour = "Rust" | "Ivory" | "Espresso" | "Gold" | "Black";
+export type ProductColour =
+  | "Rust"
+  | "Ivory"
+  | "Espresso"
+  | "Gold"
+  | "Black"
+  | "Navy"
+  | "Emerald"
+  | "Purple"
+  | "Indigo";
 
 /**
  * Shape mirrors the fields a Shopify product provides, so this local array can
  * later be replaced by a Storefront API mapper without touching ProductCard:
  *   id -> product.id, handle -> product.handle, title -> product.title,
- *   price/currency -> priceRange.minVariantPrice, image/hoverImage -> images,
+ *   price/currency -> priceRange.minVariantPrice, images -> product.images,
  *   category -> collection title, badge -> tag or metafield.
  */
 export type Product = {
@@ -32,6 +49,9 @@ export type Product = {
   sizes: ProductSize[];
   /** Available colours; mirrors Shopify variant option values. */
   colours: ProductColour[];
+  /** Full gallery for this outfit (2–4 shots); mirrors Shopify product images. */
+  images?: string[];
+  /** Primary grid image. */
   image: string;
   /** Optional second image shown on desktop hover; falls back to `image`. */
   hoverImage?: string;
@@ -52,99 +72,126 @@ export function formatPrice(price: number, currency: string): string {
 
 export const NEW_ARRIVALS: Product[] = [
   {
-    id: "aira-zari-anarkali",
-    handle: "zari-anarkali",
-    title: "Zari Anarkali",
-    price: 12499,
-    currency: "INR",
-    category: "Ethnic Wear",
-    sizes: ["S", "M", "L"],
-    colours: ["Rust", "Gold"],
-    image: product1.url,
-    imageAlt:
-      "Model wearing a deep rust zari-woven anarkali with gold embroidery in a sunlit heritage hall.",
-    badge: "NEW",
-    href: "/product/zari-anarkali",
-    publishedAt: "2026-07-02",
-  },
-  {
-    id: "aira-silk-co-ord-set",
-    handle: "silk-co-ord-set",
-    title: "Silk Co-ord Set",
-    price: 8999,
+    id: "aira-navy-bloom-dress",
+    handle: "navy-bloom-dress",
+    title: "Navy Bloom Dress",
+    price: 6499,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["XS", "S", "M"],
-    colours: ["Ivory"],
-    image: product2.url,
+    sizes: ["S", "M", "L"],
+    colours: ["Navy", "Rust"],
+    images: [navyFloralFront.url, navyFloralFull.url],
+    image: navyFloralFront.url,
+    hoverImage: navyFloralFull.url,
     imageAlt:
-      "Model wearing an ivory silk co-ord set with fine gold thread detailing against a warm plaster wall.",
+      "Model wearing a navy hand-block floral pleated dress with ivory motifs and gold jewellery.",
     badge: "NEW",
-    href: "/product/silk-co-ord-set",
+    href: "/product/navy-bloom-dress",
     publishedAt: "2026-08-14",
   },
   {
-    id: "aira-embroidered-cape",
-    handle: "embroidered-cape",
-    title: "Embroidered Cape",
-    price: 15999,
-    currency: "INR",
-    category: "Contemporary",
-    sizes: ["M", "L", "XL"],
-    colours: ["Ivory", "Gold"],
-    image: product3.url,
-    imageAlt:
-      "Model wearing a long champagne and antique gold embroidered cape over ivory trousers.",
-    badge: "NEW",
-    href: "/product/embroidered-cape",
-    publishedAt: "2026-06-18",
-  },
-  {
-    id: "aira-heritage-draped-set",
-    handle: "heritage-draped-set",
-    title: "Heritage Draped Set",
-    price: 10999,
-    currency: "INR",
-    category: "Ethnic Wear",
-    sizes: ["S", "M", "L", "XL"],
-    colours: ["Rust", "Espresso"],
-    image: product4.url,
-    imageAlt:
-      "Model wearing a deep rust heritage draped silk set with antique gold jewellery in a sandstone corridor.",
-    badge: "BESTSELLER",
-    href: "/product/heritage-draped-set",
-    publishedAt: "2026-05-05",
-  },
-  {
-    id: "aira-sculpted-blazer",
-    handle: "sculpted-blazer",
-    title: "Sculpted Blazer",
-    price: 9499,
+    id: "aira-kalamkari-cami-top",
+    handle: "kalamkari-cami-top",
+    title: "Kalamkari Cami Top",
+    price: 2299,
     currency: "INR",
     category: "Western",
     sizes: ["XS", "S", "M", "L"],
-    colours: ["Espresso", "Black"],
-    image: product5.url,
+    colours: ["Rust"],
+    images: [rustCamiFront.url, rustCamiBack.url, rustCamiDetail.url],
+    image: rustCamiFront.url,
+    hoverImage: rustCamiBack.url,
     imageAlt:
-      "Model wearing a sculpted espresso brown blazer with ivory trousers in a warm minimal interior.",
-    badge: "NEW",
-    href: "/product/sculpted-blazer",
-    publishedAt: "2026-08-01",
+      "Model wearing a rust paisley printed cami top with lace-up back, styled with denim.",
+    badge: "BESTSELLER",
+    href: "/product/kalamkari-cami-top",
+    publishedAt: "2026-08-02",
   },
   {
-    id: "aira-evening-dress",
-    handle: "aira-evening-dress",
-    title: "Aira Evening Dress",
-    price: 11999,
+    id: "aira-emerald-tassel-gown",
+    handle: "emerald-tassel-gown",
+    title: "Emerald Tassel Gown",
+    price: 8999,
     currency: "INR",
-    category: "Western",
+    category: "Ethnic Wear",
     sizes: ["S", "M", "L"],
-    colours: ["Rust", "Black"],
-    image: product6.url,
+    colours: ["Emerald", "Gold"],
+    images: [emeraldSide.url, emeraldBack.url],
+    image: emeraldSide.url,
+    hoverImage: emeraldBack.url,
     imageAlt:
-      "Model wearing a bias-cut deep rust silk evening dress in a candlelit heritage room.",
+      "Model wearing a deep emerald cotton gown with a woven zari border bodice and gold tassel.",
     badge: "NEW",
-    href: "/product/aira-evening-dress",
+    href: "/product/emerald-tassel-gown",
     publishedAt: "2026-07-21",
+  },
+  {
+    id: "aira-purple-garden-skirt-set",
+    handle: "purple-garden-skirt-set",
+    title: "Purple Garden Skirt Set",
+    price: 12499,
+    currency: "INR",
+    category: "Ethnic Wear",
+    sizes: ["S", "M", "L", "XL"],
+    colours: ["Purple", "Emerald"],
+    images: [purpleSkirtStanding.url, purpleSkirtSeated.url],
+    image: purpleSkirtStanding.url,
+    hoverImage: purpleSkirtSeated.url,
+    imageAlt:
+      "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top.",
+    badge: "NEW",
+    href: "/product/purple-garden-skirt-set",
+    publishedAt: "2026-07-02",
+  },
+  {
+    id: "aira-ivory-heritage-lehenga",
+    handle: "ivory-heritage-lehenga",
+    title: "Ivory Heritage Lehenga",
+    price: 15999,
+    currency: "INR",
+    category: "Ethnic Wear",
+    sizes: ["S", "M", "L"],
+    colours: ["Ivory", "Black"],
+    images: [ivoryLehengaSeated.url, ivoryLehengaSwing.url],
+    image: ivoryLehengaSeated.url,
+    hoverImage: ivoryLehengaSwing.url,
+    imageAlt:
+      "Model wearing an ivory dobby lehenga skirt with a black kalamkari halter jacket in a heritage home.",
+    href: "/product/ivory-heritage-lehenga",
+    publishedAt: "2026-06-18",
+  },
+  {
+    id: "aira-ikat-panel-palazzo-set",
+    handle: "ikat-panel-palazzo-set",
+    title: "Ikat Panel Palazzo Set",
+    price: 7499,
+    currency: "INR",
+    category: "Contemporary",
+    sizes: ["XS", "S", "M", "L"],
+    colours: ["Purple", "Ivory"],
+    images: [ikatPalazzo.url],
+    image: ikatPalazzo.url,
+    imageAlt:
+      "Model wearing wide purple ikat panelled palazzo trousers with a mauve fitted bralette top.",
+    badge: "NEW",
+    href: "/product/ikat-panel-palazzo-set",
+    publishedAt: "2026-05-30",
+  },
+  {
+    id: "aira-indigo-kantha-set",
+    handle: "indigo-kantha-set",
+    title: "Indigo Kantha Set",
+    price: 9499,
+    currency: "INR",
+    category: "Contemporary",
+    sizes: ["S", "M", "L", "XL"],
+    colours: ["Indigo", "Ivory"],
+    images: [indigoKanthaFull.url, indigoKanthaDetail.url],
+    image: indigoKanthaFull.url,
+    hoverImage: indigoKanthaDetail.url,
+    imageAlt:
+      "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
+    href: "/product/indigo-kantha-set",
+    publishedAt: "2026-05-05",
   },
 ];
