@@ -18,6 +18,9 @@ type ShopFiltersProps = {
   className?: string;
 };
 
+/** Ids must be selector-safe: category labels can contain spaces. */
+const slug = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
 const priceInputClass =
   "type-small h-11 w-full min-w-0 border border-border-strong bg-transparent px-3 text-espresso outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
@@ -50,7 +53,7 @@ export function ShopFilters({
           {options.categories.map((category) => (
             <FilterToggle
               key={category}
-              id={`${idPrefix}-category-${category}`}
+              id={`${idPrefix}-category-${slug(category)}`}
               label={category}
               checked={filters.categories.includes(category)}
               onChange={() =>
@@ -67,7 +70,7 @@ export function ShopFilters({
           {options.sizes.map((size) => (
             <FilterToggle
               key={size}
-              id={`${idPrefix}-size-${size}`}
+              id={`${idPrefix}-size-${slug(size)}`}
               label={size}
               checked={filters.sizes.includes(size)}
               onChange={() =>
@@ -81,7 +84,7 @@ export function ShopFilters({
           {options.colours.map((colour) => (
             <FilterToggle
               key={colour}
-              id={`${idPrefix}-colour-${colour}`}
+              id={`${idPrefix}-colour-${slug(colour)}`}
               label={colour}
               checked={filters.colours.includes(colour)}
               onChange={() =>
