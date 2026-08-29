@@ -43,27 +43,28 @@ export function ProductCard({
           to="/product/$handle"
           params={{ handle }}
           aria-label={`${title} — ${category}, ${formattedPrice}${badge ? `, ${badge.toLowerCase()}` : ""}. View product.`}
-          className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          className="relative block aspect-[3/4] w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
         >
-          <img
+          <AiraImage
             src={image}
             alt={imageAlt}
+            fill
             width={768}
             height={1024}
+            sizes="(max-width: 640px) 46vw, (max-width: 1024px) 31vw, 23vw"
             loading={lazy ? "lazy" : "eager"}
-            decoding="async"
-            className="aspect-[3/4] w-full object-cover transition-opacity duration-700 ease-out motion-safe:md:group-hover:opacity-0 motion-reduce:transition-none"
+            imgClassName="transition-opacity duration-700 ease-out motion-safe:md:group-hover:opacity-0 motion-reduce:transition-none"
           />
           {/* Secondary image crossfades in on desktop hover. */}
-          <img
+          <AiraImage
             src={secondaryImage}
             alt=""
-            aria-hidden="true"
+            decorative
+            fill
             width={768}
             height={1024}
-            loading="lazy"
-            decoding="async"
-            className="pointer-events-none absolute inset-0 hidden aspect-[3/4] w-full object-cover opacity-0 transition-opacity duration-700 ease-out motion-safe:md:block motion-safe:md:group-hover:opacity-100 motion-reduce:hidden"
+            sizes="(max-width: 640px) 46vw, (max-width: 1024px) 31vw, 23vw"
+            className="pointer-events-none hidden opacity-0 transition-opacity duration-700 ease-out motion-safe:md:block motion-safe:md:group-hover:opacity-100 motion-reduce:hidden"
           />
         </Link>
 
