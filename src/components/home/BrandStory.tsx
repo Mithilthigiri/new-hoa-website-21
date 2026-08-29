@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/layout/Container";
 import { AiraButton } from "@/components/ui/aira-button";
-import brandStoryImage from "@/assets/brand-story-placeholder.jpg.asset.json";
+import brandStoryImage from "@/assets/DSC03791.jpg.asset.json";
 
 export type BrandStoryProps = {
   imageSrc?: string;
