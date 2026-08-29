@@ -8,6 +8,12 @@ import product6 from "@/assets/product-6.jpg.asset.json";
 /** Reusable badge vocabulary. Later mapped from a Shopify tag/metafield. */
 export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
 
+/** Size vocabulary. Later maps to a Shopify variant option named "Size". */
+export type ProductSize = "XS" | "S" | "M" | "L" | "XL";
+
+/** Colour vocabulary. Later maps to a Shopify variant option named "Colour". */
+export type ProductColour = "Rust" | "Ivory" | "Espresso" | "Gold" | "Black";
+
 /**
  * Shape mirrors the fields a Shopify product provides, so this local array can
  * later be replaced by a Storefront API mapper without touching ProductCard:
@@ -22,6 +28,10 @@ export type Product = {
   price: number;
   currency: string;
   category: string;
+  /** Available sizes; mirrors Shopify variant option values. */
+  sizes: ProductSize[];
+  /** Available colours; mirrors Shopify variant option values. */
+  colours: ProductColour[];
   image: string;
   /** Optional second image shown on desktop hover; falls back to `image`. */
   hoverImage?: string;
@@ -46,6 +56,8 @@ export const NEW_ARRIVALS: Product[] = [
     price: 12499,
     currency: "INR",
     category: "Ethnic Wear",
+    sizes: ["S", "M", "L"],
+    colours: ["Rust", "Gold"],
     image: product1.url,
     imageAlt:
       "Model wearing a deep rust zari-woven anarkali with gold embroidery in a sunlit heritage hall.",
@@ -59,6 +71,8 @@ export const NEW_ARRIVALS: Product[] = [
     price: 8999,
     currency: "INR",
     category: "Contemporary",
+    sizes: ["XS", "S", "M"],
+    colours: ["Ivory"],
     image: product2.url,
     imageAlt:
       "Model wearing an ivory silk co-ord set with fine gold thread detailing against a warm plaster wall.",
@@ -72,6 +86,8 @@ export const NEW_ARRIVALS: Product[] = [
     price: 15999,
     currency: "INR",
     category: "Contemporary",
+    sizes: ["M", "L", "XL"],
+    colours: ["Ivory", "Gold"],
     image: product3.url,
     imageAlt:
       "Model wearing a long champagne and antique gold embroidered cape over ivory trousers.",
@@ -85,6 +101,8 @@ export const NEW_ARRIVALS: Product[] = [
     price: 10999,
     currency: "INR",
     category: "Ethnic Wear",
+    sizes: ["S", "M", "L", "XL"],
+    colours: ["Rust", "Espresso"],
     image: product4.url,
     imageAlt:
       "Model wearing a deep rust heritage draped silk set with antique gold jewellery in a sandstone corridor.",
@@ -98,6 +116,8 @@ export const NEW_ARRIVALS: Product[] = [
     price: 9499,
     currency: "INR",
     category: "Western",
+    sizes: ["XS", "S", "M", "L"],
+    colours: ["Espresso", "Black"],
     image: product5.url,
     imageAlt:
       "Model wearing a sculpted espresso brown blazer with ivory trousers in a warm minimal interior.",
@@ -111,6 +131,8 @@ export const NEW_ARRIVALS: Product[] = [
     price: 11999,
     currency: "INR",
     category: "Western",
+    sizes: ["S", "M", "L"],
+    colours: ["Rust", "Black"],
     image: product6.url,
     imageAlt:
       "Model wearing a bias-cut deep rust silk evening dress in a candlelit heritage room.",
