@@ -94,10 +94,12 @@ export function ShopPage({
             />
 
             {visibleProducts.length === 0 ? (
-              <EmptyProductState onClearFilters={clearAll} />
+              <div className="mt-space-xl">
+                <EmptyProductState onClearFilters={clearAll} />
+              </div>
             ) : (
               /* Single responsive DOM set: 2 / 3 / 4 columns. */
-              <ul className="mt-space-xl grid grid-cols-2 gap-x-space-md gap-y-space-xl md:grid-cols-3 md:gap-x-space-lg lg:gap-y-space-2xl">
+              <ul className="mt-space-xl grid grid-cols-2 gap-x-space-md gap-y-space-xl md:grid-cols-3 md:gap-x-space-lg lg:grid-cols-4 lg:gap-y-space-2xl">
                 {visibleProducts.map((product) => (
                   <li key={product.id} className="min-w-0">
                     <ProductCard product={product} />
