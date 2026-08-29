@@ -96,8 +96,6 @@ export function AiraImage({
           onError={() => setState({ src, status: "error" })}
           className={cn(
             "absolute inset-0 block h-full w-full max-w-full object-cover object-center",
-            status === "loading" ? "opacity-0" : "opacity-100",
-            "transition-opacity duration-500 motion-reduce:transition-none",
             imgClassName,
           )}
         />
