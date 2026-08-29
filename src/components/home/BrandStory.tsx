@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/layout/Container";
 import { AiraButton } from "@/components/ui/aira-button";
-import brandStoryImage from "@/assets/brand-story-placeholder.jpg.asset.json";
+import brandStoryImage from "@/assets/DSC03791.jpg.asset.json";
 
 export type BrandStoryProps = {
   imageSrc?: string;
@@ -16,7 +16,7 @@ export type BrandStoryProps = {
 
 export function BrandStory({
   imageSrc = brandStoryImage.url,
-  imageAlt = "Editorial portrait of a woman in an ornate rust and ivory ensemble, embodying the House of Aira spirit.",
+  imageAlt = "Editorial portrait of a woman in a deep emerald gown with a woven zari bodice, embodying the House of Aira spirit.",
   eyebrow = "The House of Aira",
   heading = "Draped in Heritage, Styled for Today",
   body = "House of Aira brings the opulence of old India into a contemporary wardrobe, creating pieces for women who wear power gracefully.",

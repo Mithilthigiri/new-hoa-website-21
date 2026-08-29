@@ -1,9 +1,9 @@
-import post1 from "@/assets/instagram-1.jpg.asset.json";
-import post2 from "@/assets/instagram-2.jpg.asset.json";
-import post3 from "@/assets/instagram-3.jpg.asset.json";
-import post4 from "@/assets/instagram-4.jpg.asset.json";
-import post5 from "@/assets/instagram-5.jpg.asset.json";
-import post6 from "@/assets/instagram-6.jpg.asset.json";
+import post1 from "@/assets/DSC03342.jpg.asset.json";
+import post2 from "@/assets/DSC03630.jpg.asset.json";
+import post3 from "@/assets/DSC04487.jpg.asset.json";
+import post4 from "@/assets/DSC03946.jpg.asset.json";
+import post5 from "@/assets/DSC04261.jpg.asset.json";
+import post6 from "@/assets/DSC04402.jpg.asset.json";
 
 /** Placeholder account URL — replace with the real House of Aira handle later. */
 export const INSTAGRAM_PROFILE_URL = "https://instagram.com/";
@@ -22,7 +22,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-1",
     image: post1.url,
     imageAlt:
-      "House of Aira editorial campaign look — full ensemble in rust and ivory within a heritage interior",
+      "Model wearing a navy hand-block floral pleated dress with gold jewellery",
     href: INSTAGRAM_PROFILE_URL,
     caption: "The heritage silhouette, worn with ease.",
     aspectRatio: "portrait",
@@ -31,45 +31,45 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-2",
     image: post2.url,
     imageAlt:
-      "Close-up of hand-worked zari gold embroidery on deep rust silk from a House of Aira piece",
+      "Model wearing a rust paisley printed cami top against a sandstone wall",
     href: INSTAGRAM_PROFILE_URL,
-    caption: "Zari, worked thread by thread.",
+    caption: "Hand-blocked paisley, softly worn.",
     aspectRatio: "portrait",
   },
   {
     id: "post-3",
     image: post3.url,
     imageAlt:
-      "Contemporary ethnic styling — ivory drape finished with a rust dupatta against a parchment backdrop",
+      "Indigo handwoven kurta layered with an ivory printed waistcoat and dupatta",
     href: INSTAGRAM_PROFILE_URL,
-    caption: "Contemporary ethnic, styled quietly.",
+    caption: "Indigo, layered for the everyday.",
     aspectRatio: "portrait",
   },
   {
     id: "post-4",
     image: post4.url,
     imageAlt:
-      "Antique gold jhumka earring detail catching warm light, styled with a House of Aira look",
+      "Purple hand-embroidered floral skirt worn with a green kalamkari halter top",
     href: INSTAGRAM_PROFILE_URL,
-    caption: "Antique gold, softly lit.",
+    caption: "Threadwork, garden by garden.",
     aspectRatio: "portrait",
   },
   {
     id: "post-5",
     image: post5.url,
     imageAlt:
-      "Architectural editorial fashion image — flowing rust ensemble framed by carved sandstone arches",
+      "Ivory dobby lehenga skirt with a black kalamkari halter jacket on a heritage swing",
     href: INSTAGRAM_PROFILE_URL,
-    caption: "Arches, shadow, and movement.",
+    caption: "Ivory and ink, on the old swing.",
     aspectRatio: "portrait",
   },
   {
     id: "post-6",
     image: post6.url,
     imageAlt:
-      "Lifestyle editorial moment — an ivory silk drape arranged beside brass vessels in warm window light",
+      "Purple ikat panelled palazzo trousers photographed in a sunlit lane",
     href: INSTAGRAM_PROFILE_URL,
-    caption: "Mornings in the atelier.",
+    caption: "Ikat panels, caught in the light.",
     aspectRatio: "portrait",
   },
 ];

@@ -6,7 +6,7 @@ import { NewArrivals } from "@/components/home/NewArrivals";
 import { BrandStory } from "@/components/home/BrandStory";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
-import heroImage from "@/assets/hero-placeholder.jpg.asset.json";
+import heroImage from "@/assets/DSC03445.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,7 +32,7 @@ function Index() {
     <>
       <HeroSection
         imageSrc={heroImage.url}
-        imageAlt="House of Aira campaign image featuring a woman in an opulent rust and ivory ensemble within a grand heritage interior."
+        imageAlt="House of Aira campaign image featuring a woman in a navy hand-block floral dress against a rust shutter."
         eyebrow="The new era of Indian luxury"
         headline="Dressed in Heritage"
         supportingCopy="Contemporary pieces rooted in the opulence of old India. Made for women who wear power gracefully."
