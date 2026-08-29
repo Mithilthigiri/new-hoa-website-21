@@ -38,6 +38,8 @@ export type Product = {
   imageAlt: string;
   badge?: ProductBadgeKind;
   href: string;
+  /** ISO date; mirrors Shopify product publishedAt. Drives "Newest" sorting. */
+  publishedAt: string;
 };
 
 export function formatPrice(price: number, currency: string): string {
@@ -63,6 +65,7 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing a deep rust zari-woven anarkali with gold embroidery in a sunlit heritage hall.",
     badge: "NEW",
     href: "/product/zari-anarkali",
+    publishedAt: "2026-07-02",
   },
   {
     id: "aira-silk-co-ord-set",
@@ -78,6 +81,7 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing an ivory silk co-ord set with fine gold thread detailing against a warm plaster wall.",
     badge: "NEW",
     href: "/product/silk-co-ord-set",
+    publishedAt: "2026-08-14",
   },
   {
     id: "aira-embroidered-cape",
@@ -93,6 +97,7 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing a long champagne and antique gold embroidered cape over ivory trousers.",
     badge: "NEW",
     href: "/product/embroidered-cape",
+    publishedAt: "2026-06-18",
   },
   {
     id: "aira-heritage-draped-set",
@@ -108,6 +113,7 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing a deep rust heritage draped silk set with antique gold jewellery in a sandstone corridor.",
     badge: "BESTSELLER",
     href: "/product/heritage-draped-set",
+    publishedAt: "2026-05-05",
   },
   {
     id: "aira-sculpted-blazer",
@@ -123,6 +129,7 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing a sculpted espresso brown blazer with ivory trousers in a warm minimal interior.",
     badge: "NEW",
     href: "/product/sculpted-blazer",
+    publishedAt: "2026-08-01",
   },
   {
     id: "aira-evening-dress",
@@ -138,5 +145,6 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing a bias-cut deep rust silk evening dress in a candlelit heritage room.",
     badge: "NEW",
     href: "/product/aira-evening-dress",
+    publishedAt: "2026-07-21",
   },
 ];

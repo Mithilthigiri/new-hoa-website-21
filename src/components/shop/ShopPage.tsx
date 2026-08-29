@@ -14,6 +14,7 @@ import {
   filterProducts,
   type ShopFilterState,
 } from "./shop-filters";
+import { DEFAULT_SORT, sortProducts, type ShopSortOption } from "./shop-sort";
 
 type ShopPageProps = {
   eyebrow?: string;
@@ -29,9 +30,9 @@ type ShopPageProps = {
 /**
  * Shop page.
  *
- * Data flow: products → filters (state) → filterProducts → visibleProducts →
- * ProductCard. Source data is never mutated and there is exactly one filtering
- * pipeline, shared by the desktop panel and the mobile drawer.
+ * Data flow: products → filters (state) → filterProducts → filteredProducts →
+ * sortProducts (sort state) → visibleProducts → ProductCard. Source data is
+ * never mutated; filtering always runs before sorting.
  */
 export function ShopPage({
   eyebrow = "The House of Aira",
@@ -43,15 +44,17 @@ export function ShopPage({
   const [filters, setFilters] = useState<ShopFilterState>(() =>
     createEmptyFilters(options),
   );
+  const [sort, setSort] = useState<ShopSortOption>(DEFAULT_SORT);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const visibleProducts = useMemo(
-    () => filterProducts(products, filters),
-    [products, filters],
-  );
+  const visibleProducts = useMemo(() => {
+    const filteredProducts = filterProducts(products, filters);
+    return sortProducts(filteredProducts, sort);
+  }, [products, filters, sort]);
 
   const activeCount = countActiveFilters(filters, options);
   const chips = buildFilterChips(filters, options);
+  /** Clears filters only; the selected sort intentionally persists. */
   const clearAll = () => setFilters(createEmptyFilters(options));
 
   return (
@@ -91,6 +94,8 @@ export function ShopPage({
               }
               onClearAll={clearAll}
               onOpenFilters={() => setDrawerOpen(true)}
+              sort={sort}
+              onSortChange={setSort}
             />
 
             {visibleProducts.length === 0 ? (
