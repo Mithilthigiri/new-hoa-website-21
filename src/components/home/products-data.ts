@@ -50,7 +50,7 @@ export type Product = {
   /** Available colours; mirrors Shopify variant option values. */
   colours: ProductColour[];
   /** Full gallery for this outfit (2–4 shots); mirrors Shopify product images. */
-  images: string[];
+  images?: string[];
   /** Primary grid image. */
   image: string;
   /** Optional second image shown on desktop hover; falls back to `image`. */
