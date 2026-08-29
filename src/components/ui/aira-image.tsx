@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type AiraImageProps = {
@@ -92,8 +92,8 @@ export function AiraImage({
           loading={loading}
           fetchPriority={fetchPriority}
           decoding="async"
-          onLoad={() => setStatus("loaded")}
-          onError={() => setStatus("error")}
+          onLoad={() => setState({ src, status: "loaded" })}
+          onError={() => setState({ src, status: "error" })}
           className={cn(
             "absolute inset-0 block h-full w-full max-w-full object-cover object-center",
             status === "loading" ? "opacity-0" : "opacity-100",
