@@ -16,7 +16,7 @@ export type BrandStoryProps = {
 
 export function BrandStory({
   imageSrc = brandStoryImage.url,
-  imageAlt = "Editorial portrait of a woman in an ornate rust and ivory ensemble, embodying the House of Aira spirit.",
+  imageAlt = "Editorial portrait of a woman in a deep emerald gown with a woven zari bodice, embodying the House of Aira spirit.",
   eyebrow = "The House of Aira",
   heading = "Draped in Heritage, Styled for Today",
   body = "House of Aira brings the opulence of old India into a contemporary wardrobe, creating pieces for women who wear power gracefully.",
