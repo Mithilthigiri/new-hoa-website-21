@@ -21,6 +21,7 @@ function makeProduct(overrides: Partial<Product> & { id: string }): Product {
     image: "img.jpg",
     imageAlt: "alt",
     href: `/product/${overrides.id}`,
+    publishedAt: "2026-01-01",
     ...overrides,
   };
 }
