@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type AiraImageProps = {
@@ -50,6 +50,13 @@ export function AiraImage({
     setStatus("loading");
   }, [src]);
 
+  // Cached/SSR-rendered images can finish before React attaches listeners,
+  // so resolve their state on mount instead of waiting for onLoad.
+  const attachImg = useCallback((node: HTMLImageElement | null) => {
+    if (!node || !node.complete) return;
+    setStatus(node.naturalWidth > 0 ? "loaded" : "error");
+  }, []);
+
   return (
     <span
       className={cn(
@@ -72,6 +79,7 @@ export function AiraImage({
         </span>
       ) : (
         <img
+          ref={attachImg}
           src={src}
           alt={decorative ? "" : alt}
           aria-hidden={decorative ? "true" : undefined}
