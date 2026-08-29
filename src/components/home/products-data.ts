@@ -38,6 +38,8 @@ export type Product = {
   imageAlt: string;
   badge?: ProductBadgeKind;
   href: string;
+  /** ISO date; mirrors Shopify product publishedAt. Drives "Newest" sorting. */
+  publishedAt: string;
 };
 
 export function formatPrice(price: number, currency: string): string {
