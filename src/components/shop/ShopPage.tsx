@@ -94,6 +94,8 @@ export function ShopPage({
               }
               onClearAll={clearAll}
               onOpenFilters={() => setDrawerOpen(true)}
+              sort={sort}
+              onSortChange={setSort}
             />
 
             {visibleProducts.length === 0 ? (
