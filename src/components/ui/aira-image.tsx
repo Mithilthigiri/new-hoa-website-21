@@ -41,21 +41,24 @@ export function AiraImage({
   imgClassName,
   decorative = false,
 }: AiraImageProps) {
-  const [status, setStatus] = useState<"loading" | "loaded" | "error">(
-    "loading",
-  );
-
-  // Reset when the source changes (hover swaps, filtered grids re-using nodes).
-  useEffect(() => {
-    setStatus("loading");
-  }, [src]);
+  // Track state per source so hover swaps / re-used grid nodes reset cleanly
+  // without an effect racing the ref callback back to "loading".
+  const [state, setState] = useState<{
+    src: string;
+    status: "loading" | "loaded" | "error";
+  }>({ src, status: "loading" });
+  const status = state.src === src ? state.status : "loading";
 
   // Cached/SSR-rendered images can finish before React attaches listeners,
   // so resolve their state on mount instead of waiting for onLoad.
   const attachImg = useCallback((node: HTMLImageElement | null) => {
     if (!node || !node.complete) return;
-    setStatus(node.naturalWidth > 0 ? "loaded" : "error");
+    setState({
+      src: node.getAttribute("src") ?? "",
+      status: node.naturalWidth > 0 ? "loaded" : "error",
+    });
   }, []);
+
 
   return (
     <span
