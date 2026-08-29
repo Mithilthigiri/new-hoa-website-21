@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraButton } from "@/components/ui/aira-button";
+import { AiraImage } from "@/components/ui/aira-image";
 import { ProductBadge } from "./ProductBadge";
 import { formatPrice, type Product } from "@/components/home/products-data";
 
