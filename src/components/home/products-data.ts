@@ -214,3 +214,22 @@ export const NEW_ARRIVALS: Product[] = [
     publishedAt: "2026-05-05",
   },
 ];
+
+/**
+ * Handle → product lookup. Single source of truth stays NEW_ARRIVALS; later this
+ * becomes a Shopify productByHandle query with the same signature.
+ */
+export function findProductByHandle(
+  handle: string,
+  products: Product[] = NEW_ARRIVALS,
+): Product | undefined {
+  return products.find((product) => product.handle === handle);
+}
+
+/** Full gallery for a product, falling back to the grid/hover images. */
+export function getProductImages(product: Product): string[] {
+  if (product.images?.length) return product.images;
+  return product.hoverImage
+    ? [product.image, product.hoverImage]
+    : [product.image];
+}
