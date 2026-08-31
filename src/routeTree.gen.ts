@@ -18,6 +18,7 @@ import { Route as LookbookRouteImport } from './routes/lookbook'
 import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
+import { Route as CollectionsHandleRouteImport } from './routes/collections.$handle'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
   path: '/collections/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollectionsHandleRoute = CollectionsHandleRouteImport.update({
+  id: '/collections/$handle',
+  path: '/collections/$handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductHandleRoute = ProductHandleRouteImport.update({
   id: '/product/$handle',
   path: '/product/$handle',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/lookbook': typeof LookbookRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
+  '/collections/$handle': typeof CollectionsHandleRoute
   '/product/$handle': typeof ProductHandleRoute
   '/collections/': typeof CollectionsIndexRoute
 }
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/lookbook': typeof LookbookRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
+  '/collections/$handle': typeof CollectionsHandleRoute
   '/product/$handle': typeof ProductHandleRoute
   '/collections': typeof CollectionsIndexRoute
 }
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/lookbook': typeof LookbookRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
+  '/collections/$handle': typeof CollectionsHandleRoute
   '/product/$handle': typeof ProductHandleRoute
   '/collections/': typeof CollectionsIndexRoute
 }
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/lookbook'
     | '/order-confirmation'
     | '/shop'
+    | '/collections/$handle'
     | '/product/$handle'
     | '/collections/'
   fileRoutesByTo: FileRoutesByTo
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/lookbook'
     | '/order-confirmation'
     | '/shop'
+    | '/collections/$handle'
     | '/product/$handle'
     | '/collections'
   id:
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/lookbook'
     | '/order-confirmation'
     | '/shop'
+    | '/collections/$handle'
     | '/product/$handle'
     | '/collections/'
   fileRoutesById: FileRoutesById
@@ -156,6 +168,7 @@ export interface RootRouteChildren {
   LookbookRoute: typeof LookbookRoute
   OrderConfirmationRoute: typeof OrderConfirmationRoute
   ShopRoute: typeof ShopRoute
+  CollectionsHandleRoute: typeof CollectionsHandleRoute
   ProductHandleRoute: typeof ProductHandleRoute
   CollectionsIndexRoute: typeof CollectionsIndexRoute
 }
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CollectionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/collections/$handle': {
+      id: '/collections/$handle'
+      path: '/collections/$handle'
+      fullPath: '/collections/$handle'
+      preLoaderRoute: typeof CollectionsHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$handle': {
       id: '/product/$handle'
       path: '/product/$handle'
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   LookbookRoute: LookbookRoute,
   OrderConfirmationRoute: OrderConfirmationRoute,
   ShopRoute: ShopRoute,
+  CollectionsHandleRoute: CollectionsHandleRoute,
   ProductHandleRoute: ProductHandleRoute,
   CollectionsIndexRoute: CollectionsIndexRoute,
 }

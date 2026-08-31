@@ -83,7 +83,7 @@ export function CollectionDetailPage({
               ratio="4/3"
               width={1400}
               height={1050}
-              lazy={false}
+              loading="eager"
               sizes="(max-width: 1024px) 92vw, 46vw"
             />
           </div>
