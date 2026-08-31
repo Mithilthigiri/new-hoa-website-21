@@ -19,16 +19,39 @@ type LookbookPageProps = {
  */
 export function LookbookPage({ looks = LOOKBOOK_LOOKS }: LookbookPageProps) {
   return (
-    <div className="pt-section-sm pb-section lg:pt-section">
+    <div className="relative pt-section-sm pb-section lg:pt-section">
+      {/* Hairline editorial rails — decorative only. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-space-xl hidden w-px bg-espresso/5 lg:block"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-space-xl hidden w-px bg-espresso/5 lg:block"
+      />
+
       <Container width="wide" as="header">
-        <p className="type-label text-rust-deep">{LOOKBOOK_INTRO.eyebrow}</p>
-        <h1 className="type-h1 mt-space-sm text-foreground lg:mt-space-md">
-          {LOOKBOOK_INTRO.heading}
-        </h1>
-        <p className="type-editorial mt-space-sm max-w-2xl text-muted-foreground lg:mt-space-md">
-          {LOOKBOOK_INTRO.supportingCopy}
-        </p>
+        <div className="flex flex-col items-center text-center">
+          <span
+            aria-hidden="true"
+            className="hidden h-space-xl w-px bg-espresso/20 lg:block"
+          />
+          <p className="type-label mt-space-lg text-rust-deep/80">
+            {LOOKBOOK_INTRO.eyebrow}
+          </p>
+          <h1 className="mt-space-md font-display text-5xl leading-[0.95] font-light tracking-tight text-foreground sm:text-6xl lg:text-8xl">
+            {LOOKBOOK_INTRO.heading}
+          </h1>
+          <span
+            aria-hidden="true"
+            className="mt-space-lg h-space-xl w-px bg-gold/50"
+          />
+          <p className="type-editorial mt-space-lg max-w-xl text-muted-foreground italic">
+            {LOOKBOOK_INTRO.supportingCopy}
+          </p>
+        </div>
       </Container>
+
 
       <div className="mt-space-xl flex flex-col gap-space-2xl lg:mt-space-2xl lg:gap-section">
         {looks.map((look, index) => (
