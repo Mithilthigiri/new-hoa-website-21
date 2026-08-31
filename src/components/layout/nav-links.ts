@@ -7,7 +7,7 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: "Collections", to: "/collections" },
   { label: "Lookbook", to: "/lookbook" },
-  { label: "New In", to: "/shop", accent: true },
+  { label: "New In", to: "/new-in", accent: true },
   { label: "About", to: "/about" },
 ];
 
@@ -18,7 +18,7 @@ export const SECONDARY_LINKS: NavLink[] = [
 ];
 
 export const FOOTER_SHOP_LINKS: NavLink[] = [
-  { label: "New In", to: "/shop" },
+  { label: "New In", to: "/new-in" },
   { label: "Collections", to: "/collections" },
   { label: "Lookbook", to: "/lookbook" },
   { label: "Shop All", to: "/shop" },
