@@ -89,7 +89,7 @@ export function LookbookSection({
             {...(priority ? ({ fetchPriority: "high" } as const) : {})}
             sizes="(min-width: 1024px) 90vw, 100vw"
             imgClassName="object-top"
-            className="md:[aspect-ratio:16/9]"
+            className="md:![aspect-ratio:16/9]"
           />
           <LookCaption
             look={look}
