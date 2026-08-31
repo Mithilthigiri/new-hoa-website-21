@@ -1,25 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import {
+  ProductPage,
+  ProductNotFound,
+} from "@/components/product/ProductPage";
+import { findProductByHandle } from "@/components/home/products-data";
 
 export const Route = createFileRoute("/product/$handle")({
-  head: () => ({
-    meta: [
-      { title: "Product — House of Aira" },
-      {
-        name: "description",
-        content: "Product detail page for a House of Aira piece.",
-      },
-      { property: "og:title", content: "Product — House of Aira" },
-      {
-        property: "og:description",
-        content: "Product detail page for a House of Aira piece.",
-      },
-    ],
-  }),
-  component: ProductPage,
+  head: ({ params }) => {
+    const product = findProductByHandle(params.handle);
+    const title = product
+      ? `${product.title} — House of Aira`
+      : "Piece not found — House of Aira";
+    const description = product
+      ? (product.description ??
+        `${product.title} from the House of Aira ${product.category} edit.`)
+      : "This House of Aira piece could not be found.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "product" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+    };
+  },
+  component: ProductRoute,
 });
 
-function ProductPage() {
+function ProductRoute() {
   const { handle } = Route.useParams();
-  return <PagePlaceholder eyebrow="Product" title={handle} />;
+  const product = findProductByHandle(handle);
+  if (!product) return <ProductNotFound handle={handle} />;
+  return <ProductPage product={product} />;
 }

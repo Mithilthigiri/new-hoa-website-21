@@ -60,6 +60,11 @@ export type Product = {
   href: string;
   /** ISO date; mirrors Shopify product publishedAt. Drives "Newest" sorting. */
   publishedAt: string;
+  /**
+   * Short editorial description shown on the product detail page. Placeholder
+   * copy for now; later mapped from Shopify product.description.
+   */
+  description?: string;
 };
 
 export function formatPrice(price: number, currency: string): string {
@@ -74,6 +79,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-navy-bloom-dress",
     handle: "navy-bloom-dress",
+    description:
+      "A navy dress with an ivory floral print and soft pleating, cut for an easy, elongated line.",
     title: "Navy Bloom Dress",
     price: 6499,
     currency: "INR",
@@ -92,6 +99,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-kalamkari-cami-top",
     handle: "kalamkari-cami-top",
+    description:
+      "A rust paisley printed cami with a lace-up back, made to sit as easily with denim as with a skirt.",
     title: "Kalamkari Cami Top",
     price: 2299,
     currency: "INR",
@@ -110,6 +119,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-emerald-tassel-gown",
     handle: "emerald-tassel-gown",
+    description:
+      "A deep emerald gown with a woven zari border bodice and a single gold tassel tie.",
     title: "Emerald Tassel Gown",
     price: 8999,
     currency: "INR",
@@ -128,6 +139,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-purple-garden-skirt-set",
     handle: "purple-garden-skirt-set",
+    description:
+      "A purple floral embroidered skirt paired with a green printed halter top.",
     title: "Purple Garden Skirt Set",
     price: 12499,
     currency: "INR",
@@ -146,6 +159,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-ivory-heritage-lehenga",
     handle: "ivory-heritage-lehenga",
+    description:
+      "An ivory dobby lehenga skirt worn with a black printed halter jacket.",
     title: "Ivory Heritage Lehenga",
     price: 15999,
     currency: "INR",
@@ -163,6 +178,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-ikat-panel-palazzo-set",
     handle: "ikat-panel-palazzo-set",
+    description:
+      "Wide purple ikat panelled palazzo trousers with a fitted mauve bralette top.",
     title: "Ikat Panel Palazzo Set",
     price: 7499,
     currency: "INR",
@@ -180,6 +197,8 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-indigo-kantha-set",
     handle: "indigo-kantha-set",
+    description:
+      "An indigo handwoven kurta with an ivory printed waistcoat and a matching dupatta.",
     title: "Indigo Kantha Set",
     price: 9499,
     currency: "INR",
@@ -195,3 +214,22 @@ export const NEW_ARRIVALS: Product[] = [
     publishedAt: "2026-05-05",
   },
 ];
+
+/**
+ * Handle → product lookup. Single source of truth stays NEW_ARRIVALS; later this
+ * becomes a Shopify productByHandle query with the same signature.
+ */
+export function findProductByHandle(
+  handle: string,
+  products: Product[] = NEW_ARRIVALS,
+): Product | undefined {
+  return products.find((product) => product.handle === handle);
+}
+
+/** Full gallery for a product, falling back to the grid/hover images. */
+export function getProductImages(product: Product): string[] {
+  if (product.images?.length) return product.images;
+  return product.hoverImage
+    ? [product.image, product.hoverImage]
+    : [product.image];
+}
