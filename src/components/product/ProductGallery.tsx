@@ -13,39 +13,39 @@ type ProductGalleryProps = {
  */
 export function ProductGallery({ product, className }: ProductGalleryProps) {
   const images = getProductImages(product);
-  const [primary, ...rest] = images;
+  const single = images.length === 1;
 
   return (
-    <div className={cn("min-w-0", className)}>
-      <figure className="m-0">
-        <AiraImage
-          src={primary!}
-          alt={product.imageAlt}
-          ratio="3/4"
-          width={1200}
-          height={1600}
-          sizes="(max-width: 1023px) 100vw, 55vw"
-          loading="eager"
-          fetchPriority="high"
-        />
-      </figure>
-
-      {rest.length > 0 ? (
-        <div className="mt-space-md grid gap-space-md sm:grid-cols-2 lg:grid-cols-1 lg:gap-space-lg">
-          {rest.map((src, index) => (
-            <AiraImage
-              key={src}
-              src={src}
-              alt={`${product.title} — view ${index + 2}`}
-              ratio="3/4"
-              width={1200}
-              height={1600}
-              sizes="(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 55vw"
-              loading="lazy"
-            />
-          ))}
-        </div>
-      ) : null}
+    <div
+      className={cn(
+        "grid min-w-0 gap-space-sm sm:gap-space-md",
+        single ? "grid-cols-1" : "grid-cols-2",
+        className,
+      )}
+    >
+      {images.map((src, index) => (
+        <figure
+          key={src}
+          className={cn(
+            "m-0 min-w-0",
+            // An odd trailing image spans the full width so the grid stays even.
+            !single && images.length % 2 === 1 && index === 0
+              ? "col-span-2"
+              : undefined,
+          )}
+        >
+          <AiraImage
+            src={src}
+            alt={index === 0 ? product.imageAlt : `${product.title} — view ${index + 1}`}
+            ratio="3/4"
+            width={1200}
+            height={1600}
+            sizes="(max-width: 1023px) 50vw, 30vw"
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : undefined}
+          />
+        </figure>
+      ))}
     </div>
   );
 }
