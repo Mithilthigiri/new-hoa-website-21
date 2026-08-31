@@ -10,7 +10,7 @@ type CollectionCardProps = {
   /** Optional responsive sizes override for larger editorial layouts. */
   sizes?: string;
   /** Optional supporting line rendered under the subtitle (e.g. piece count). */
-  meta?: string;
+  meta?: string | undefined;
   className?: string;
 };
 
