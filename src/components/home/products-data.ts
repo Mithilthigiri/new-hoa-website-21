@@ -64,7 +64,7 @@ export type Product = {
    * Short editorial description shown on the product detail page. Placeholder
    * copy for now; later mapped from Shopify product.description.
    */
-  description: string;
+  description?: string;
 };
 
 export function formatPrice(price: number, currency: string): string {
