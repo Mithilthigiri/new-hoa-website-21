@@ -20,7 +20,7 @@ type ShopControlsProps = {
 };
 
 const controlButtonClass =
-  "type-button inline-flex h-11 min-w-11 items-center justify-center gap-2 border border-border-strong bg-transparent px-5 text-espresso transition-colors duration-300 outline-none hover:bg-outline-hover focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "type-button inline-flex h-11 min-w-11 items-center justify-center gap-2 border border-border bg-transparent px-5 text-espresso transition-colors duration-300 outline-none hover:border-border-strong hover:bg-outline-hover focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 /**
  * Catalogue controls: result count, mobile filter trigger, sort control and
