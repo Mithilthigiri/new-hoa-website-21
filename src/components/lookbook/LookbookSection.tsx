@@ -159,7 +159,7 @@ export function LookbookSection({
               <LookTitle
                 id={headingId}
                 title={look.title}
-                className="relative z-10 md:-mb-space-xl md:pr-space-2xl"
+                className="relative z-10 md:pr-space-2xl"
               />
               <AiraImage
                 src={look.image}
