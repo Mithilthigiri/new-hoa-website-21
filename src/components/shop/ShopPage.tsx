@@ -25,6 +25,11 @@ type ShopPageProps = {
    * becomes normalised Shopify data passed in from the route loader.
    */
   products?: Product[];
+  /**
+   * Category preselected by a Collections hand-off. Seeds the initial filter
+   * state only; the user can clear or change it like any other filter.
+   */
+  initialCategory?: string | undefined;
 };
 
 /**
@@ -39,11 +44,15 @@ export function ShopPage({
   heading = "Shop",
   supportingCopy = "Discover contemporary pieces rooted in heritage, designed for the woman of today.",
   products = NEW_ARRIVALS,
+  initialCategory,
 }: ShopPageProps) {
   const options = useMemo(() => deriveFilterOptions(products), [products]);
-  const [filters, setFilters] = useState<ShopFilterState>(() =>
-    createEmptyFilters(options),
-  );
+  const [filters, setFilters] = useState<ShopFilterState>(() => {
+    const empty = createEmptyFilters(options);
+    return initialCategory && options.categories.includes(initialCategory)
+      ? { ...empty, categories: [initialCategory] }
+      : empty;
+  });
   const [sort, setSort] = useState<ShopSortOption>(DEFAULT_SORT);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
