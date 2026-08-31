@@ -87,7 +87,7 @@ export function LookbookSection({
             ratio="4/5"
             loading={loading}
             {...(priority ? ({ fetchPriority: "high" } as const) : {})}
-            sizes="(min-width: 768px) 70vw, 100vw"
+            sizes="(min-width: 1024px) 60vw, (min-width: 768px) 70vw, 100vw"
             className="mx-auto md:max-w-2xl lg:max-w-3xl"
           />
           <LookCaption
@@ -96,7 +96,6 @@ export function LookbookSection({
             products={products}
             className="mx-auto mt-space-lg md:max-w-2xl lg:max-w-3xl"
           />
-
         </Container>
       </section>
     );
@@ -106,7 +105,7 @@ export function LookbookSection({
     return (
       <section aria-labelledby={headingId}>
         <Container width="wide">
-          <div className="grid grid-cols-1 gap-space-md md:grid-cols-2 md:items-end md:gap-space-lg">
+          <div className="grid grid-cols-1 gap-space-md md:grid-cols-2 md:items-start md:gap-space-lg">
             <AiraImage
               src={look.image}
               alt={look.imageAlt}
@@ -118,10 +117,10 @@ export function LookbookSection({
               <AiraImage
                 src={look.secondaryImage}
                 alt={look.secondaryImageAlt ?? look.imageAlt}
-                ratio="4/5"
+                ratio="3/4"
                 loading="lazy"
                 sizes="(min-width: 768px) 45vw, 100vw"
-                className="md:mb-space-xl"
+                className="md:mt-space-2xl"
               />
             ) : null}
           </div>
@@ -135,6 +134,7 @@ export function LookbookSection({
       </section>
     );
   }
+
 
   // "split": portrait photography beside editorial text.
   return (
