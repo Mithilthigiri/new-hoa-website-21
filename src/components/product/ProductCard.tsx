@@ -80,7 +80,7 @@ export function ProductCard({
             type="button"
             variant="outline"
             size="sm"
-            className="w-full bg-ivory/90 backdrop-blur-[2px]"
+            className="h-11 w-full border-ivory/60 bg-ivory/70 text-espresso/90 backdrop-blur-[2px] hover:bg-ivory/90"
             onClick={() => setAcknowledged(true)}
           >
             {acknowledged ? "Added to wishlist" : "Quick add"}
@@ -102,7 +102,7 @@ export function ProductCard({
           </Link>
         </h3>
         <p className="type-label mt-space-xs text-muted-foreground">{category}</p>
-        <p className="type-editorial mt-space-xs text-foreground">
+        <p className="type-editorial mt-space-sm text-foreground">
           {formattedPrice}
         </p>
       </div>

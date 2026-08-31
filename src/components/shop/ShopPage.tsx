@@ -58,19 +58,22 @@ export function ShopPage({
   const clearAll = () => setFilters(createEmptyFilters(options));
 
   return (
-    <section aria-labelledby="shop-heading" className="section-py">
+    <section
+      aria-labelledby="shop-heading"
+      className="pt-section-sm pb-section lg:pt-section"
+    >
       <Container width="wide">
         <header className="max-w-2xl">
           <p className="type-label text-rust-deep">{eyebrow}</p>
-          <h1 id="shop-heading" className="type-h1 mt-space-md text-foreground">
+          <h1 id="shop-heading" className="type-h1 mt-space-sm text-foreground lg:mt-space-md">
             {heading}
           </h1>
-          <p className="type-editorial mt-space-md text-muted-foreground">
+          <p className="type-editorial mt-space-sm text-muted-foreground lg:mt-space-md">
             {supportingCopy}
           </p>
         </header>
 
-        <div className="mt-space-2xl grid gap-space-xl lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-space-2xl">
+        <div className="mt-space-xl grid gap-space-xl lg:mt-space-2xl lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-space-2xl">
           {/* Desktop filter panel: live filtering, hidden on smaller screens. */}
           <aside aria-label="Product filters" className="hidden min-w-0 lg:block">
             <p className="type-label text-espresso">Filter</p>
