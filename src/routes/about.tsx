@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { AboutPage } from "@/components/about/AboutPage";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -7,14 +7,18 @@ export const Route = createFileRoute("/about")({
       { title: "About — House of Aira" },
       {
         name: "description",
-        content: "The story and craft philosophy behind House of Aira.",
+        content:
+          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Aira.",
       },
       { property: "og:title", content: "About — House of Aira" },
       {
         property: "og:description",
-        content: "The story and craft philosophy behind House of Aira.",
+        content:
+          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Aira.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <PagePlaceholder eyebrow="About" title="Our House" />,
+  component: AboutPage,
 });
