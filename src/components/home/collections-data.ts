@@ -14,6 +14,12 @@ export type FeaturedCollection = {
   image: string;
   imageAlt: string;
   href: string;
+  /**
+   * Product category this collection maps to in the local catalogue. Passed to
+   * /shop as a preselected filter; later this becomes a Shopify collection
+   * handle resolving to that collection's products.
+   */
+  category: string;
 };
 
 export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
@@ -24,7 +30,8 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     image: ethnicImage.url,
     imageAlt:
       "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top in a heritage doorway.",
-    href: "/collections",
+    href: "/shop",
+    category: "Ethnic Wear",
   },
   {
     handle: "contemporary",
@@ -33,7 +40,8 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     image: contemporaryImage.url,
     imageAlt:
       "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
-    href: "/collections",
+    href: "/shop",
+    category: "Contemporary",
   },
   {
     handle: "western",
@@ -42,6 +50,7 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     image: westernImage.url,
     imageAlt:
       "Model wearing a rust paisley printed cami top styled with denim against a weathered shutter.",
-    href: "/collections",
+    href: "/shop",
+    category: "Western",
   },
 ];
