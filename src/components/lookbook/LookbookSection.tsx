@@ -50,16 +50,20 @@ function LookCaption({
         {look.subtitle}
       </p>
       {products.length > 0 ? (
-        <p className="mt-space-md">
-          <Link
-            to="/product/$handle"
-            params={{ handle: products[0]!.handle }}
-            className="type-label inline-flex min-h-11 items-center border-b border-espresso/40 text-espresso transition-colors duration-300 hover:border-rust-deep hover:text-rust-deep focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
-          >
-            Discover the Pieces
-          </Link>
-        </p>
+        <div className="mt-space-md flex flex-wrap gap-x-space-lg gap-y-space-sm">
+          {products.map((product) => (
+            <Link
+              key={product.handle}
+              to="/product/$handle"
+              params={{ handle: product.handle }}
+              className="type-label inline-flex min-h-11 items-center border-b border-espresso/40 text-espresso transition-colors duration-300 hover:border-rust-deep hover:text-rust-deep focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+            >
+              {products.length > 1 ? product.title : "Discover the Pieces"}
+            </Link>
+          ))}
+        </div>
       ) : null}
+
     </div>
   );
 }
