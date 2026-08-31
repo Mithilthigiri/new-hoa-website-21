@@ -37,3 +37,6 @@ export const PDP_SHIPPING_NOTE =
   "Shipping and return information will be available here.";
 
 export const PDP_SIZE_GUIDE_NOTE = "Size guidance will be added here.";
+
+export const PDP_FALLBACK_DESCRIPTION =
+  "A full description of this piece will be added here.";
