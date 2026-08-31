@@ -58,7 +58,7 @@ function LookCaption({
               params={{ handle: product.handle }}
               className="type-label inline-flex min-h-11 items-center border-b border-espresso/40 text-espresso transition-colors duration-300 hover:border-rust-deep hover:text-rust-deep focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
             >
-              {products.length > 1 ? product.name : "Discover the Pieces"}
+              {products.length > 1 ? product.title : "Discover the Pieces"}
             </Link>
           ))}
         </div>
