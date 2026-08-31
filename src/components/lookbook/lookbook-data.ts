@@ -145,7 +145,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
     imageAlt:
       "Seated portrait in the ivory dobby lehenga with black kalamkari halter jacket.",
     layout: "split",
-    productHandles: ["ivory-heritage-lehenga", "ikat-panel-palazzo-set"],
+    productHandles: ["ivory-heritage-lehenga"],
   },
 ];
 
