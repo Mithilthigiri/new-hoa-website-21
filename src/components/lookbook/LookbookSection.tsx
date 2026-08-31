@@ -87,16 +87,16 @@ export function LookbookSection({
             ratio="4/5"
             loading={loading}
             {...(priority ? ({ fetchPriority: "high" } as const) : {})}
-            sizes="(min-width: 1024px) 90vw, 100vw"
-            imgClassName="object-top"
-            className="md:![aspect-ratio:16/9]"
+            sizes="(min-width: 768px) 70vw, 100vw"
+            className="mx-auto md:max-w-2xl lg:max-w-3xl"
           />
           <LookCaption
             look={look}
             index={index}
             products={products}
-            className="mt-space-lg"
+            className="mx-auto mt-space-lg md:max-w-2xl lg:max-w-3xl"
           />
+
         </Container>
       </section>
     );
