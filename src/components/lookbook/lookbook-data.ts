@@ -11,6 +11,7 @@ import ivoryLehengaSeated from "@/assets/DSC04224.jpg.asset.json";
 import indigoKanthaFull from "@/assets/DSC04471.jpg.asset.json";
 import indigoKanthaDetail from "@/assets/DSC04487.jpg.asset.json";
 import ikatPalazzo from "@/assets/DSC04402.jpg.asset.json";
+import rustCamiPortrait from "@/assets/DSC03545.jpg.asset.json";
 
 /**
  * Editorial layout rhythm for a look. Presentation-only hint; the Lookbook
@@ -122,11 +123,29 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
     image: ikatPalazzo.url,
     imageAlt:
       "Model wearing wide purple ikat panelled palazzo trousers with a mauve fitted bralette top.",
-    secondaryImage: ivoryLehengaSeated.url,
-    secondaryImageAlt:
-      "Seated portrait in the ivory dobby lehenga with kalamkari jacket.",
-    layout: "pair",
+    layout: "split",
+    reverse: true,
     productHandles: ["ikat-panel-palazzo-set"],
+  },
+  {
+    id: "look-08",
+    title: "Paisley, Close",
+    subtitle: "The same print, read at portrait range.",
+    image: rustCamiPortrait.url,
+    imageAlt:
+      "Portrait of the model in the rust paisley printed cami top with gold jewellery.",
+    layout: "full",
+    productHandles: ["kalamkari-cami-top"],
+  },
+  {
+    id: "look-09",
+    title: "Ivory, at Rest",
+    subtitle: "Occasion dressing, worn without ceremony.",
+    image: ivoryLehengaSeated.url,
+    imageAlt:
+      "Seated portrait in the ivory dobby lehenga with black kalamkari halter jacket.",
+    layout: "split",
+    productHandles: ["ivory-heritage-lehenga", "ikat-panel-palazzo-set"],
   },
 ];
 
