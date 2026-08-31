@@ -15,6 +15,7 @@ import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LookbookRouteImport } from './routes/lookbook'
+import { Route as NewInRouteImport } from './routes/new-in'
 import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
@@ -51,6 +52,11 @@ const LookbookRoute = LookbookRouteImport.update({
   path: '/lookbook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewInRoute = NewInRouteImport.update({
+  id: '/new-in',
+  path: '/new-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OrderConfirmationRoute = OrderConfirmationRouteImport.update({
   id: '/order-confirmation',
   path: '/order-confirmation',
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/lookbook': typeof LookbookRoute
+  '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
   '/collections/$handle': typeof CollectionsHandleRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/lookbook': typeof LookbookRoute
+  '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
   '/collections/$handle': typeof CollectionsHandleRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/lookbook': typeof LookbookRoute
+  '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
   '/collections/$handle': typeof CollectionsHandleRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/contact'
     | '/lookbook'
+    | '/new-in'
     | '/order-confirmation'
     | '/shop'
     | '/collections/$handle'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/contact'
     | '/lookbook'
+    | '/new-in'
     | '/order-confirmation'
     | '/shop'
     | '/collections/$handle'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/contact'
     | '/lookbook'
+    | '/new-in'
     | '/order-confirmation'
     | '/shop'
     | '/collections/$handle'
@@ -166,6 +178,7 @@ export interface RootRouteChildren {
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   LookbookRoute: typeof LookbookRoute
+  NewInRoute: typeof NewInRoute
   OrderConfirmationRoute: typeof OrderConfirmationRoute
   ShopRoute: typeof ShopRoute
   CollectionsHandleRoute: typeof CollectionsHandleRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LookbookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new-in': {
+      id: '/new-in'
+      path: '/new-in'
+      fullPath: '/new-in'
+      preLoaderRoute: typeof NewInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/order-confirmation': {
       id: '/order-confirmation'
       path: '/order-confirmation'
@@ -262,6 +282,7 @@ const rootRouteChildren: RootRouteChildren = {
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   LookbookRoute: LookbookRoute,
+  NewInRoute: NewInRoute,
   OrderConfirmationRoute: OrderConfirmationRoute,
   ShopRoute: ShopRoute,
   CollectionsHandleRoute: CollectionsHandleRoute,
