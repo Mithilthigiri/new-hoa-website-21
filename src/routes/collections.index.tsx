@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CollectionsPage } from "@/components/collections/CollectionsPage";
 
-export const Route = createFileRoute("/collections")({
+export const Route = createFileRoute("/collections/")({
   head: () => ({
     meta: [
       { title: "Collections — House of Aira" },

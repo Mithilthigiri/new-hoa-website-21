@@ -21,12 +21,12 @@ export function CollectionCard({
   meta,
   className,
 }: CollectionCardProps) {
-  const { title, subtitle, image, imageAlt, href, category } = collection;
+  const { handle, title, subtitle, image, imageAlt } = collection;
 
   return (
     <Link
-      to={href}
-      search={{ category }}
+      to="/collections/$handle"
+      params={{ handle }}
       aria-label={`${title} — ${subtitle}. Explore the collection.`}
       className={cn(
         "group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold",
