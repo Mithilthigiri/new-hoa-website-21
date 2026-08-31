@@ -53,7 +53,7 @@ function LookCaption({
         <p className="mt-space-md">
           <Link
             to="/product/$handle"
-            params={{ handle: products[0].handle }}
+            params={{ handle: products[0]!.handle }}
             className="type-label inline-flex min-h-11 items-center border-b border-espresso/40 text-espresso transition-colors duration-300 hover:border-rust-deep hover:text-rust-deep focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
           >
             Discover the Pieces
@@ -86,10 +86,10 @@ export function LookbookSection({
             alt={look.imageAlt}
             ratio="4/5"
             loading={loading}
-            fetchPriority={priority ? "high" : undefined}
+            {...(priority ? ({ fetchPriority: "high" } as const) : {})}
             sizes="(min-width: 1024px) 90vw, 100vw"
-            imgClassName="object-top md:aspect-[16/9]"
-            className="md:aspect-16/9 md:[aspect-ratio:16/9]"
+            imgClassName="object-top"
+            className="md:[aspect-ratio:16/9]"
           />
           <LookCaption
             look={look}
