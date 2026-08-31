@@ -13,11 +13,11 @@ export type FeaturedCollection = {
   subtitle: string;
   image: string;
   imageAlt: string;
-  href: string;
+  /** Editorial intro shown on the collection page. */
+  description: string;
   /**
-   * Product category this collection maps to in the local catalogue. Passed to
-   * /shop as a preselected filter; later this becomes a Shopify collection
-   * handle resolving to that collection's products.
+   * Product category this collection resolves to in the local catalogue. Later
+   * this becomes the Shopify collection handle resolving to its products.
    */
   category: string;
 };
@@ -30,7 +30,8 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     image: ethnicImage.url,
     imageAlt:
       "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top in a heritage doorway.",
-    href: "/shop",
+    description:
+      "Hand-embroidered silhouettes, kalamkari prints and heritage craft, cut for celebration and the everyday alike.",
     category: "Ethnic Wear",
   },
   {
@@ -40,7 +41,8 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     image: contemporaryImage.url,
     imageAlt:
       "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
-    href: "/shop",
+    description:
+      "Handwoven textiles and considered layering — traditional craft translated into pieces that move with a modern day.",
     category: "Contemporary",
   },
   {
@@ -50,7 +52,8 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     image: westernImage.url,
     imageAlt:
       "Model wearing a rust paisley printed cami top styled with denim against a weathered shutter.",
-    href: "/shop",
+    description:
+      "Clean, modern shapes in printed and hand-finished fabric, made to be styled simply and worn often.",
     category: "Western",
   },
 ];
