@@ -42,7 +42,7 @@ export function ProductGallery({ product, className }: ProductGalleryProps) {
             height={1600}
             sizes="(max-width: 1023px) 50vw, 30vw"
             loading={index === 0 ? "eager" : "lazy"}
-            fetchPriority={index === 0 ? "high" : undefined}
+            fetchPriority={index === 0 ? "high" : "auto"}
           />
         </figure>
       ))}
