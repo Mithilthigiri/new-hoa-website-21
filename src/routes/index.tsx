@@ -38,7 +38,7 @@ function Index() {
       <CategoryScroll />
       <NewArrivalsSection />
       <EditorialQuote />
-      <BrandStory />
+      <BrandStorySimple />
       <InstagramFeed />
       <NewsletterSignup />
     </>
