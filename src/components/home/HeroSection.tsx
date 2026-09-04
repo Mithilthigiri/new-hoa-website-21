@@ -8,7 +8,7 @@ type HeroSectionProps = {
   imageAlt: string;
   eyebrow?: string;
   headline: string;
-  supportingCopy: string;
+  supportingCopy?: string;
   primaryCta: { label: string; to: string };
   secondaryCta?: { label: string; to: string };
   className?: string;
@@ -74,12 +74,14 @@ export function HeroSection({
             </span>
           )}
 
-          <p
-            className="type-editorial mt-space-md max-w-md italic text-ivory/80 motion-safe:animate-word-in"
-            style={{ animationDelay: `${(words.length + 1) * 200}ms` }}
-          >
-            {supportingCopy}
-          </p>
+          {supportingCopy && (
+            <p
+              className="type-editorial mt-space-md max-w-md italic text-ivory/80 motion-safe:animate-word-in"
+              style={{ animationDelay: `${(words.length + 1) * 200}ms` }}
+            >
+              {supportingCopy}
+            </p>
+          )}
 
           <div
             className="mt-space-xl flex flex-col gap-space-md sm:flex-row sm:items-center motion-safe:animate-word-in"
