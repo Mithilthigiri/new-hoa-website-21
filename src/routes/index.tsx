@@ -36,7 +36,7 @@ function Index() {
       <HeroBanner />
       <MarqueeSection />
       <CategoryScroll />
-      <NewArrivalsSplit />
+      <NewArrivalsSection />
       <EditorialQuote />
       <BrandStory />
       <InstagramFeed />
