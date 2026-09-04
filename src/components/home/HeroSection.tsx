@@ -8,7 +8,7 @@ type HeroSectionProps = {
   imageAlt: string;
   eyebrow?: string;
   headline: string;
-  supportingCopy: string;
+  supportingCopy?: string;
   primaryCta: { label: string; to: string };
   secondaryCta?: { label: string; to: string };
   className?: string;
