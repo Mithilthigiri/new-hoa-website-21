@@ -130,7 +130,7 @@ export function NewsletterForm({
         variant="gold"
         size="md"
         type="submit"
-        className={cn(!inverse && "w-full md:w-auto")}
+        className={cn("whitespace-nowrap", !inverse && "w-full md:w-auto")}
       >
         {ctaLabel}
       </AiraButton>

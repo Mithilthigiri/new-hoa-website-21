@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import { NewsletterForm } from "./NewsletterForm";
 
 type NewsletterSignupProps = {
-  eyebrow?: string;
   heading?: string;
   supportingCopy?: string;
   ctaLabel?: string;
@@ -12,40 +11,38 @@ type NewsletterSignupProps = {
 };
 
 export function NewsletterSignup({
-  eyebrow = "Join the House",
-  heading = "The Atelier Letter",
-  supportingCopy = "Private previews, collection notes, and stories from the world of House of Aira.",
-  ctaLabel = "Subscribe",
+  heading = "Stay in the House",
+  supportingCopy = "New arrivals, exclusive access and stories from the House of Aira.",
+  ctaLabel = "Join the House",
   successMessage = "Welcome to the House. Your front-row seat to our world is reserved.",
   className,
 }: NewsletterSignupProps) {
   return (
     <section
       aria-labelledby="newsletter-heading"
-      className={cn("section-py bg-background-alt", className)}
+      className={cn("bg-espresso py-16", className)}
     >
       <Container width="wide">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="type-label text-rust-deep">{eyebrow}</p>
+        <div className="mx-auto max-w-[35rem] text-center">
           <h2
             id="newsletter-heading"
-            className="type-h2 mt-space-md text-espresso"
+            className="font-display text-[1.5rem] font-light text-ivory lg:text-[2rem]"
           >
             {heading}
           </h2>
-          <p className="type-editorial mt-space-md text-muted-foreground">
+          <p className="font-editorial mt-space-sm text-[1rem] italic text-ivory/70">
             {supportingCopy}
           </p>
 
           <NewsletterForm
             idPrefix="newsletter"
-            variant="editorial"
+            variant="inverse"
             ctaLabel={ctaLabel}
             successMessage={successMessage}
-            className="mt-space-xl"
+            className="mt-space-lg text-left"
           />
 
-          <p className="type-small mt-space-md text-muted-foreground">
+          <p className="mt-space-md font-sans text-[0.6875rem] text-ivory/55">
             By subscribing, you agree to receive updates from House of Aira.
             Unsubscribe at any time.
           </p>

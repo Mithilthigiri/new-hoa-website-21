@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/layout/Container";
 import { AiraButton } from "@/components/ui/aira-button";
 import { AiraImage } from "@/components/ui/aira-image";
-import { Reveal } from "@/components/motion/Reveal";
 import brandStoryImage from "@/assets/DSC03791.jpg.asset.json";
 
 export type BrandStoryProps = {
@@ -20,7 +19,7 @@ export function BrandStory({
   imageSrc = brandStoryImage.url,
   imageAlt = "Editorial portrait of a woman in a deep emerald gown with a woven zari bodice, embodying the House of Aira spirit.",
   eyebrow = "The House of Aira",
-  heading = "Draped in Heritage, Styled for Today",
+  heading = "Draped in Heritage, Styled for Today.",
   body = "House of Aira brings the opulence of old India into a contemporary wardrobe, creating pieces for women who wear power gracefully.",
   secondaryLine = "Rooted in heritage. Reimagined for the woman of today.",
   ctaLabel = "Discover Our Story",
@@ -29,46 +28,45 @@ export function BrandStory({
   return (
     <section
       aria-labelledby="brand-story-heading"
-      className="bg-parchment section-py"
+      className="bg-background-alt py-16"
     >
-      <Container>
-        <div className="grid grid-cols-1 items-stretch gap-0 lg:grid-cols-2">
-          {/* Image column */}
-          <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] lg:aspect-auto lg:min-h-[44rem]">
+      <Container width="wide">
+        <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-2">
+          {/* Text column — second on mobile, first on desktop */}
+          <div className="order-2 flex max-w-xl flex-col gap-space-md lg:order-1">
+            <span className="type-label text-rust-label">{eyebrow}</span>
+
+            <h2
+              id="brand-story-heading"
+              className="font-display text-[1.75rem] font-light leading-[1.15] text-foreground lg:text-[2.25rem]"
+            >
+              {heading}
+            </h2>
+
+            <p className="font-editorial text-[1rem] italic leading-[1.8] text-muted-foreground">
+              {body}
+            </p>
+
+            <p className="font-editorial border-l-2 border-rust-label pl-4 text-[1rem] italic leading-[1.6] text-rust-label">
+              {secondaryLine}
+            </p>
+
+            <div className="pt-2">
+              <AiraButton variant="outline" size="md" asChild>
+                <Link to={ctaTo}>{ctaLabel} →</Link>
+              </AiraButton>
+            </div>
+          </div>
+
+          {/* Image column — contained, never dominating the section */}
+          <div className="relative order-1 h-[320px] w-full overflow-hidden rounded-[4px] lg:order-2 lg:h-[420px]">
             <AiraImage
               src={imageSrc}
               alt={imageAlt}
               fill
-              reveal
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              imgClassName="motion-safe:transition-transform motion-safe:duration-700 motion-safe:hover:scale-[1.02]"
+              sizes="(max-width: 1024px) 100vw, 46vw"
+              imgClassName="object-top"
             />
-          </div>
-
-          {/* Text column */}
-          <div className="flex flex-col justify-center px-page-gutter py-section-sm lg:px-12 lg:py-section lg:pl-16 xl:pl-24">
-            <Reveal variant="text" className="flex max-w-xl flex-col gap-stack lg:gap-6">
-              <span className="type-label text-rust-deep">{eyebrow}</span>
-
-              <h2
-                id="brand-story-heading"
-                className="type-h2 text-espresso"
-              >
-                {heading}
-              </h2>
-
-              <p className="type-body-lg text-espresso/90">{body}</p>
-
-              <p className="type-editorial italic text-espresso/80">
-                {secondaryLine}
-              </p>
-
-              <div className="pt-2">
-                <AiraButton variant="outline" size="md" asChild>
-                  <Link to={ctaTo}>{ctaLabel}</Link>
-                </AiraButton>
-              </div>
-            </Reveal>
           </div>
         </div>
       </Container>

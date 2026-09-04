@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroShoppable } from "@/components/home/HeroShoppable";
+import { MarqueeSection } from "@/components/home/MarqueeSection";
 import { CategoryStrip } from "@/components/home/CategoryStrip";
 import { NewArrivalsSplit } from "@/components/home/NewArrivalsSplit";
-import { CollectionBanners } from "@/components/home/CollectionBanners";
-import { Testimonials } from "@/components/home/Testimonials";
+import { EditorialQuote } from "@/components/home/EditorialQuote";
 import { BrandStory } from "@/components/home/BrandStory";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
@@ -34,10 +34,10 @@ function Index() {
   return (
     <>
       <HeroShoppable />
+      <MarqueeSection />
       <CategoryStrip />
       <NewArrivalsSplit />
-      <CollectionBanners />
-      <Testimonials />
+      <EditorialQuote />
       <BrandStory />
       <InstagramFeed />
       <NewsletterSignup />

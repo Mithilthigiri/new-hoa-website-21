@@ -3,7 +3,6 @@ import { Heart, Menu, Search, ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
-import { AnnouncementStrip } from "./AnnouncementStrip";
 import { NAV_LINKS } from "./nav-links";
 import { cn } from "@/lib/utils";
 
@@ -135,7 +134,6 @@ export function Navbar() {
         </Container>
       </div>
 
-      <AnnouncementStrip />
 
       <MobileMenu open={open} onClose={() => setOpen(false)} />
     </header>

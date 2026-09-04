@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import heroEditorial from "@/assets/DSC04261.jpg.asset.json";
+import heroEditorial from "@/assets/DSC03342.jpg.asset.json";
 import {
   NEW_ARRIVALS,
   findProductByHandle,
@@ -25,24 +25,24 @@ type HeroDot = {
 export const HERO_DOTS: HeroDot[] = [
   {
     id: "dot-bodice",
-    x: 58,
-    y: 44,
+    x: 56,
+    y: 34,
     handle: "ivory-heritage-lehenga",
     label: "Ivory Heritage Lehenga",
     placement: "below",
   },
   {
     id: "dot-skirt",
-    x: 42,
-    y: 74,
+    x: 50,
+    y: 62,
     handle: "purple-garden-skirt-set",
     label: "Purple Garden Skirt Set",
     placement: "above",
   },
   {
     id: "dot-drape",
-    x: 30,
-    y: 88,
+    x: 63,
+    y: 48,
     handle: "kalamkari-cami-top",
     label: "Kalamkari Cami Top",
     placement: "above",
@@ -127,18 +127,36 @@ export function HeroShoppable({ className }: { className?: string }) {
       ref={ref}
       aria-label="House of Aira campaign"
       className={cn(
-        "relative w-full overflow-hidden bg-espresso h-[65vh] lg:h-[88vh]",
+        "relative w-full overflow-hidden bg-espresso h-[65vh] lg:h-[90vh]",
         className,
       )}
     >
       <img
         src={heroEditorial.url}
-        alt="House of Aira campaign image: model in an ivory heritage lehenga mid-movement in soft daylight."
+        alt="House of Aira campaign image: model in a navy dress with an ivory floral print against a rust shutter."
         loading="eager"
         fetchPriority="high"
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover object-top"
       />
+
+      {/* Legibility wash behind the headline only — left 55%. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(44,24,16,0.5)_0%,rgba(44,24,16,0)_55%)]"
+      />
+
+      <div className="absolute inset-x-0 bottom-0 z-10 px-page-gutter pb-12 lg:px-page-gutter-lg lg:pb-16">
+        <h1 className="font-display max-w-xl font-light leading-[1.05] text-cream-card text-[2.125rem] lg:text-[3.5rem]">
+          Dressed in Heritage
+        </h1>
+        <Link
+          to="/collections"
+          className="type-nav-mini mt-space-lg inline-flex h-11 items-center rounded-none bg-cream-card px-8 text-espresso transition-colors duration-200 hover:bg-ivory focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+        >
+          Explore Collection
+        </Link>
+      </div>
 
       {HERO_DOTS.map((dot) => {
         const product = findProductByHandle(dot.handle, NEW_ARRIVALS);
