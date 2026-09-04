@@ -398,6 +398,52 @@
   animation-duration: calc(var(--marquee-duration, 40s) / 0.3);
 }
 
+/* ── Announcement strip marquee ───────────────────────────────── */
+
+.announce-shell {
+  --announce-duration: 30s;
+}
+
+.announce-track {
+  animation: marquee-scroll var(--announce-duration) linear infinite;
+}
+
+.announce-shell:hover .announce-track {
+  animation-duration: calc(var(--announce-duration) / 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announce-track {
+    animation: none;
+  }
+}
+
+/* ── Shoppable hero dot pulse ─────────────────────────────────── */
+
+@keyframes hero-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.hero-dot-pulse {
+  animation: hero-dot-pulse 2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dot-pulse {
+    animation: none;
+    opacity: 0.4;
+  }
+}
+
+
 /* ── Scroll reveal primitives ────────────────────────────────── */
 
 .reveal {
