@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <HeroCarousel />
+      <HeroShoppable />
       <CategoryStrip />
       <NewArrivalsSplit />
       <CollectionBanners />
