@@ -83,7 +83,7 @@ export function InstagramFeed({
       </Container>
 
       {/* Seamless mosaic — 3 across on mobile, 6 across from lg. */}
-      <ul className="mx-auto mt-space-xl grid w-full max-w-[100rem] grid-cols-3 gap-0 lg:grid-cols-6">
+      <ul className="mx-auto mt-space-xl grid w-full grid-cols-3 gap-0 lg:grid-cols-6">
         {tiles.map((post) => (
           <li key={post.id} className="min-w-0">
             <InstagramPostTile post={post} />
