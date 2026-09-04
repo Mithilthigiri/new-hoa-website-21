@@ -16,6 +16,10 @@
   /* Brand palette */
   --color-rust-deep: var(--rust-deep);
   --color-rust-warm: var(--rust-warm);
+  --color-rust-label: var(--rust-label);
+  --color-cream-card: var(--cream-card);
+  --color-cream-alt: var(--cream-alt);
+  --color-badge-new: var(--badge-new);
   --color-ivory: var(--ivory);
   --color-parchment: var(--parchment);
   --color-gold: var(--gold);
@@ -118,6 +122,10 @@
   /* Brand palette — exact House of Aira hex values */
   --rust-deep: #8b4a2f;
   --rust-warm: #c4733a;
+  --rust-label: #b85c38;
+  --cream-card: #faf6ee;
+  --cream-alt: #ede4d0;
+  --badge-new: #2d5a3d;
   --ivory: #e8d5b7;
   --parchment: #f5efe0;
   --gold: #c9a84c;
@@ -126,18 +134,18 @@
 
   /* Semantic roles — backgrounds */
   --background: var(--parchment);       /* primary background */
-  --background-alt: var(--ivory);       /* secondary background */
+  --background-alt: var(--cream-alt);   /* secondary background */
   --background-dark: var(--espresso);   /* inverted surfaces (nav, footer) */
   --muted: color-mix(in oklab, var(--ivory) 55%, var(--parchment));
 
-  --card: #faf6ec;
+  --card: var(--cream-card);
   --card-foreground: var(--espresso);
   --popover: var(--parchment);
   --popover-foreground: var(--espresso);
 
   /* Text */
-  --foreground: var(--espresso);        /* primary text */
-  --muted-foreground: color-mix(in oklab, var(--espresso) 68%, var(--parchment)); /* secondary text */
+  --foreground: #1a0f0a;                /* primary text */
+  --muted-foreground: #7a6855;          /* secondary text */
   --foreground-inverse: var(--ivory);   /* text on dark surfaces */
 
   /* Accents */
@@ -162,7 +170,7 @@
   --destructive-foreground: var(--parchment);
 
   /* Borders & dividers */
-  --border: color-mix(in oklab, var(--espresso) 14%, transparent);
+  --border: #ddd5c0;
   --border-strong: color-mix(in oklab, var(--espresso) 32%, transparent);
   --border-gold: color-mix(in oklab, var(--gold) 55%, transparent);
   --border-inverse: color-mix(in oklab, var(--ivory) 22%, transparent);
@@ -476,17 +484,6 @@
   animation: aira-page-in 300ms ease-out both;
 }
 
-/* ── Custom cursor ───────────────────────────────────────────── */
-
-@media (hover: hover) and (pointer: fine) {
-  body.has-aira-cursor,
-  body.has-aira-cursor a,
-  body.has-aira-cursor button,
-  body.has-aira-cursor [role="button"] {
-    cursor: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal-text,
   .reveal-image,
@@ -508,5 +505,48 @@
   .animate-page-in {
     animation: none !important;
     opacity: 1;
+  }
+}
+
+/* ── Redesign utilities ──────────────────────────────────────── */
+
+@utility type-price {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+@utility type-nav-mini {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@utility type-card-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+@utility shadow-card {
+  box-shadow: 0 2px 12px rgba(44, 24, 16, 0.06);
+}
+
+@utility shadow-card-hover {
+  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.1);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

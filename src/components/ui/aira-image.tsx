@@ -1,6 +1,5 @@
 import { useCallback, useState, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
-import { useReveal } from "@/hooks/use-reveal";
 
 type AiraImageProps = {
   src: string;
@@ -57,7 +56,6 @@ export function AiraImage({
   }>({ src, status: "loading" });
   const status = state.src === src ? state.status : "loading";
 
-  const { ref: revealRef, revealed } = useReveal<HTMLSpanElement>();
 
   // Cached/SSR-rendered images can finish before React attaches listeners,
   // so resolve their state on mount instead of waiting for onLoad.
@@ -69,18 +67,15 @@ export function AiraImage({
     });
   }, []);
 
-  const revealStyle = reveal
-    ? ({ "--reveal-delay": `${revealIndex * 80}ms` } as CSSProperties)
-    : undefined;
+  const revealStyle: CSSProperties | undefined = undefined;
+  void reveal;
+  void revealIndex;
 
   return (
     <span
-      ref={reveal ? revealRef : undefined}
-      data-cursor="view"
       className={cn(
         "block overflow-hidden bg-background-alt",
         fill ? "absolute inset-0 h-full w-full" : "relative w-full max-w-full",
-        reveal && revealed && "is-revealed",
         className,
       )}
       style={
@@ -121,12 +116,6 @@ export function AiraImage({
         />
       )}
 
-      {reveal ? (
-        <span
-          aria-hidden="true"
-          className="curtain-panel pointer-events-none absolute inset-0 z-10 block bg-espresso"
-        />
-      ) : null}
     </span>
   );
 }
