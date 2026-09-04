@@ -4,7 +4,7 @@ import { MarqueeSection } from "@/components/home/MarqueeSection";
 import { CategoryScroll } from "@/components/home/CategoryScroll";
 import { NewArrivalsSection } from "@/components/home/NewArrivalsSection";
 import { EditorialQuote } from "@/components/home/EditorialQuote";
-import { BrandStory } from "@/components/home/BrandStory";
+import { BrandStorySimple } from "@/components/home/BrandStorySimple";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
 
