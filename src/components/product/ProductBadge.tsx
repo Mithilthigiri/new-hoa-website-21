@@ -3,9 +3,9 @@ import type { ProductBadgeKind } from "@/components/home/products-data";
 
 /** One restrained pattern, varied only by tone — no per-product styling. */
 const badgeTone: Record<ProductBadgeKind, string> = {
-  NEW: "bg-ivory/90 text-espresso",
-  BESTSELLER: "bg-espresso/85 text-ivory",
-  SALE: "bg-rust-deep/90 text-ivory",
+  NEW: "bg-badge-new text-white",
+  BESTSELLER: "bg-espresso text-cream-card",
+  SALE: "bg-rust-label text-cream-card",
 };
 
 const badgeLabel: Record<ProductBadgeKind, string> = {
@@ -23,7 +23,7 @@ export function ProductBadge({ kind, className }: ProductBadgeProps) {
   return (
     <span
       className={cn(
-        "type-label inline-block rounded-sm px-space-sm py-1 text-[0.5rem] backdrop-blur-[2px]",
+        "type-label inline-block rounded-full px-2 py-[3px] text-[0.5rem]",
         badgeTone[kind],
         className,
       )}
