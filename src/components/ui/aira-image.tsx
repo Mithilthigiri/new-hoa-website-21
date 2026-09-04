@@ -1,5 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
+import { useReveal } from "@/hooks/use-reveal";
 
 type AiraImageProps = {
   src: string;
@@ -19,6 +20,10 @@ type AiraImageProps = {
   imgClassName?: string;
   /** Decorative images are hidden from assistive tech. */
   decorative?: boolean;
+  /** Editorial curtain-lift reveal on first scroll into view. */
+  reveal?: boolean;
+  /** Stagger index for the reveal — 80ms per step. */
+  revealIndex?: number;
 };
 
 /**
@@ -26,6 +31,7 @@ type AiraImageProps = {
  * - Space is always reserved (aspect-ratio or absolute fill), so nothing shifts.
  * - Images never exceed their container, so no horizontal overflow occurs.
  * - If the source fails to load, a branded placeholder keeps the same box.
+ * - `reveal` adds the editorial curtain-lift (reduced-motion safe).
  */
 export function AiraImage({
   src,
@@ -40,6 +46,8 @@ export function AiraImage({
   className,
   imgClassName,
   decorative = false,
+  reveal = false,
+  revealIndex = 0,
 }: AiraImageProps) {
   // Track state per source so hover swaps / re-used grid nodes reset cleanly
   // without an effect racing the ref callback back to "loading".
@@ -48,6 +56,8 @@ export function AiraImage({
     status: "loading" | "loaded" | "error";
   }>({ src, status: "loading" });
   const status = state.src === src ? state.status : "loading";
+
+  const { ref: revealRef, revealed } = useReveal<HTMLSpanElement>();
 
   // Cached/SSR-rendered images can finish before React attaches listeners,
   // so resolve their state on mount instead of waiting for onLoad.
@@ -59,15 +69,25 @@ export function AiraImage({
     });
   }, []);
 
+  const revealStyle = reveal
+    ? ({ "--reveal-delay": `${revealIndex * 80}ms` } as CSSProperties)
+    : undefined;
 
   return (
     <span
+      ref={reveal ? revealRef : undefined}
+      data-cursor="view"
       className={cn(
         "block overflow-hidden bg-background-alt",
         fill ? "absolute inset-0 h-full w-full" : "relative w-full max-w-full",
+        reveal && revealed && "is-revealed",
         className,
       )}
-      style={fill ? undefined : { aspectRatio: ratio }}
+      style={
+        fill
+          ? revealStyle
+          : { aspectRatio: ratio, ...(revealStyle ?? {}) }
+      }
     >
       {status === "error" ? (
         <span
@@ -100,6 +120,13 @@ export function AiraImage({
           )}
         />
       )}
+
+      {reveal ? (
+        <span
+          aria-hidden="true"
+          className="curtain-panel pointer-events-none absolute inset-0 z-10 block bg-espresso"
+        />
+      ) : null}
     </span>
   );
 }

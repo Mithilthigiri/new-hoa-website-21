@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/layout/Container";
 import { AiraButton } from "@/components/ui/aira-button";
 import { AiraImage } from "@/components/ui/aira-image";
+import { Reveal } from "@/components/motion/Reveal";
 import brandStoryImage from "@/assets/DSC03791.jpg.asset.json";
 
 export type BrandStoryProps = {
@@ -38,6 +39,7 @@ export function BrandStory({
               src={imageSrc}
               alt={imageAlt}
               fill
+              reveal
               sizes="(max-width: 1024px) 100vw, 55vw"
               imgClassName="motion-safe:transition-transform motion-safe:duration-700 motion-safe:hover:scale-[1.02]"
             />
@@ -45,7 +47,7 @@ export function BrandStory({
 
           {/* Text column */}
           <div className="flex flex-col justify-center px-page-gutter py-section-sm lg:px-12 lg:py-section lg:pl-16 xl:pl-24">
-            <div className="flex max-w-xl flex-col gap-stack lg:gap-6">
+            <Reveal variant="text" className="flex max-w-xl flex-col gap-stack lg:gap-6">
               <span className="type-label text-rust-deep">{eyebrow}</span>
 
               <h2
@@ -66,7 +68,7 @@ export function BrandStory({
                   <Link to={ctaTo}>{ctaLabel}</Link>
                 </AiraButton>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </Container>

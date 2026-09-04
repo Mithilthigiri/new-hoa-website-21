@@ -57,6 +57,7 @@ export function AboutPage() {
 
             <div className="group lg:col-span-7">
               <AiraImage
+                reveal
                 src={ABOUT_HERO.image}
                 alt={ABOUT_HERO.imageAlt}
                 ratio="4/5"
@@ -79,6 +80,7 @@ export function AboutPage() {
           <div className="grid grid-cols-1 gap-space-xl lg:grid-cols-12 lg:items-center lg:gap-space-2xl">
             <div className="group lg:col-span-5">
               <AiraImage
+                reveal
                 src={ABOUT_PHILOSOPHY.image}
                 alt={ABOUT_PHILOSOPHY.imageAlt}
                 ratio="3/4"
@@ -131,6 +133,7 @@ export function AboutPage() {
           <div className="mt-space-xl grid grid-cols-1 gap-space-lg md:grid-cols-12 md:gap-space-xl">
             <div className="group md:col-span-8">
               <AiraImage
+                reveal
                 src={ABOUT_CRAFT.image}
                 alt={ABOUT_CRAFT.imageAlt}
                 ratio="4/3"
@@ -141,6 +144,7 @@ export function AboutPage() {
             <div className="flex flex-col gap-space-lg md:col-span-4 md:justify-end">
               <div className="group">
                 <AiraImage
+                  reveal
                   src={ABOUT_CRAFT.secondaryImage}
                   alt={ABOUT_CRAFT.secondaryImageAlt}
                   ratio="3/4"
@@ -187,6 +191,7 @@ export function AboutPage() {
 
             <div className="group lg:col-span-6 lg:col-start-7">
               <AiraImage
+                reveal
                 src={ABOUT_WOMAN.image}
                 alt={ABOUT_WOMAN.imageAlt}
                 ratio="4/5"

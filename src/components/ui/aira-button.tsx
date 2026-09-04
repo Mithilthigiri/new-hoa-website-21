@@ -2,6 +2,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
+import { useMagnetic } from "@/hooks/use-magnetic";
 
 export const airaButtonVariants = cva(
   "type-button inline-flex items-center justify-center gap-2 rounded-sm transition-colors duration-300 outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
@@ -27,18 +28,27 @@ export const airaButtonVariants = cva(
 );
 
 export type AiraButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof airaButtonVariants> & { asChild?: boolean };
+  VariantProps<typeof airaButtonVariants> & {
+    asChild?: boolean;
+    /** Disables the desktop magnetic hover (e.g. inside tight toolbars). */
+    magnetic?: boolean;
+  };
 
 export function AiraButton({
   className,
   variant,
   size,
   asChild,
+  magnetic = true,
   ...props
 }: AiraButtonProps) {
   const Comp = asChild ? Slot : "button";
+  const magneticRef = useMagnetic<HTMLButtonElement>(magnetic ? 8 : 0);
+
   return (
     <Comp
+      ref={magnetic ? magneticRef : undefined}
+      data-cursor="shop"
       className={cn(airaButtonVariants({ variant, size }), className)}
       {...props}
     />

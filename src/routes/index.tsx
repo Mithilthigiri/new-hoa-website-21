@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
 import { FeaturedCollections } from "@/components/home/FeaturedCollections";
 import { NewArrivals } from "@/components/home/NewArrivals";
+import { PullQuote } from "@/components/home/PullQuote";
 import { BrandStory } from "@/components/home/BrandStory";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
@@ -41,8 +42,16 @@ function Index() {
       />
       <MarqueeSection />
       <FeaturedCollections />
+      <PullQuote
+        quote="An heirloom is not something you inherit. It is something you choose to wear."
+        attribution="House of Aira"
+      />
       <NewArrivals />
       <BrandStory />
+      <PullQuote
+        quote="Opulence, worn quietly."
+        className="bg-background-alt"
+      />
       <InstagramFeed />
       <NewsletterSignup />
     </>
