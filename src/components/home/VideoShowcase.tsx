@@ -112,7 +112,7 @@ function VideoCard({ item, isPlaying, onPlayStart, onPlayEnd }: VideoCardProps) 
 
   return (
     <div
-      className="group/card relative h-[320px] flex-shrink-0 overflow-hidden rounded-[6px] bg-espresso motion-safe:hover:[animation-play-state:paused] sm:h-[360px] md:h-[420px]"
+      className="video-card group/card relative h-[320px] flex-shrink-0 overflow-hidden rounded-[6px] bg-espresso motion-safe:hover:[animation-play-state:paused] sm:h-[360px] md:h-[420px]"
       style={{ aspectRatio: "9 / 16" }}
       onMouseEnter={handlePlay}
       onMouseLeave={handlePause}
