@@ -1,15 +1,19 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Search, ShoppingBag, User } from "lucide-react";
+import { Heart, Menu, Search, ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
+import { AnnouncementStrip } from "./AnnouncementStrip";
 import { NAV_LINKS } from "./nav-links";
 import { cn } from "@/lib/utils";
 
 const iconClass =
   "inline-flex h-11 w-11 items-center justify-center text-foreground transition-colors duration-200 hover:text-rust-label";
 
-const STRIP_LINKS = [...NAV_LINKS, { label: "Shop All", to: "/shop" }];
+const CENTER_LINKS = [...NAV_LINKS, { label: "Shop All", to: "/shop" }];
+
+/** Bag is not wired to a cart yet, so the count badge stays hidden at zero. */
+const CART_COUNT = 0;
 
 /** Elephant brandmark — decorative House of Aira mark. */
 function ElephantMark({ className }: { className?: string }) {
@@ -42,8 +46,9 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-background text-foreground">
       <div className="border-b border-border">
-        <Container className="grid h-[60px] grid-cols-[1fr_auto_1fr] items-center">
-          <div className="-ml-2 flex items-center">
+        <Container className="grid h-16 grid-cols-[1fr_auto_1fr] items-center lg:grid-cols-[auto_1fr_auto]">
+          {/* LEFT — brandmark + wordmark on desktop, hamburger on mobile */}
+          <div className="-ml-2 flex items-center lg:ml-0">
             <button
               type="button"
               aria-label="Open menu"
@@ -55,21 +60,41 @@ export function Navbar() {
             <Link
               to="/"
               aria-label="House of Aira home"
-              className="hidden h-11 w-11 items-center justify-center text-espresso transition-colors duration-200 hover:text-rust-label lg:inline-flex"
+              className="hidden items-center gap-2 text-foreground transition-colors duration-200 hover:text-rust-label lg:inline-flex"
             >
               <ElephantMark className="h-5 w-8" />
+              <span className="font-display text-[0.9375rem] uppercase tracking-[0.14em]">
+                House of Aira
+              </span>
             </Link>
           </div>
 
+          {/* CENTER — navigation on desktop, wordmark on mobile */}
           <Link
             to="/"
-            className="font-display justify-self-center text-[1rem] uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label"
+            className="font-display justify-self-center text-[1rem] uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:hidden"
           >
             House of Aira
           </Link>
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center justify-center gap-8 lg:flex"
+          >
+            {CENTER_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                className="type-nav-mini text-[0.6875rem] tracking-[0.12em] text-foreground transition-colors duration-200 hover:text-rust-label"
+                activeProps={{ className: "text-rust-label" }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
+          {/* RIGHT — search, wishlist, bag */}
           <div className="-mr-2 flex items-center justify-end">
-            {/* Search and account are not implemented yet — presented as
+            {/* Search and wishlist are not implemented yet — presented as
                 disabled so they do not imply working functionality. */}
             <button
               type="button"
@@ -79,11 +104,11 @@ export function Navbar() {
               title="Coming soon"
               className={cn(iconClass, "opacity-50 hover:text-foreground")}
             >
-              <Search className="size-4" strokeWidth={1.25} />
+              <Search className="size-[1.375rem]" strokeWidth={1.25} />
             </button>
             <button
               type="button"
-              aria-label="Account (coming soon)"
+              aria-label="Wishlist (coming soon)"
               disabled
               aria-disabled="true"
               title="Coming soon"
@@ -92,35 +117,25 @@ export function Navbar() {
                 "hidden opacity-50 hover:text-foreground md:inline-flex",
               )}
             >
-              <User className="size-4" strokeWidth={1.25} />
+              <Heart className="size-[1.375rem]" strokeWidth={1.25} />
             </button>
-            <Link to="/cart" aria-label="Cart" className={iconClass}>
-              <ShoppingBag className="size-4" strokeWidth={1.25} />
+            <Link
+              to="/cart"
+              aria-label={`Cart${CART_COUNT ? `, ${CART_COUNT} items` : ""}`}
+              className={cn(iconClass, "relative")}
+            >
+              <ShoppingBag className="size-[1.375rem]" strokeWidth={1.25} />
+              {CART_COUNT > 0 ? (
+                <span className="type-nav-mini absolute right-1 top-1 inline-flex min-w-4 items-center justify-center rounded-full bg-rust-label px-1 text-[0.5625rem] leading-4 text-cream-card">
+                  {CART_COUNT}
+                </span>
+              ) : null}
             </Link>
           </div>
         </Container>
       </div>
 
-      {/* Secondary nav strip — desktop only; mobile uses the drawer. */}
-      <div className="hidden border-b border-border lg:block">
-        <Container>
-          <nav
-            aria-label="Primary navigation"
-            className="flex h-9 items-center justify-center gap-8"
-          >
-            {STRIP_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                to={link.to}
-                className="type-nav-mini text-foreground transition-colors duration-200 hover:text-rust-label"
-                activeProps={{ className: "text-rust-label" }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </Container>
-      </div>
+      <AnnouncementStrip />
 
       <MobileMenu open={open} onClose={() => setOpen(false)} />
     </header>
