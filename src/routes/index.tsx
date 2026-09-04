@@ -41,6 +41,7 @@ function Index() {
       <NewArrivalsSection />
       <EditorialQuote />
       <BrandStorySimple />
+      <VideoShowcase />
       <NewsletterSignup />
     </>
   );
