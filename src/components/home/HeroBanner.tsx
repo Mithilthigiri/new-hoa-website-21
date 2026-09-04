@@ -20,7 +20,6 @@ export const HERO_BANNERS: BannerSlide[] = [
     image: banner1.url,
     imageAlt:
       "Model seated in a heritage doorway wearing a purple hand-embroidered skirt with a green kalamkari halter top.",
-    imageAltShort: "Purple skirt set",
     position: "60% center",
   },
   {
@@ -44,7 +43,7 @@ export const HERO_BANNERS: BannerSlide[] = [
       "Close portrait of a model in a black anarkali with gold zari borders beside a stone wall.",
     position: "55% center",
   },
-].map(({ imageAltShort: _unused, ...slide }) => slide) as BannerSlide[];
+];
 
 export function HeroBanner({ className }: { className?: string }) {
   const [index, setIndex] = useState(0);
