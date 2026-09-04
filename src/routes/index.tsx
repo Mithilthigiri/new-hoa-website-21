@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
+import { UspStrip } from "@/components/home/UspStrip";
 import { CategoryScroll } from "@/components/home/CategoryScroll";
 import { NewArrivalsSection } from "@/components/home/NewArrivalsSection";
 import { EditorialQuote } from "@/components/home/EditorialQuote";
 import { BrandStorySimple } from "@/components/home/BrandStorySimple";
-import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
 
 export const Route = createFileRoute("/")({
@@ -35,11 +35,11 @@ function Index() {
     <>
       <HeroBanner />
       <MarqueeSection />
+      <UspStrip />
       <CategoryScroll />
       <NewArrivalsSection />
       <EditorialQuote />
       <BrandStorySimple />
-      <InstagramFeed />
       <NewsletterSignup />
     </>
   );
