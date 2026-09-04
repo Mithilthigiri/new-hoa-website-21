@@ -126,7 +126,7 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
-          src={item.src}
+          src={item.src || undefined}
           poster={item.poster}
           muted
           loop
