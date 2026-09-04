@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
 import { CategoryScroll } from "@/components/home/CategoryScroll";
-import { NewArrivalsSplit } from "@/components/home/NewArrivalsSplit";
+import { NewArrivalsSection } from "@/components/home/NewArrivalsSection";
 import { EditorialQuote } from "@/components/home/EditorialQuote";
 import { BrandStory } from "@/components/home/BrandStory";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
@@ -36,7 +36,7 @@ function Index() {
       <HeroBanner />
       <MarqueeSection />
       <CategoryScroll />
-      <NewArrivalsSplit />
+      <NewArrivalsSection />
       <EditorialQuote />
       <BrandStory />
       <InstagramFeed />
