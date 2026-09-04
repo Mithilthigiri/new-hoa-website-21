@@ -383,3 +383,130 @@
     animation: none;
   }
 }
+
+/* ── Marquee hover slow-down (30% speed) ─────────────────────── */
+
+.marquee-shell:hover .animate-marquee {
+  animation-duration: calc(var(--marquee-duration, 40s) / 0.3);
+}
+
+/* ── Scroll reveal primitives ────────────────────────────────── */
+
+.reveal {
+  --reveal-delay: 0ms;
+}
+
+.reveal-text {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 600ms ease-out var(--reveal-delay),
+    transform 600ms ease-out var(--reveal-delay);
+}
+
+.reveal-text.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-image {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 800ms ease-out var(--reveal-delay);
+}
+
+.reveal-image.is-revealed {
+  clip-path: inset(0% 0 0 0);
+}
+
+/* Curtain-lift: an espresso panel slides up out of frame. */
+.curtain-panel {
+  transform: translateY(0);
+  transition: transform 900ms cubic-bezier(0.76, 0, 0.24, 1) var(--reveal-delay);
+}
+
+.is-revealed > .curtain-panel {
+  transform: translateY(-100%);
+}
+
+/* ── Hero word stagger + Ken Burns ───────────────────────────── */
+
+@keyframes aira-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aira-ken-burns {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@utility animate-word-in {
+  opacity: 0;
+  animation: aira-word-in 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@utility animate-ken-burns {
+  animation: aira-ken-burns 6s ease-out forwards;
+}
+
+/* ── Page transition ─────────────────────────────────────────── */
+
+@keyframes aira-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-page-in {
+  animation: aira-page-in 300ms ease-out both;
+}
+
+/* ── Custom cursor ───────────────────────────────────────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-aira-cursor,
+  body.has-aira-cursor a,
+  body.has-aira-cursor button,
+  body.has-aira-cursor [role="button"] {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text,
+  .reveal-image,
+  .curtain-panel {
+    transition: none !important;
+  }
+  .reveal-text {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-image {
+    clip-path: none;
+  }
+  .curtain-panel {
+    display: none;
+  }
+  .animate-word-in,
+  .animate-ken-burns,
+  .animate-page-in {
+    animation: none !important;
+    opacity: 1;
+  }
+}

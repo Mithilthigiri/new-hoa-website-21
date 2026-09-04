@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
+import { Reveal } from "@/components/motion/Reveal";
 import { NewsletterForm } from "@/components/home/NewsletterForm";
 import { INSTAGRAM_PROFILE_URL } from "@/components/home/instagram-data";
 import {
@@ -32,6 +33,18 @@ function LinkColumn({ title, links }: { title: string; links: NavLink[] }) {
 export function Footer() {
   return (
     <footer className="bg-espresso text-ivory">
+      <Container className="pt-section-sm md:pt-section">
+        <Reveal variant="text" className="overflow-hidden">
+          <p
+            aria-hidden="true"
+            className="font-display w-full font-light leading-[0.9] tracking-tight text-ivory/90 text-[clamp(2.75rem,11vw,10rem)]"
+          >
+            House of Aira
+          </p>
+        </Reveal>
+        <div className="rule-gold mt-space-xl opacity-50" />
+      </Container>
+
       <Container className="py-section-sm md:py-section">
         <div className="grid gap-component md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>

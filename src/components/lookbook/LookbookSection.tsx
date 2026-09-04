@@ -162,6 +162,7 @@ export function LookbookSection({
                 className="relative z-10 md:pr-space-2xl"
               />
               <AiraImage
+                reveal
                 src={look.image}
                 alt={look.imageAlt}
                 ratio="1/1"
@@ -174,6 +175,7 @@ export function LookbookSection({
             <div className="md:col-span-6">
               {look.secondaryImage ? (
                 <AiraImage
+                  reveal
                   src={look.secondaryImage}
                   alt={look.secondaryImageAlt ?? look.imageAlt}
                   ratio="2/3"
@@ -203,6 +205,7 @@ export function LookbookSection({
         <Container width="wide">
           <div className="group mx-auto md:max-w-2xl lg:max-w-3xl">
             <AiraImage
+              reveal
               src={look.image}
               alt={look.imageAlt}
               ratio="4/5"
@@ -244,6 +247,7 @@ export function LookbookSection({
             )}
           >
             <AiraImage
+              reveal
               src={look.image}
               alt={look.imageAlt}
               ratio="3/4"
@@ -277,6 +281,7 @@ export function LookbookSection({
               )}
             >
               <AiraImage
+                reveal
                 src={look.secondaryImage}
                 alt={look.secondaryImageAlt ?? look.imageAlt}
                 ratio="4/5"

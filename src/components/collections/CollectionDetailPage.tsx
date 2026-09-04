@@ -78,6 +78,7 @@ export function CollectionDetailPage({
         <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-2 lg:gap-space-2xl">
           <div className="bg-background-alt">
             <AiraImage
+              reveal
               src={collection.image}
               alt={collection.imageAlt}
               ratio="4/3"
