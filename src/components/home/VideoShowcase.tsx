@@ -202,15 +202,15 @@ export function VideoShowcase({ className }: { className?: string }) {
 
         {/* View more */}
         <div className="mt-8 flex justify-center">
-          <Link
-            to="#"
+          <a
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-foreground px-8 py-[14px] font-sans text-[10px] uppercase tracking-[0.15em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-ivory"
           >
             <Instagram size={16} aria-hidden="true" />
             WATCH MORE ON INSTAGRAM
-          </Link>
+          </a>
         </div>
       </div>
     </section>
