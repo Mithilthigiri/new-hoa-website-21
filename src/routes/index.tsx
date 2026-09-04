@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HeroCarousel } from "@/components/home/HeroCarousel";
+import { HeroShoppable } from "@/components/home/HeroShoppable";
 import { CategoryStrip } from "@/components/home/CategoryStrip";
 import { NewArrivalsSplit } from "@/components/home/NewArrivalsSplit";
 import { CollectionBanners } from "@/components/home/CollectionBanners";
