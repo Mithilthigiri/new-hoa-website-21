@@ -14,24 +14,24 @@ function Card({ card }: { card: CategoryCard }) {
     <Link
       to={card.to}
       {...(card.search ? { search: card.search } : {})}
-      className="group relative block h-[280px] w-[200px] shrink-0 snap-start overflow-hidden rounded-[4px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold lg:h-[380px] lg:w-[280px] xl:w-full"
+      className="group relative block h-[360px] w-[260px] shrink-0 snap-start overflow-hidden rounded-[4px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold xl:w-full"
     >
       <img
         src={card.image}
         alt={card.imageAlt}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-[1.03]"
+        className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-[1.04]"
       />
       <span
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.75)_0%,rgba(44,24,16,0)_55%)]"
+        className="absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.72)_0%,rgba(44,24,16,0)_52%)]"
       />
-      <span className="absolute inset-x-0 bottom-0 block p-5">
-        <span className="font-display block text-[1.375rem] font-normal leading-tight text-cream-card">
+      <span className="absolute inset-x-0 bottom-0 block p-[18px]">
+        <span className="font-display block text-[1.25rem] font-normal leading-tight text-cream-card">
           {card.name}
         </span>
-        <span className="type-nav-mini mt-2 block text-cream-card/70">
+        <span className="mt-1 block font-sans text-[0.5625rem] uppercase tracking-[0.15em] text-cream-card/65">
           {card.subtitle}
         </span>
       </span>
@@ -47,19 +47,19 @@ export function CategoryStrip({
   return (
     <section
       aria-labelledby="category-strip-heading"
-      className={cn("bg-background-alt py-20", className)}
+      className={cn("bg-background-alt py-12", className)}
     >
       <Container width="wide">
         <h2
           id="category-strip-heading"
-          className="type-label text-center text-muted-foreground"
+          className="mb-8 text-center font-sans text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground"
         >
           {heading}
         </h2>
       </Container>
 
       {/* Scroll strip up to 1279px; five equal columns from 1280px. */}
-      <ul className="mt-space-xl flex snap-x snap-mandatory gap-space-md overflow-x-auto px-page-gutter no-scrollbar lg:px-page-gutter-lg xl:mx-auto xl:grid xl:max-w-[100rem] xl:grid-cols-5 xl:overflow-visible">
+      <ul className="flex snap-x snap-mandatory gap-space-md overflow-x-auto px-page-gutter no-scrollbar lg:px-page-gutter-lg xl:mx-auto xl:grid xl:max-w-[100rem] xl:grid-cols-5 xl:overflow-visible">
         {cards.map((card) => (
           <li key={card.id} className="min-w-0 xl:w-full">
             <Card card={card} />
