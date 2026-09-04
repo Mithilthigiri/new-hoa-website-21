@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
-import { CategoryStrip } from "@/components/home/CategoryStrip";
+import { CategoryScroll } from "@/components/home/CategoryScroll";
 import { NewArrivalsSplit } from "@/components/home/NewArrivalsSplit";
 import { EditorialQuote } from "@/components/home/EditorialQuote";
 import { BrandStory } from "@/components/home/BrandStory";
@@ -35,7 +35,7 @@ function Index() {
     <>
       <HeroBanner />
       <MarqueeSection />
-      <CategoryStrip />
+      <CategoryScroll />
       <NewArrivalsSplit />
       <EditorialQuote />
       <BrandStory />
