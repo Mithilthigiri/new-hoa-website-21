@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HeroSection } from "@/components/home/HeroSection";
-import heroImage from "@/assets/DSC04261.jpg.asset.json";
+import { HeroShoppable } from "@/components/home/HeroShoppable";
 import { MarqueeSection } from "@/components/home/MarqueeSection";
-import { CategoryScroll } from "@/components/home/CategoryScroll";
-import { NewArrivalsSection } from "@/components/home/NewArrivalsSection";
+import { CategoryStrip } from "@/components/home/CategoryStrip";
+import { NewArrivalsSplit } from "@/components/home/NewArrivalsSplit";
 import { EditorialQuote } from "@/components/home/EditorialQuote";
-import { BrandStorySimple } from "@/components/home/BrandStorySimple";
+import { BrandStory } from "@/components/home/BrandStory";
+import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
 
 export const Route = createFileRoute("/")({
@@ -33,17 +33,13 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <HeroSection
-        imageSrc={heroImage.url}
-        imageAlt="House of Aira campaign — woman in a navy hand-block floral dress"
-        headline="Dressed in Heritage"
-        primaryCta={{ label: "Explore Collection", to: "/collections" }}
-      />
+      <HeroShoppable />
       <MarqueeSection />
-      <CategoryScroll />
-      <NewArrivalsSection />
+      <CategoryStrip />
+      <NewArrivalsSplit />
       <EditorialQuote />
-      <BrandStorySimple />
+      <BrandStory />
+      <InstagramFeed />
       <NewsletterSignup />
     </>
   );
