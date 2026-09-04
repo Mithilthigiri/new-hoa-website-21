@@ -160,7 +160,7 @@ export function HeroShoppable({ className }: { className?: string }) {
             >
               <span
                 aria-hidden="true"
-                className="motion-safe:hero-dot-pulse absolute block size-[14px] rounded-full bg-espresso"
+                className="hero-dot-pulse absolute block size-[14px] rounded-full bg-espresso"
               />
               <span
                 aria-hidden="true"
