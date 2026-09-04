@@ -35,7 +35,7 @@ function Index() {
     <>
       <HeroBanner />
       <MarqueeSection />
-      <CategoryStrip />
+      <CategoryScroll />
       <NewArrivalsSplit />
       <EditorialQuote />
       <BrandStory />
