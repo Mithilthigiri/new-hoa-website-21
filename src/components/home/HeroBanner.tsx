@@ -113,7 +113,7 @@ export function HeroBanner({
             />
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.62)_0%,rgba(44,24,16,0.18)_42%,rgba(44,24,16,0)_70%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.85)_0%,rgba(44,24,16,0.45)_35%,rgba(44,24,16,0)_68%)]"
             />
 
             <div className="absolute inset-x-0 bottom-0 px-page-gutter pb-14 lg:px-page-gutter-lg lg:pb-20">
