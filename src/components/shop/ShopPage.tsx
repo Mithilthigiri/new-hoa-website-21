@@ -82,6 +82,52 @@ export function ShopPage({
           </p>
         </header>
 
+        {/* Quick category pills — a shortcut into the same filter pipeline. */}
+        <div
+          role="group"
+          aria-label="Quick filters"
+          className="mt-space-lg flex flex-wrap gap-space-sm"
+        >
+          {[
+            { label: "All", active: filters.categories.length === 0 && sort === DEFAULT_SORT },
+            ...options.categories.map((category) => ({
+              label: category,
+              active: filters.categories.includes(category),
+            })),
+            { label: "New In", active: sort === "newest" },
+          ].map((pill) => (
+            <button
+              key={pill.label}
+              type="button"
+              aria-pressed={pill.active}
+              onClick={() => {
+                if (pill.label === "All") {
+                  setFilters(createEmptyFilters(options));
+                  setSort(DEFAULT_SORT);
+                } else if (pill.label === "New In") {
+                  setSort("newest");
+                } else {
+                  setFilters((current) => ({
+                    ...current,
+                    categories: current.categories.includes(pill.label)
+                      ? []
+                      : [pill.label],
+                  }));
+                }
+              }}
+              className={
+                pill.active
+                  ? "type-nav-mini inline-flex min-h-11 items-center rounded-full border border-espresso bg-espresso px-[18px] text-cream-card transition-colors duration-200"
+                  : "type-nav-mini inline-flex min-h-11 items-center rounded-full border border-border bg-transparent px-[18px] text-foreground transition-colors duration-200 hover:border-espresso"
+              }
+            >
+              {pill.label}
+            </button>
+          ))}
+        </div>
+
+
+
         <div className="mt-space-xl grid gap-space-xl lg:mt-space-2xl lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-space-2xl">
           {/* Desktop filter panel: live filtering, hidden on smaller screens. */}
           <aside aria-label="Product filters" className="hidden min-w-0 lg:block">
