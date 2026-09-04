@@ -367,6 +367,15 @@
   }
 }
 
+@keyframes marquee-left {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .marquee-track {
   --marquee-duration: 40s;
 }
