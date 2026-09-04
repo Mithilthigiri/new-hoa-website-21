@@ -1,45 +1,43 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
-type EditorialQuoteProps = {
-  quote?: string;
-  ctaLabel?: string;
-  ctaTo?: string;
-  className?: string;
-};
+function Hairline({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("block h-px w-14 bg-gold", className)}
+    />
+  );
+}
 
-/**
- * Dark typographic moment between New Arrivals and the brand story —
- * presentation only, one editorial link.
- */
-export function EditorialQuote({
-  quote = "Old money maximalism, reimagined for the contemporary Indian wardrobe.",
-  ctaLabel = "Explore the Collections",
-  ctaTo = "/collections",
-  className,
-}: EditorialQuoteProps) {
+export function EditorialQuote({ className }: { className?: string }) {
   return (
     <section
-      aria-label="Editorial statement"
-      className={cn("bg-espresso py-[72px]", className)}
+      aria-labelledby="editorial-quote-heading"
+      className={cn("bg-background-dark py-20", className)}
     >
-      <div className="px-page-gutter text-center lg:px-page-gutter-lg">
-        <span
-          aria-hidden="true"
-          className="mx-auto mb-8 block h-px w-[60px] bg-gold"
-        />
-        <blockquote className="font-editorial mx-auto max-w-[50rem] text-balance font-light italic leading-[1.4] text-ivory text-[clamp(1.5rem,3.5vw,2.625rem)]">
-          {quote}
+      <div className="mx-auto max-w-[760px] px-6 text-center">
+        <Hairline className="mx-auto mb-9" />
+
+        <h2 id="editorial-quote-heading" className="sr-only">
+          Editorial quote
+        </h2>
+
+        <blockquote>
+          <p
+            className="font-editorial text-[clamp(22px,3vw,40px)] font-light italic leading-[1.45] text-ivory"
+          >
+            Old money maximalism, reimagined for the contemporary Indian wardrobe.
+          </p>
         </blockquote>
-        <span
-          aria-hidden="true"
-          className="mx-auto mt-8 block h-px w-[60px] bg-gold"
-        />
+
+        <Hairline className="mx-auto mb-0 mt-9" />
+
         <Link
-          to={ctaTo}
-          className="mt-3 inline-flex h-11 items-center font-sans text-[0.625rem] uppercase tracking-[0.2em] text-gold transition-colors duration-200 hover:text-gold-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          to="/collections"
+          className="mt-6 inline-block font-sans text-[10px] uppercase tracking-[0.2em] text-gold transition-opacity duration-200 hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         >
-          {ctaLabel} →
+          EXPLORE THE COLLECTIONS →
         </Link>
       </div>
     </section>
