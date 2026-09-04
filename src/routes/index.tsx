@@ -35,11 +35,11 @@ function Index() {
     <>
       <HeroBanner />
       <MarqueeSection />
+      <UspStrip />
       <CategoryScroll />
       <NewArrivalsSection />
       <EditorialQuote />
       <BrandStorySimple />
-      <InstagramFeed />
       <NewsletterSignup />
     </>
   );
