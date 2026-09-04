@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
-import { Reveal } from "@/components/motion/Reveal";
 import { NewsletterForm } from "@/components/home/NewsletterForm";
 import { INSTAGRAM_PROFILE_URL } from "@/components/home/instagram-data";
 import {
@@ -19,7 +18,7 @@ function LinkColumn({ title, links }: { title: string; links: NavLink[] }) {
           <li key={link.label}>
             <Link
               to={link.to}
-              className="type-body text-ivory/70 transition-colors duration-300 hover:text-ivory"
+              className="font-sans text-[0.6875rem] tracking-[0.06em] text-[#9a8470] uppercase transition-colors duration-200 hover:text-ivory"
             >
               {link.label}
             </Link>
@@ -33,34 +32,25 @@ function LinkColumn({ title, links }: { title: string; links: NavLink[] }) {
 export function Footer() {
   return (
     <footer className="bg-espresso text-ivory">
-      <Container className="pt-section-sm md:pt-section">
-        <Reveal variant="text" className="overflow-hidden">
-          <p
-            aria-hidden="true"
-            className="font-display w-full font-light leading-[0.9] tracking-tight text-ivory/90 text-[clamp(2.75rem,11vw,10rem)]"
-          >
-            House of Aira
-          </p>
-        </Reveal>
-        <div className="rule-gold mt-space-xl opacity-50" />
+      <Container className="pt-16">
+        <p
+          aria-hidden="true"
+          className="font-display w-full text-center font-light leading-[0.95] tracking-[0.02em] text-ivory text-[clamp(2.5rem,6vw,5rem)] uppercase"
+        >
+          House of Aira
+        </p>
+        <div className="mt-space-lg h-px bg-gold" />
       </Container>
 
-      <Container className="py-section-sm md:py-section">
-        <div className="grid gap-component md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
-          <div>
-            <span className="type-wordmark text-ivory">House of Aira</span>
-            <p className="type-sub mt-5 max-w-xs text-ivory/70">
-              Old money maximalism, reimagined for the contemporary Indian
-              wardrobe.
-            </p>
-          </div>
-
+      <Container className="py-14">
+        <div className="grid gap-component md:grid-cols-2 lg:grid-cols-4">
           <LinkColumn title="Shop" links={FOOTER_SHOP_LINKS} />
           <LinkColumn title="Customer Care" links={FOOTER_SERVICE_LINKS} />
+          <LinkColumn title="Legal" links={FOOTER_LEGAL_LINKS} />
 
           <div>
             <h3 className="type-label text-gold">The Atelier Letter</h3>
-            <p className="type-body mt-6 text-ivory/70">
+            <p className="font-sans mt-6 text-[0.6875rem] uppercase tracking-[0.06em] text-[#9a8470]">
               Private previews and collection notes.
             </p>
             <NewsletterForm
@@ -70,38 +60,20 @@ export function Footer() {
               successMessage="Welcome to the House."
               className="mt-6"
             />
+            <a
+              href={INSTAGRAM_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="type-nav-mini mt-6 inline-flex h-11 items-center text-[#9a8470] transition-colors duration-200 hover:text-ivory"
+            >
+              Instagram
+            </a>
           </div>
         </div>
 
-        <div className="rule-gold mt-section-sm opacity-60" />
-
-        <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="type-label text-ivory/55">
-            © {new Date().getFullYear()} House of Aira
-          </p>
-          <ul className="flex flex-wrap gap-6">
-            {FOOTER_LEGAL_LINKS.map((link) => (
-              <li key={link.label}>
-                <Link
-                  to={link.to}
-                  className="type-label text-ivory/55 transition-colors duration-300 hover:text-gold-soft"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a
-                href={INSTAGRAM_PROFILE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="type-label text-ivory/55 transition-colors duration-300 hover:text-gold-soft"
-              >
-                Instagram
-              </a>
-            </li>
-          </ul>
-        </div>
+        <p className="type-nav-mini mt-12 text-center text-[#6a5545]">
+          © {new Date().getFullYear()} House of Aira
+        </p>
       </Container>
     </footer>
   );
