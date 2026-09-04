@@ -68,9 +68,17 @@ export const videoData: VideoItem[] = [
   },
 ];
 
-function VideoCard({ item, className }: { item: VideoItem; className?: string }) {
+const MARQUEE_ITEMS = [...videoData, ...videoData];
+
+type VideoCardProps = {
+  item: VideoItem;
+  isPlaying: boolean;
+  onPlayStart: () => void;
+  onPlayEnd: () => void;
+};
+
+function VideoCard({ item, isPlaying, onPlayStart, onPlayEnd }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = useCallback(async () => {
     const video = videoRef.current;
@@ -79,12 +87,11 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
 
     try {
       await video.play();
-      setIsPlaying(true);
+      onPlayStart();
     } catch {
       // Autoplay policy or empty source may reject; keep overlay visible.
-      setIsPlaying(false);
     }
-  }, [item.src]);
+  }, [item.src, onPlayStart]);
 
   const handlePause = useCallback(() => {
     const video = videoRef.current;
@@ -92,8 +99,8 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
 
     video.pause();
     video.currentTime = 0;
-    setIsPlaying(false);
-  }, []);
+    onPlayEnd();
+  }, [onPlayEnd]);
 
   const handleToggle = useCallback(() => {
     if (isPlaying) {
@@ -105,10 +112,8 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
 
   return (
     <div
-      className={cn(
-        "group relative w-full overflow-hidden rounded-[6px] bg-espresso",
-        className
-      )}
+      className="video-card group/card relative h-[320px] flex-shrink-0 overflow-hidden rounded-[6px] bg-espresso motion-safe:hover:[animation-play-state:paused] sm:h-[360px] md:h-[420px]"
+      style={{ aspectRatio: "9 / 16" }}
       onMouseEnter={handlePlay}
       onMouseLeave={handlePause}
       onClick={handleToggle}
@@ -122,19 +127,17 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
         }
       }}
     >
-      <div className="relative aspect-[9/16] w-full lg:max-h-[480px]">
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          src={item.src || undefined}
-          poster={item.poster}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label={item.alt}
-        />
-      </div>
+      <video
+        ref={videoRef}
+        className="h-full w-full object-cover"
+        src={item.src || undefined}
+        poster={item.poster}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={item.alt}
+      />
 
       {/* Thumbnail overlay */}
       <div
@@ -146,7 +149,7 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
       >
         <Play
           className="text-ivory/80"
-          size={56}
+          size={48}
           strokeWidth={1.2}
           aria-hidden="true"
         />
@@ -167,6 +170,8 @@ function VideoCard({ item, className }: { item: VideoItem; className?: string })
 }
 
 export function VideoShowcase({ className }: { className?: string }) {
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
   return (
     <section
       aria-labelledby="video-showcase-heading"
@@ -188,19 +193,36 @@ export function VideoShowcase({ className }: { className?: string }) {
             Campaign films and real stories from the women who wear House of Aira.
           </p>
         </div>
+      </div>
 
-        {/* Video grid */}
-        <div className="mt-9 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {videoData.map((item, index) => (
+      {/* Horizontal marquee strip */}
+      <div
+        className="group/marquee mt-9 overflow-hidden motion-reduce:overflow-x-auto no-scrollbar"
+      >
+        <div
+          className={cn(
+            "flex w-max gap-3 px-6 motion-safe:animate-[marquee-left_35s_linear_infinite] motion-reduce:animate-none hover:[animation-play-state:paused] lg:px-12",
+            playingId && "motion-safe:[animation-play-state:paused]"
+          )}
+        >
+          {MARQUEE_ITEMS.map((item, index) => (
             <VideoCard
-              key={item.id}
+              key={`${item.id}-${index}`}
               item={item}
-              className={cn(index >= 3 && "hidden md:block")}
+              isPlaying={playingId === `${item.id}-${index}`}
+              onPlayStart={() => setPlayingId(`${item.id}-${index}`)}
+              onPlayEnd={() =>
+                setPlayingId((current) =>
+                  current === `${item.id}-${index}` ? null : current
+                )
+              }
             />
           ))}
         </div>
+      </div>
 
-        {/* View more */}
+      {/* View more */}
+      <div className="mx-auto max-w-[100rem] px-6 lg:px-12">
         <div className="mt-8 flex justify-center">
           <a
             href="#"
