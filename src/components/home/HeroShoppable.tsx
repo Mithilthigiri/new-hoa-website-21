@@ -45,7 +45,7 @@ export const HERO_DOTS: HeroDot[] = [
     y: 88,
     handle: "kalamkari-cami-top",
     label: "Kalamkari Cami Top",
-    placement: "below",
+    placement: "above",
   },
 ];
 
