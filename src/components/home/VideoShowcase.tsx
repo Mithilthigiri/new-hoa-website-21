@@ -1,5 +1,4 @@
 import { useRef, useState, useCallback } from "react";
-import { Link } from "@tanstack/react-router";
 import { Play, Instagram } from "lucide-react";
 import { cn } from "@/lib/utils";
 import poster1 from "@/assets/DSC03342.jpg.asset.json";
