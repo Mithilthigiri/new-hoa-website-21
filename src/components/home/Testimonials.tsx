@@ -81,7 +81,7 @@ export function Testimonials({ className }: TestimonialsProps) {
           </h2>
         </header>
 
-        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3 lg:px-0">
+        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:items-stretch sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <TestimonialCard key={t.name} testimonial={t} />
           ))}
