@@ -40,9 +40,9 @@ function StarRating() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className="w-[85%] flex-shrink-0 snap-start rounded-[6px] border border-[#EDE4D0] bg-[#FAF6EE] p-8 shadow-[0_2px_16px_rgba(44,24,16,0.07)] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.333px)]">
+    <article className="flex h-full w-[85%] flex-shrink-0 snap-start flex-col rounded-[6px] border border-[#EDE4D0] bg-[#FAF6EE] p-6 shadow-[0_2px_16px_rgba(44,24,16,0.07)] sm:w-full sm:flex-shrink sm:p-8">
       <StarRating />
-      <blockquote className="font-editorial mb-5 text-[1.125rem] italic leading-[1.75] text-foreground">
+      <blockquote className="font-editorial mb-5 grow text-balance text-[1.0625rem] italic leading-[1.7] text-foreground sm:text-[1.125rem]">
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>
       <div className="h-px bg-[#DDD5C0]" />
@@ -81,7 +81,7 @@ export function Testimonials({ className }: TestimonialsProps) {
           </h2>
         </header>
 
-        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3 lg:px-0">
+        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:items-stretch sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <TestimonialCard key={t.name} testimonial={t} />
           ))}
