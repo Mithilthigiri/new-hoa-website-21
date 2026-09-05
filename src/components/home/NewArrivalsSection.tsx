@@ -10,7 +10,7 @@ function MiniProductCard({ product }: { product: Product }) {
   return (
     <article
       className={cn(
-        "group overflow-hidden rounded-[6px] bg-card shadow-none transition-shadow duration-300",
+        "group flex h-full flex-col overflow-hidden rounded-[6px] bg-card shadow-none transition-shadow duration-300",
         "hover:shadow-[0_4px_14px_rgba(44,24,16,0.09)]"
       )}
     >
