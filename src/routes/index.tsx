@@ -8,6 +8,7 @@ import { EditorialQuote } from "@/components/home/EditorialQuote";
 import { BrandStorySimple } from "@/components/home/BrandStorySimple";
 import { VideoShowcase } from "@/components/home/VideoShowcase";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
+import { WhatsappCta } from "@/components/home/WhatsappCta";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,6 +44,8 @@ function Index() {
       <BrandStorySimple />
       <VideoShowcase />
       <NewsletterSignup />
+      <WhatsappCta />
     </>
   );
 }
+
