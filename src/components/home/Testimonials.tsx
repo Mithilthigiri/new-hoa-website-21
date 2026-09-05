@@ -40,17 +40,17 @@ function StarRating() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className="flex-shrink-0 snap-start rounded-[6px] border border-[#EDE4D0] bg-[#FAF6EE] p-8 shadow-[0_2px_16px_rgba(44,24,16,0.07)] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.333px)]">
+    <article className="w-[85%] flex-shrink-0 snap-start rounded-[6px] border border-[#EDE4D0] bg-[#FAF6EE] p-8 shadow-[0_2px_16px_rgba(44,24,16,0.07)] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.333px)]">
       <StarRating />
       <blockquote className="font-editorial mb-5 text-[1.125rem] italic leading-[1.75] text-foreground">
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>
       <div className="h-px bg-[#DDD5C0]" />
       <div className="mt-4">
-        <p className="type-small font-medium uppercase tracking-[0.1em] text-foreground">
+        <p className="font-sans text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-foreground">
           {testimonial.name}
         </p>
-        <p className="type-small mt-[3px] text-muted-foreground">
+        <p className="font-sans mt-[3px] text-[0.625rem] text-muted-foreground">
           {testimonial.location}
         </p>
       </div>
