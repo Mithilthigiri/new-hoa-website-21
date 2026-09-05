@@ -115,12 +115,15 @@ export function CategoryScroll({
 
       <ul
         className={cn(
-          "flex gap-[12px] overflow-x-auto scroll-smooth pb-1 pl-6 snap-x snap-mandatory no-scrollbar",
-          "xl:grid xl:grid-cols-5 xl:overflow-visible xl:px-12"
+          "grid grid-cols-2 gap-3 px-6 sm:flex sm:gap-[12px] sm:overflow-x-auto sm:scroll-smooth sm:pb-1 sm:snap-x sm:snap-mandatory sm:no-scrollbar",
+          "xl:grid xl:grid-cols-5 xl:overflow-visible xl:px-12",
         )}
       >
         {CATEGORY_CARDS.map((card) => (
-          <li key={card.id} className="min-w-0">
+          <li
+            key={card.id}
+            className="min-w-0 sm:w-[240px] sm:shrink-0 sm:snap-start xl:w-auto"
+          >
             <Card card={card} />
           </li>
         ))}
