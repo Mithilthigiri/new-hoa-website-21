@@ -105,9 +105,9 @@ export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
 
         {/* Product grid — 66% desktop, 2 cols mobile, 4 cols desktop */}
         <div className="w-full lg:w-[66%]">
-          <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4">
             {visible.map((product) => (
-              <li key={product.id} className="min-w-0">
+              <li key={product.id} className="flex min-w-0">
                 <MiniProductCard product={product} />
               </li>
             ))}
