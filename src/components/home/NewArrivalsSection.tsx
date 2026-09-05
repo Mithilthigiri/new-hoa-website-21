@@ -10,7 +10,7 @@ function MiniProductCard({ product }: { product: Product }) {
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[6px] bg-card shadow-none transition-shadow duration-300",
+        "group flex h-full w-full flex-col overflow-hidden rounded-[6px] bg-card shadow-none transition-shadow duration-300",
         "hover:shadow-[0_4px_14px_rgba(44,24,16,0.09)]"
       )}
     >
@@ -37,7 +37,7 @@ function MiniProductCard({ product }: { product: Product }) {
         ) : null}
       </Link>
 
-      <div className="px-[10px] pb-3 pt-2">
+      <div className="min-h-[62px] px-[10px] pb-3 pt-2">
         <h3 className="truncate font-sans text-[11px] font-normal leading-tight text-foreground">
           <Link
             to="/product/$handle"
