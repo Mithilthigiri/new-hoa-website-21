@@ -6,6 +6,7 @@ import { CategoryScroll } from "@/components/home/CategoryScroll";
 import { NewArrivalsSection } from "@/components/home/NewArrivalsSection";
 import { EditorialQuote } from "@/components/home/EditorialQuote";
 import { BrandStorySimple } from "@/components/home/BrandStorySimple";
+import { Testimonials } from "@/components/home/Testimonials";
 import { VideoShowcase } from "@/components/home/VideoShowcase";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
 import { WhatsappCta } from "@/components/home/WhatsappCta";
@@ -42,10 +43,12 @@ function Index() {
       <NewArrivalsSection />
       <EditorialQuote />
       <BrandStorySimple />
+      <Testimonials />
       <VideoShowcase />
       <NewsletterSignup />
       <WhatsappCta />
     </>
   );
 }
+
 
