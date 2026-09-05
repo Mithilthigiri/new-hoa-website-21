@@ -10,7 +10,7 @@ function MiniProductCard({ product }: { product: Product }) {
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[6px] bg-card shadow-none transition-shadow duration-300",
+        "group flex h-full w-full flex-col overflow-hidden rounded-[6px] bg-card shadow-none transition-shadow duration-300",
         "hover:shadow-[0_4px_14px_rgba(44,24,16,0.09)]"
       )}
     >
@@ -37,7 +37,7 @@ function MiniProductCard({ product }: { product: Product }) {
         ) : null}
       </Link>
 
-      <div className="px-[10px] pb-3 pt-2">
+      <div className="min-h-[62px] px-[10px] pb-3 pt-2">
         <h3 className="truncate font-sans text-[11px] font-normal leading-tight text-foreground">
           <Link
             to="/product/$handle"
@@ -105,9 +105,9 @@ export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
 
         {/* Product grid — 66% desktop, 2 cols mobile, 4 cols desktop */}
         <div className="w-full lg:w-[66%]">
-          <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4">
             {visible.map((product) => (
-              <li key={product.id} className="min-w-0">
+              <li key={product.id} className="flex min-w-0">
                 <MiniProductCard product={product} />
               </li>
             ))}
