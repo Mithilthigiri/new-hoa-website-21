@@ -68,7 +68,7 @@ function Card({ card }: { card: CategoryScrollCard }) {
   return (
     <Link
       to={card.to}
-      className="group relative block h-[340px] w-[240px] shrink-0 snap-start overflow-hidden rounded-[4px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold xl:w-full"
+      className="group relative block aspect-[3/4] h-auto w-full overflow-hidden rounded-[4px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:aspect-auto sm:h-[340px]"
       aria-label={`${card.title} — ${card.subtitle}`}
     >
       <AiraImage
