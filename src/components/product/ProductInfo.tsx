@@ -62,19 +62,21 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
 
   return (
     <div className={cn("min-w-0", className)}>
-      <p className="type-label text-rust-deep">{category}</p>
-      <h1 className="type-h1 mt-space-sm text-foreground">{title}</h1>
-      <p className="type-editorial mt-space-sm text-foreground">{formatPrice(price, currency)}</p>
+      <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#B85C38]">{category}</p>
+      <h1 className="mt-3 font-display text-[clamp(26px,4vw,40px)] font-light leading-[1.1] text-[#1A0F0A]">
+        {title}
+      </h1>
+      <p className="mt-3 font-editorial italic text-[22px] text-[#1A0F0A]">{formatPrice(price, currency)}</p>
 
-      <div className="rule-gold mt-space-lg w-16" />
+      <div className="mt-5 block h-px w-12 bg-[#C9A84C]" />
 
-      <p className="type-editorial mt-space-lg max-w-prose text-muted-foreground">
+      <p className="mt-5 max-w-prose font-editorial text-[16px] leading-[1.8] italic text-[#7A6855]">
         {product.description ?? PDP_FALLBACK_DESCRIPTION}
       </p>
 
       {/* Colour */}
       <div className="mt-space-xl">
-        <p className="type-label text-espresso">
+        <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-[#1A0F0A]">
           Colour
           {!hasMultipleColours && colours[0] ? (
             <span className="ml-space-sm text-muted-foreground">{colours[0]}</span>
@@ -114,7 +116,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
       {/* Size */}
       <div className="mt-space-lg">
         <div className="flex flex-wrap items-center justify-between gap-space-sm">
-          <p className="type-label text-espresso">Size</p>
+          <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-[#1A0F0A]">Size</p>
           <SizeGuideDialog />
         </div>
         <div
@@ -137,8 +139,8 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
                 className={cn(
                   optionClass,
                   active
-                    ? "border-espresso bg-espresso text-ivory"
-                    : "border-border text-espresso hover:border-border-strong hover:bg-outline-hover",
+                    ? "border-[#2C1810] bg-[#2C1810] text-[#FAF6EE]"
+                    : "border-[#DDD5C0] text-[#1A0F0A] hover:border-[#2C1810] hover:bg-[#FAF6EE]",
                 )}
               >
                 {size}
@@ -156,10 +158,9 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
         <AiraButton
           type="button"
           size="lg"
-          className="w-full sm:flex-1"
+          className="h-[52px] w-full rounded-none bg-[#2C1810] px-6 font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] hover:bg-[#1A0F0A] sm:flex-1"
           onClick={handleAddToCart}
         >
-
           {added ? "Added" : "Add to Cart"}
         </AiraButton>
         <AiraButton
@@ -180,7 +181,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
 
       <div className="mt-space-xl border-t border-border pt-space-lg">
         <p className="type-label text-espresso">Shipping &amp; Returns</p>
-        <p className="type-small mt-space-sm text-muted-foreground">{PDP_SHIPPING_NOTE}</p>
+        <p className="mt-space-sm font-sans text-[11px] leading-[1.7] text-[#7A6855]">{PDP_SHIPPING_NOTE}</p>
       </div>
     </div>
   );
