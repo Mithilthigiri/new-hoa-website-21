@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AiraButton } from "@/components/ui/aira-button";
 import { SizeGuideDialog } from "./SizeGuideDialog";
 import { PDP_FALLBACK_DESCRIPTION, PDP_SHIPPING_NOTE } from "./pdp-copy";
+import { useCart } from "@/components/cart/useCart";
 import { formatPrice, type Product } from "@/components/home/products-data";
+
 
 type ProductInfoProps = {
   product: Product;
@@ -20,13 +22,43 @@ const optionClass =
  */
 export function ProductInfo({ product, className }: ProductInfoProps) {
   const { title, category, price, currency, sizes, colours } = product;
+  const { addItem, openCart } = useCart();
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColour, setSelectedColour] = useState<string>(colours[0] ?? "");
   const [added, setAdded] = useState(false);
+  const [sizeError, setSizeError] = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
 
   const hasMultipleColours = colours.length > 1;
+
+  useEffect(() => {
+    if (!added) return;
+    const timer = window.setTimeout(() => setAdded(false), 2000);
+    return () => window.clearTimeout(timer);
+  }, [added]);
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      setSizeError(true);
+      return;
+    }
+    setSizeError(false);
+    addItem({
+      id: product.id,
+      handle: product.handle,
+      title: product.title,
+      price: product.price,
+      currency: product.currency,
+      image: product.image,
+      imageAlt: product.imageAlt,
+      size: selectedSize,
+      quantity: 1,
+    });
+    setAdded(true);
+    openCart();
+  };
+
 
   return (
     <div className={cn("min-w-0", className)}>
@@ -98,7 +130,10 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
                 type="button"
                 role="radio"
                 aria-checked={active}
-                onClick={() => setSelectedSize(size)}
+                onClick={() => {
+                  setSelectedSize(size);
+                  setSizeError(false);
+                }}
                 className={cn(
                   optionClass,
                   active
@@ -111,16 +146,20 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
             );
           })}
         </div>
+        {sizeError ? (
+          <p className="type-small mt-space-sm text-rust-deep">Please select a size first.</p>
+        ) : null}
       </div>
 
-      {/* Purchase controls — local state only in this phase. */}
+      {/* Purchase controls — adds the selected size to the cart drawer. */}
       <div className="mt-space-xl flex flex-col gap-space-sm sm:flex-row">
         <AiraButton
           type="button"
           size="lg"
           className="w-full sm:flex-1"
-          onClick={() => setAdded(true)}
+          onClick={handleAddToCart}
         >
+
           {added ? "Added" : "Add to Cart"}
         </AiraButton>
         <AiraButton
