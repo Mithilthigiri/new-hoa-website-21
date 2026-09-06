@@ -139,14 +139,17 @@ export function HeroBanner({
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  const isVideoSlide = Boolean(slides[index]?.video);
+
   useEffect(() => {
-    if (paused || slides.length < 2) return;
-    const id = window.setInterval(
+    // Video slides advance only once the clip has played through.
+    if (paused || isVideoSlide || slides.length < 2) return;
+    const id = window.setTimeout(
       () => setIndex((i) => (i + 1) % slides.length),
       6000,
     );
-    return () => window.clearInterval(id);
-  }, [paused, slides.length]);
+    return () => window.clearTimeout(id);
+  }, [paused, index, isVideoSlide, slides.length]);
 
   const go = (next: number) =>
     setIndex((next + slides.length) % slides.length);
