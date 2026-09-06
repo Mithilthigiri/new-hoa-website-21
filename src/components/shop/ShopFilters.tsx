@@ -73,9 +73,7 @@ export function ShopFilters({
               id={`${idPrefix}-size-${slug(size)}`}
               label={size}
               checked={filters.sizes.includes(size)}
-              onChange={() =>
-                onChange({ ...filters, sizes: toggleValue(filters.sizes, size) })
-              }
+              onChange={() => onChange({ ...filters, sizes: toggleValue(filters.sizes, size) })}
             />
           ))}
         </FilterGroup>

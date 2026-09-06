@@ -29,10 +29,7 @@ const TESTIMONIALS: Testimonial[] = [
 
 function StarRating() {
   return (
-    <div
-      className="mb-4 text-[0.875rem] tracking-[2px] text-gold"
-      aria-label="5 out of 5 stars"
-    >
+    <div className="mb-4 text-[0.875rem] tracking-[2px] text-gold" aria-label="5 out of 5 stars">
       ★★★★★
     </div>
   );
@@ -70,9 +67,7 @@ export function Testimonials({ className }: TestimonialsProps) {
     >
       <div className="mx-auto max-w-[100rem] px-6 lg:px-12">
         <header className="text-center">
-          <p className="type-label mb-3 text-rust-label">
-            WHAT OUR CUSTOMERS SAY
-          </p>
+          <p className="type-label mb-3 text-rust-label">WHAT OUR CUSTOMERS SAY</p>
           <h2
             id="testimonials-heading"
             className="font-display text-[2rem] font-light text-foreground"

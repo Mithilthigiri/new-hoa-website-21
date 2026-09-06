@@ -57,9 +57,7 @@ export function ShopControls({
                 <span className="sr-only">{`, ${activeCount} active`}</span>
               ) : null}
             </span>
-            {activeCount > 0 ? (
-              <span aria-hidden="true">({activeCount})</span>
-            ) : null}
+            {activeCount > 0 ? <span aria-hidden="true">({activeCount})</span> : null}
           </button>
 
           {/* One sort control, one sort state, native select semantics. */}
@@ -70,9 +68,7 @@ export function ShopControls({
             <select
               id="shop-sort"
               value={sort}
-              onChange={(event) =>
-                onSortChange(event.target.value as ShopSortOption)
-              }
+              onChange={(event) => onSortChange(event.target.value as ShopSortOption)}
               className="type-button absolute inset-0 h-full w-full cursor-pointer appearance-none bg-transparent pr-9 pl-5 text-espresso outline-none"
             >
               {SHOP_SORT_OPTIONS.map((option) => (

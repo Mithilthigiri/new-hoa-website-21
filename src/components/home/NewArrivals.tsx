@@ -32,9 +32,7 @@ export function NewArrivals({
           <h2 id="new-arrivals-heading" className="type-h2 mt-space-md text-foreground">
             {heading}
           </h2>
-          <p className="type-editorial mt-space-md text-muted-foreground">
-            {supportingCopy}
-          </p>
+          <p className="type-editorial mt-space-md text-muted-foreground">{supportingCopy}</p>
         </Reveal>
       </Container>
 

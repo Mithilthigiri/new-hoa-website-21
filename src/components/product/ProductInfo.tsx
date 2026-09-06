@@ -32,9 +32,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
     <div className={cn("min-w-0", className)}>
       <p className="type-label text-rust-deep">{category}</p>
       <h1 className="type-h1 mt-space-sm text-foreground">{title}</h1>
-      <p className="type-editorial mt-space-sm text-foreground">
-        {formatPrice(price, currency)}
-      </p>
+      <p className="type-editorial mt-space-sm text-foreground">{formatPrice(price, currency)}</p>
 
       <div className="rule-gold mt-space-lg w-16" />
 
@@ -47,9 +45,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
         <p className="type-label text-espresso">
           Colour
           {!hasMultipleColours && colours[0] ? (
-            <span className="ml-space-sm text-muted-foreground">
-              {colours[0]}
-            </span>
+            <span className="ml-space-sm text-muted-foreground">{colours[0]}</span>
           ) : null}
         </p>
 
@@ -135,10 +131,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
           className="w-full sm:w-auto"
           onClick={() => setWishlisted((value) => !value)}
         >
-          <Heart
-            aria-hidden="true"
-            className={cn("size-4", wishlisted && "fill-current")}
-          />
+          <Heart aria-hidden="true" className={cn("size-4", wishlisted && "fill-current")} />
           {wishlisted ? "Saved" : "Wishlist"}
         </AiraButton>
       </div>
@@ -148,9 +141,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
 
       <div className="mt-space-xl border-t border-border pt-space-lg">
         <p className="type-label text-espresso">Shipping &amp; Returns</p>
-        <p className="type-small mt-space-sm text-muted-foreground">
-          {PDP_SHIPPING_NOTE}
-        </p>
+        <p className="type-small mt-space-sm text-muted-foreground">{PDP_SHIPPING_NOTE}</p>
       </div>
     </div>
   );

@@ -13,8 +13,7 @@ import {
 
 const gutter = "px-6 md:px-10 lg:px-14";
 const shell = "mx-auto w-full max-w-[100rem]";
-const eyebrow =
-  "font-sans text-[10px] uppercase tracking-[0.2em] text-[#B85C38]";
+const eyebrow = "font-sans text-[10px] uppercase tracking-[0.2em] text-[#B85C38]";
 const heading =
   "font-display text-[28px] leading-[1.15] font-light text-[#1A0F0A] sm:text-[32px] lg:text-[36px]";
 
@@ -26,18 +25,13 @@ export function AboutPage() {
   return (
     <div className="w-full overflow-x-hidden bg-[#F5EFE0]">
       {/* 1 — Page header */}
-      <header
-        className={`${gutter} border-b border-[#DDD5C0] pt-12 pb-12 text-center lg:pt-20`}
-      >
+      <header className={`${gutter} border-b border-[#DDD5C0] pt-12 pb-12 text-center lg:pt-20`}>
         <div className="mx-auto w-full max-w-[680px]">
           <p className={`${eyebrow} mb-4`}>{ABOUT_HERO.eyebrow}</p>
           <h1 className="font-display text-[clamp(36px,5vw,64px)] leading-[1.1] font-light text-[#1A0F0A]">
             {ABOUT_HERO.headingLines.join(" ")}
           </h1>
-          <span
-            aria-hidden="true"
-            className="mx-auto my-6 block h-px w-12 bg-[#C9A84C]"
-          />
+          <span aria-hidden="true" className="mx-auto my-6 block h-px w-12 bg-[#C9A84C]" />
           <p className="mx-auto max-w-[520px] font-editorial text-[18px] leading-[1.75] text-[#7A6855] italic">
             {ABOUT_HERO.supportingCopy}
           </p>
@@ -45,13 +39,8 @@ export function AboutPage() {
       </header>
 
       {/* 2 — Our philosophy */}
-      <section
-        aria-labelledby="about-philosophy"
-        className={`${gutter} bg-[#F5EFE0] py-20`}
-      >
-        <div
-          className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}
-        >
+      <section aria-labelledby="about-philosophy" className={`${gutter} bg-[#F5EFE0] py-20`}>
+        <div className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}>
           <div className="order-2 lg:order-1 lg:w-[45%]">
             <p className={eyebrow}>{ABOUT_PHILOSOPHY.eyebrow}</p>
             <h2 id="about-philosophy" className={`${heading} mt-3`}>
@@ -81,13 +70,8 @@ export function AboutPage() {
       </section>
 
       {/* 4 — The founder */}
-      <section
-        aria-labelledby="about-founder"
-        className={`${gutter} bg-[#EDE4D0] py-20`}
-      >
-        <div
-          className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}
-        >
+      <section aria-labelledby="about-founder" className={`${gutter} bg-[#EDE4D0] py-20`}>
+        <div className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}>
           <div className="lg:w-[55%]">
             <AiraImage
               src={ABOUT_FOUNDER.image}
@@ -102,10 +86,7 @@ export function AboutPage() {
               {ABOUT_FOUNDER.heading}
             </h2>
             {ABOUT_FOUNDER.paragraphs.map((copy) => (
-              <p
-                key={copy}
-                className="mt-4 font-sans text-[14px] leading-[1.8] text-[#1A0F0A]"
-              >
+              <p key={copy} className="mt-4 font-sans text-[14px] leading-[1.8] text-[#1A0F0A]">
                 {copy}
               </p>
             ))}
@@ -155,13 +136,8 @@ export function AboutPage() {
       </section>
 
       {/* 6 — The Aira woman */}
-      <section
-        aria-labelledby="about-woman"
-        className={`${gutter} bg-[#F5EFE0] py-20`}
-      >
-        <div
-          className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}
-        >
+      <section aria-labelledby="about-woman" className={`${gutter} bg-[#F5EFE0] py-20`}>
+        <div className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}>
           <div className="lg:w-[45%]">
             <p className={eyebrow}>{ABOUT_WOMAN.eyebrow}</p>
             <h2 id="about-woman" className={`${heading} mt-3`}>
@@ -187,10 +163,7 @@ export function AboutPage() {
       </section>
 
       {/* 7 — Three expressions */}
-      <section
-        aria-labelledby="about-expressions"
-        className={`${gutter} bg-[#EDE4D0] py-20`}
-      >
+      <section aria-labelledby="about-expressions" className={`${gutter} bg-[#EDE4D0] py-20`}>
         <div className={shell}>
           <div className="mb-12 max-w-[600px]">
             <h2 id="about-expressions" className={heading}>
@@ -235,10 +208,7 @@ export function AboutPage() {
       {/* 8 — Closing */}
       <section aria-labelledby="about-closing" className="bg-[#2C1810] py-20">
         <div className="mx-auto w-full max-w-[640px] px-6 text-center">
-          <span
-            aria-hidden="true"
-            className="mx-auto mb-8 block h-px w-12 bg-[#C9A84C]"
-          />
+          <span aria-hidden="true" className="mx-auto mb-8 block h-px w-12 bg-[#C9A84C]" />
           <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C9A84C]">
             {ABOUT_CLOSING.eyebrow}
           </p>

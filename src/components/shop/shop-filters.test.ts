@@ -152,25 +152,27 @@ describe("filterProducts", () => {
 
   describe("price boundaries", () => {
     it("is inclusive at both ends", () => {
-      expect(ids(filterProducts(products, withFilters({ price: { min: 1000, max: 5000 } })))).toEqual(
-        ["a", "b"],
-      );
+      expect(
+        ids(filterProducts(products, withFilters({ price: { min: 1000, max: 5000 } }))),
+      ).toEqual(["a", "b"]);
     });
 
     it("excludes prices just outside the range", () => {
-      expect(ids(filterProducts(products, withFilters({ price: { min: 1001, max: 4999 } })))).toEqual(
-        [],
-      );
+      expect(
+        ids(filterProducts(products, withFilters({ price: { min: 1001, max: 4999 } }))),
+      ).toEqual([]);
     });
 
     it("matches a single product on an exact-point range", () => {
-      expect(ids(filterProducts(products, withFilters({ price: { min: 9000, max: 9000 } })))).toEqual(
-        ["c"],
-      );
+      expect(
+        ids(filterProducts(products, withFilters({ price: { min: 9000, max: 9000 } }))),
+      ).toEqual(["c"]);
     });
 
     it("returns nothing for an inverted range", () => {
-      expect(filterProducts(products, withFilters({ price: { min: 9000, max: 1000 } }))).toEqual([]);
+      expect(filterProducts(products, withFilters({ price: { min: 9000, max: 1000 } }))).toEqual(
+        [],
+      );
     });
   });
 });

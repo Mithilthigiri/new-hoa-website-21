@@ -8,11 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import { AiraButton } from "@/components/ui/aira-button";
 import { ShopFilters } from "./ShopFilters";
-import {
-  createEmptyFilters,
-  type ShopFilterOptions,
-  type ShopFilterState,
-} from "./shop-filters";
+import { createEmptyFilters, type ShopFilterOptions, type ShopFilterState } from "./shop-filters";
 
 type ShopFilterDrawerProps = {
   open: boolean;
@@ -44,10 +40,7 @@ export function ShopFilterDrawer({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent
-        side="bottom"
-        className="flex max-h-[85vh] flex-col gap-0 overflow-y-auto p-0"
-      >
+      <SheetContent side="bottom" className="flex max-h-[85vh] flex-col gap-0 overflow-y-auto p-0">
         <SheetHeader className="space-y-1 border-b border-border px-page-gutter py-space-md text-left">
           <SheetTitle className="type-h4 text-foreground">Filter</SheetTitle>
           <SheetDescription className="type-caption text-muted-foreground">

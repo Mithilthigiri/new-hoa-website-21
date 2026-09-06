@@ -18,10 +18,7 @@ export function NewsletterSignup({
   className,
 }: NewsletterSignupProps) {
   return (
-    <section
-      aria-labelledby="newsletter-heading"
-      className={cn("bg-espresso py-16", className)}
-    >
+    <section aria-labelledby="newsletter-heading" className={cn("bg-espresso py-16", className)}>
       <Container width="wide">
         <div className="mx-auto max-w-[35rem] text-center">
           <h2
@@ -43,8 +40,8 @@ export function NewsletterSignup({
           />
 
           <p className="mt-space-md font-sans text-[0.6875rem] text-ivory/55">
-            By subscribing, you agree to receive updates from House of Aira.
-            Unsubscribe at any time.
+            By subscribing, you agree to receive updates from House of Aira. Unsubscribe at any
+            time.
           </p>
         </div>
       </Container>

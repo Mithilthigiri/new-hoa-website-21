@@ -40,10 +40,7 @@ function MarqueeCopy({
 }
 
 /** Thin rust announcement band — continuous, smooth, no pause. */
-export function MarqueeSection({
-  items = DEFAULT_MARQUEE_ITEMS,
-  className,
-}: MarqueeSectionProps) {
+export function MarqueeSection({ items = DEFAULT_MARQUEE_ITEMS, className }: MarqueeSectionProps) {
   return (
     <section
       aria-label="Announcements"

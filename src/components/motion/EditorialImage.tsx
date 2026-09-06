@@ -15,12 +15,7 @@ type EditorialImageProps = {
  * out of frame the first time the frame enters the viewport.
  * Reduced motion hides the panel entirely (see styles.css).
  */
-export function EditorialImage({
-  children,
-  index = 0,
-  delay,
-  className,
-}: EditorialImageProps) {
+export function EditorialImage({ children, index = 0, delay, className }: EditorialImageProps) {
   const { ref, revealed } = useReveal<HTMLDivElement>();
   const style = {
     "--reveal-delay": `${delay ?? index * 80}ms`,
@@ -30,11 +25,7 @@ export function EditorialImage({
     <div
       ref={ref}
       style={style}
-      className={cn(
-        "relative overflow-hidden",
-        revealed && "is-revealed",
-        className,
-      )}
+      className={cn("relative overflow-hidden", revealed && "is-revealed", className)}
     >
       {children}
       <span

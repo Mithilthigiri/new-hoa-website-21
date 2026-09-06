@@ -19,8 +19,7 @@ export const CATEGORY_CARDS: CategoryCard[] = [
     name: "Ethnic Wear",
     subtitle: "Rooted in heritage",
     image: ethnicImage.url,
-    imageAlt:
-      "Model in a hand-embroidered ethnic ensemble photographed in warm daylight.",
+    imageAlt: "Model in a hand-embroidered ethnic ensemble photographed in warm daylight.",
     to: "/shop",
     search: { category: "Ethnic Wear" },
   },
@@ -48,8 +47,7 @@ export const CATEGORY_CARDS: CategoryCard[] = [
     name: "New In",
     subtitle: "Just arrived",
     image: newInImage.url,
-    imageAlt:
-      "Model seated in an ivory hand-embroidered lehenga in warm daylight.",
+    imageAlt: "Model seated in an ivory hand-embroidered lehenga in warm daylight.",
     to: "/new-in",
   },
 ];

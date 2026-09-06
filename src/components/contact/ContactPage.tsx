@@ -1,16 +1,12 @@
 import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import {
-  contactEnquirySchema,
-  submitContactEnquiry,
-} from "@/lib/contact.functions";
+import { contactEnquirySchema, submitContactEnquiry } from "@/lib/contact.functions";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 const fieldClass =
   "mt-2 w-full border-b border-[#1A0F0A]/20 bg-transparent pb-2 font-sans text-[14px] text-[#1A0F0A] outline-none transition-colors focus:border-[#C9A84C]";
-const labelClass =
-  "font-sans text-[10px] uppercase tracking-[0.2em] text-[#7A6855]";
+const labelClass = "font-sans text-[10px] uppercase tracking-[0.2em] text-[#7A6855]";
 
 export function ContactPage() {
   const send = useServerFn(submitContactEnquiry);
@@ -53,19 +49,14 @@ export function ContactPage() {
     <div className="bg-[#F5EFE0]">
       <section className="border-b border-[#DDD5C0] px-6 pt-12 pb-12 text-center lg:pt-20">
         <div className="mx-auto w-full max-w-[680px]">
-          <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#B85C38]">
-            Contact
-          </p>
+          <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#B85C38]">Contact</p>
           <h1 className="mt-4 font-display text-[clamp(36px,5vw,64px)] leading-[1.1] font-light text-[#1A0F0A]">
             Write to the House
           </h1>
-          <span
-            aria-hidden="true"
-            className="mx-auto my-6 block h-px w-12 bg-[#C9A84C]"
-          />
+          <span aria-hidden="true" className="mx-auto my-6 block h-px w-12 bg-[#C9A84C]" />
           <p className="mx-auto max-w-[520px] font-editorial text-[18px] leading-[1.75] text-[#7A6855] italic">
-            Styling advice, sizing, bespoke orders or press — send us a note and
-            our client care team will reply personally.
+            Styling advice, sizing, bespoke orders or press — send us a note and our client care
+            team will reply personally.
           </p>
         </div>
       </section>
@@ -73,9 +64,7 @@ export function ContactPage() {
       <section className="px-6 py-20 lg:px-12">
         <div className="mx-auto grid w-full max-w-[100rem] gap-16 lg:grid-cols-[45%_55%]">
           <div>
-            <h2 className="font-display text-[28px] font-light text-[#1A0F0A]">
-              Client care
-            </h2>
+            <h2 className="font-display text-[28px] font-light text-[#1A0F0A]">Client care</h2>
             <p className="mt-4 font-sans text-[14px] leading-[1.8] text-[#7A6855]">
               We reply to every enquiry, usually within one business day.
             </p>
@@ -169,8 +158,7 @@ export function ContactPage() {
               <p aria-live="polite" className="mt-4 font-sans text-[13px]">
                 {status === "sent" ? (
                   <span className="text-[#1A0F0A]">
-                    Thank you — your message has reached us. We&apos;ll be in
-                    touch shortly.
+                    Thank you — your message has reached us. We&apos;ll be in touch shortly.
                   </span>
                 ) : null}
                 {status === "error" && error ? (

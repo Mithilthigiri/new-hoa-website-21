@@ -26,10 +26,7 @@ export function BrandStory({
   ctaTo = "/about",
 }: BrandStoryProps) {
   return (
-    <section
-      aria-labelledby="brand-story-heading"
-      className="bg-background-alt py-16"
-    >
+    <section aria-labelledby="brand-story-heading" className="bg-background-alt py-16">
       <Container width="wide">
         <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-2">
           {/* Text column — second on mobile, first on desktop */}

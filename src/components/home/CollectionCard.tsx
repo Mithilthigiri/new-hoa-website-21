@@ -47,12 +47,8 @@ export function CollectionCard({
 
       <div className="mt-space-lg">
         <h3 className="type-h4 text-foreground">{title}</h3>
-        <p className="type-editorial mt-space-xs italic text-muted-foreground">
-          {subtitle}
-        </p>
-        {meta ? (
-          <p className="type-small mt-space-xs text-muted-foreground">{meta}</p>
-        ) : null}
+        <p className="type-editorial mt-space-xs italic text-muted-foreground">{subtitle}</p>
+        {meta ? <p className="type-small mt-space-xs text-muted-foreground">{meta}</p> : null}
         <span className="type-label mt-space-md inline-flex min-h-11 items-center border-b border-transparent text-rust-deep transition-colors duration-300 group-hover:border-border-gold motion-reduce:transition-none">
           {cta}
         </span>

@@ -23,10 +23,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       // closed, so the slide transition can still be preserved.
       inert={!open}
       aria-hidden={!open}
-      className={cn(
-        "fixed inset-0 z-50",
-        open ? "pointer-events-auto" : "pointer-events-none",
-      )}
+      className={cn("fixed inset-0 z-50", open ? "pointer-events-auto" : "pointer-events-none")}
     >
       <div
         onClick={onClose}

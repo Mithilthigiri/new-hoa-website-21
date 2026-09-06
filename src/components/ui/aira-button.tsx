@@ -9,8 +9,7 @@ export const airaButtonVariants = cva(
     variants: {
       variant: {
         primary: "bg-primary text-primary-foreground hover:bg-espresso/85",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-rust-warm",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-rust-warm",
         gold: "bg-accent text-accent-foreground hover:bg-gold-soft",
         outline:
           "h-auto !border-0 !border-b border-foreground/40 bg-transparent !px-0 pb-1 text-foreground transition-colors duration-300 hover:border-gold hover:text-rust-label focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
@@ -43,10 +42,5 @@ export function AiraButton({
 }: AiraButtonProps) {
   const Comp = asChild ? Slot : "button";
 
-  return (
-    <Comp
-      className={cn(airaButtonVariants({ variant, size }), className)}
-      {...props}
-    />
-  );
+  return <Comp className={cn(airaButtonVariants({ variant, size }), className)} {...props} />;
 }

@@ -39,12 +39,10 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "editorial",
     image: heroEditorial.url,
-    imageAlt:
-      "Model in an ivory lehenga mid-movement, the skirt swinging in soft daylight.",
+    imageAlt: "Model in an ivory lehenga mid-movement, the skirt swinging in soft daylight.",
     eyebrow: "The editorial story",
     headline: "Opulence, Worn Quietly",
-    subline:
-      "An heirloom is not something you inherit. It is something you choose to wear.",
+    subline: "An heirloom is not something you inherit. It is something you choose to wear.",
     cta: { label: "Shop the Collection", to: "/shop" },
   },
 ];

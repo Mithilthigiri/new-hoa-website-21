@@ -111,10 +111,7 @@ export function Navbar() {
               disabled
               aria-disabled="true"
               title="Coming soon"
-              className={cn(
-                iconClass,
-                "hidden opacity-50 hover:text-foreground md:inline-flex",
-              )}
+              className={cn(iconClass, "hidden opacity-50 hover:text-foreground md:inline-flex")}
             >
               <Heart className="size-[1.375rem]" strokeWidth={1.25} />
             </button>
@@ -133,7 +130,6 @@ export function Navbar() {
           </div>
         </Container>
       </div>
-
 
       <MobileMenu open={open} onClose={() => setOpen(false)} />
     </header>

@@ -20,16 +20,21 @@ export function BrandStorySimple({ className }: { className?: string }) {
             id="brand-story-heading"
             className="mb-5 font-display text-[34px] font-light leading-[1.2] text-foreground"
           >
-            Draped in Heritage,<br />Styled for Today.
+            Draped in Heritage,
+            <br />
+            Styled for Today.
           </h2>
 
           <p className="mb-5 font-editorial text-[17px] italic leading-[1.8] text-muted-foreground">
-            House of Aira brings the opulence of old India into a contemporary wardrobe, creating pieces for women who wear power gracefully.
+            House of Aira brings the opulence of old India into a contemporary wardrobe, creating
+            pieces for women who wear power gracefully.
           </p>
 
           <blockquote className="mb-7 border-l-2 border-rust-label pl-4">
             <p className="font-editorial text-[16px] italic leading-snug text-rust-label">
-              Rooted in heritage.<br />Reimagined for the woman of today.
+              Rooted in heritage.
+              <br />
+              Reimagined for the woman of today.
             </p>
           </blockquote>
 
@@ -42,7 +47,10 @@ export function BrandStorySimple({ className }: { className?: string }) {
         </div>
 
         {/* RIGHT — image column, 50% desktop */}
-        <div className="relative h-[280px] w-full overflow-hidden rounded-[4px] lg:h-auto lg:w-1/2" style={{ maxHeight: 400 }}>
+        <div
+          className="relative h-[280px] w-full overflow-hidden rounded-[4px] lg:h-auto lg:w-1/2"
+          style={{ maxHeight: 400 }}
+        >
           <AiraImage
             src={editorialImage.url}
             alt="Model in an emerald hand-embroidered gown, side profile."

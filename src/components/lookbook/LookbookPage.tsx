@@ -32,35 +32,21 @@ export function LookbookPage({ looks = LOOKBOOK_LOOKS }: LookbookPageProps) {
 
       <Container width="wide" as="header">
         <div className="flex flex-col items-center text-center">
-          <span
-            aria-hidden="true"
-            className="hidden h-space-xl w-px bg-espresso/20 lg:block"
-          />
-          <p className="type-label mt-space-lg text-rust-deep/80">
-            {LOOKBOOK_INTRO.eyebrow}
-          </p>
+          <span aria-hidden="true" className="hidden h-space-xl w-px bg-espresso/20 lg:block" />
+          <p className="type-label mt-space-lg text-rust-deep/80">{LOOKBOOK_INTRO.eyebrow}</p>
           <h1 className="mt-space-md font-display text-5xl leading-[0.95] font-light tracking-tight text-foreground sm:text-6xl lg:text-8xl">
             {LOOKBOOK_INTRO.heading}
           </h1>
-          <span
-            aria-hidden="true"
-            className="mt-space-lg h-space-xl w-px bg-gold/50"
-          />
+          <span aria-hidden="true" className="mt-space-lg h-space-xl w-px bg-gold/50" />
           <p className="type-editorial mt-space-lg max-w-xl text-muted-foreground italic">
             {LOOKBOOK_INTRO.supportingCopy}
           </p>
         </div>
       </Container>
 
-
       <div className="mt-space-xl flex flex-col gap-space-2xl lg:mt-space-2xl lg:gap-section">
         {looks.map((look, index) => (
-          <LookbookSection
-            key={look.id}
-            look={look}
-            index={index + 1}
-            priority={index === 0}
-          />
+          <LookbookSection key={look.id} look={look} index={index + 1} priority={index === 0} />
         ))}
       </div>
 
@@ -75,12 +61,7 @@ export function LookbookPage({ looks = LOOKBOOK_LOOKS }: LookbookPageProps) {
           <p className="type-editorial mt-space-sm text-muted-foreground">
             {LOOKBOOK_CLOSING.supportingCopy}
           </p>
-          <AiraButton
-            asChild
-            variant="outline"
-            size="md"
-            className="mt-space-lg"
-          >
+          <AiraButton asChild variant="outline" size="md" className="mt-space-lg">
             <Link to="/shop">{LOOKBOOK_CLOSING.ctaLabel}</Link>
           </AiraButton>
         </section>

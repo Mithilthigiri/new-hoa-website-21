@@ -1,9 +1,6 @@
 import { useMemo } from "react";
 import { Container } from "@/components/layout/Container";
-import {
-  FEATURED_COLLECTIONS,
-  type FeaturedCollection,
-} from "@/components/home/collections-data";
+import { FEATURED_COLLECTIONS, type FeaturedCollection } from "@/components/home/collections-data";
 import { NEW_ARRIVALS, type Product } from "@/components/home/products-data";
 import { CollectionGrid } from "./CollectionGrid";
 
@@ -44,8 +41,8 @@ export function CollectionsPage({
             Collections
           </h1>
           <p className="type-editorial mt-space-sm text-muted-foreground lg:mt-space-md">
-            Explore the distinct expressions of House of Aira, from
-            heritage-inspired silhouettes to contemporary and modern dressing.
+            Explore the distinct expressions of House of Aira, from heritage-inspired silhouettes to
+            contemporary and modern dressing.
           </p>
         </header>
 
@@ -63,15 +60,12 @@ export function CollectionsPage({
         className="mt-space-3xl"
       >
         <div className="max-w-2xl border-t border-border pt-space-xl">
-          <h2
-            id="collections-note-heading"
-            className="type-h3 text-foreground"
-          >
+          <h2 id="collections-note-heading" className="type-h3 text-foreground">
             Three expressions. One House.
           </h2>
           <p className="type-editorial mt-space-md text-muted-foreground">
-            Each collection follows the same hand — considered cuts, natural
-            fabrics and craft-led detail — worn differently depending on the day.
+            Each collection follows the same hand — considered cuts, natural fabrics and craft-led
+            detail — worn differently depending on the day.
           </p>
         </div>
       </Container>

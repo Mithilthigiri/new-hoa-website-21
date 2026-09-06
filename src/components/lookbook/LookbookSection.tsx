@@ -1,10 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { AiraImage } from "@/components/ui/aira-image";
 import { Container } from "@/components/layout/Container";
-import {
-  findProductByHandle,
-  type Product,
-} from "@/components/home/products-data";
+import { findProductByHandle, type Product } from "@/components/home/products-data";
 import type { LookbookLook } from "./lookbook-data";
 import { cn } from "@/lib/utils";
 
@@ -32,15 +29,7 @@ function resolveProducts(handles?: string[]): Product[] {
  * Oversized editorial display title: the closing words are set in italic so the
  * type itself becomes the graphic element of the composition.
  */
-function LookTitle({
-  title,
-  id,
-  className,
-}: {
-  title: string;
-  id: string;
-  className?: string;
-}) {
+function LookTitle({ title, id, className }: { title: string; id: string; className?: string }) {
   const words = title.split(" ");
   const lead = words.length > 1 ? words.slice(0, -1).join(" ") : "";
   const tail = words[words.length - 1] ?? title;
@@ -64,13 +53,7 @@ function LookTitle({
 }
 
 /** Understated animated-rule link, matching the selected editorial direction. */
-function DiscoverLink({
-  handle,
-  label,
-}: {
-  handle: string;
-  label: string;
-}) {
+function DiscoverLink({ handle, label }: { handle: string; label: string }) {
   return (
     <Link
       to="/product/$handle"
@@ -109,9 +92,7 @@ function LookMeta({
       )}
     >
       <p className="type-label text-rust-deep/80">{lookNumber(index)}</p>
-      <p className="type-editorial mt-space-md text-muted-foreground italic">
-        {look.subtitle}
-      </p>
+      <p className="type-editorial mt-space-md text-muted-foreground italic">{look.subtitle}</p>
       {products.length > 0 ? (
         <div
           className={cn(
@@ -140,11 +121,7 @@ const hoverImage =
  * One art-directed editorial look. A single semantic structure per look; the
  * layout hint only changes CSS grid placement, never the DOM set.
  */
-export function LookbookSection({
-  look,
-  index,
-  priority = false,
-}: LookbookSectionProps) {
+export function LookbookSection({ look, index, priority = false }: LookbookSectionProps) {
   const products = resolveProducts(look.productHandles);
   const loading = priority ? "eager" : "lazy";
   const headingId = `${look.id}-heading`;
@@ -215,11 +192,7 @@ export function LookbookSection({
               imgClassName={hoverImage}
             />
             <div className="mt-space-xl text-center">
-              <LookTitle
-                id={headingId}
-                title={look.title}
-                className="mx-auto"
-              />
+              <LookTitle id={headingId} title={look.title} className="mx-auto" />
               <LookMeta
                 look={look}
                 index={index}
@@ -259,18 +232,11 @@ export function LookbookSection({
           <div
             className={cn(
               "flex flex-col justify-center lg:col-span-5",
-              look.reverse
-                ? "lg:order-1 lg:pr-space-2xl"
-                : "lg:order-2 lg:pl-space-2xl",
+              look.reverse ? "lg:order-1 lg:pr-space-2xl" : "lg:order-2 lg:pl-space-2xl",
             )}
           >
             <LookTitle id={headingId} title={look.title} />
-            <LookMeta
-              look={look}
-              index={index}
-              products={products}
-              className="mt-space-lg"
-            />
+            <LookMeta look={look} index={index} products={products} className="mt-space-lg" />
           </div>
 
           {look.secondaryImage ? (

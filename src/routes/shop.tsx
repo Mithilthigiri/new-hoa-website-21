@@ -10,8 +10,8 @@ export const Route = createFileRoute("/shop")({
    * pipeline itself is unchanged and stays the single source of truth.
    */
   validateSearch: (search: Record<string, unknown>): ShopSearch =>
-    typeof search['category'] === "string" && search['category']
-      ? { category: search['category'] }
+    typeof search["category"] === "string" && search["category"]
+      ? { category: search["category"] }
       : {},
   head: () => ({
     meta: [

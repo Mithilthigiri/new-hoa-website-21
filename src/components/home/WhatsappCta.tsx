@@ -6,15 +6,9 @@ type WhatsappCtaProps = {
   className?: string;
 };
 
-export function WhatsappCta({
-  phoneNumber = "919384488692",
-  className,
-}: WhatsappCtaProps) {
+export function WhatsappCta({ phoneNumber = "919384488692", className }: WhatsappCtaProps) {
   return (
-    <section
-      aria-labelledby="whatsapp-heading"
-      className={cn("bg-espresso py-20", className)}
-    >
+    <section aria-labelledby="whatsapp-heading" className={cn("bg-espresso py-20", className)}>
       <div className="mx-auto max-w-[40rem] px-6 text-center">
         <MessageCircle
           className="mx-auto mb-5 text-gold"
@@ -31,8 +25,8 @@ export function WhatsappCta({
         </h2>
 
         <p className="font-editorial mt-3 text-[1rem] italic leading-[1.7] text-ivory/70">
-          Our styling team is just a message away. Talk to us on WhatsApp and
-          we&apos;ll help you find exactly what you&apos;re looking for.
+          Our styling team is just a message away. Talk to us on WhatsApp and we&apos;ll help you
+          find exactly what you&apos;re looking for.
         </p>
 
         <a
@@ -47,9 +41,7 @@ export function WhatsappCta({
           CHAT WITH US ON WHATSAPP
         </a>
 
-        <p className="type-label mt-3.5 text-ivory/40">
-          Usually replies within a few hours
-        </p>
+        <p className="type-label mt-3.5 text-ivory/40">Usually replies within a few hours</p>
       </div>
     </section>
   );

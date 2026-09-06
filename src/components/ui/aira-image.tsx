@@ -56,7 +56,6 @@ export function AiraImage({
   }>({ src, status: "loading" });
   const status = state.src === src ? state.status : "loading";
 
-
   // Cached/SSR-rendered images can finish before React attaches listeners,
   // so resolve their state on mount instead of waiting for onLoad.
   const attachImg = useCallback((node: HTMLImageElement | null) => {
@@ -78,11 +77,7 @@ export function AiraImage({
         fill ? "absolute inset-0 h-full w-full" : "relative w-full max-w-full",
         className,
       )}
-      style={
-        fill
-          ? revealStyle
-          : { aspectRatio: ratio, ...(revealStyle ?? {}) }
-      }
+      style={fill ? revealStyle : { aspectRatio: ratio, ...(revealStyle ?? {}) }}
     >
       {status === "error" ? (
         <span
@@ -91,9 +86,7 @@ export function AiraImage({
           aria-hidden={decorative ? "true" : undefined}
           className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-parchment to-background-alt"
         >
-          <span className="type-label select-none text-muted-foreground">
-            House of Aira
-          </span>
+          <span className="type-label select-none text-muted-foreground">House of Aira</span>
         </span>
       ) : (
         <img
@@ -115,7 +108,6 @@ export function AiraImage({
           )}
         />
       )}
-
     </span>
   );
 }

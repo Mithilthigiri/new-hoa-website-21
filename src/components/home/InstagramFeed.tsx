@@ -2,11 +2,7 @@ import { Instagram } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
-import {
-  INSTAGRAM_POSTS,
-  INSTAGRAM_PROFILE_URL,
-  type InstagramPost,
-} from "./instagram-data";
+import { INSTAGRAM_POSTS, INSTAGRAM_PROFILE_URL, type InstagramPost } from "./instagram-data";
 
 function InstagramPostTile({ post }: { post: InstagramPost }) {
   return (
@@ -37,9 +33,7 @@ function InstagramPostTile({ post }: { post: InstagramPost }) {
           <Instagram className="h-5 w-5" strokeWidth={1.25} />
         </span>
       </div>
-      <span className="sr-only">
-        {post.caption} (opens Instagram in a new tab)
-      </span>
+      <span className="sr-only">{post.caption} (opens Instagram in a new tab)</span>
     </a>
   );
 }
@@ -64,10 +58,7 @@ export function InstagramFeed({
   const tiles = posts.slice(0, 6);
 
   return (
-    <section
-      aria-labelledby="instagram-heading"
-      className={cn("bg-background py-16", className)}
-    >
+    <section aria-labelledby="instagram-heading" className={cn("bg-background py-16", className)}>
       <Container width="wide">
         <header className="text-center">
           <p className="font-sans text-[0.625rem] uppercase tracking-[0.15em] text-muted-foreground">
@@ -99,11 +90,7 @@ export function InstagramFeed({
             rel="noopener noreferrer"
             className="inline-flex h-11 items-center gap-element border-b border-transparent font-sans text-[0.625rem] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           >
-            <Instagram
-              className="h-3.5 w-3.5"
-              strokeWidth={1.25}
-              aria-hidden="true"
-            />
+            <Instagram className="h-3.5 w-3.5" strokeWidth={1.25} aria-hidden="true" />
             {ctaLabel}
             <span className="sr-only">(opens in a new tab)</span>
           </a>

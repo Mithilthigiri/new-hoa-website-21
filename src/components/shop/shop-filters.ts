@@ -1,8 +1,4 @@
-import type {
-  Product,
-  ProductColour,
-  ProductSize,
-} from "@/components/home/products-data";
+import type { Product, ProductColour, ProductSize } from "@/components/home/products-data";
 
 export type PriceRange = { min: number; max: number };
 
@@ -30,12 +26,8 @@ const SIZE_ORDER: ProductSize[] = ["XS", "S", "M", "L", "XL"];
  */
 export function deriveFilterOptions(products: Product[]): ShopFilterOptions {
   const categories = [...new Set(products.map((p) => p.category))].sort();
-  const sizes = SIZE_ORDER.filter((size) =>
-    products.some((p) => p.sizes.includes(size)),
-  );
-  const colours = [
-    ...new Set(products.flatMap((p) => p.colours)),
-  ].sort() as ProductColour[];
+  const sizes = SIZE_ORDER.filter((size) => products.some((p) => p.sizes.includes(size)));
+  const colours = [...new Set(products.flatMap((p) => p.colours))].sort() as ProductColour[];
 
   const prices = products.map((p) => p.price);
   const priceBounds: PriceRange = {
@@ -59,45 +51,32 @@ export function createEmptyFilters(options: ShopFilterOptions): ShopFilterState 
  * The single filtering pipeline. Returns a new array; the source data is never
  * mutated. Groups combine with AND, selections within a group with OR.
  */
-export function filterProducts(
-  products: Product[],
-  filters: ShopFilterState,
-): Product[] {
+export function filterProducts(products: Product[], filters: ShopFilterState): Product[] {
   return products.filter((product) => {
     const categoryMatch =
-      filters.categories.length === 0 ||
-      filters.categories.includes(product.category);
+      filters.categories.length === 0 || filters.categories.includes(product.category);
 
     const sizeMatch =
-      filters.sizes.length === 0 ||
-      product.sizes.some((size) => filters.sizes.includes(size));
+      filters.sizes.length === 0 || product.sizes.some((size) => filters.sizes.includes(size));
 
     const colourMatch =
       filters.colours.length === 0 ||
       product.colours.some((colour) => filters.colours.includes(colour));
 
-    const priceMatch =
-      product.price >= filters.price.min && product.price <= filters.price.max;
+    const priceMatch = product.price >= filters.price.min && product.price <= filters.price.max;
 
     return categoryMatch && sizeMatch && colourMatch && priceMatch;
   });
 }
 
-export function isPriceNarrowed(
-  filters: ShopFilterState,
-  options: ShopFilterOptions,
-): boolean {
+export function isPriceNarrowed(filters: ShopFilterState, options: ShopFilterOptions): boolean {
   return (
-    filters.price.min !== options.priceBounds.min ||
-    filters.price.max !== options.priceBounds.max
+    filters.price.min !== options.priceBounds.min || filters.price.max !== options.priceBounds.max
   );
 }
 
 /** Number of active filter groups/selections, used for the FILTER (n) badge. */
-export function countActiveFilters(
-  filters: ShopFilterState,
-  options: ShopFilterOptions,
-): number {
+export function countActiveFilters(filters: ShopFilterState, options: ShopFilterOptions): number {
   return (
     filters.categories.length +
     filters.sizes.length +
@@ -161,7 +140,5 @@ export function buildFilterChips(
 
 /** Immutable multi-select toggle helper shared by desktop and drawer controls. */
 export function toggleValue<T>(values: T[], value: T): T[] {
-  return values.includes(value)
-    ? values.filter((v) => v !== value)
-    : [...values, value];
+  return values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
 }
