@@ -1,7 +1,7 @@
 import heroImage from "@/assets/DSC04261.jpg.asset.json";
 import philosophyImage from "@/assets/DSC04471.jpg.asset.json";
-import craftImage from "@/assets/DSC04487.jpg.asset.json";
-import craftSecondaryImage from "@/assets/DSC03630.jpg.asset.json";
+import craftImage from "@/assets/fabric-detail-one.jpg";
+import craftSecondaryImage from "@/assets/fabric-detail-two.jpg";
 import womanImage from "@/assets/DSC03791.jpg.asset.json";
 import founderImage from "@/assets/founder-placeholder.jpg";
 
@@ -51,12 +51,12 @@ export const ABOUT_CRAFT = {
     "Each piece begins with the fabric. Natural-feeling textiles, printed and embroidered detail, and finishes considered at close range — the lace-up back, the fall of a pleat, the placement of a border.",
     "The intent is longevity rather than novelty: clothes made to be lived in, restyled and returned to, season after season.",
   ],
-  image: craftImage.url,
+  image: craftImage,
   imageAlt:
-    "Close view of the indigo kurta and ivory waistcoat print detail.",
-  secondaryImage: craftSecondaryImage.url,
+    "Folds of ivory and indigo hand block-printed Indian cotton and silk beside a woven gold zari border.",
+  secondaryImage: craftSecondaryImage,
   secondaryImageAlt:
-    "Detail of the rust paisley print and lace-up back of the cami top.",
+    "Hand resting on a rust and gold zari handloom silk drape next to kalamkari printed cotton.",
 };
 
 export const ABOUT_WOMAN = {
