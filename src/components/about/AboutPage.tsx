@@ -251,12 +251,20 @@ export function AboutPage() {
           <p className="mt-4 font-editorial text-[17px] leading-[1.75] text-[#E8D5B7]/70 italic">
             {ABOUT_CLOSING.supportingCopy}
           </p>
-          <Link
-            to="/shop"
-            className="mx-auto mt-8 block w-fit border-b border-[#C9A84C]/40 pb-1 font-sans text-[10px] uppercase tracking-[0.2em] text-[#C9A84C]"
-          >
-            Shop the Collection →
-          </Link>
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <Link
+              to="/shop"
+              className="block w-fit border-b border-[#C9A84C]/40 pb-1 font-sans text-[10px] uppercase tracking-[0.2em] text-[#C9A84C]"
+            >
+              Shop the Collection →
+            </Link>
+            <Link
+              to="/contact"
+              className="block w-fit border-b border-[#E8D5B7]/40 pb-1 font-sans text-[10px] uppercase tracking-[0.2em] text-[#E8D5B7]/80"
+            >
+              Get in Touch →
+            </Link>
+          </div>
         </div>
       </section>
     </div>

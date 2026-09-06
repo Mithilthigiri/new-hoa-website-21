@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { ContactPage } from "@/components/contact/ContactPage";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -7,14 +7,18 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact — House of Aira" },
       {
         name: "description",
-        content: "Reach the House of Aira client care team.",
+        content:
+          "Write to House of Aira for styling advice, sizing, bespoke orders or press enquiries.",
       },
       { property: "og:title", content: "Contact — House of Aira" },
       {
         property: "og:description",
-        content: "Reach the House of Aira client care team.",
+        content:
+          "Write to House of Aira for styling advice, sizing, bespoke orders or press enquiries.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => <PagePlaceholder eyebrow="Contact" title="Contact" />,
+  component: ContactPage,
 });
