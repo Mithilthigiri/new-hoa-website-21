@@ -3,10 +3,11 @@ import philosophyImage from "@/assets/DSC04471.jpg.asset.json";
 import craftImage from "@/assets/DSC04487.jpg.asset.json";
 import craftSecondaryImage from "@/assets/DSC03630.jpg.asset.json";
 import womanImage from "@/assets/DSC03791.jpg.asset.json";
+import founderImage from "@/assets/founder-placeholder.jpg";
 
 /**
- * Editorial copy and photography for /about. All imagery is existing original
- * House of Aira photography already present in src/assets.
+ * Editorial copy and photography for /about. Founder imagery is a temporary
+ * placeholder and will be replaced with the real founder portrait.
  */
 export const ABOUT_HERO = {
   eyebrow: "The House of Aira",
