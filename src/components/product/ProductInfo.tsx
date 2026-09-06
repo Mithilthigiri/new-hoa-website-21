@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AiraButton } from "@/components/ui/aira-button";
 import { SizeGuideDialog } from "./SizeGuideDialog";
 import { PDP_FALLBACK_DESCRIPTION, PDP_SHIPPING_NOTE } from "./pdp-copy";
+import { useCart } from "@/components/cart/useCart";
 import { formatPrice, type Product } from "@/components/home/products-data";
+
 
 type ProductInfoProps = {
   product: Product;
