@@ -17,7 +17,7 @@ export function CollectionGrid({ collections, counts, className }: CollectionGri
   return (
     <ul
       className={cn(
-        "grid grid-cols-1 gap-space-2xl sm:grid-cols-2 lg:grid-cols-3 lg:gap-space-xl",
+        "grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6",
         className,
       )}
     >
@@ -27,7 +27,7 @@ export function CollectionGrid({ collections, counts, className }: CollectionGri
           <li key={collection.handle} className="min-w-0">
             <CollectionCard
               collection={collection}
-              cta="Explore Collection"
+              cta="EXPLORE →"
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
               meta={
                 count === undefined ? undefined : `${count} ${count === 1 ? "piece" : "pieces"}`
