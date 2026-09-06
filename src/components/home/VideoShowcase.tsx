@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback } from "react";
-import { Play, Instagram } from "lucide-react";
+import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import poster1 from "@/assets/DSC03342.jpg.asset.json";
 import poster2 from "@/assets/DSC03630.jpg.asset.json";
