@@ -224,9 +224,7 @@ export function CheckoutPage() {
                   autoComplete="tel"
                   maxLength={15}
                 />
-                {visibleErrors.phone ? (
-                  <p className={errorClass}>{visibleErrors.phone}</p>
-                ) : null}
+                {visibleErrors.phone ? <p className={errorClass}>{visibleErrors.phone}</p> : null}
               </div>
 
               <div>
@@ -241,9 +239,7 @@ export function CheckoutPage() {
                   className={inputClass}
                   autoComplete="email"
                 />
-                {visibleErrors.email ? (
-                  <p className={errorClass}>{visibleErrors.email}</p>
-                ) : null}
+                {visibleErrors.email ? <p className={errorClass}>{visibleErrors.email}</p> : null}
               </div>
 
               <div>
@@ -290,9 +286,7 @@ export function CheckoutPage() {
                     className={inputClass}
                     autoComplete="address-level2"
                   />
-                  {visibleErrors.city ? (
-                    <p className={errorClass}>{visibleErrors.city}</p>
-                  ) : null}
+                  {visibleErrors.city ? <p className={errorClass}>{visibleErrors.city}</p> : null}
                 </div>
 
                 <div>
@@ -313,9 +307,7 @@ export function CheckoutPage() {
                       </option>
                     ))}
                   </select>
-                  {visibleErrors.state ? (
-                    <p className={errorClass}>{visibleErrors.state}</p>
-                  ) : null}
+                  {visibleErrors.state ? <p className={errorClass}>{visibleErrors.state}</p> : null}
                 </div>
               </div>
 
@@ -395,17 +387,13 @@ export function CheckoutPage() {
 
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">
-                        Subtotal
-                      </span>
+                      <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">Subtotal</span>
                       <span className="font-editorial text-sm italic text-[#1A0F0A]">
                         {formatPrice(subtotal, currency)}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">
-                        Shipping
-                      </span>
+                      <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">Shipping</span>
                       <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">
                         {subtotal >= 2999 ? "FREE" : "Calculated at checkout"}
                       </span>

@@ -19,10 +19,7 @@ export function NewInPage({ products = ALL_PRODUCTS }: NewInPageProps) {
     () =>
       products
         .filter((product) => product.badge === "NEW")
-        .sort(
-          (a, b) =>
-            new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-        ),
+        .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()),
     [products],
   );
 

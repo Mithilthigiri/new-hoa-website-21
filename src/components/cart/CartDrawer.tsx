@@ -79,9 +79,7 @@ export function CartDrawer() {
                 <li
                   key={`${item.id}-${item.size}`}
                   className={`flex gap-[14px] ${
-                    index === items.length - 1
-                      ? ""
-                      : "mb-5 border-b border-[#DDD5C0] pb-5"
+                    index === items.length - 1 ? "" : "mb-5 border-b border-[#DDD5C0] pb-5"
                   }`}
                 >
                   <img

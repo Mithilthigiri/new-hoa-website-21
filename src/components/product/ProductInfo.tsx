@@ -7,7 +7,6 @@ import { PDP_FALLBACK_DESCRIPTION, PDP_SHIPPING_NOTE } from "./pdp-copy";
 import { useCart } from "@/components/cart/useCart";
 import { formatPrice, type Product } from "@/components/home/products-data";
 
-
 type ProductInfoProps = {
   product: Product;
   className?: string;
@@ -59,14 +58,15 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
     openCart();
   };
 
-
   return (
     <div className={cn("min-w-0", className)}>
       <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#B85C38]">{category}</p>
       <h1 className="mt-3 font-display text-[clamp(26px,4vw,40px)] font-light leading-[1.1] text-[#1A0F0A]">
         {title}
       </h1>
-      <p className="mt-3 font-editorial italic text-[22px] text-[#1A0F0A]">{formatPrice(price, currency)}</p>
+      <p className="mt-3 font-editorial italic text-[22px] text-[#1A0F0A]">
+        {formatPrice(price, currency)}
+      </p>
 
       <div className="mt-5 block h-px w-12 bg-[#C9A84C]" />
 
@@ -181,7 +181,9 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
 
       <div className="mt-space-xl border-t border-border pt-space-lg">
         <p className="type-label text-espresso">Shipping &amp; Returns</p>
-        <p className="mt-space-sm font-sans text-[11px] leading-[1.7] text-[#7A6855]">{PDP_SHIPPING_NOTE}</p>
+        <p className="mt-space-sm font-sans text-[11px] leading-[1.7] text-[#7A6855]">
+          {PDP_SHIPPING_NOTE}
+        </p>
       </div>
     </div>
   );
