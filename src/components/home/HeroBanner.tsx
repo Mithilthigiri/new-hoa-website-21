@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import slide1 from "@/assets/banner-12_06_52_AM.png.asset.json";
 import slide2 from "@/assets/banner-12_13_09_AM.png.asset.json";
-import slide3 from "@/assets/banner-12_14_22_AM.png.asset.json";
+import slide3 from "@/assets/DSC02302-2.JPG.asset.json";
 import slide4 from "@/assets/banner-12_41_39_AM.png.asset.json";
 
 type BannerSlide = {
@@ -38,7 +38,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     id: "black-zari",
     image: slide3.url,
     imageAlt:
-      "Model in a black anarkali with gold zari borders on a sunlit street beside a bougainvillea wall.",
+      "Model in a black anarkali with green and maroon border detailing on a sunlit stone path beside a bougainvillea wall.",
     eyebrow: "Contemporary",
     headline: "Everyday Ceremony",
     cta: { label: "Discover New In", to: "/new-in" },
