@@ -161,7 +161,7 @@ export function HeroBanner({
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       className={cn(
-        "relative w-full overflow-hidden bg-espresso h-[68vh] lg:h-[88vh]",
+        "relative w-full overflow-hidden bg-espresso h-[75vh] sm:h-[80vh] lg:h-[92vh]",
         className,
       )}
     >
@@ -190,10 +190,10 @@ export function HeroBanner({
 
             <div className="absolute inset-x-0 bottom-0 px-page-gutter pb-14 lg:px-page-gutter-lg lg:pb-20">
               <div className="max-w-2xl">
-                <span className="block font-sans text-[0.625rem] uppercase tracking-[0.28em] text-gold">
+                <span className="block font-sans text-[0.7rem] uppercase tracking-[0.28em] text-gold font-medium">
                   {slide.eyebrow}
                 </span>
-                <h1 className="font-display mt-4 font-light leading-[1.04] text-cream-card text-[2.25rem] lg:text-[4rem]">
+                <h1 className="font-display mt-4 font-normal leading-[1.04] text-cream-card text-[2.5rem] sm:text-[3rem] lg:text-[5rem]">
                   {slide.headline}
                 </h1>
                 <span
