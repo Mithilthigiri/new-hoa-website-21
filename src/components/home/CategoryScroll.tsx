@@ -5,7 +5,6 @@ import ethnicImage from "@/assets/DSC03915.jpg.asset.json";
 import contemporaryImage from "@/assets/DSC04471.jpg.asset.json";
 import westernImage from "@/assets/DSC03534.jpg.asset.json";
 import newInImage from "@/assets/DSC04224.jpg.asset.json";
-import lookbookImage from "@/assets/DSC04261.jpg.asset.json";
 
 type CategoryScrollCard = {
   id: string;
@@ -48,14 +47,6 @@ const CATEGORY_CARDS: CategoryScrollCard[] = [
     image: newInImage.url,
     imageAlt: "Editorial image for the New In arrivals.",
     to: "/new-in",
-  },
-  {
-    id: "lookbook",
-    title: "Lookbook",
-    subtitle: "THE EDITORIAL STORY",
-    image: lookbookImage.url,
-    imageAlt: "Editorial image for the Lookbook.",
-    to: "/lookbook",
   },
 ];
 

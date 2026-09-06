@@ -54,7 +54,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
       "Model in a kalamkari-print top and rust cotton skirt, resting against a stone sculpture in a garden.",
     eyebrow: "Handcrafted in India",
     headline: "Made with Intention",
-    cta: { label: "View Lookbook", to: "/lookbook" },
+    cta: { label: "Shop the Collection", to: "/shop" },
   },
   {
     id: "campaign-portrait",
