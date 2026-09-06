@@ -35,7 +35,7 @@ export function EditorialQuote({ className }: { className?: string }) {
 
         <Link
           to="/collections"
-          className="mt-6 inline-block font-sans text-[10px] uppercase tracking-[0.2em] text-gold transition-opacity duration-200 hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          className="mt-6 inline-flex items-center gap-2 border-b border-gold/40 pb-1 font-sans text-[0.65rem] uppercase tracking-[0.22em] text-gold transition-colors duration-300 hover:border-gold hover:text-gold/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         >
           EXPLORE THE COLLECTIONS →
         </Link>

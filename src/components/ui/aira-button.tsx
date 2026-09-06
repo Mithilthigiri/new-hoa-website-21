@@ -13,7 +13,7 @@ export const airaButtonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-rust-warm",
         gold: "bg-accent text-accent-foreground hover:bg-gold-soft",
         outline:
-          "border border-espresso bg-transparent text-espresso hover:bg-espresso hover:text-ivory",
+          "h-auto !border-0 !border-b border-foreground/40 bg-transparent !px-0 pb-1 text-foreground transition-colors duration-300 hover:border-gold hover:text-rust-label focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
         ghost: "bg-transparent text-espresso hover:text-rust-deep",
       },
       size: {

@@ -228,10 +228,9 @@ export function VideoShowcase({ className }: { className?: string }) {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-foreground px-8 py-[14px] font-sans text-[10px] uppercase tracking-[0.15em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-ivory"
+            className="inline-flex items-center gap-2 border-b border-foreground/30 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:border-rust-label hover:text-rust-label focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
           >
-            <Instagram size={16} aria-hidden="true" />
-            WATCH MORE ON INSTAGRAM
+            Watch More on Instagram →
           </a>
         </div>
       </div>
