@@ -129,7 +129,7 @@ function ReelCard({ item }: ReelCardProps) {
             <Play size={20} color="#2C1810" className="ml-[3px]" />
           </div>
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 p-4 pt-[16px]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 px-[14px] py-4"
             style={{
               background:
                 "linear-gradient(to top, rgba(44, 24, 16, 0.75) 0%, rgba(44, 24, 16, 0) 60%)",
