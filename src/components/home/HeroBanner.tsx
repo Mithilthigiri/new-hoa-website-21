@@ -67,7 +67,15 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
   },
 ];
 
-function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) {
+function SlideMedia({
+  slide,
+  active,
+  onVideoEnded,
+}: {
+  slide: BannerSlide;
+  active: boolean;
+  onVideoEnded?: () => void;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -79,6 +87,7 @@ function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) 
     ).matches;
 
     if (active && !reducedMotion) {
+      video.currentTime = 0;
       void video.play().catch(() => undefined);
       return;
     }
@@ -95,9 +104,9 @@ function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) 
         aria-label={slide.imageAlt}
         autoPlay={active}
         muted
-        loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        onEnded={onVideoEnded}
         className="absolute inset-0 h-full w-full object-cover object-top"
       />
     );
