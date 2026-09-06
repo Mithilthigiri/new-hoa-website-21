@@ -38,7 +38,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     id: "black-zari",
     image: slide3.url,
     imageAlt:
-      "Model in a black anarkali with gold zari borders on a sunlit street beside a bougainvillea wall.",
+      "Model in a black anarkali with green and maroon border detailing on a sunlit stone path beside a bougainvillea wall.",
     eyebrow: "Contemporary",
     headline: "Everyday Ceremony",
     cta: { label: "Discover New In", to: "/new-in" },
