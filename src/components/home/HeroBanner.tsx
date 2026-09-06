@@ -83,6 +83,7 @@ function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) 
         src={slide.video}
         poster={slide.image}
         aria-label={slide.imageAlt}
+        autoPlay={active}
         muted
         loop
         playsInline
