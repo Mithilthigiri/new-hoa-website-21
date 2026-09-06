@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { CheckoutPage } from "@/components/checkout/CheckoutPage";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
@@ -13,5 +13,5 @@ export const Route = createFileRoute("/checkout")({
       },
     ],
   }),
-  component: () => <PagePlaceholder eyebrow="Checkout" title="Checkout" />,
+  component: () => <CheckoutPage />,
 });
