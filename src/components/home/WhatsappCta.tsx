@@ -36,7 +36,9 @@ export function WhatsappCta({
         </p>
 
         <a
-          href={`https://wa.me/${phoneNumber}`}
+          href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+            "Hi House of Aira, I'd love some styling help.",
+          )}`}
           target="_blank"
           rel="noopener noreferrer"
           className="type-button mt-8 inline-flex h-[52px] w-full items-center justify-center gap-2.5 bg-[#25D366] px-10 text-white transition-colors duration-200 hover:bg-[#1EA952] sm:w-auto"
