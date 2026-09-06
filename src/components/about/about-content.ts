@@ -1,5 +1,5 @@
 import heroImage from "@/assets/DSC04261.jpg.asset.json";
-import philosophyImage from "@/assets/DSC04471.jpg.asset.json";
+import philosophyImage from "@/assets/DSC02314-2.jpg.asset.json";
 import craftImage from "@/assets/fabric-detail-one.jpg";
 import craftSecondaryImage from "@/assets/fabric-detail-two.jpg";
 import womanImage from "@/assets/DSC03791.jpg.asset.json";
@@ -41,7 +41,7 @@ export const ABOUT_PHILOSOPHY = {
   pullQuote: "Rooted in heritage. Reimagined for the woman of today.",
   image: philosophyImage.url,
   imageAlt:
-    "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
+    "Model in a black long-sleeved kurta with gold zari trim, red and green cuffs, and statement earrings.",
 };
 
 export const ABOUT_CRAFT = {
