@@ -6,6 +6,7 @@ import slide2 from "@/assets/banner-12_13_09_AM.png.asset.json";
 import slide3 from "@/assets/house-of-aira-red-campaign.png.asset.json";
 import slide3Video from "@/assets/house-of-aira-campaign.webm.asset.json";
 import slide4 from "@/assets/banner-12_41_39_AM.png.asset.json";
+import slide5 from "@/assets/DSC02302.JPG.asset.json";
 
 type BannerSlide = {
   id: string;
@@ -55,9 +56,26 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     headline: "Made with Intention",
     cta: { label: "View Lookbook", to: "/lookbook" },
   },
+  {
+    id: "campaign-portrait",
+    image: slide5.url,
+    imageAlt:
+      "House of Aira campaign portrait in warm daylight against heritage architecture.",
+    eyebrow: "The campaign",
+    headline: "An Heirloom, Chosen",
+    cta: { label: "Shop the Collection", to: "/shop" },
+  },
 ];
 
-function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) {
+function SlideMedia({
+  slide,
+  active,
+  onVideoEnded,
+}: {
+  slide: BannerSlide;
+  active: boolean;
+  onVideoEnded?: () => void;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -69,6 +87,7 @@ function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) 
     ).matches;
 
     if (active && !reducedMotion) {
+      video.currentTime = 0;
       void video.play().catch(() => undefined);
       return;
     }
@@ -85,9 +104,9 @@ function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) 
         aria-label={slide.imageAlt}
         autoPlay={active}
         muted
-        loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        onEnded={onVideoEnded}
         className="absolute inset-0 h-full w-full object-cover object-top"
       />
     );
@@ -120,14 +139,17 @@ export function HeroBanner({
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  const isVideoSlide = Boolean(slides[index]?.video);
+
   useEffect(() => {
-    if (paused || slides.length < 2) return;
-    const id = window.setInterval(
+    // Video slides advance only once the clip has played through.
+    if (paused || isVideoSlide || slides.length < 2) return;
+    const id = window.setTimeout(
       () => setIndex((i) => (i + 1) % slides.length),
       6000,
     );
-    return () => window.clearInterval(id);
-  }, [paused, slides.length]);
+    return () => window.clearTimeout(id);
+  }, [paused, index, isVideoSlide, slides.length]);
 
   const go = (next: number) =>
     setIndex((next + slides.length) % slides.length);
@@ -156,7 +178,11 @@ export function HeroBanner({
               active ? "opacity-100" : "pointer-events-none opacity-0",
             )}
           >
-            <SlideMedia slide={slide} active={active} />
+            <SlideMedia
+              slide={slide}
+              active={active}
+              onVideoEnded={() => go(index + 1)}
+            />
             <span
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.85)_0%,rgba(44,24,16,0.45)_35%,rgba(44,24,16,0)_68%)]"
