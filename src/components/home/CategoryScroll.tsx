@@ -81,6 +81,9 @@ function Card({ card }: { card: CategoryScrollCard }) {
         <span className="mt-1 block font-sans text-[9px] uppercase tracking-[0.1em] text-cream-card/65">
           {card.subtitle}
         </span>
+        <span className="mt-2 block font-sans text-[9px] uppercase tracking-[0.1em] text-cream-card/70">
+          EXPLORE →
+        </span>
       </span>
     </Link>
   );

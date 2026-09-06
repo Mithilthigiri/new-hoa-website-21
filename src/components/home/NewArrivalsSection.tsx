@@ -96,7 +96,7 @@ export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
             </p>
             <Link
               to="/shop"
-              className="mt-3 block font-sans text-[9px] uppercase tracking-[0.15em] text-cream-card transition-colors duration-200 hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              className="mt-3 block w-fit border-b border-cream-card/40 pb-[2px] font-sans text-[9px] uppercase tracking-[0.15em] text-cream-card transition-colors duration-200 hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
             >
               VIEW ALL →
             </Link>

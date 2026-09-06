@@ -203,9 +203,9 @@ export function HeroBanner({
                 <Link
                   to={slide.cta.to}
                   tabIndex={active ? 0 : -1}
-                  className="type-nav-mini mt-7 inline-flex h-12 items-center border border-cream-card/80 bg-cream-card/95 px-9 text-espresso transition-colors duration-300 hover:bg-transparent hover:text-cream-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  className="mt-8 inline-flex items-center gap-2 border-b border-cream-card/60 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.22em] text-cream-card transition-colors duration-300 hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                 >
-                  {slide.cta.label}
+                  {slide.cta.label} →
                 </Link>
               </div>
             </div>
