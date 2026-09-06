@@ -30,17 +30,17 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group relative overflow-hidden rounded-[4px] bg-card transition-shadow duration-200 hover:shadow-card-hover",
+        "group relative min-h-0 overflow-hidden rounded-[4px] bg-card transition-shadow duration-200 hover:shadow-card-hover",
         className,
       )}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative min-h-0 overflow-hidden">
         <Link
           to="/product/$handle"
           params={{ handle }}
           aria-label={`${title} — ${category}, ${formattedPrice}${badge ? `, ${badge.toLowerCase()}` : ""}. View product.`}
           className={cn(
-            "relative block w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+            "relative block aspect-[3/4] w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
             frameRatio,
           )}
         >
@@ -61,9 +61,9 @@ export function ProductCard({
         ) : null}
       </div>
 
-      <div className="p-space-md">
+      <div className="px-[10px] pt-[10px] pb-[14px]">
         <div className="flex items-baseline justify-between gap-space-sm">
-          <h3 className="type-card-title min-w-0 text-foreground">
+          <h3 className="type-card-title min-w-0 text-[12px] font-normal tracking-[0.04em] text-foreground lg:text-[13px]">
             <Link
               to="/product/$handle"
               params={{ handle }}
@@ -72,14 +72,16 @@ export function ProductCard({
               {title}
             </Link>
           </h3>
-          <p className="type-price shrink-0 text-foreground">
+          <p className="font-editorial shrink-0 text-[14px] italic text-foreground lg:text-[15px]">
             {pricePrefix ? (
               <span className="type-nav-mini mr-1 text-muted-foreground">{pricePrefix}</span>
             ) : null}
             {formattedPrice}
           </p>
         </div>
-        <p className="type-nav-mini mt-2 text-muted-foreground">{category}</p>
+        <p className="mt-[6px] font-sans text-[10px] uppercase tracking-[0.1em] text-[#7A6855]">
+          {category}
+        </p>
       </div>
     </article>
   );
