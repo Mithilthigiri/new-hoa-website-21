@@ -130,7 +130,10 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
                 type="button"
                 role="radio"
                 aria-checked={active}
-                onClick={() => setSelectedSize(size)}
+                onClick={() => {
+                  setSelectedSize(size);
+                  setSizeError(false);
+                }}
                 className={cn(
                   optionClass,
                   active
@@ -143,16 +146,20 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
             );
           })}
         </div>
+        {sizeError ? (
+          <p className="type-small mt-space-sm text-rust-deep">Please select a size first.</p>
+        ) : null}
       </div>
 
-      {/* Purchase controls — local state only in this phase. */}
+      {/* Purchase controls — adds the selected size to the cart drawer. */}
       <div className="mt-space-xl flex flex-col gap-space-sm sm:flex-row">
         <AiraButton
           type="button"
           size="lg"
           className="w-full sm:flex-1"
-          onClick={() => setAdded(true)}
+          onClick={handleAddToCart}
         >
+
           {added ? "Added" : "Add to Cart"}
         </AiraButton>
         <AiraButton
