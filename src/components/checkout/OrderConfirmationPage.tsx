@@ -65,9 +65,8 @@ export function OrderConfirmationPage({ className }: { className?: string }) {
             color: "#7A6855",
           }}
         >
-          Your order has been placed and our team will be in touch with you
-          shortly. A confirmation will be sent to your provided contact
-          details.
+          Your order has been placed and our team will be in touch with you shortly. A confirmation
+          will be sent to your provided contact details.
         </p>
 
         <p

@@ -75,9 +75,7 @@ export function CartPage() {
                         <button
                           type="button"
                           aria-label={`Decrease quantity of ${item.title}`}
-                          onClick={() =>
-                            updateQuantity(item.id, item.size, item.quantity - 1)
-                          }
+                          onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)}
                           className="font-sans size-6 border border-[#DDD5C0] text-sm text-[#1A0F0A] transition-colors duration-200 hover:border-[#B85C38] hover:text-[#B85C38]"
                         >
                           −
@@ -88,9 +86,7 @@ export function CartPage() {
                         <button
                           type="button"
                           aria-label={`Increase quantity of ${item.title}`}
-                          onClick={() =>
-                            updateQuantity(item.id, item.size, item.quantity + 1)
-                          }
+                          onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)}
                           className="font-sans size-6 border border-[#DDD5C0] text-sm text-[#1A0F0A] transition-colors duration-200 hover:border-[#B85C38] hover:text-[#B85C38]"
                         >
                           +
@@ -125,18 +121,14 @@ export function CartPage() {
 
                 <div className="mt-5 space-y-3">
                   <div className="flex items-baseline justify-between">
-                    <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">
-                      Subtotal
-                    </span>
+                    <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">Subtotal</span>
                     <span className="font-editorial text-base italic text-[#1A0F0A]">
                       {formatPrice(subtotal, currency)}
                     </span>
                   </div>
 
                   <div className="flex items-baseline justify-between">
-                    <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">
-                      Shipping
-                    </span>
+                    <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">Shipping</span>
                     <span className="font-sans text-[0.6875rem] text-[#1A0F0A]">
                       {subtotal >= FREE_SHIPPING_THRESHOLD ? "Free" : "Calculated at checkout"}
                     </span>

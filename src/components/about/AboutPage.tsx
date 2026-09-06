@@ -39,7 +39,10 @@ export function AboutPage() {
       </header>
 
       {/* 2 — Our philosophy */}
-      <section aria-labelledby="about-philosophy" className={`${gutter} bg-[#F5EFE0] py-12 lg:py-20`}>
+      <section
+        aria-labelledby="about-philosophy"
+        className={`${gutter} bg-[#F5EFE0] py-12 lg:py-20`}
+      >
         <div className={`${shell} flex flex-col gap-16 lg:flex-row lg:items-center`}>
           <div className="order-2 lg:order-1 lg:w-[45%]">
             <p className={eyebrow}>{ABOUT_PHILOSOPHY.eyebrow}</p>
@@ -164,7 +167,10 @@ export function AboutPage() {
       </section>
 
       {/* 7 — Three expressions */}
-      <section aria-labelledby="about-expressions" className={`${gutter} bg-[#EDE4D0] py-12 lg:py-20`}>
+      <section
+        aria-labelledby="about-expressions"
+        className={`${gutter} bg-[#EDE4D0] py-12 lg:py-20`}
+      >
         <div className={shell}>
           <div className="mb-12 max-w-[600px]">
             <h2 id="about-expressions" className={heading}>
