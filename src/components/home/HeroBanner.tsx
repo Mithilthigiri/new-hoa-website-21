@@ -178,7 +178,11 @@ export function HeroBanner({
               active ? "opacity-100" : "pointer-events-none opacity-0",
             )}
           >
-            <SlideMedia slide={slide} active={active} />
+            <SlideMedia
+              slide={slide}
+              active={active}
+              onVideoEnded={() => go(index + 1)}
+            />
             <span
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.85)_0%,rgba(44,24,16,0.45)_35%,rgba(44,24,16,0)_68%)]"
