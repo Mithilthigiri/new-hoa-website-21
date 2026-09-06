@@ -12,6 +12,14 @@ import ivoryLehengaSwing from "@/assets/DSC04261.jpg.asset.json";
 import ikatPalazzo from "@/assets/DSC04402.jpg.asset.json";
 import indigoKanthaFull from "@/assets/DSC04471.jpg.asset.json";
 import indigoKanthaDetail from "@/assets/DSC04487.jpg.asset.json";
+import blackAnarkaliFront from "@/assets/DSC02300.JPG.asset.json";
+import blackAnarkaliStanding from "@/assets/DSC02302.JPG.asset.json";
+import blackAnarkaliDetail from "@/assets/DSC02314.JPG.asset.json";
+import blackAnarkaliMovement from "@/assets/DSC02318_1.JPG.asset.json";
+import kalamkariGreenSeated from "@/assets/DSC02538.JPG.asset.json";
+import kalamkariGreenSide from "@/assets/DSC02541.JPG.asset.json";
+import kalamkariGreenBack from "@/assets/DSC02549.JPG.asset.json";
+import kalamkariGreenDetail from "@/assets/DSC02533.JPG.asset.json";
 
 /** Reusable badge vocabulary. Later mapped from a Shopify tag/metafield. */
 export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
@@ -76,6 +84,56 @@ export function formatPrice(price: number, currency: string): string {
 }
 
 export const NEW_ARRIVALS: Product[] = [
+  {
+    id: "aira-black-zari-anarkali",
+    handle: "black-zari-anarkali",
+    description:
+      "A floor-length black cotton anarkali with a woven zari neckline and waistband, finished with a contrast green and maroon border at the hem and cuffs.",
+    title: "Black Zari Anarkali",
+    price: 11499,
+    currency: "INR",
+    category: "Ethnic Wear",
+    sizes: ["S", "M", "L", "XL"],
+    colours: ["Black", "Gold"],
+    images: [
+      blackAnarkaliFront.url,
+      blackAnarkaliStanding.url,
+      blackAnarkaliMovement.url,
+      blackAnarkaliDetail.url,
+    ],
+    image: blackAnarkaliFront.url,
+    hoverImage: blackAnarkaliStanding.url,
+    imageAlt:
+      "Model wearing a floor-length black cotton anarkali with woven zari neckline and a green and maroon border.",
+    badge: "NEW",
+    href: "/product/black-zari-anarkali",
+    publishedAt: "2026-09-05",
+  },
+  {
+    id: "aira-green-kalamkari-skirt-set",
+    handle: "green-kalamkari-skirt-set",
+    description:
+      "A hand-printed green kalamkari cap-sleeve top with elephant and figure motifs, worn with a pleated cocoa cotton skirt.",
+    title: "Green Kalamkari Skirt Set",
+    price: 8499,
+    currency: "INR",
+    category: "Contemporary",
+    sizes: ["XS", "S", "M", "L"],
+    colours: ["Emerald", "Espresso"],
+    images: [
+      kalamkariGreenSeated.url,
+      kalamkariGreenSide.url,
+      kalamkariGreenBack.url,
+      kalamkariGreenDetail.url,
+    ],
+    image: kalamkariGreenSeated.url,
+    hoverImage: kalamkariGreenBack.url,
+    imageAlt:
+      "Model wearing a green kalamkari printed cap-sleeve top with a pleated cocoa brown cotton skirt.",
+    badge: "NEW",
+    href: "/product/green-kalamkari-skirt-set",
+    publishedAt: "2026-09-04",
+  },
   {
     id: "aira-navy-bloom-dress",
     handle: "navy-bloom-dress",
