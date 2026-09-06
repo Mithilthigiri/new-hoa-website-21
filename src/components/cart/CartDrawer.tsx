@@ -41,7 +41,7 @@ export function CartDrawer() {
       >
         {/* Header */}
         <header className="flex h-16 flex-shrink-0 items-center justify-between border-b border-[#DDD5C0] px-6">
-          <p className="font-body text-[0.6875rem] uppercase tracking-[0.15em] text-[#1A0F0A]">
+          <p className="font-sans text-[0.6875rem] uppercase tracking-[0.15em] text-[#1A0F0A]">
             Your Cart
           </p>
           <button
@@ -68,7 +68,7 @@ export function CartDrawer() {
               <Link
                 to="/shop"
                 onClick={closeCart}
-                className="font-body mt-6 inline-block border-b border-[#B85C38]/40 pb-1 text-[0.625rem] uppercase tracking-[0.15em] text-[#B85C38]"
+                className="font-sans mt-6 inline-block border-b border-[#B85C38]/40 pb-1 text-[0.625rem] uppercase tracking-[0.15em] text-[#B85C38]"
               >
                 Shop the collection →
               </Link>
@@ -90,8 +90,8 @@ export function CartDrawer() {
                     className="h-[106px] w-20 flex-shrink-0 rounded-[2px] object-cover"
                   />
                   <div className="flex-1">
-                    <p className="font-body text-xs font-medium text-[#1A0F0A]">{item.title}</p>
-                    <p className="font-body mt-[3px] text-[0.625rem] uppercase tracking-[0.12em] text-[#7A6855]">
+                    <p className="font-sans text-xs font-medium text-[#1A0F0A]">{item.title}</p>
+                    <p className="font-sans mt-[3px] text-[0.625rem] uppercase tracking-[0.12em] text-[#7A6855]">
                       Size {item.size}
                     </p>
                     <p className="font-editorial mt-1 text-sm italic text-[#1A0F0A]">
@@ -103,25 +103,25 @@ export function CartDrawer() {
                         type="button"
                         aria-label={`Decrease quantity of ${item.title}`}
                         onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)}
-                        className="font-body size-6 border border-[#DDD5C0] text-sm text-[#1A0F0A] transition-colors duration-200 hover:border-[#B85C38] hover:text-[#B85C38]"
+                        className="font-sans size-6 border border-[#DDD5C0] text-sm text-[#1A0F0A] transition-colors duration-200 hover:border-[#B85C38] hover:text-[#B85C38]"
                       >
                         −
                       </button>
-                      <span className="font-body min-w-5 text-center text-[0.8125rem] text-[#1A0F0A]">
+                      <span className="font-sans min-w-5 text-center text-[0.8125rem] text-[#1A0F0A]">
                         {item.quantity}
                       </span>
                       <button
                         type="button"
                         aria-label={`Increase quantity of ${item.title}`}
                         onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)}
-                        className="font-body size-6 border border-[#DDD5C0] text-sm text-[#1A0F0A] transition-colors duration-200 hover:border-[#B85C38] hover:text-[#B85C38]"
+                        className="font-sans size-6 border border-[#DDD5C0] text-sm text-[#1A0F0A] transition-colors duration-200 hover:border-[#B85C38] hover:text-[#B85C38]"
                       >
                         +
                       </button>
                       <button
                         type="button"
                         onClick={() => removeItem(item.id, item.size)}
-                        className="font-body ml-auto text-[0.5625rem] uppercase tracking-[0.12em] text-[#7A6855] transition-colors duration-200 hover:text-[#B85C38]"
+                        className="font-sans ml-auto text-[0.5625rem] uppercase tracking-[0.12em] text-[#7A6855] transition-colors duration-200 hover:text-[#B85C38]"
                       >
                         Remove
                       </button>
@@ -137,14 +137,14 @@ export function CartDrawer() {
         {items.length > 0 ? (
           <footer className="flex-shrink-0 border-t border-[#DDD5C0] px-6 pb-8 pt-5">
             <div className="flex items-baseline justify-between">
-              <span className="font-body text-[0.6875rem] uppercase tracking-[0.15em] text-[#7A6855]">
+              <span className="font-sans text-[0.6875rem] uppercase tracking-[0.15em] text-[#7A6855]">
                 Subtotal
               </span>
               <span className="font-editorial text-base italic text-[#1A0F0A]">
                 {formatPrice(subtotal, currency)}
               </span>
             </div>
-            <p className="font-body mt-1.5 text-[0.5625rem] text-[#7A6855]/70">
+            <p className="font-sans mt-1.5 text-[0.5625rem] text-[#7A6855]/70">
               Shipping calculated at checkout
             </p>
             <button
@@ -153,14 +153,14 @@ export function CartDrawer() {
                 closeCart();
                 void navigate({ to: "/checkout" });
               }}
-              className="font-body mt-5 h-[52px] w-full rounded-none bg-[#2C1810] text-[0.6875rem] uppercase tracking-[0.15em] text-[#FAF6EE] transition-colors duration-200 hover:bg-[#1A0F0A]"
+              className="font-sans mt-5 h-[52px] w-full rounded-none bg-[#2C1810] text-[0.6875rem] uppercase tracking-[0.15em] text-[#FAF6EE] transition-colors duration-200 hover:bg-[#1A0F0A]"
             >
               Proceed to Checkout
             </button>
             <button
               type="button"
               onClick={closeCart}
-              className="font-body mt-[14px] block w-full text-center text-[0.5625rem] uppercase tracking-[0.12em] text-[#7A6855] transition-colors duration-200 hover:text-[#B85C38]"
+              className="font-sans mt-[14px] block w-full text-center text-[0.5625rem] uppercase tracking-[0.12em] text-[#7A6855] transition-colors duration-200 hover:text-[#B85C38]"
             >
               Continue Shopping →
             </button>
