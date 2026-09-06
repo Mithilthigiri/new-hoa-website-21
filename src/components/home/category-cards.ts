@@ -2,7 +2,6 @@ import ethnicImage from "@/assets/DSC04471.jpg.asset.json";
 import contemporaryImage from "@/assets/DSC03915.jpg.asset.json";
 import westernImage from "@/assets/DSC03534.jpg.asset.json";
 import newInImage from "@/assets/DSC04224.jpg.asset.json";
-import lookbookImage from "@/assets/DSC04261.jpg.asset.json";
 
 export type CategoryCard = {
   id: string;
@@ -52,14 +51,5 @@ export const CATEGORY_CARDS: CategoryCard[] = [
     imageAlt:
       "Model seated in an ivory hand-embroidered lehenga in warm daylight.",
     to: "/new-in",
-  },
-  {
-    id: "lookbook",
-    name: "Lookbook",
-    subtitle: "The editorial story",
-    image: lookbookImage.url,
-    imageAlt:
-      "Model in an ivory lehenga mid-movement, the skirt swinging in soft daylight.",
-    to: "/lookbook",
   },
 ];

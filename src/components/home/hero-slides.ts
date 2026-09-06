@@ -45,6 +45,6 @@ export const HERO_SLIDES: HeroSlide[] = [
     headline: "Opulence, Worn Quietly",
     subline:
       "An heirloom is not something you inherit. It is something you choose to wear.",
-    cta: { label: "View Lookbook", to: "/lookbook" },
+    cta: { label: "Shop the Collection", to: "/shop" },
   },
 ];
