@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { CartPage } from "@/components/cart/CartPage";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
@@ -13,5 +13,5 @@ export const Route = createFileRoute("/cart")({
       },
     ],
   }),
-  component: () => <PagePlaceholder eyebrow="Cart" title="Shopping Bag" />,
+  component: () => <CartPage />,
 });
