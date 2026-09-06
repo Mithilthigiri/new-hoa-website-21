@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { MapPin, MessageCircle, Clock, CheckCircle } from "lucide-react";
 import { contactEnquirySchema, submitContactEnquiry } from "@/lib/contact.functions";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -45,6 +46,27 @@ export function ContactPage() {
     }
   }
 
+  const infoItems = [
+    {
+      icon: <MapPin size={22} color="#B85C38" />,
+      label: "OUR STUDIO",
+      value: "Chennai, Tamil Nadu",
+      href: undefined,
+    },
+    {
+      icon: <MessageCircle size={22} color="#B85C38" />,
+      label: "WHATSAPP",
+      value: "Chat with us",
+      href: "https://api.whatsapp.com/send?phone=919384488692",
+    },
+    {
+      icon: <Clock size={22} color="#B85C38" />,
+      label: "RESPONSE TIME",
+      value: "Within a few hours",
+      href: undefined,
+    },
+  ];
+
   return (
     <div className="bg-[#F5EFE0]">
       <section className="border-b border-[#DDD5C0] px-6 pt-12 pb-12 text-center lg:pt-20">
@@ -61,7 +83,33 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 py-20 lg:px-12">
+      {/* Info strip */}
+      <section className="bg-[#EDE4D0] px-6 py-12 lg:px-12">
+        <div className="mx-auto grid w-full max-w-[100rem] grid-cols-1 gap-10 text-center sm:grid-cols-3">
+          {infoItems.map((item) => (
+            <div key={item.label} className="flex flex-col items-center">
+              {item.icon}
+              <p className="mt-2 font-sans text-[10px] uppercase tracking-[0.2em] text-[#7A6855]">
+                {item.label}
+              </p>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 font-sans text-[13px] text-[#1A0F0A]"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="mt-1 font-sans text-[13px] text-[#1A0F0A]">{item.value}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#F5EFE0] px-6 py-20 lg:px-12">
         <div className="mx-auto grid w-full max-w-[100rem] gap-16 lg:grid-cols-[45%_55%]">
           <div>
             <h2 className="font-display text-[28px] font-light text-[#1A0F0A]">Client care</h2>
@@ -146,26 +194,33 @@ export function ContactPage() {
               />
             </div>
 
-            <div>
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="type-button inline-flex h-[52px] min-w-[220px] items-center justify-center bg-[#2C1810] px-10 text-[#F5EFE0] transition-opacity disabled:opacity-60"
-              >
-                {status === "sending" ? "Sending…" : "Send Enquiry"}
-              </button>
+            {status === "sent" ? (
+              <div className="flex flex-col items-center py-10 text-center">
+                <CheckCircle size={40} color="#2D5A3D" />
+                <h3 className="mt-6 font-display text-[28px] font-light text-[#1A0F0A]">
+                  Message received.
+                </h3>
+                <p className="mt-3 font-editorial text-[16px] italic leading-[1.75] text-[#7A6855]">
+                  We&apos;ll be in touch shortly.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="h-[52px] w-full bg-[#2C1810] font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] transition-opacity disabled:opacity-60"
+                >
+                  {status === "sending" ? "Sending…" : "Send Enquiry"}
+                </button>
 
-              <p aria-live="polite" className="mt-4 font-sans text-[13px]">
-                {status === "sent" ? (
-                  <span className="text-[#1A0F0A]">
-                    Thank you — your message has reached us. We&apos;ll be in touch shortly.
-                  </span>
-                ) : null}
                 {status === "error" && error ? (
-                  <span className="text-[#B85C38]">{error}</span>
+                  <p aria-live="polite" className="mt-4 font-sans text-[13px] text-[#B85C38]">
+                    {error}
+                  </p>
                 ) : null}
-              </p>
-            </div>
+              </div>
+            )}
           </form>
         </div>
       </section>
