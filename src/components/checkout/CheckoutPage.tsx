@@ -118,15 +118,23 @@ export function CheckoutPage() {
     }
   };
 
-  const visibleErrors = useMemo(() => {
+  const visibleErrors = useMemo<FormErrors>(() => {
     const liveErrors: FormErrors = {};
-    if (touched.fullName || errors.fullName) liveErrors.fullName = errors.fullName;
-    if (touched.phone || errors.phone) liveErrors.phone = errors.phone;
-    if (touched.email || errors.email) liveErrors.email = errors.email;
-    if (touched.address1 || errors.address1) liveErrors.address1 = errors.address1;
-    if (touched.city || errors.city) liveErrors.city = errors.city;
-    if (touched.state || errors.state) liveErrors.state = errors.state;
-    if (touched.pincode || errors.pincode) liveErrors.pincode = errors.pincode;
+    const fields: (keyof FormData)[] = [
+      "fullName",
+      "phone",
+      "email",
+      "address1",
+      "city",
+      "state",
+      "pincode",
+    ];
+    for (const field of fields) {
+      const error = errors[field];
+      if (error && (touched[field] || errors[field])) {
+        liveErrors[field] = error;
+      }
+    }
     return liveErrors;
   }, [errors, touched]);
 
