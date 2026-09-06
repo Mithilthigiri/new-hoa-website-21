@@ -44,20 +44,7 @@ export function AboutPage() {
         </div>
       </header>
 
-      {/* 2 — Full-width hero image */}
-      <div className="relative h-[50vh] w-full lg:h-[70vh]">
-        <AiraImage
-          fill
-          src={ABOUT_HERO.image}
-          alt={ABOUT_HERO.imageAlt}
-          loading="eager"
-          fetchPriority="high"
-          sizes="100vw"
-          imgClassName="object-top"
-        />
-      </div>
-
-      {/* 3 — Our philosophy */}
+      {/* 2 — Our philosophy */}
       <section
         aria-labelledby="about-philosophy"
         className={`${gutter} bg-[#F5EFE0] py-20`}
