@@ -41,7 +41,7 @@ export const ABOUT_PHILOSOPHY = {
   pullQuote: "Rooted in heritage. Reimagined for the woman of today.",
   image: philosophyImage.url,
   imageAlt:
-    "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
+    "Model in a black long-sleeved kurta with gold zari trim, red and green cuffs, and statement earrings.",
 };
 
 export const ABOUT_CRAFT = {
