@@ -96,7 +96,7 @@ export function AboutPage() {
       </section>
 
       {/* 5 — Craft */}
-      <section aria-labelledby="about-craft" className="bg-[#F5EFE0] py-12 lg:py-20`
+      <section aria-labelledby="about-craft" className="bg-[#F5EFE0] py-12 lg:py-20">
         <div className={`${gutter} mx-auto mb-12 w-full max-w-[600px]`}>
           <p className={`${eyebrow} text-center`}>{ABOUT_CRAFT.eyebrow}</p>
           <h2 id="about-craft" className={`${heading} mt-3 text-center`}>
