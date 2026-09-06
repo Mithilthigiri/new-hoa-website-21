@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Play, X, Instagram } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
 import poster1 from "@/assets/DSC03342.jpg.asset.json";
