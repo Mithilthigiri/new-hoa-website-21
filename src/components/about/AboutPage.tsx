@@ -8,6 +8,7 @@ import {
   ABOUT_CLOSING,
   ABOUT_CRAFT,
   ABOUT_EXPRESSIONS,
+  ABOUT_FOUNDER,
   ABOUT_HERO,
   ABOUT_PHILOSOPHY,
   ABOUT_WOMAN,
@@ -71,7 +72,47 @@ export function AboutPage() {
         </Container>
       </header>
 
-      {/* 2 — Brand philosophy */}
+      {/* 2 — The founder */}
+      <section
+        aria-labelledby="about-founder"
+        className="mt-space-2xl lg:mt-space-3xl"
+      >
+        <Container width="wide">
+          <div className="grid grid-cols-1 gap-space-xl lg:grid-cols-12 lg:items-center lg:gap-space-2xl">
+            <div className="lg:col-span-5">
+              <p className="type-label text-rust-deep/80">
+                {ABOUT_FOUNDER.eyebrow}
+              </p>
+              <h2
+                id="about-founder"
+                className="mt-space-md font-display text-3xl leading-tight font-light tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+              >
+                {ABOUT_FOUNDER.heading}
+              </h2>
+              <div className="mt-space-lg flex flex-col gap-space-md">
+                {ABOUT_FOUNDER.paragraphs.map((copy) => (
+                  <p key={copy} className="type-body text-muted-foreground">
+                    {copy}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            <div className="group lg:col-span-6 lg:col-start-7">
+              <AiraImage
+                reveal
+                src={ABOUT_FOUNDER.image}
+                alt={ABOUT_FOUNDER.imageAlt}
+                ratio="3/4"
+                sizes="(min-width: 1024px) 48vw, 100vw"
+                imgClassName={hoverImage}
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 3 — Brand philosophy */}
       <section
         aria-labelledby="about-philosophy"
         className="mt-space-2xl lg:mt-space-3xl"

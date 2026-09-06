@@ -3,10 +3,11 @@ import philosophyImage from "@/assets/DSC04471.jpg.asset.json";
 import craftImage from "@/assets/DSC04487.jpg.asset.json";
 import craftSecondaryImage from "@/assets/DSC03630.jpg.asset.json";
 import womanImage from "@/assets/DSC03791.jpg.asset.json";
+import founderImage from "@/assets/founder-placeholder.jpg";
 
 /**
- * Editorial copy and photography for /about. All imagery is existing original
- * House of Aira photography already present in src/assets.
+ * Editorial copy and photography for /about. Founder imagery is a temporary
+ * placeholder and will be replaced with the real founder portrait.
  */
 export const ABOUT_HERO = {
   eyebrow: "The House of Aira",
@@ -16,6 +17,18 @@ export const ABOUT_HERO = {
   image: heroImage.url,
   imageAlt:
     "Model in an ivory dobby lehenga skirt with a black kalamkari halter jacket, skirt caught mid-movement.",
+};
+
+export const ABOUT_FOUNDER = {
+  eyebrow: "The Founder",
+  heading: "A vision of quiet luxury.",
+  paragraphs: [
+    "Every House of Aira piece begins with a point of view: that tradition need not be worn as costume, and that modern dressing can still carry memory.",
+    "This portrait is a placeholder — the founder's full story and photography will be added here in a later update.",
+  ],
+  image: founderImage,
+  imageAlt:
+    "Placeholder editorial portrait of the House of Aira founder wearing an ivory handwoven sari.",
 };
 
 export const ABOUT_PHILOSOPHY = {
