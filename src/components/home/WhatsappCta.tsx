@@ -7,7 +7,7 @@ type WhatsappCtaProps = {
 };
 
 export function WhatsappCta({
-  phoneNumber = "91XXXXXXXXXX",
+  phoneNumber = "919384488692",
   className,
 }: WhatsappCtaProps) {
   return (
