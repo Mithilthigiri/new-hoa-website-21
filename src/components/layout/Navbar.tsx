@@ -5,14 +5,12 @@ import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
 import { NAV_LINKS } from "./nav-links";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/components/cart/useCart";
 
 const iconClass =
   "inline-flex h-11 w-11 items-center justify-center text-foreground transition-colors duration-200 hover:text-rust-label";
 
 const CENTER_LINKS = [...NAV_LINKS, { label: "Shop All", to: "/shop" }];
-
-/** Bag is not wired to a cart yet, so the count badge stays hidden at zero. */
-const CART_COUNT = 0;
 
 /** Elephant brandmark — decorative House of Aira mark. */
 function ElephantMark({ className }: { className?: string }) {
@@ -31,6 +29,7 @@ function ElephantMark({ className }: { className?: string }) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { totalItems, toggleCart } = useCart();
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -115,18 +114,19 @@ export function Navbar() {
             >
               <Heart className="size-[1.375rem]" strokeWidth={1.25} />
             </button>
-            <Link
-              to="/cart"
-              aria-label={`Cart${CART_COUNT ? `, ${CART_COUNT} items` : ""}`}
+            <button
+              type="button"
+              onClick={toggleCart}
+              aria-label={`Cart${totalItems ? `, ${totalItems} items` : ""}`}
               className={cn(iconClass, "relative")}
             >
               <ShoppingBag className="size-[1.375rem]" strokeWidth={1.25} />
-              {CART_COUNT > 0 ? (
-                <span className="type-nav-mini absolute right-1 top-1 inline-flex min-w-4 items-center justify-center rounded-full bg-rust-label px-1 text-[0.5625rem] leading-4 text-cream-card">
-                  {CART_COUNT}
+              {totalItems > 0 ? (
+                <span className="font-sans absolute right-1 top-1 inline-flex size-4 items-center justify-center rounded-full bg-[#B85C38] text-[0.5625rem] leading-none text-[#FAF6EE]">
+                  {totalItems}
                 </span>
               ) : null}
-            </Link>
+            </button>
           </div>
         </Container>
       </div>
