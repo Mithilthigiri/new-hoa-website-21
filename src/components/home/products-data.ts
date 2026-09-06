@@ -261,6 +261,9 @@ export const NEW_ARRIVALS: Product[] = [
   },
 ];
 
+/** Complete product catalogue; used by the shop page and future sources. */
+export const ALL_PRODUCTS: Product[] = [...NEW_ARRIVALS];
+
 /**
  * Handle → product lookup. Single source of truth stays NEW_ARRIVALS; later this
  * becomes a Shopify productByHandle query with the same signature.
