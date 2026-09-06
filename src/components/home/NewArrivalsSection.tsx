@@ -67,9 +67,9 @@ export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
       aria-labelledby="new-arrivals-heading"
       className={cn("bg-background py-[72px]", className)}
     >
-      <div className="mx-auto flex max-w-[100rem] flex-col gap-5 px-6 lg:flex-row lg:px-12">
+      <div className="mx-auto flex max-w-[100rem] flex-col gap-5 px-6 lg:flex-row lg:items-stretch lg:px-12">
         {/* Editorial panel — 34% desktop, full-width top on mobile */}
-        <div className="relative h-[38vh] w-full shrink-0 overflow-hidden rounded-none lg:h-auto lg:max-h-[520px] lg:w-[34%] lg:rounded-[4px]">
+        <div className="relative w-full shrink-0 overflow-hidden rounded-none lg:w-[34%] lg:rounded-[4px] h-[45vh] sm:h-[55vh] lg:h-auto lg:self-stretch">
           <AiraImage
             src={editorialImage.url}
             alt="Emerald hand-embroidered gown against a textured heritage wall."
