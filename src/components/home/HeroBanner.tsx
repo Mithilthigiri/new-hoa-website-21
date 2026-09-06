@@ -56,6 +56,15 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     headline: "Made with Intention",
     cta: { label: "View Lookbook", to: "/lookbook" },
   },
+  {
+    id: "campaign-portrait",
+    image: slide5.url,
+    imageAlt:
+      "House of Aira campaign portrait in warm daylight against heritage architecture.",
+    eyebrow: "The campaign",
+    headline: "An Heirloom, Chosen",
+    cta: { label: "Shop the Collection", to: "/shop" },
+  },
 ];
 
 function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) {
