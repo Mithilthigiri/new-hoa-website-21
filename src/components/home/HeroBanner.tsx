@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import slide1 from "@/assets/banner-12_06_52_AM.png.asset.json";
 import slide2 from "@/assets/banner-12_13_09_AM.png.asset.json";
-import slide3 from "@/assets/DSC02302-2.JPG.asset.json";
+import slide3 from "@/assets/house-of-aira-red-campaign.png.asset.json";
+import slide3Video from "@/assets/house-of-aira-campaign.webm.asset.json";
 import slide4 from "@/assets/banner-12_41_39_AM.png.asset.json";
 
 type BannerSlide = {
   id: string;
   image: string;
+  video?: string;
   imageAlt: string;
   eyebrow: string;
   headline: string;
@@ -35,10 +37,11 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     cta: { label: "Shop Ethnic Wear", to: "/shop" },
   },
   {
-    id: "black-zari",
+    id: "red-kalamkari",
     image: slide3.url,
+    video: slide3Video.url,
     imageAlt:
-      "Model in a black anarkali with green and maroon border detailing on a sunlit stone path beside a bougainvillea wall.",
+      "Model wearing a red kalamkari top with denim beside warm sandstone architecture.",
     eyebrow: "Contemporary",
     headline: "Everyday Ceremony",
     cta: { label: "Discover New In", to: "/new-in" },
@@ -53,6 +56,59 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     cta: { label: "View Lookbook", to: "/lookbook" },
   },
 ];
+
+function SlideMedia({ slide, active }: { slide: BannerSlide; active: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (active && !reducedMotion) {
+      void video.play().catch(() => undefined);
+      return;
+    }
+
+    video.pause();
+  }, [active]);
+
+  if (slide.video) {
+    return (
+      <video
+        ref={videoRef}
+        src={slide.video}
+        poster={slide.image}
+        aria-label={slide.imageAlt}
+        autoPlay={active}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 h-full w-full object-cover object-top"
+      />
+    );
+  }
+
+  return (
+    <img
+      src={slide.image}
+      alt={slide.imageAlt}
+      loading={slide.id === HERO_BANNER_SLIDES[0]?.id ? "eager" : "lazy"}
+      {...(slide.id === HERO_BANNER_SLIDES[0]?.id
+        ? { fetchPriority: "high" as const }
+        : {})}
+      decoding="async"
+      className={cn(
+        "absolute inset-0 h-full w-full object-cover object-[50%_35%]",
+        active && "motion-safe:animate-ken-burns",
+      )}
+    />
+  );
+}
 
 export function HeroBanner({
   slides = HERO_BANNER_SLIDES,
@@ -100,17 +156,7 @@ export function HeroBanner({
               active ? "opacity-100" : "pointer-events-none opacity-0",
             )}
           >
-            <img
-              src={slide.image}
-              alt={slide.imageAlt}
-              loading={i === 0 ? "eager" : "lazy"}
-              {...(i === 0 ? { fetchPriority: "high" as const } : {})}
-              decoding="async"
-              className={cn(
-                "absolute inset-0 h-full w-full object-cover object-[50%_35%]",
-                active && "motion-safe:animate-ken-burns",
-              )}
-            />
+            <SlideMedia slide={slide} active={active} />
             <span
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.85)_0%,rgba(44,24,16,0.45)_35%,rgba(44,24,16,0)_68%)]"
