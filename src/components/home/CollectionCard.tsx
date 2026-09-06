@@ -33,7 +33,7 @@ export function CollectionCard({
         className,
       )}
     >
-      <div className="relative overflow-hidden bg-background-alt">
+      <div className="relative overflow-hidden">
         <AiraImage
           src={image}
           alt={imageAlt}
@@ -41,15 +41,17 @@ export function CollectionCard({
           width={1024}
           height={1408}
           sizes={sizes}
-          imgClassName="transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03] motion-reduce:transition-none"
+          imgClassName="object-cover object-top transition-transform duration-[400ms] ease-out motion-safe:group-hover:scale-[1.04] motion-reduce:transition-none"
         />
       </div>
 
-      <div className="mt-space-lg">
-        <h3 className="type-h4 text-foreground">{title}</h3>
-        <p className="type-editorial mt-space-xs italic text-muted-foreground">{subtitle}</p>
-        {meta ? <p className="type-small mt-space-xs text-muted-foreground">{meta}</p> : null}
-        <span className="type-label mt-space-md inline-flex min-h-11 items-center border-b border-transparent text-rust-deep transition-colors duration-300 group-hover:border-border-gold motion-reduce:transition-none">
+      <div className="mt-4">
+        <h3 className="font-display text-[20px] font-light text-[#1A0F0A]">{title}</h3>
+        <p className="mt-[6px] font-editorial text-[15px] italic text-[#7A6855]">{subtitle}</p>
+        {meta ? (
+          <p className="mt-[4px] font-sans text-[10px] uppercase text-[#7A6855]/70">{meta}</p>
+        ) : null}
+        <span className="mt-3 block w-fit border-b border-[#B85C38]/40 pb-1 font-sans text-[10px] uppercase text-[#B85C38]">
           {cta}
         </span>
       </div>
