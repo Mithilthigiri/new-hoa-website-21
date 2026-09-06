@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Container } from "@/components/layout/Container";
 import { ProductCard } from "@/components/product/ProductCard";
-import { NEW_ARRIVALS, type Product } from "@/components/home/products-data";
+import { ALL_PRODUCTS, type Product } from "@/components/home/products-data";
 import { ShopControls } from "./ShopControls";
 import { ShopFilters } from "./ShopFilters";
 import { ShopFilterDrawer } from "./ShopFilterDrawer";
@@ -43,7 +43,7 @@ export function ShopPage({
   eyebrow = "The House of Aira",
   heading = "Shop",
   supportingCopy = "Discover contemporary pieces rooted in heritage, designed for the woman of today.",
-  products = NEW_ARRIVALS,
+  products = ALL_PRODUCTS,
   initialCategory,
 }: ShopPageProps) {
   const options = useMemo(() => deriveFilterOptions(products), [products]);
