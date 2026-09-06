@@ -22,13 +22,43 @@ const optionClass =
  */
 export function ProductInfo({ product, className }: ProductInfoProps) {
   const { title, category, price, currency, sizes, colours } = product;
+  const { addItem, openCart } = useCart();
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColour, setSelectedColour] = useState<string>(colours[0] ?? "");
   const [added, setAdded] = useState(false);
+  const [sizeError, setSizeError] = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
 
   const hasMultipleColours = colours.length > 1;
+
+  useEffect(() => {
+    if (!added) return;
+    const timer = window.setTimeout(() => setAdded(false), 2000);
+    return () => window.clearTimeout(timer);
+  }, [added]);
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      setSizeError(true);
+      return;
+    }
+    setSizeError(false);
+    addItem({
+      id: product.id,
+      handle: product.handle,
+      title: product.title,
+      price: product.price,
+      currency: product.currency,
+      image: product.image,
+      imageAlt: product.imageAlt,
+      size: selectedSize,
+      quantity: 1,
+    });
+    setAdded(true);
+    openCart();
+  };
+
 
   return (
     <div className={cn("min-w-0", className)}>
