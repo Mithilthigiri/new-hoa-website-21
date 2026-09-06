@@ -5,8 +5,7 @@ import post4 from "@/assets/DSC03946.jpg.asset.json";
 import post5 from "@/assets/DSC04261.jpg.asset.json";
 import post6 from "@/assets/DSC04402.jpg.asset.json";
 
-/** Placeholder account URL — replace with the real House of Aira handle later. */
-export const INSTAGRAM_PROFILE_URL = "https://instagram.com/";
+export const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/house_of_airaa?stkn=cGhqNXliOG4wcjcx";
 
 export type InstagramPost = {
   id: string;

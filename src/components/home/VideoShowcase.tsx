@@ -7,6 +7,7 @@ import poster3 from "@/assets/DSC04487.jpg.asset.json";
 import poster4 from "@/assets/DSC03946.jpg.asset.json";
 import poster5 from "@/assets/DSC04261.jpg.asset.json";
 import poster6 from "@/assets/DSC04402.jpg.asset.json";
+import { INSTAGRAM_PROFILE_URL } from "./instagram-data";
 
 type VideoItem = {
   id: string;
@@ -225,7 +226,7 @@ export function VideoShowcase({ className }: { className?: string }) {
       <div className="mx-auto max-w-[100rem] px-6 lg:px-12">
         <div className="mt-8 flex justify-center">
           <a
-            href="#"
+            href={INSTAGRAM_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border-b border-foreground/30 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:border-rust-label hover:text-rust-label focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
