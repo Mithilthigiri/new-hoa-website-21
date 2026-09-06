@@ -1,12 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import heroEditorial from "@/assets/DSC03342.jpg.asset.json";
-import {
-  NEW_ARRIVALS,
-  findProductByHandle,
-  formatPrice,
-  type Product,
-} from "./products-data";
+import { NEW_ARRIVALS, findProductByHandle, formatPrice, type Product } from "./products-data";
 import { cn } from "@/lib/utils";
 
 type HeroDot = {
@@ -49,13 +44,7 @@ export const HERO_DOTS: HeroDot[] = [
   },
 ];
 
-function ProductPopup({
-  product,
-  placement,
-}: {
-  product: Product;
-  placement: "above" | "below";
-}) {
+function ProductPopup({ product, placement }: { product: Product; placement: "above" | "below" }) {
   return (
     <div
       role="dialog"
@@ -126,10 +115,7 @@ export function HeroShoppable({ className }: { className?: string }) {
     <section
       ref={ref}
       aria-label="House of Aira campaign"
-      className={cn(
-        "relative w-full overflow-hidden bg-espresso h-[65vh] lg:h-[90vh]",
-        className,
-      )}
+      className={cn("relative w-full overflow-hidden bg-espresso h-[65vh] lg:h-[90vh]", className)}
     >
       <img
         src={heroEditorial.url}
@@ -185,9 +171,7 @@ export function HeroShoppable({ className }: { className?: string }) {
                 className="relative block size-[14px] rounded-full border-2 border-white bg-espresso"
               />
             </button>
-            {open ? (
-              <ProductPopup product={product} placement={dot.placement} />
-            ) : null}
+            {open ? <ProductPopup product={product} placement={dot.placement} /> : null}
           </div>
         );
       })}

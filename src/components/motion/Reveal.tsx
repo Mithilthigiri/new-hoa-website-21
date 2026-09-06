@@ -15,10 +15,6 @@ type RevealProps = {
  * Layout wrapper only. The clean editorial direction uses no scroll or
  * entrance animation, so this renders its children immediately.
  */
-export function Reveal({
-  children,
-  as: Tag = "div",
-  className,
-}: RevealProps) {
+export function Reveal({ children, as: Tag = "div", className }: RevealProps) {
   return <Tag className={cn(className)}>{children}</Tag>;
 }

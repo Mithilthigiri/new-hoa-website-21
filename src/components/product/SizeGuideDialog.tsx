@@ -21,9 +21,7 @@ export function SizeGuideDialog() {
       </DialogTrigger>
       <DialogContent className="max-w-md rounded-sm border-border bg-card">
         <DialogHeader>
-          <DialogTitle className="type-h3 text-foreground">
-            Size Guide
-          </DialogTitle>
+          <DialogTitle className="type-h3 text-foreground">Size Guide</DialogTitle>
           <DialogDescription className="type-editorial text-muted-foreground">
             {PDP_SIZE_GUIDE_NOTE}
           </DialogDescription>

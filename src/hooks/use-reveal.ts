@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from "react";
  * Reveals an element once it enters the viewport and keeps it revealed.
  * Purely presentational: no data, no routing, no state outside this hook.
  */
-export function useReveal<T extends HTMLElement = HTMLElement>(
-  threshold = 0.15,
-) {
+export function useReveal<T extends HTMLElement = HTMLElement>(threshold = 0.15) {
   const ref = useRef<T | null>(null);
   const [revealed, setRevealed] = useState(false);
 

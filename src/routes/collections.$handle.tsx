@@ -5,9 +5,7 @@ import { Container } from "@/components/layout/Container";
 
 export const Route = createFileRoute("/collections/$handle")({
   loader: ({ params }) => {
-    const collection = FEATURED_COLLECTIONS.find(
-      (item) => item.handle === params.handle,
-    );
+    const collection = FEATURED_COLLECTIONS.find((item) => item.handle === params.handle);
     if (!collection) throw notFound();
     return { collection };
   },

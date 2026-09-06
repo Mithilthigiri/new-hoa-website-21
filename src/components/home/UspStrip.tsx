@@ -30,12 +30,7 @@ type UspStripProps = {
 
 export function UspStrip({ className }: UspStripProps) {
   return (
-    <section
-      className={cn(
-        "bg-[#F5EFE0] border-y border-[#DDD5C0] py-8",
-        className
-      )}
-    >
+    <section className={cn("bg-[#F5EFE0] border-y border-[#DDD5C0] py-8", className)}>
       <div className="grid grid-cols-2 divide-x divide-[#DDD5C0] md:grid-cols-4">
         {USP_ITEMS.map((item) => {
           const Icon = item.icon;
@@ -48,9 +43,7 @@ export function UspStrip({ className }: UspStripProps) {
               <h3 className="mt-[10px] font-sans text-[11px] uppercase tracking-[0.12em] text-[#1A0F0A]">
                 {item.title}
               </h3>
-              <p className="mt-1 font-sans text-[10px] text-[#7A6855]">
-                {item.subtitle}
-              </p>
+              <p className="mt-1 font-sans text-[10px] text-[#7A6855]">{item.subtitle}</p>
             </div>
           );
         })}

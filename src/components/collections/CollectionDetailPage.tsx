@@ -90,10 +90,7 @@ export function CollectionDetailPage({
           </div>
           <div className="max-w-xl">
             <p className="type-label text-rust-deep">{collection.subtitle}</p>
-            <h1
-              id="collection-heading"
-              className="type-h1 mt-space-sm text-foreground"
-            >
+            <h1 id="collection-heading" className="type-h1 mt-space-sm text-foreground">
               {collection.title}
             </h1>
             <p className="type-editorial mt-space-md text-muted-foreground">
@@ -115,9 +112,7 @@ export function CollectionDetailPage({
             <select
               id="collection-sort"
               value={sort}
-              onChange={(event) =>
-                setSort(event.target.value as ShopSortOption)
-              }
+              onChange={(event) => setSort(event.target.value as ShopSortOption)}
               className="type-button absolute inset-0 h-full w-full cursor-pointer appearance-none bg-transparent pr-9 pl-5 text-espresso outline-none"
             >
               {SHOP_SORT_OPTIONS.map((option) => (
@@ -140,8 +135,7 @@ export function CollectionDetailPage({
           <div className="mt-space-2xl border border-border px-space-lg py-space-3xl text-center">
             <h2 className="type-h4 text-foreground">Pieces coming soon</h2>
             <p className="type-editorial mx-auto mt-space-md max-w-md text-muted-foreground">
-              This collection is being prepared. In the meantime, explore the
-              full catalogue.
+              This collection is being prepared. In the meantime, explore the full catalogue.
             </p>
             <Link
               to="/shop"

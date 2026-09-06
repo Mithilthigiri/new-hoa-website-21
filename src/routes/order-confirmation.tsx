@@ -13,7 +13,5 @@ export const Route = createFileRoute("/order-confirmation")({
       },
     ],
   }),
-  component: () => (
-    <PagePlaceholder eyebrow="Order" title="Order Confirmation" />
-  ),
+  component: () => <PagePlaceholder eyebrow="Order" title="Order Confirmation" />,
 });

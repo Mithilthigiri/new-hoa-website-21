@@ -58,11 +58,7 @@ export function ProductGallery({ product, className }: ProductGalleryProps) {
             >
               <AiraImage
                 src={src}
-                alt={
-                  index === 0
-                    ? product.imageAlt
-                    : `${product.title} — view ${index + 1}`
-                }
+                alt={index === 0 ? product.imageAlt : `${product.title} — view ${index + 1}`}
                 ratio="3/4"
                 width={1200}
                 height={1600}
@@ -116,13 +112,7 @@ export function ProductGallery({ product, className }: ProductGalleryProps) {
                     : "border-transparent hover:border-border-strong",
                 )}
               >
-                <AiraImage
-                  src={src}
-                  alt=""
-                  decorative
-                  ratio="3/4"
-                  sizes="64px"
-                />
+                <AiraImage src={src} alt="" decorative ratio="3/4" sizes="64px" />
               </button>
             ))}
           </div>

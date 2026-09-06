@@ -23,11 +23,7 @@ export function ProductDetails({ className }: ProductDetailsProps) {
       </h2>
       <Accordion type="single" collapsible className="mt-space-md border-t border-border">
         {PDP_DETAIL_SECTIONS.map((section) => (
-          <AccordionItem
-            key={section.id}
-            value={section.id}
-            className="border-b border-border"
-          >
+          <AccordionItem key={section.id} value={section.id} className="border-b border-border">
             <AccordionTrigger className="type-h4 py-space-md text-foreground hover:no-underline">
               {section.title}
             </AccordionTrigger>

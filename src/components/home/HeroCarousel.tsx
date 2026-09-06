@@ -11,17 +11,11 @@ type HeroCarouselProps = {
 
 const AUTOPLAY_MS = 5000;
 
-export function HeroCarousel({
-  slides = HERO_SLIDES,
-  className,
-}: HeroCarouselProps) {
+export function HeroCarousel({ slides = HERO_SLIDES, className }: HeroCarouselProps) {
   const [index, setIndex] = useState(0);
   const count = slides.length;
 
-  const go = useCallback(
-    (next: number) => setIndex(((next % count) + count) % count),
-    [count],
-  );
+  const go = useCallback((next: number) => setIndex(((next % count) + count) % count), [count]);
 
   useEffect(() => {
     if (count < 2) return;
@@ -38,10 +32,7 @@ export function HeroCarousel({
     <section
       aria-label="Featured"
       aria-roledescription="carousel"
-      className={cn(
-        "relative w-full overflow-hidden bg-espresso h-[70vh] lg:h-[90vh]",
-        className,
-      )}
+      className={cn("relative w-full overflow-hidden bg-espresso h-[70vh] lg:h-[90vh]", className)}
     >
       {slides.map((slide, i) => {
         const active = i === index;

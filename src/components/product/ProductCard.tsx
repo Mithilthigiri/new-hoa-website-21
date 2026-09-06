@@ -22,8 +22,7 @@ export function ProductCard({
   pricePrefix,
   className,
 }: ProductCardProps) {
-  const { title, price, currency, category, image, imageAlt, badge, handle } =
-    product;
+  const { title, price, currency, category, image, imageAlt, badge, handle } = product;
 
   const formattedPrice = formatPrice(price, currency);
   const frameRatio = imageRatio === "2/3" ? "aspect-[2/3]" : "aspect-[3/4]";
@@ -58,10 +57,7 @@ export function ProductCard({
         </Link>
 
         {badge ? (
-          <ProductBadge
-            kind={badge}
-            className="absolute left-space-sm top-space-sm z-10"
-          />
+          <ProductBadge kind={badge} className="absolute left-space-sm top-space-sm z-10" />
         ) : null}
       </div>
 
@@ -78,9 +74,7 @@ export function ProductCard({
           </h3>
           <p className="type-price shrink-0 text-foreground">
             {pricePrefix ? (
-              <span className="type-nav-mini mr-1 text-muted-foreground">
-                {pricePrefix}
-              </span>
+              <span className="type-nav-mini mr-1 text-muted-foreground">{pricePrefix}</span>
             ) : null}
             {formattedPrice}
           </p>

@@ -2,12 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 function Hairline({ className }: { className?: string }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={cn("block h-px w-14 bg-gold", className)}
-    />
-  );
+  return <span aria-hidden="true" className={cn("block h-px w-14 bg-gold", className)} />;
 }
 
 export function EditorialQuote({ className }: { className?: string }) {
@@ -24,9 +19,7 @@ export function EditorialQuote({ className }: { className?: string }) {
         </h2>
 
         <blockquote>
-          <p
-            className="font-editorial text-[clamp(22px,3vw,40px)] font-light italic leading-[1.45] text-ivory"
-          >
+          <p className="font-editorial text-[clamp(22px,3vw,40px)] font-light italic leading-[1.45] text-ivory">
             Old money maximalism, reimagined for the contemporary Indian wardrobe.
           </p>
         </blockquote>

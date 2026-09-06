@@ -29,15 +29,7 @@ export type ProductSize = "XS" | "S" | "M" | "L" | "XL";
 
 /** Colour vocabulary. Later maps to a Shopify variant option named "Colour". */
 export type ProductColour =
-  | "Rust"
-  | "Ivory"
-  | "Espresso"
-  | "Gold"
-  | "Black"
-  | "Navy"
-  | "Emerald"
-  | "Purple"
-  | "Indigo";
+  "Rust" | "Ivory" | "Espresso" | "Gold" | "Black" | "Navy" | "Emerald" | "Purple" | "Indigo";
 
 /**
  * Shape mirrors the fields a Shopify product provides, so this local array can
@@ -168,8 +160,7 @@ export const NEW_ARRIVALS: Product[] = [
     images: [rustCamiFront.url, rustCamiBack.url, rustCamiDetail.url],
     image: rustCamiFront.url,
     hoverImage: rustCamiBack.url,
-    imageAlt:
-      "Model wearing a rust paisley printed cami top with lace-up back, styled with denim.",
+    imageAlt: "Model wearing a rust paisley printed cami top with lace-up back, styled with denim.",
     badge: "BESTSELLER",
     href: "/product/kalamkari-cami-top",
     publishedAt: "2026-08-02",
@@ -197,8 +188,7 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-purple-garden-skirt-set",
     handle: "purple-garden-skirt-set",
-    description:
-      "A purple floral embroidered skirt paired with a green printed halter top.",
+    description: "A purple floral embroidered skirt paired with a green printed halter top.",
     title: "Purple Garden Skirt Set",
     price: 12499,
     currency: "INR",
@@ -217,8 +207,7 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-ivory-heritage-lehenga",
     handle: "ivory-heritage-lehenga",
-    description:
-      "An ivory dobby lehenga skirt worn with a black printed halter jacket.",
+    description: "An ivory dobby lehenga skirt worn with a black printed halter jacket.",
     title: "Ivory Heritage Lehenga",
     price: 15999,
     currency: "INR",
@@ -236,8 +225,7 @@ export const NEW_ARRIVALS: Product[] = [
   {
     id: "aira-ikat-panel-palazzo-set",
     handle: "ikat-panel-palazzo-set",
-    description:
-      "Wide purple ikat panelled palazzo trousers with a fitted mauve bralette top.",
+    description: "Wide purple ikat panelled palazzo trousers with a fitted mauve bralette top.",
     title: "Ikat Panel Palazzo Set",
     price: 7499,
     currency: "INR",
@@ -287,7 +275,5 @@ export function findProductByHandle(
 /** Full gallery for a product, falling back to the grid/hover images. */
 export function getProductImages(product: Product): string[] {
   if (product.images?.length) return product.images;
-  return product.hoverImage
-    ? [product.image, product.hoverImage]
-    : [product.image];
+  return product.hoverImage ? [product.image, product.hoverImage] : [product.image];
 }

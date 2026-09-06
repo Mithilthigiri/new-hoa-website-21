@@ -6,16 +6,13 @@ describe("selectNewInProducts", () => {
   it("puts the newest publishedAt first", () => {
     const result = selectNewInProducts(NEW_ARRIVALS);
     const newest = [...NEW_ARRIVALS].sort(
-      (a, b) =>
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+      (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     )[0];
     expect(result[0]?.id).toBe(newest?.id);
   });
 
   it("orders strictly by publishedAt descending", () => {
-    const dates = selectNewInProducts(NEW_ARRIVALS).map((p) =>
-      new Date(p.publishedAt).getTime(),
-    );
+    const dates = selectNewInProducts(NEW_ARRIVALS).map((p) => new Date(p.publishedAt).getTime());
     expect(dates).toEqual([...dates].sort((a, b) => b - a));
   });
 

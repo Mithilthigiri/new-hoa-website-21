@@ -13,11 +13,7 @@ type CollectionGridProps = {
  * Discovery grid: one DOM set, single column on mobile, two up on tablet and
  * three up on desktop. Cards are the shared CollectionCard.
  */
-export function CollectionGrid({
-  collections,
-  counts,
-  className,
-}: CollectionGridProps) {
+export function CollectionGrid({ collections, counts, className }: CollectionGridProps) {
   return (
     <ul
       className={cn(
@@ -34,9 +30,7 @@ export function CollectionGrid({
               cta="Explore Collection"
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
               meta={
-                count === undefined
-                  ? undefined
-                  : `${count} ${count === 1 ? "piece" : "pieces"}`
+                count === undefined ? undefined : `${count} ${count === 1 ? "piece" : "pieces"}`
               }
             />
           </li>

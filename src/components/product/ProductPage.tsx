@@ -56,10 +56,8 @@ export function ProductNotFound({ handle }: { handle?: string }) {
       <h1 className="type-h1 mt-space-sm text-foreground">Piece not found</h1>
       <div className="rule-gold mt-space-lg w-24" />
       <p className="type-editorial mt-space-lg max-w-xl text-muted-foreground">
-        {handle
-          ? `We couldn’t find a piece at “${handle}”.`
-          : "We couldn’t find this piece."}{" "}
-        It may have moved or is no longer part of the collection.
+        {handle ? `We couldn’t find a piece at “${handle}”.` : "We couldn’t find this piece."} It
+        may have moved or is no longer part of the collection.
       </p>
       <AiraButton asChild variant="outline" className="mt-space-xl">
         <Link to="/shop">Return to Shop</Link>

@@ -45,8 +45,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
   {
     id: "look-01",
     title: "The Modern Heirloom",
-    subtitle:
-      "Heritage-inspired dressing, interpreted through a contemporary lens.",
+    subtitle: "Heritage-inspired dressing, interpreted through a contemporary lens.",
     image: ivoryLehengaSwing.url,
     imageAlt:
       "Model in an ivory dobby lehenga skirt with a black kalamkari halter jacket, skirt caught mid-movement.",
@@ -74,8 +73,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
     imageAlt:
       "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
     secondaryImage: indigoKanthaDetail.url,
-    secondaryImageAlt:
-      "Close view of the indigo kurta and ivory waistcoat print detail.",
+    secondaryImageAlt: "Close view of the indigo kurta and ivory waistcoat print detail.",
     layout: "pair",
     productHandles: ["indigo-kantha-set"],
   },
@@ -132,8 +130,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
     title: "Paisley, Close",
     subtitle: "The same print, read at portrait range.",
     image: rustCamiPortrait.url,
-    imageAlt:
-      "Portrait of the model in the rust paisley printed cami top with gold jewellery.",
+    imageAlt: "Portrait of the model in the rust paisley printed cami top with gold jewellery.",
     layout: "full",
     productHandles: ["kalamkari-cami-top"],
   },
@@ -142,8 +139,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
     title: "Ivory, at Rest",
     subtitle: "Occasion dressing, worn without ceremony.",
     image: ivoryLehengaSeated.url,
-    imageAlt:
-      "Seated portrait in the ivory dobby lehenga with black kalamkari halter jacket.",
+    imageAlt: "Seated portrait in the ivory dobby lehenga with black kalamkari halter jacket.",
     layout: "split",
     productHandles: ["ivory-heritage-lehenga"],
   },
@@ -152,8 +148,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
 export const LOOKBOOK_INTRO = {
   eyebrow: "House of Aira",
   heading: "Lookbook",
-  supportingCopy:
-    "A visual study of contemporary dressing, heritage and modern expression.",
+  supportingCopy: "A visual study of contemporary dressing, heritage and modern expression.",
 };
 
 export const LOOKBOOK_CLOSING = {

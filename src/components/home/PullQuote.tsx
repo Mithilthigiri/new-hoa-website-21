@@ -14,19 +14,14 @@ type PullQuoteProps = {
  */
 export function PullQuote({ quote, attribution, className }: PullQuoteProps) {
   return (
-    <section
-      aria-label="Editorial statement"
-      className={cn("section-py bg-background", className)}
-    >
+    <section aria-label="Editorial statement" className={cn("section-py bg-background", className)}>
       <Container width="narrow">
         <Reveal variant="text" as="figure" className="text-center">
           <blockquote className="font-editorial text-balance italic font-light leading-[1.15] tracking-tight text-foreground text-[clamp(2rem,5vw,4.25rem)]">
             {quote}
           </blockquote>
           {attribution ? (
-            <figcaption className="type-label mt-space-lg text-rust-deep">
-              {attribution}
-            </figcaption>
+            <figcaption className="type-label mt-space-lg text-rust-deep">{attribution}</figcaption>
           ) : null}
         </Reveal>
       </Container>

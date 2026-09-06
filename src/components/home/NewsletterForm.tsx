@@ -64,16 +64,11 @@ export function NewsletterForm({
         aria-live="polite"
       >
         <Check
-          className={cn(
-            "h-4 w-4 shrink-0",
-            inverse ? "text-gold" : "text-rust-deep",
-          )}
+          className={cn("h-4 w-4 shrink-0", inverse ? "text-gold" : "text-rust-deep")}
           strokeWidth={1.5}
           aria-hidden="true"
         />
-        <p className={inverse ? "type-body" : "type-body-lg"}>
-          {successMessage}
-        </p>
+        <p className={inverse ? "type-body" : "type-body-lg"}>{successMessage}</p>
       </div>
     );
   }

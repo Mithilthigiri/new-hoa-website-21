@@ -89,10 +89,7 @@ function Card({ card }: { card: CategoryScrollCard }) {
   );
 }
 
-export function CategoryScroll({
-  heading = "SHOP BY COLLECTION",
-  className,
-}: CategoryScrollProps) {
+export function CategoryScroll({ heading = "SHOP BY COLLECTION", className }: CategoryScrollProps) {
   return (
     <section
       aria-labelledby="category-scroll-heading"
@@ -114,10 +111,7 @@ export function CategoryScroll({
         )}
       >
         {CATEGORY_CARDS.map((card) => (
-          <li
-            key={card.id}
-            className="min-w-0 sm:w-[240px] sm:shrink-0 sm:snap-start xl:w-auto"
-          >
+          <li key={card.id} className="min-w-0 sm:w-[240px] sm:shrink-0 sm:snap-start xl:w-auto">
             <Card card={card} />
           </li>
         ))}

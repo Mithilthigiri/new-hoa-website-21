@@ -41,8 +41,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     id: "red-kalamkari",
     image: slide3.url,
     video: slide3Video.url,
-    imageAlt:
-      "Model wearing a red kalamkari top with denim beside warm sandstone architecture.",
+    imageAlt: "Model wearing a red kalamkari top with denim beside warm sandstone architecture.",
     eyebrow: "Contemporary",
     headline: "Everyday Ceremony",
     cta: { label: "Discover New In", to: "/new-in" },
@@ -59,8 +58,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
   {
     id: "campaign-portrait",
     image: slide5.url,
-    imageAlt:
-      "House of Aira campaign portrait in warm daylight against heritage architecture.",
+    imageAlt: "House of Aira campaign portrait in warm daylight against heritage architecture.",
     eyebrow: "The campaign",
     headline: "An Heirloom, Chosen",
     cta: { label: "Shop the Collection", to: "/shop" },
@@ -82,9 +80,7 @@ function SlideMedia({
     const video = videoRef.current;
     if (!video) return;
 
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (active && !reducedMotion) {
       video.currentTime = 0;
@@ -117,9 +113,7 @@ function SlideMedia({
       src={slide.image}
       alt={slide.imageAlt}
       loading={slide.id === HERO_BANNER_SLIDES[0]?.id ? "eager" : "lazy"}
-      {...(slide.id === HERO_BANNER_SLIDES[0]?.id
-        ? { fetchPriority: "high" as const }
-        : {})}
+      {...(slide.id === HERO_BANNER_SLIDES[0]?.id ? { fetchPriority: "high" as const } : {})}
       decoding="async"
       className={cn(
         "absolute inset-0 h-full w-full object-cover object-[50%_35%]",
@@ -144,15 +138,11 @@ export function HeroBanner({
   useEffect(() => {
     // Video slides advance only once the clip has played through.
     if (paused || isVideoSlide || slides.length < 2) return;
-    const id = window.setTimeout(
-      () => setIndex((i) => (i + 1) % slides.length),
-      6000,
-    );
+    const id = window.setTimeout(() => setIndex((i) => (i + 1) % slides.length), 6000);
     return () => window.clearTimeout(id);
   }, [paused, index, isVideoSlide, slides.length]);
 
-  const go = (next: number) =>
-    setIndex((next + slides.length) % slides.length);
+  const go = (next: number) => setIndex((next + slides.length) % slides.length);
 
   return (
     <section
@@ -178,11 +168,7 @@ export function HeroBanner({
               active ? "opacity-100" : "pointer-events-none opacity-0",
             )}
           >
-            <SlideMedia
-              slide={slide}
-              active={active}
-              onVideoEnded={() => go(index + 1)}
-            />
+            <SlideMedia slide={slide} active={active} onVideoEnded={() => go(index + 1)} />
             <span
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(44,24,16,0.85)_0%,rgba(44,24,16,0.45)_35%,rgba(44,24,16,0)_68%)]"
@@ -196,10 +182,7 @@ export function HeroBanner({
                 <h1 className="font-display mt-4 font-normal leading-[1.04] text-cream-card text-[2.5rem] sm:text-[3rem] lg:text-[5rem]">
                   {slide.headline}
                 </h1>
-                <span
-                  aria-hidden="true"
-                  className="mt-6 block h-px w-16 bg-gold/70"
-                />
+                <span aria-hidden="true" className="mt-6 block h-px w-16 bg-gold/70" />
                 <Link
                   to={slide.cta.to}
                   tabIndex={active ? 0 : -1}

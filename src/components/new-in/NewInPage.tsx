@@ -29,17 +29,11 @@ export function NewInPage({
   const visibleProducts = useMemo(() => selectNewInProducts(products), [products]);
 
   return (
-    <section
-      aria-labelledby="new-in-heading"
-      className="pt-section-sm pb-section lg:pt-section"
-    >
+    <section aria-labelledby="new-in-heading" className="pt-section-sm pb-section lg:pt-section">
       <Container width="wide">
         <header className="max-w-2xl">
           <p className="type-label text-rust-deep">{eyebrow}</p>
-          <h1
-            id="new-in-heading"
-            className="type-h1 mt-space-sm text-foreground lg:mt-space-md"
-          >
+          <h1 id="new-in-heading" className="type-h1 mt-space-sm text-foreground lg:mt-space-md">
             {heading}
           </h1>
           <p className="type-editorial mt-space-sm text-muted-foreground lg:mt-space-md">
@@ -49,8 +43,7 @@ export function NewInPage({
 
         <div className="mt-space-lg flex items-center justify-between border-b border-border pb-space-sm lg:mt-space-xl">
           <p className="type-label text-muted-foreground">
-            {visibleProducts.length}{" "}
-            {visibleProducts.length === 1 ? "Piece" : "Pieces"}
+            {visibleProducts.length} {visibleProducts.length === 1 ? "Piece" : "Pieces"}
           </p>
           <p className="type-label text-muted-foreground">Newest First</p>
         </div>

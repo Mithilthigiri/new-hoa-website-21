@@ -7,14 +7,12 @@ export const Route = createFileRoute("/collections/")({
       { title: "Collections — House of Aira" },
       {
         name: "description",
-        content:
-          "Discover the House of Aira collections: Ethnic Wear, Contemporary and Western.",
+        content: "Discover the House of Aira collections: Ethnic Wear, Contemporary and Western.",
       },
       { property: "og:title", content: "Collections — House of Aira" },
       {
         property: "og:description",
-        content:
-          "Discover the House of Aira collections: Ethnic Wear, Contemporary and Western.",
+        content: "Discover the House of Aira collections: Ethnic Wear, Contemporary and Western.",
       },
     ],
   }),

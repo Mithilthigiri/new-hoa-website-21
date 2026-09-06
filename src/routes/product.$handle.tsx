@@ -1,19 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ProductPage,
-  ProductNotFound,
-} from "@/components/product/ProductPage";
+import { ProductPage, ProductNotFound } from "@/components/product/ProductPage";
 import { findProductByHandle } from "@/components/home/products-data";
 
 export const Route = createFileRoute("/product/$handle")({
   head: ({ params }) => {
     const product = findProductByHandle(params.handle);
-    const title = product
-      ? `${product.title} — House of Aira`
-      : "Piece not found — House of Aira";
+    const title = product ? `${product.title} — House of Aira` : "Piece not found — House of Aira";
     const description = product
-      ? (product.description ??
-        `${product.title} from the House of Aira ${product.category} edit.`)
+      ? (product.description ?? `${product.title} from the House of Aira ${product.category} edit.`)
       : "This House of Aira piece could not be found.";
     return {
       meta: [

@@ -20,8 +20,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-1",
     image: post1.url,
-    imageAlt:
-      "Model wearing a navy hand-block floral pleated dress with gold jewellery",
+    imageAlt: "Model wearing a navy hand-block floral pleated dress with gold jewellery",
     href: INSTAGRAM_PROFILE_URL,
     caption: "The heritage silhouette, worn with ease.",
     aspectRatio: "portrait",
@@ -29,8 +28,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-2",
     image: post2.url,
-    imageAlt:
-      "Model wearing a rust paisley printed cami top against a sandstone wall",
+    imageAlt: "Model wearing a rust paisley printed cami top against a sandstone wall",
     href: INSTAGRAM_PROFILE_URL,
     caption: "Hand-blocked paisley, softly worn.",
     aspectRatio: "portrait",
@@ -38,8 +36,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-3",
     image: post3.url,
-    imageAlt:
-      "Indigo handwoven kurta layered with an ivory printed waistcoat and dupatta",
+    imageAlt: "Indigo handwoven kurta layered with an ivory printed waistcoat and dupatta",
     href: INSTAGRAM_PROFILE_URL,
     caption: "Indigo, layered for the everyday.",
     aspectRatio: "portrait",
@@ -47,8 +44,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-4",
     image: post4.url,
-    imageAlt:
-      "Purple hand-embroidered floral skirt worn with a green kalamkari halter top",
+    imageAlt: "Purple hand-embroidered floral skirt worn with a green kalamkari halter top",
     href: INSTAGRAM_PROFILE_URL,
     caption: "Threadwork, garden by garden.",
     aspectRatio: "portrait",
@@ -56,8 +52,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-5",
     image: post5.url,
-    imageAlt:
-      "Ivory dobby lehenga skirt with a black kalamkari halter jacket on a heritage swing",
+    imageAlt: "Ivory dobby lehenga skirt with a black kalamkari halter jacket on a heritage swing",
     href: INSTAGRAM_PROFILE_URL,
     caption: "Ivory and ink, on the old swing.",
     aspectRatio: "portrait",
@@ -65,8 +60,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-6",
     image: post6.url,
-    imageAlt:
-      "Purple ikat panelled palazzo trousers photographed in a sunlit lane",
+    imageAlt: "Purple ikat panelled palazzo trousers photographed in a sunlit lane",
     href: INSTAGRAM_PROFILE_URL,
     caption: "Ikat panels, caught in the light.",
     aspectRatio: "portrait",

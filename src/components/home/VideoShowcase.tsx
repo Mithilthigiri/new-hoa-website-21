@@ -144,16 +144,11 @@ function VideoCard({ item, isPlaying, onPlayStart, onPlayEnd }: VideoCardProps) 
       <div
         className={cn(
           "pointer-events-none absolute inset-0 flex items-center justify-center bg-foreground/20 motion-safe:transition-opacity motion-safe:duration-300",
-          isPlaying ? "opacity-0" : "opacity-100"
+          isPlaying ? "opacity-0" : "opacity-100",
         )}
         aria-hidden={isPlaying ? "true" : "false"}
       >
-        <Play
-          className="text-ivory/80"
-          size={48}
-          strokeWidth={1.2}
-          aria-hidden="true"
-        />
+        <Play className="text-ivory/80" size={48} strokeWidth={1.2} aria-hidden="true" />
       </div>
 
       {/* Bottom label */}
@@ -197,13 +192,11 @@ export function VideoShowcase({ className }: { className?: string }) {
       </div>
 
       {/* Horizontal marquee strip */}
-      <div
-        className="group/marquee mt-9 overflow-hidden motion-reduce:overflow-x-auto no-scrollbar"
-      >
+      <div className="group/marquee mt-9 overflow-hidden motion-reduce:overflow-x-auto no-scrollbar">
         <div
           className={cn(
             "flex w-max gap-3 px-6 motion-safe:animate-[marquee-left_35s_linear_infinite] motion-reduce:animate-none hover:[animation-play-state:paused] lg:px-12",
-            playingId && "motion-safe:[animation-play-state:paused]"
+            playingId && "motion-safe:[animation-play-state:paused]",
           )}
         >
           {MARQUEE_ITEMS.map((item, index) => (
@@ -213,9 +206,7 @@ export function VideoShowcase({ className }: { className?: string }) {
               isPlaying={playingId === `${item.id}-${index}`}
               onPlayStart={() => setPlayingId(`${item.id}-${index}`)}
               onPlayEnd={() =>
-                setPlayingId((current) =>
-                  current === `${item.id}-${index}` ? null : current
-                )
+                setPlayingId((current) => (current === `${item.id}-${index}` ? null : current))
               }
             />
           ))}

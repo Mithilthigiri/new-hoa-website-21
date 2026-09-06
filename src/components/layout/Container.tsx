@@ -20,11 +20,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <Tag
-      className={cn(
-        "mx-auto w-full px-page-gutter lg:px-page-gutter-lg",
-        widths[width],
-        className,
-      )}
+      className={cn("mx-auto w-full px-page-gutter lg:px-page-gutter-lg", widths[width], className)}
       {...props}
     />
   );

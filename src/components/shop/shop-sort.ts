@@ -17,10 +17,7 @@ export const SHOP_SORT_OPTIONS: { value: ShopSortOption; label: string }[] = [
  * array; the source array is never mutated. "featured" preserves the catalogue's
  * original order.
  */
-export function sortProducts(
-  products: Product[],
-  sort: ShopSortOption,
-): Product[] {
+export function sortProducts(products: Product[], sort: ShopSortOption): Product[] {
   if (sort === "featured") return [...products];
 
   const copy = [...products];
@@ -28,8 +25,7 @@ export function sortProducts(
   switch (sort) {
     case "newest":
       return copy.sort(
-        (a, b) =>
-          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
       );
     case "price-asc":
       return copy.sort((a, b) => a.price - b.price);
