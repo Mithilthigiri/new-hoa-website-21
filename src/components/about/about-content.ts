@@ -19,6 +19,18 @@ export const ABOUT_HERO = {
     "Model in an ivory dobby lehenga skirt with a black kalamkari halter jacket, skirt caught mid-movement.",
 };
 
+export const ABOUT_FOUNDER = {
+  eyebrow: "The Founder",
+  heading: "A vision of quiet luxury.",
+  paragraphs: [
+    "Every House of Aira piece begins with a point of view: that tradition need not be worn as costume, and that modern dressing can still carry memory.",
+    "This portrait is a placeholder — the founder's full story and photography will be added here in a later update.",
+  ],
+  image: founderImage,
+  imageAlt:
+    "Placeholder editorial portrait of the House of Aira founder wearing an ivory handwoven sari.",
+};
+
 export const ABOUT_PHILOSOPHY = {
   eyebrow: "The House",
   heading: "A wardrobe with a sense of history.",
