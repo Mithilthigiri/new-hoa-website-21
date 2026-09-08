@@ -335,7 +335,7 @@ export const ALL_PRODUCTS: Product[] = [...NEW_ARRIVALS];
  */
 export function findProductByHandle(
   handle: string,
-  products: Product[] = NEW_ARRIVALS,
+  products: Product[] = ALL_PRODUCTS,
 ): Product | undefined {
   return products.find((product) => product.handle === handle);
 }
