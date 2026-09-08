@@ -7,7 +7,12 @@ import poster3 from "@/assets/DSC04487.jpg.asset.json";
 import poster4 from "@/assets/DSC03946.jpg.asset.json";
 import poster5 from "@/assets/DSC04261.jpg.asset.json";
 import poster6 from "@/assets/DSC04402.jpg.asset.json";
-import campaignVideo from "@/assets/house-of-aira-hero.mp4.asset.json";
+import reel1 from "@/assets/reel-1.mp4.asset.json";
+import reel2 from "@/assets/reel-2.mp4.asset.json";
+import reel3 from "@/assets/reel-3.mp4.asset.json";
+import reel4 from "@/assets/reel-4.mp4.asset.json";
+import reel5 from "@/assets/reel-5.mp4.asset.json";
+import reel6 from "@/assets/reel-6.mp4.asset.json";
 import { INSTAGRAM_PROFILE_URL } from "./instagram-data";
 
 type ReelItem = {
@@ -26,7 +31,7 @@ const reelData: ReelItem[] = [
     id: "v1",
     reelId: "DcvuNKOJ53X",
     poster: poster1.url,
-    video: campaignVideo.url,
+    video: reel1.url,
     tag: "HOUSE OF AIRA",
     caption: "Campaign — Ethnic Edit",
     alt: "House of Aira campaign reel",
@@ -35,6 +40,7 @@ const reelData: ReelItem[] = [
     id: "v2",
     reelId: "DctGE4YpvdW",
     poster: poster2.url,
+    video: reel2.url,
     tag: "HOUSE OF AIRA",
     caption: "Behind the Shoot",
     alt: "Behind the scenes reel",
@@ -43,6 +49,7 @@ const reelData: ReelItem[] = [
     id: "v3",
     reelId: "DcqnmnGJ3Zf",
     poster: poster3.url,
+    video: reel3.url,
     tag: "HOUSE OF AIRA",
     caption: "The Contemporary Collection",
     alt: "Contemporary collection reel",
@@ -51,6 +58,7 @@ const reelData: ReelItem[] = [
     id: "v4",
     reelId: "DcgOBf-p-YI",
     poster: poster4.url,
+    video: reel4.url,
     tag: "COMMUNITY",
     caption: "Styled by her",
     alt: "Community styling reel",
@@ -59,6 +67,7 @@ const reelData: ReelItem[] = [
     id: "v5",
     reelId: "DcTFKFBMjXm",
     poster: poster5.url,
+    video: reel5.url,
     tag: "COMMUNITY",
     caption: "Real women, real pieces",
     alt: "Community reel",
@@ -67,6 +76,7 @@ const reelData: ReelItem[] = [
     id: "v6",
     reelId: "DcCPuXtTLQa",
     poster: poster6.url,
+    video: reel6.url,
     tag: "COMMUNITY",
     caption: "The House Sessions",
     alt: "House of Aira sessions reel",
