@@ -299,7 +299,6 @@ export const NEW_ARRIVALS: Product[] = [
     images: [
       indigoKanthaFull.url,
       indigoKanthaWorkshop.url,
-      indigoKanthaStore.url,
       indigoKanthaBodice.url,
       indigoKanthaDetail.url,
     ],
