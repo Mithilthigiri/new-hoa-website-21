@@ -86,7 +86,7 @@ const reelData: ReelItem[] = [
 function ReelCard({ item }: { item: ReelItem }) {
   return (
     <a
-      href={`https://www.instagram.com/reel/${item.reelId}/`}
+      href={INSTAGRAM_PROFILE_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${item.caption} — watch on Instagram`}
