@@ -209,15 +209,9 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Ethnic Wear",
     sizes: ["S", "M", "L"],
     colours: ["Emerald", "Gold"],
-    images: [
-      emeraldStanding.url,
-      emeraldSide.url,
-      emeraldTwist.url,
-      emeraldBack.url,
-      emeraldBorder.url,
-    ],
+    images: [emeraldStanding.url, emeraldSide.url, emeraldBack.url, emeraldBorder.url],
     image: emeraldStanding.url,
-    hoverImage: emeraldTwist.url,
+    hoverImage: emeraldBack.url,
     imageAlt:
       "Model wearing a deep emerald cotton gown with a woven zari border bodice and gold tassel.",
     badge: "NEW",
