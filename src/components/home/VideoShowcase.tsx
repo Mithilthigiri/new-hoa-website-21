@@ -7,7 +7,7 @@ import poster3 from "@/assets/DSC04487.jpg.asset.json";
 import poster4 from "@/assets/DSC03946.jpg.asset.json";
 import poster5 from "@/assets/DSC04261.jpg.asset.json";
 import poster6 from "@/assets/DSC04402.jpg.asset.json";
-import campaignVideo from "@/assets/house-of-aira-campaign.webm.asset.json";
+import campaignVideo from "@/assets/house-of-aira-hero.mp4.asset.json";
 import { INSTAGRAM_PROFILE_URL } from "./instagram-data";
 
 type ReelItem = {
