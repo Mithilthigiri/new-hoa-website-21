@@ -31,6 +31,8 @@ import ikatPalazzoPath from "@/assets/DSC04427.jpg.asset.json";
 import indigoKanthaFull from "@/assets/DSC04471.jpg.asset.json";
 import indigoKanthaStore from "@/assets/DSC04471_1.jpg.asset.json";
 import indigoKanthaDetail from "@/assets/DSC04487.jpg.asset.json";
+import indigoKanthaWorkshop from "@/assets/DSC04493.jpg.asset.json";
+import indigoKanthaBodice from "@/assets/DSC04506.jpg.asset.json";
 import blackAnarkaliFront from "@/assets/DSC02300.JPG.asset.json";
 import blackAnarkaliStanding from "@/assets/DSC02302.JPG.asset.json";
 import blackAnarkaliDetail from "@/assets/DSC02314.JPG.asset.json";
