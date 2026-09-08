@@ -230,13 +230,12 @@ export const NEW_ARRIVALS: Product[] = [
     colours: ["Purple", "Emerald"],
     images: [
       purpleSkirtGate.url,
-      purpleSkirtStanding.url,
       purpleSkirtDoor.url,
       purpleSkirtSeated.url,
       purpleSkirtBorder.url,
     ],
     image: purpleSkirtGate.url,
-    hoverImage: purpleSkirtStanding.url,
+    hoverImage: purpleSkirtDoor.url,
     imageAlt:
       "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top.",
     badge: "NEW",
