@@ -47,21 +47,19 @@ export function BrandStorySimple({ className }: { className?: string }) {
         </div>
 
         {/* RIGHT — image column, 50% desktop */}
-        <div
-          className="relative h-[280px] w-full overflow-hidden rounded-[4px] lg:h-auto lg:w-1/2"
-          style={{ maxHeight: 400 }}
-        >
+        <div className="relative h-[320px] w-full overflow-hidden rounded-[4px] sm:h-[420px] lg:h-[560px] lg:w-1/2">
           <AiraImage
             src={editorialImage.url}
             alt="Model in an emerald hand-embroidered gown, side profile."
             fill
-            width={800}
-            height={600}
+            width={900}
+            height={1200}
             sizes="(max-width: 1024px) 100vw, 50vw"
             loading="lazy"
-            imgClassName="object-cover object-top"
+            imgClassName="object-cover object-[50%_20%]"
           />
         </div>
+
       </div>
     </section>
   );
