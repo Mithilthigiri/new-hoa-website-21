@@ -6,7 +6,7 @@ import navyFloralBack from "@/assets/DSC03410.jpg.asset.json";
 import rustCamiFront from "@/assets/DSC03534.jpg.asset.json";
 import rustCamiBack from "@/assets/DSC03545.jpg.asset.json";
 import rustCamiDetail from "@/assets/DSC03630.jpg.asset.json";
-import rustCamiSmile from "@/assets/DSC03534_1.jpg.asset.json";
+
 import rustCamiBookshop from "@/assets/DSC03599.jpg.asset.json";
 import rustCamiStone from "@/assets/DSC03653.jpg.asset.json";
 import emeraldBack from "@/assets/DSC03786.jpg.asset.json";
@@ -186,14 +186,13 @@ export const NEW_ARRIVALS: Product[] = [
     colours: ["Rust"],
     images: [
       rustCamiFront.url,
-      rustCamiSmile.url,
       rustCamiBack.url,
       rustCamiBookshop.url,
       rustCamiStone.url,
       rustCamiDetail.url,
     ],
     image: rustCamiFront.url,
-    hoverImage: rustCamiSmile.url,
+    hoverImage: rustCamiBookshop.url,
     imageAlt: "Model wearing a rust paisley printed cami top with lace-up back, styled with denim.",
     badge: "BESTSELLER",
     href: "/product/kalamkari-cami-top",
