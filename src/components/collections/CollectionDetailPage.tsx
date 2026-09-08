@@ -81,11 +81,12 @@ export function CollectionDetailPage({
               reveal
               src={collection.image}
               alt={collection.imageAlt}
-              ratio="4/3"
-              width={1400}
-              height={1050}
+              ratio="3/4"
+              width={1200}
+              height={1600}
               loading="eager"
               sizes="(max-width: 1024px) 92vw, 46vw"
+              imgClassName="object-top"
             />
           </div>
           <div className="max-w-xl">
