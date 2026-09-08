@@ -252,14 +252,9 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Ethnic Wear",
     sizes: ["S", "M", "L"],
     colours: ["Ivory", "Black"],
-    images: [
-      ivoryLehengaCourt.url,
-      ivoryLehengaSeated.url,
-      ivoryLehengaSwing.url,
-      ivoryLehengaDetail.url,
-    ],
+    images: [ivoryLehengaCourt.url, ivoryLehengaSwing.url, ivoryLehengaDetail.url],
     image: ivoryLehengaCourt.url,
-    hoverImage: ivoryLehengaSeated.url,
+    hoverImage: ivoryLehengaSwing.url,
     imageAlt:
       "Model wearing an ivory dobby lehenga skirt with a black kalamkari halter jacket in a heritage home.",
     href: "/product/ivory-heritage-lehenga",
