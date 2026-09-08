@@ -25,6 +25,24 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Shalini K.",
     location: "Delhi",
   },
+  {
+    quote:
+      "The quality is unmatched. You can feel the heritage in every thread, yet it looks so contemporary.",
+    name: "Meera S.",
+    location: "Hyderabad",
+  },
+  {
+    quote:
+      "House of Aira has become my first choice for festive dressing. Timeless, flattering, and always memorable.",
+    name: "Divya N.",
+    location: "Chennai",
+  },
+  {
+    quote:
+      "From order to delivery, the experience felt personal. And the outfit fit like it was made just for me.",
+    name: "Ritika T.",
+    location: "Pune",
+  },
 ];
 
 function StarRating() {
@@ -37,7 +55,7 @@ function StarRating() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className="flex h-full w-[85%] flex-shrink-0 snap-start flex-col rounded-[6px] border border-[#EDE4D0] bg-[#FAF6EE] p-6 shadow-[0_2px_16px_rgba(44,24,16,0.07)] sm:w-full sm:flex-shrink sm:p-8">
+    <article className="flex h-full w-[85%] flex-shrink-0 snap-start flex-col rounded-[6px] border border-[#EDE4D0] bg-[#FAF6EE] p-6 shadow-[0_2px_16px_rgba(44,24,16,0.07)] sm:w-[340px] lg:w-[380px]">
       <StarRating />
       <blockquote className="font-editorial mb-5 grow text-balance text-[1.0625rem] italic leading-[1.7] text-foreground sm:text-[1.125rem]">
         &ldquo;{testimonial.quote}&rdquo;
@@ -76,7 +94,7 @@ export function Testimonials({ className }: TestimonialsProps) {
           </h2>
         </header>
 
-        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:items-stretch sm:overflow-visible sm:px-0 lg:grid-cols-3">
+        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 lg:-mx-12 lg:px-12">
           {TESTIMONIALS.map((t) => (
             <TestimonialCard key={t.name} testimonial={t} />
           ))}
