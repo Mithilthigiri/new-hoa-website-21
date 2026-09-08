@@ -1,10 +1,19 @@
 import navyFloralFront from "@/assets/DSC03342.jpg.asset.json";
 import navyFloralFull from "@/assets/DSC03445.jpg.asset.json";
+import navyFloralStanding from "@/assets/DSC03326.jpg.asset.json";
+import navyFloralDetail from "@/assets/DSC03333.jpg.asset.json";
+import navyFloralBack from "@/assets/DSC03410.jpg.asset.json";
 import rustCamiFront from "@/assets/DSC03534.jpg.asset.json";
 import rustCamiBack from "@/assets/DSC03545.jpg.asset.json";
 import rustCamiDetail from "@/assets/DSC03630.jpg.asset.json";
+import rustCamiSmile from "@/assets/DSC03534_1.jpg.asset.json";
+import rustCamiBookshop from "@/assets/DSC03599.jpg.asset.json";
+import rustCamiStone from "@/assets/DSC03653.jpg.asset.json";
 import emeraldBack from "@/assets/DSC03786.jpg.asset.json";
 import emeraldSide from "@/assets/DSC03791.jpg.asset.json";
+import emeraldStanding from "@/assets/DSC03774.jpg.asset.json";
+import emeraldTwist from "@/assets/DSC03791_1.jpg.asset.json";
+import emeraldBorder from "@/assets/DSC03840.jpg.asset.json";
 import purpleSkirtStanding from "@/assets/DSC03915.jpg.asset.json";
 import purpleSkirtSeated from "@/assets/DSC03946.jpg.asset.json";
 import ivoryLehengaSeated from "@/assets/DSC04224.jpg.asset.json";
@@ -137,9 +146,15 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Contemporary",
     sizes: ["S", "M", "L"],
     colours: ["Navy", "Rust"],
-    images: [navyFloralFront.url, navyFloralFull.url],
-    image: navyFloralFront.url,
-    hoverImage: navyFloralFull.url,
+    images: [
+      navyFloralFront.url,
+      navyFloralFull.url,
+      navyFloralStanding.url,
+      navyFloralDetail.url,
+      navyFloralBack.url,
+    ],
+    image: navyFloralStanding.url,
+    hoverImage: navyFloralFront.url,
     imageAlt:
       "Model wearing a navy hand-block floral pleated dress with ivory motifs and gold jewellery.",
     badge: "NEW",
@@ -157,9 +172,16 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Western",
     sizes: ["XS", "S", "M", "L"],
     colours: ["Rust"],
-    images: [rustCamiFront.url, rustCamiBack.url, rustCamiDetail.url],
+    images: [
+      rustCamiFront.url,
+      rustCamiSmile.url,
+      rustCamiBack.url,
+      rustCamiBookshop.url,
+      rustCamiStone.url,
+      rustCamiDetail.url,
+    ],
     image: rustCamiFront.url,
-    hoverImage: rustCamiBack.url,
+    hoverImage: rustCamiSmile.url,
     imageAlt: "Model wearing a rust paisley printed cami top with lace-up back, styled with denim.",
     badge: "BESTSELLER",
     href: "/product/kalamkari-cami-top",
@@ -176,9 +198,15 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Ethnic Wear",
     sizes: ["S", "M", "L"],
     colours: ["Emerald", "Gold"],
-    images: [emeraldSide.url, emeraldBack.url],
-    image: emeraldSide.url,
-    hoverImage: emeraldBack.url,
+    images: [
+      emeraldStanding.url,
+      emeraldSide.url,
+      emeraldTwist.url,
+      emeraldBack.url,
+      emeraldBorder.url,
+    ],
+    image: emeraldStanding.url,
+    hoverImage: emeraldTwist.url,
     imageAlt:
       "Model wearing a deep emerald cotton gown with a woven zari border bodice and gold tassel.",
     badge: "NEW",
