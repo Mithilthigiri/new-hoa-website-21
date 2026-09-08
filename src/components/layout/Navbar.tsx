@@ -12,7 +12,6 @@ const iconClass =
 
 const CENTER_LINKS = [...NAV_LINKS, { label: "Shop All", to: "/shop" }];
 
-
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const { totalItems, toggleCart } = useCart();
@@ -48,7 +47,6 @@ export function Navbar() {
             >
               House of Aira
             </Link>
-
           </div>
 
           {/* CENTER — navigation on desktop, wordmark on mobile */}
