@@ -12,14 +12,11 @@ import rustCamiStone from "@/assets/DSC03653.jpg.asset.json";
 import emeraldBack from "@/assets/DSC03786.jpg.asset.json";
 import emeraldSide from "@/assets/DSC03791.jpg.asset.json";
 import emeraldStanding from "@/assets/DSC03774.jpg.asset.json";
-import emeraldTwist from "@/assets/DSC03791_1.jpg.asset.json";
 import emeraldBorder from "@/assets/DSC03840.jpg.asset.json";
-import purpleSkirtStanding from "@/assets/DSC03915.jpg.asset.json";
 import purpleSkirtSeated from "@/assets/DSC03946.jpg.asset.json";
 import purpleSkirtGate from "@/assets/DSC03915_1.jpg.asset.json";
 import purpleSkirtBorder from "@/assets/DSC04001.jpg.asset.json";
 import purpleSkirtDoor from "@/assets/DSC04062.jpg.asset.json";
-import ivoryLehengaSeated from "@/assets/DSC04224.jpg.asset.json";
 import ivoryLehengaSwing from "@/assets/DSC04261.jpg.asset.json";
 import ivoryLehengaCourt from "@/assets/DSC04224_1.jpg.asset.json";
 import ivoryLehengaDetail from "@/assets/DSC04257.jpg.asset.json";
@@ -29,7 +26,6 @@ import ikatPalazzoTwirl from "@/assets/DSC04346.jpg.asset.json";
 import ikatPalazzoSmile from "@/assets/DSC04409.jpg.asset.json";
 import ikatPalazzoPath from "@/assets/DSC04427.jpg.asset.json";
 import indigoKanthaFull from "@/assets/DSC04471.jpg.asset.json";
-import indigoKanthaStore from "@/assets/DSC04471_1.jpg.asset.json";
 import indigoKanthaDetail from "@/assets/DSC04487.jpg.asset.json";
 import indigoKanthaWorkshop from "@/assets/DSC04493.jpg.asset.json";
 import indigoKanthaBodice from "@/assets/DSC04506.jpg.asset.json";
@@ -209,15 +205,9 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Ethnic Wear",
     sizes: ["S", "M", "L"],
     colours: ["Emerald", "Gold"],
-    images: [
-      emeraldStanding.url,
-      emeraldSide.url,
-      emeraldTwist.url,
-      emeraldBack.url,
-      emeraldBorder.url,
-    ],
+    images: [emeraldStanding.url, emeraldSide.url, emeraldBack.url, emeraldBorder.url],
     image: emeraldStanding.url,
-    hoverImage: emeraldTwist.url,
+    hoverImage: emeraldBack.url,
     imageAlt:
       "Model wearing a deep emerald cotton gown with a woven zari border bodice and gold tassel.",
     badge: "NEW",
@@ -236,13 +226,12 @@ export const NEW_ARRIVALS: Product[] = [
     colours: ["Purple", "Emerald"],
     images: [
       purpleSkirtGate.url,
-      purpleSkirtStanding.url,
       purpleSkirtDoor.url,
       purpleSkirtSeated.url,
       purpleSkirtBorder.url,
     ],
     image: purpleSkirtGate.url,
-    hoverImage: purpleSkirtStanding.url,
+    hoverImage: purpleSkirtDoor.url,
     imageAlt:
       "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top.",
     badge: "NEW",
@@ -259,14 +248,9 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Ethnic Wear",
     sizes: ["S", "M", "L"],
     colours: ["Ivory", "Black"],
-    images: [
-      ivoryLehengaCourt.url,
-      ivoryLehengaSeated.url,
-      ivoryLehengaSwing.url,
-      ivoryLehengaDetail.url,
-    ],
+    images: [ivoryLehengaCourt.url, ivoryLehengaSwing.url, ivoryLehengaDetail.url],
     image: ivoryLehengaCourt.url,
-    hoverImage: ivoryLehengaSeated.url,
+    hoverImage: ivoryLehengaSwing.url,
     imageAlt:
       "Model wearing an ivory dobby lehenga skirt with a black kalamkari halter jacket in a heritage home.",
     href: "/product/ivory-heritage-lehenga",
@@ -311,7 +295,6 @@ export const NEW_ARRIVALS: Product[] = [
     images: [
       indigoKanthaFull.url,
       indigoKanthaWorkshop.url,
-      indigoKanthaStore.url,
       indigoKanthaBodice.url,
       indigoKanthaDetail.url,
     ],
