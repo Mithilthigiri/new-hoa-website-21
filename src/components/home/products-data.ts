@@ -31,6 +31,8 @@ import ikatPalazzoPath from "@/assets/DSC04427.jpg.asset.json";
 import indigoKanthaFull from "@/assets/DSC04471.jpg.asset.json";
 import indigoKanthaStore from "@/assets/DSC04471_1.jpg.asset.json";
 import indigoKanthaDetail from "@/assets/DSC04487.jpg.asset.json";
+import indigoKanthaWorkshop from "@/assets/DSC04493.jpg.asset.json";
+import indigoKanthaBodice from "@/assets/DSC04506.jpg.asset.json";
 import blackAnarkaliFront from "@/assets/DSC02300.JPG.asset.json";
 import blackAnarkaliStanding from "@/assets/DSC02302.JPG.asset.json";
 import blackAnarkaliDetail from "@/assets/DSC02314.JPG.asset.json";
@@ -307,9 +309,16 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Contemporary",
     sizes: ["S", "M", "L", "XL"],
     colours: ["Indigo", "Ivory"],
-    images: [indigoKanthaFull.url, indigoKanthaStore.url, indigoKanthaDetail.url],
+    images: [
+      indigoKanthaFull.url,
+      indigoKanthaWorkshop.url,
+      indigoKanthaStore.url,
+      indigoKanthaBodice.url,
+      indigoKanthaDetail.url,
+    ],
     image: indigoKanthaFull.url,
-    hoverImage: indigoKanthaStore.url,
+    hoverImage: indigoKanthaWorkshop.url,
+
     imageAlt:
       "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
     href: "/product/indigo-kantha-set",
@@ -326,7 +335,7 @@ export const ALL_PRODUCTS: Product[] = [...NEW_ARRIVALS];
  */
 export function findProductByHandle(
   handle: string,
-  products: Product[] = NEW_ARRIVALS,
+  products: Product[] = ALL_PRODUCTS,
 ): Product | undefined {
   return products.find((product) => product.handle === handle);
 }

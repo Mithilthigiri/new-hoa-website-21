@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { AiraImage } from "@/components/ui/aira-image";
 import { ProductCard } from "@/components/product/ProductCard";
-import { NEW_ARRIVALS, type Product } from "@/components/home/products-data";
+import { ALL_PRODUCTS, type Product } from "@/components/home/products-data";
 import type { FeaturedCollection } from "@/components/home/collections-data";
 import {
   DEFAULT_SORT,
@@ -29,7 +29,7 @@ type CollectionDetailPageProps = {
  */
 export function CollectionDetailPage({
   collection,
-  products = NEW_ARRIVALS,
+  products = ALL_PRODUCTS,
 }: CollectionDetailPageProps) {
   const [sort, setSort] = useState<ShopSortOption>(DEFAULT_SORT);
 
