@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import slide1 from "@/assets/banner-12_06_52_AM.png.asset.json";
 import slide2 from "@/assets/banner-12_13_09_AM.png.asset.json";
 import slide3 from "@/assets/house-of-aira-red-campaign.png.asset.json";
-import slide3Video from "@/assets/house-of-aira-campaign.webm.asset.json";
+import slide3Video from "@/assets/house-of-aira-hero.mp4.asset.json";
 import slide4 from "@/assets/banner-12_41_39_AM.png.asset.json";
 import slide5 from "@/assets/house-of-aira-5th-slide.png.asset.json";
 
