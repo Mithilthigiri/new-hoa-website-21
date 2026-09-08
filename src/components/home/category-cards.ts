@@ -1,5 +1,5 @@
-import ethnicImage from "@/assets/DSC04471.jpg.asset.json";
-import contemporaryImage from "@/assets/DSC03915.jpg.asset.json";
+import ethnicImage from "@/assets/collection-ethnic-black.JPG.asset.json";
+import contemporaryImage from "@/assets/collection-contemporary-green.JPG.asset.json";
 import westernImage from "@/assets/DSC03534.jpg.asset.json";
 import newInImage from "@/assets/DSC04224.jpg.asset.json";
 
@@ -19,7 +19,7 @@ export const CATEGORY_CARDS: CategoryCard[] = [
     name: "Ethnic Wear",
     subtitle: "Rooted in heritage",
     image: ethnicImage.url,
-    imageAlt: "Model in a hand-embroidered ethnic ensemble photographed in warm daylight.",
+    imageAlt: "Model wearing a black zari-trim anarkali beneath flowering trees.",
     to: "/shop",
     search: { category: "Ethnic Wear" },
   },
@@ -28,8 +28,7 @@ export const CATEGORY_CARDS: CategoryCard[] = [
     name: "Contemporary",
     subtitle: "Tradition, reimagined",
     image: contemporaryImage.url,
-    imageAlt:
-      "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top in a heritage doorway.",
+    imageAlt: "Model wearing a green printed top with flowing brown palazzo trousers.",
     to: "/shop",
     search: { category: "Contemporary" },
   },

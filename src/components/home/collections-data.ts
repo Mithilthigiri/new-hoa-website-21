@@ -1,5 +1,5 @@
-import ethnicImage from "@/assets/DSC03915.jpg.asset.json";
-import contemporaryImage from "@/assets/DSC04471.jpg.asset.json";
+import ethnicImage from "@/assets/collection-ethnic-black.JPG.asset.json";
+import contemporaryImage from "@/assets/collection-contemporary-green.JPG.asset.json";
 import westernImage from "@/assets/DSC03534.jpg.asset.json";
 
 /**
@@ -28,8 +28,7 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     title: "Ethnic Wear",
     subtitle: "Rooted in heritage",
     image: ethnicImage.url,
-    imageAlt:
-      "Model wearing a purple hand-embroidered floral skirt with a green kalamkari halter top in a heritage doorway.",
+    imageAlt: "Model wearing a black zari-trim anarkali beneath flowering trees.",
     description:
       "Hand-embroidered silhouettes, kalamkari prints and heritage craft, cut for celebration and the everyday alike.",
     category: "Ethnic Wear",
@@ -39,8 +38,7 @@ export const FEATURED_COLLECTIONS: FeaturedCollection[] = [
     title: "Contemporary",
     subtitle: "Tradition, reimagined",
     image: contemporaryImage.url,
-    imageAlt:
-      "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
+    imageAlt: "Model wearing a green printed top with flowing brown palazzo trousers.",
     description:
       "Handwoven textiles and considered layering — traditional craft translated into pieces that move with a modern day.",
     category: "Contemporary",

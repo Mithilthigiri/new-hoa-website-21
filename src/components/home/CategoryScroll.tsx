@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
-import ethnicImage from "@/assets/DSC03915.jpg.asset.json";
-import contemporaryImage from "@/assets/DSC04471.jpg.asset.json";
+import ethnicImage from "@/assets/collection-ethnic-black.JPG.asset.json";
+import contemporaryImage from "@/assets/collection-contemporary-green.JPG.asset.json";
 import westernImage from "@/assets/DSC03534.jpg.asset.json";
 import newInImage from "@/assets/DSC04224.jpg.asset.json";
 
