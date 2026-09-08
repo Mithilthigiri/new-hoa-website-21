@@ -307,9 +307,16 @@ export const NEW_ARRIVALS: Product[] = [
     category: "Contemporary",
     sizes: ["S", "M", "L", "XL"],
     colours: ["Indigo", "Ivory"],
-    images: [indigoKanthaFull.url, indigoKanthaStore.url, indigoKanthaDetail.url],
+    images: [
+      indigoKanthaFull.url,
+      indigoKanthaWorkshop.url,
+      indigoKanthaStore.url,
+      indigoKanthaBodice.url,
+      indigoKanthaDetail.url,
+    ],
     image: indigoKanthaFull.url,
-    hoverImage: indigoKanthaStore.url,
+    hoverImage: indigoKanthaWorkshop.url,
+
     imageAlt:
       "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
     href: "/product/indigo-kantha-set",
