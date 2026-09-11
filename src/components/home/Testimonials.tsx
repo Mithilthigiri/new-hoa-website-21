@@ -21,7 +21,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "I wore my House of Aira piece to a wedding and received compliments all evening. Truly special.",
+      "I wore my House of Airaa piece to a wedding and received compliments all evening. Truly special.",
     name: "Shalini K.",
     location: "Delhi",
   },
@@ -33,7 +33,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "House of Aira has become my first choice for festive dressing. Timeless, flattering, and always memorable.",
+      "House of Airaa has become my first choice for festive dressing. Timeless, flattering, and always memorable.",
     name: "Divya N.",
     location: "Chennai",
   },

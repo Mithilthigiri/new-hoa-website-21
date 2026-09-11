@@ -10,10 +10,10 @@ import founderImage from "@/assets/founder-placeholder.jpg";
  * placeholder and will be replaced with the real founder portrait.
  */
 export const ABOUT_HERO = {
-  eyebrow: "The House of Aira",
+  eyebrow: "The House of Airaa",
   headingLines: ["Draped in Heritage,", "Styled for Today"],
   supportingCopy:
-    "House of Aira brings the opulence of old India into a contemporary wardrobe, creating pieces for women who wear power gracefully.",
+    "House of Airaa brings the opulence of old India into a contemporary wardrobe, creating pieces for women who wear power gracefully.",
   image: heroImage.url,
   imageAlt:
     "Model in an ivory dobby lehenga skirt with a black kalamkari halter jacket, skirt caught mid-movement.",
@@ -23,19 +23,19 @@ export const ABOUT_FOUNDER = {
   eyebrow: "The Founder",
   heading: "A vision of quiet luxury.",
   paragraphs: [
-    "Every House of Aira piece begins with a point of view: that tradition need not be worn as costume, and that modern dressing can still carry memory.",
+    "Every House of Airaa piece begins with a point of view: that tradition need not be worn as costume, and that modern dressing can still carry memory.",
     "This portrait is a placeholder — the founder's full story and photography will be added here in a later update.",
   ],
   image: founderImage,
   imageAlt:
-    "Placeholder editorial portrait of the House of Aira founder wearing an ivory handwoven sari.",
+    "Placeholder editorial portrait of the House of Airaa founder wearing an ivory handwoven sari.",
 };
 
 export const ABOUT_PHILOSOPHY = {
   eyebrow: "The House",
   heading: "A wardrobe with a sense of history.",
   paragraphs: [
-    "House of Aira draws from the richness of Indian heritage while creating silhouettes that belong to the woman of today.",
+    "House of Airaa draws from the richness of Indian heritage while creating silhouettes that belong to the woman of today.",
     "The work sits at a meeting point: craft and everyday dressing, maximalism and restraint, tradition and individual expression. Nothing is treated as costume — heritage prints, woven borders and embroidered motifs are cut into pieces that move easily through a contemporary day.",
   ],
   pullQuote: "Rooted in heritage. Reimagined for the woman of today.",

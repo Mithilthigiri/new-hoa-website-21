@@ -40,7 +40,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         )}
       >
         <div className="flex items-center justify-between">
-          <span className="type-wordmark text-ivory">House of Aira</span>
+          <span className="type-wordmark text-ivory">House of Airaa</span>
           <button
             type="button"
             onClick={onClose}

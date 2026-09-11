@@ -31,7 +31,7 @@ export function WhatsappCta({ phoneNumber = "919384488692", className }: Whatsap
 
         <a
           href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
-            "Hi House of Aira, I'd love some styling help.",
+            "Hi House of Airaa, I'd love some styling help.",
           )}`}
           target="_blank"
           rel="noopener noreferrer"

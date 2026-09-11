@@ -15,15 +15,15 @@ export const Route = createFileRoute("/shop")({
       : {},
   head: () => ({
     meta: [
-      { title: "Shop — House of Aira" },
+      { title: "Shop — House of Airaa" },
       {
         name: "description",
-        content: "Browse the House of Aira shop: new in and signature pieces.",
+        content: "Browse the House of Airaa shop: new in and signature pieces.",
       },
-      { property: "og:title", content: "Shop — House of Aira" },
+      { property: "og:title", content: "Shop — House of Airaa" },
       {
         property: "og:description",
-        content: "New in and signature pieces from House of Aira.",
+        content: "New in and signature pieces from House of Airaa.",
       },
     ],
   }),

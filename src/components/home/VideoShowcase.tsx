@@ -34,7 +34,7 @@ const reelData: ReelItem[] = [
     video: reel1.url,
     tag: "HOUSE OF AIRA",
     caption: "Campaign — Ethnic Edit",
-    alt: "House of Aira campaign reel",
+    alt: "House of Airaa campaign reel",
   },
   {
     id: "v2",
@@ -79,7 +79,7 @@ const reelData: ReelItem[] = [
     video: reel6.url,
     tag: "COMMUNITY",
     caption: "The House Sessions",
-    alt: "House of Aira sessions reel",
+    alt: "House of Airaa sessions reel",
   },
 ];
 
@@ -155,7 +155,7 @@ export function VideoShowcase({ className }: { className?: string }) {
           The House in Motion
         </h2>
         <p className="mt-2 max-w-[560px] font-editorial text-[16px] italic leading-[1.75] text-[#7A6855]">
-          Campaign films and real stories from the women who wear House of Aira.
+          Campaign films and real stories from the women who wear House of Airaa.
         </p>
       </div>
 

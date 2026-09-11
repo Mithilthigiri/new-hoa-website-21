@@ -114,12 +114,12 @@ export function HeroShoppable({ className }: { className?: string }) {
   return (
     <section
       ref={ref}
-      aria-label="House of Aira campaign"
+      aria-label="House of Airaa campaign"
       className={cn("relative w-full overflow-hidden bg-espresso h-[65vh] lg:h-[90vh]", className)}
     >
       <img
         src={heroEditorial.url}
-        alt="House of Aira campaign image: model in a navy dress with an ivory floral print against a rust shutter."
+        alt="House of Airaa campaign image: model in a navy dress with an ivory floral print against a rust shutter."
         loading="eager"
         fetchPriority="high"
         decoding="async"

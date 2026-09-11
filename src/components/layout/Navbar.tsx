@@ -42,10 +42,10 @@ export function Navbar() {
             </button>
             <Link
               to="/"
-              aria-label="House of Airaa home"
+              aria-label="House of Airaaa home"
               className="font-display hidden text-[1.125rem] font-medium uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:inline-flex"
             >
-              House of Airaa
+              House of Airaaa
             </Link>
           </div>
 
@@ -54,7 +54,7 @@ export function Navbar() {
             to="/"
             className="font-display justify-self-center text-[1.125rem] font-medium uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:hidden"
           >
-            House of Airaa
+            House of Airaaa
           </Link>
           <nav
             aria-label="Primary navigation"

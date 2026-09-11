@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "House of Aira — Luxury Contemporary Ethnic" },
+      { title: "House of Airaa — Luxury Contemporary Ethnic" },
       {
         name: "description",
         content:
-          "House of Aira: old money maximalism and luxury contemporary ethnic wear for the modern Indian wardrobe.",
+          "House of Airaa: old money maximalism and luxury contemporary ethnic wear for the modern Indian wardrobe.",
       },
-      { name: "author", content: "House of Aira" },
-      { property: "og:title", content: "House of Aira" },
+      { name: "author", content: "House of Airaa" },
+      { property: "og:title", content: "House of Airaa" },
       {
         property: "og:description",
         content: "Old money maximalism · Luxury contemporary ethnic.",

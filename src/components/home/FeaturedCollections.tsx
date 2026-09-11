@@ -15,7 +15,7 @@ type FeaturedCollectionsProps = {
 export function FeaturedCollections({
   eyebrow = "The Collections",
   heading = "A Wardrobe of Stories",
-  supportingCopy = "Three expressions of the House of Aira woman, shaped by heritage and styled for today.",
+  supportingCopy = "Three expressions of the House of Airaa woman, shaped by heritage and styled for today.",
   collections = FEATURED_COLLECTIONS,
   className,
 }: FeaturedCollectionsProps) {

@@ -1,8 +1,8 @@
 # New HOA : Website (21)
 
-House of Aira — Phase 1: Foundation & Design System
+House of Airaa — Phase 1: Foundation & Design System
 
-We are building the House of Aira D2C fashion website in phases. This is Phase 1 only.
+We are building the House of Airaa D2C fashion website in phases. This is Phase 1 only.
 
 Do not build any homepage sections, product grids, product detail content, Shopify integration, cart functionality, checkout functionality, or other Phase 2+ features yet.
 
@@ -10,7 +10,7 @@ The goal of this phase is to establish a clean, reusable global foundation that 
 
 1. Brand Direction
 
-Brand: House of Aira
+Brand: House of Airaa
 
 Positioning:
 Old Money Maximalism · Luxury Contemporary Ethnic
@@ -211,11 +211,11 @@ Build the global navigation component only.
 
 Desktop navigation
 
-Use the brand direction shown in the supplied House of Aira guidelines:
+Use the brand direction shown in the supplied House of Airaa guidelines:
 
 Dark Espresso background
 
-House of Aira wordmark/text in an elegant display treatment
+House of Airaa wordmark/text in an elegant display treatment
 
 Navigation links using Jost
 
@@ -253,7 +253,7 @@ Create a responsive mobile navigation.
 
 Use:
 
-House of Aira wordmark
+House of Airaa wordmark
 
 Menu trigger
 
@@ -271,7 +271,7 @@ Do not add excessive content yet.
 
 Create the structural foundation for:
 
-House of Aira branding
+House of Airaa branding
 
 Shop/navigation links
 
@@ -285,7 +285,7 @@ Copyright
 
 Legal/policy links
 
-Use the House of Aira colour system and typography.
+Use the House of Airaa colour system and typography.
 
 The footer should feel editorial and premium, not like a generic e-commerce template.
 
@@ -413,7 +413,7 @@ Focus entirely on creating a strong, reusable foundation.
 
 Phase 1 is complete only when:
 
-The House of Aira colour system is globally configured.
+The House of Airaa colour system is globally configured.
 
 All three brand fonts are correctly imported and configured.
 
