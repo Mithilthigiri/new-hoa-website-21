@@ -13,13 +13,13 @@ export const Route = createFileRoute("/collections/$handle")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Collection not found — House of Aira" },
+          { title: "Collection not found — House of Airaa" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { title, description, image } = loaderData.collection;
-    const pageTitle = `${title} — House of Aira`;
+    const pageTitle = `${title} — House of Airaa`;
     return {
       meta: [
         { title: pageTitle },

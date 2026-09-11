@@ -42,19 +42,19 @@ export function Navbar() {
             </button>
             <Link
               to="/"
-              aria-label="House of Aira home"
-              className="font-display hidden text-[0.9375rem] uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:inline-flex"
+              aria-label="House of Airaa home"
+              className="font-display hidden text-[1.125rem] font-medium uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:inline-flex"
             >
-              House of Aira
+              House of Airaa
             </Link>
           </div>
 
           {/* CENTER — navigation on desktop, wordmark on mobile */}
           <Link
             to="/"
-            className="font-display justify-self-center text-[1rem] uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:hidden"
+            className="font-display justify-self-center text-[1.125rem] font-medium uppercase tracking-[0.14em] text-foreground transition-colors duration-200 hover:text-rust-label lg:hidden"
           >
-            House of Aira
+            House of Airaa
           </Link>
           <nav
             aria-label="Primary navigation"

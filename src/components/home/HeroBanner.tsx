@@ -58,7 +58,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
   {
     id: "campaign-portrait",
     image: slide5.url,
-    imageAlt: "House of Aira campaign portrait in warm daylight against heritage architecture.",
+    imageAlt: "House of Airaa campaign portrait in warm daylight against heritage architecture.",
     eyebrow: "The campaign",
     headline: "An Heirloom, Chosen",
     cta: { label: "Shop the Collection", to: "/shop" },
@@ -147,7 +147,7 @@ export function HeroBanner({
   return (
     <section
       aria-roledescription="carousel"
-      aria-label="House of Aira campaign"
+      aria-label="House of Airaa campaign"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       className={cn(

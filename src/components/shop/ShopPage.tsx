@@ -40,7 +40,7 @@ type ShopPageProps = {
  * never mutated; filtering always runs before sorting.
  */
 export function ShopPage({
-  eyebrow = "The House of Aira",
+  eyebrow = "The House of Airaa",
   heading = "Shop",
   supportingCopy = "Discover contemporary pieces rooted in heritage, designed for the woman of today.",
   products = ALL_PRODUCTS,

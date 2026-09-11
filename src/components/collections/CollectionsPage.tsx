@@ -33,7 +33,7 @@ export function CollectionsPage({
     <div className="pt-section-sm pb-section lg:pt-section">
       <Container width="wide" as="section" aria-labelledby="collections-heading">
         <header className="max-w-2xl">
-          <p className="type-label text-rust-deep">The House of Aira</p>
+          <p className="type-label text-rust-deep">The House of Airaa</p>
           <h1
             id="collections-heading"
             className="type-h1 mt-space-sm text-foreground lg:mt-space-md"
@@ -41,8 +41,8 @@ export function CollectionsPage({
             Collections
           </h1>
           <p className="type-editorial mt-space-sm text-muted-foreground lg:mt-space-md">
-            Explore the distinct expressions of House of Aira, from heritage-inspired silhouettes to
-            contemporary and modern dressing.
+            Explore the distinct expressions of House of Airaa, from heritage-inspired silhouettes
+            to contemporary and modern dressing.
           </p>
         </header>
 

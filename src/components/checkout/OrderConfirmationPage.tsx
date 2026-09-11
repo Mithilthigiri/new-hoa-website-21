@@ -83,7 +83,7 @@ export function OrderConfirmationPage({ className }: { className?: string }) {
 
         <a
           href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(
-            "Hi House of Aira, I have a question about my order.",
+            "Hi House of Airaa, I have a question about my order.",
           )}`}
           target="_blank"
           rel="noopener noreferrer"

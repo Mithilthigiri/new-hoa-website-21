@@ -86,7 +86,7 @@ export function AiraImage({
           aria-hidden={decorative ? "true" : undefined}
           className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-parchment to-background-alt"
         >
-          <span className="type-label select-none text-muted-foreground">House of Aira</span>
+          <span className="type-label select-none text-muted-foreground">House of Airaa</span>
         </span>
       ) : (
         <img

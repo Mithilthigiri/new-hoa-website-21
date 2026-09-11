@@ -12,7 +12,7 @@ type NewsletterSignupProps = {
 
 export function NewsletterSignup({
   heading = "Stay in the House",
-  supportingCopy = "New arrivals, exclusive access and stories from the House of Aira.",
+  supportingCopy = "New arrivals, exclusive access and stories from the House of Airaa.",
   ctaLabel = "Join the House",
   successMessage = "Welcome to the House. Your front-row seat to our world is reserved.",
   className,
@@ -40,7 +40,7 @@ export function NewsletterSignup({
           />
 
           <p className="mt-space-md font-sans text-[0.6875rem] text-ivory/55">
-            By subscribing, you agree to receive updates from House of Aira. Unsubscribe at any
+            By subscribing, you agree to receive updates from House of Airaa. Unsubscribe at any
             time.
           </p>
         </div>

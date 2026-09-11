@@ -37,7 +37,7 @@ export function Footer() {
           aria-hidden="true"
           className="font-display w-full text-center font-light leading-[0.95] tracking-[0.02em] text-ivory text-[clamp(2.5rem,6vw,5rem)] uppercase"
         >
-          House of Aira
+          House of Airaa
         </p>
         <div className="mt-space-lg h-px bg-gold" />
       </Container>
@@ -72,7 +72,7 @@ export function Footer() {
         </div>
 
         <p className="type-nav-mini mt-12 text-center text-[#6a5545]">
-          © {new Date().getFullYear()} House of Aira
+          © {new Date().getFullYear()} House of Airaa
         </p>
       </Container>
     </footer>

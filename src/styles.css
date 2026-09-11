@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * House of Aira — global design system.
+ * House of Airaa — global design system.
  * Old Money Maximalism · Luxury Contemporary Ethnic
  *
  * All brand colours, typography, spacing and radii live here as tokens.
@@ -118,7 +118,7 @@
 }
 
 :root {
-  /* Brand palette — exact House of Aira hex values */
+  /* Brand palette — exact House of Airaa hex values */
   --rust-deep: #8b4a2f;
   --rust-warm: #c4733a;
   --rust-label: #b85c38;

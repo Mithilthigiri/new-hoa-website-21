@@ -12,13 +12,13 @@ export type HeroSlide = {
   cta: { label: string; to: string };
 };
 
-/** Existing House of Aira photography and copy, presented as a carousel. */
+/** Existing House of Airaa photography and copy, presented as a carousel. */
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "campaign",
     image: heroCampaign.url,
     imageAlt:
-      "House of Aira campaign image featuring a woman in a navy hand-block floral dress against a rust shutter.",
+      "House of Airaa campaign image featuring a woman in a navy hand-block floral dress against a rust shutter.",
     eyebrow: "The new era of Indian luxury",
     headline: "Dressed in Heritage",
     subline:

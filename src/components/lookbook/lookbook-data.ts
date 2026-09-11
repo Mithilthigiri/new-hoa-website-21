@@ -38,7 +38,7 @@ export type LookbookLook = {
 };
 
 /**
- * All photography below is the original House of Aira brand photography already
+ * All photography below is the original House of Airaa brand photography already
  * uploaded to the project (src/assets). No generated or stock imagery.
  */
 export const LOOKBOOK_LOOKS: LookbookLook[] = [
@@ -146,7 +146,7 @@ export const LOOKBOOK_LOOKS: LookbookLook[] = [
 ];
 
 export const LOOKBOOK_INTRO = {
-  eyebrow: "House of Aira",
+  eyebrow: "House of Airaa",
   heading: "Lookbook",
   supportingCopy: "A visual study of contemporary dressing, heritage and modern expression.",
 };

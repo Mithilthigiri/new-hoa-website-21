@@ -13,15 +13,15 @@ import { WhatsappCta } from "@/components/home/WhatsappCta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "House of Aira — Luxury Contemporary Ethnic Wear" },
+      { title: "House of Airaa — Luxury Contemporary Ethnic Wear" },
       {
         name: "description",
         content:
-          "House of Aira: hand-crafted ethnic, contemporary and western pieces for the modern Indian wardrobe.",
+          "House of Airaa: hand-crafted ethnic, contemporary and western pieces for the modern Indian wardrobe.",
       },
       {
         property: "og:title",
-        content: "House of Aira — Luxury Contemporary Ethnic Wear",
+        content: "House of Airaa — Luxury Contemporary Ethnic Wear",
       },
       {
         property: "og:description",

@@ -4,17 +4,17 @@ import { AboutPage } from "@/components/about/AboutPage";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — House of Aira" },
+      { title: "About — House of Airaa" },
       {
         name: "description",
         content:
-          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Aira.",
+          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Airaa.",
       },
-      { property: "og:title", content: "About — House of Aira" },
+      { property: "og:title", content: "About — House of Airaa" },
       {
         property: "og:description",
         content:
-          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Aira.",
+          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Airaa.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

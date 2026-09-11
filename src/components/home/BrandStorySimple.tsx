@@ -26,7 +26,7 @@ export function BrandStorySimple({ className }: { className?: string }) {
           </h2>
 
           <p className="mb-5 font-editorial text-[17px] italic leading-[1.8] text-muted-foreground">
-            House of Aira brings the opulence of old India into a contemporary wardrobe, creating
+            House of Airaa brings the opulence of old India into a contemporary wardrobe, creating
             pieces for women who wear power gracefully.
           </p>
 
@@ -59,7 +59,6 @@ export function BrandStorySimple({ className }: { className?: string }) {
             imgClassName="object-cover object-[50%_20%]"
           />
         </div>
-
       </div>
     </section>
   );

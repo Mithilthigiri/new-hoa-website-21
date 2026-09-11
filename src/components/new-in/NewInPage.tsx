@@ -38,7 +38,7 @@ export function NewInPage({ products = ALL_PRODUCTS }: NewInPageProps) {
           </h1>
           <span className="mt-5 block h-px w-12 bg-[#C9A84C]" />
           <p className="mt-5 max-w-md font-editorial text-[17px] italic leading-[1.75] text-[#7A6855]">
-            The latest pieces to arrive at House of Aira.
+            The latest pieces to arrive at House of Airaa.
           </p>
         </header>
       </Container>
