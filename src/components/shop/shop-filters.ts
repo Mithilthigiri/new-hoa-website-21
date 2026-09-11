@@ -17,7 +17,7 @@ export type ShopFilterOptions = {
   priceBounds: PriceRange;
 };
 
-const SIZE_ORDER: ProductSize[] = ["XS", "S", "M", "L", "XL"];
+const SIZE_ORDER: ProductSize[] = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
 
 /**
  * Derives all available filter options from the product data itself, so filter

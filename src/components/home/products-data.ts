@@ -42,7 +42,7 @@ import kalamkariGreenDetail from "@/assets/DSC02533.JPG.asset.json";
 export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
 
 /** Size vocabulary. Later maps to a Shopify variant option named "Size". */
-export type ProductSize = "XS" | "S" | "M" | "L" | "XL";
+export type ProductSize = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" | "5XL";
 
 /** Colour vocabulary. Later maps to a Shopify variant option named "Colour". */
 export type ProductColour =
@@ -102,7 +102,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 11499,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
     colours: ["Black", "Gold"],
     images: [
       blackAnarkaliFront.url,
@@ -127,7 +127,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 8499,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["XS", "S", "M", "L"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Emerald", "Espresso"],
     images: [
       kalamkariGreenSeated.url,
@@ -152,7 +152,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 6499,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["S", "M", "L"],
+    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
     colours: ["Navy", "Rust"],
     images: [
       navyFloralFront.url,
@@ -178,7 +178,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 2299,
     currency: "INR",
     category: "Western",
-    sizes: ["XS", "S", "M", "L"],
+    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
     colours: ["Rust"],
     images: [
       rustCamiFront.url,
@@ -203,7 +203,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 8999,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: ["S", "M", "L"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Emerald", "Gold"],
     images: [emeraldStanding.url, emeraldSide.url, emeraldBack.url, emeraldBorder.url],
     image: emeraldStanding.url,
@@ -222,7 +222,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 12499,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Purple", "Emerald"],
     images: [
       purpleSkirtGate.url,
@@ -246,7 +246,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 15999,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: ["S", "M", "L"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Ivory", "Black"],
     images: [ivoryLehengaCourt.url, ivoryLehengaSwing.url, ivoryLehengaDetail.url],
     image: ivoryLehengaCourt.url,
@@ -264,7 +264,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 7499,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["XS", "S", "M", "L"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Purple", "Ivory"],
     images: [
       ikatPalazzoRooftop.url,
@@ -290,7 +290,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 9499,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Indigo", "Ivory"],
     images: [
       indigoKanthaFull.url,
