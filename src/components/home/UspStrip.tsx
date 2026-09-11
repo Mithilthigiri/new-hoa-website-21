@@ -1,4 +1,4 @@
-import { Sparkles, Shirt, Package, RotateCcw } from "lucide-react";
+import { Sparkles, Shirt, Package, Ruler } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const USP_ITEMS = [
@@ -18,9 +18,9 @@ const USP_ITEMS = [
     subtitle: "On orders above ₹2,999",
   },
   {
-    icon: RotateCcw,
-    title: "EASY RETURNS",
-    subtitle: "Hassle-free within 7 days",
+    icon: Ruler,
+    title: "SIZES UP TO 5XL",
+    subtitle: "Inclusive fits for every body",
   },
 ];
 
