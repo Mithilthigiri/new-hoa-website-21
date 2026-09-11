@@ -41,8 +41,8 @@ export function CollectionsPage({
             Collections
           </h1>
           <p className="type-editorial mt-space-sm text-muted-foreground lg:mt-space-md">
-            Explore the distinct expressions of House of Airaa, from heritage-inspired silhouettes to
-            contemporary and modern dressing.
+            Explore the distinct expressions of House of Airaa, from heritage-inspired silhouettes
+            to contemporary and modern dressing.
           </p>
         </header>
 

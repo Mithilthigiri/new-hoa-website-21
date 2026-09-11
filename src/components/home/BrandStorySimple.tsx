@@ -59,7 +59,6 @@ export function BrandStorySimple({ className }: { className?: string }) {
             imgClassName="object-cover object-[50%_20%]"
           />
         </div>
-
       </div>
     </section>
   );
