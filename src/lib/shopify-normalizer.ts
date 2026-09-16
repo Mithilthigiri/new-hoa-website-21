@@ -29,7 +29,7 @@ type ShopifyProductNode = {
       };
     }>;
   };
-  collections: {
+  collections?: {
     edges: Array<{
       node: { title: string; handle: string };
     }>;
@@ -43,7 +43,7 @@ export function normalizeShopifyProduct(
 ): Product {
   const images = node.images.edges.map((e) => e.node.url);
   const variants = node.variants.edges.map((e) => e.node);
-  const collection = node.collections.edges[0]?.node;
+  const collection = node.collections?.edges[0]?.node;
 
   const sizes = [
     ...new Set(

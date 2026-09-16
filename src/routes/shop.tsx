@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ShopPage } from "@/components/shop/ShopPage";
+import { Container } from "@/components/layout/Container";
+import { ProductGridSkeleton } from "@/components/ui/ProductSkeleton";
+import { useShopifyProducts } from "@/hooks/use-shopify-products";
 
 type ShopSearch = { category?: string };
 
@@ -32,6 +35,28 @@ export const Route = createFileRoute("/shop")({
 
 function ShopRoute() {
   const { category } = Route.useSearch();
+  const { products, loading, error } = useShopifyProducts();
+
+  if (loading) {
+    return (
+      <section className="pt-section-sm pb-section lg:pt-section">
+        <Container width="wide">
+          <ProductGridSkeleton />
+        </Container>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="pt-section-sm pb-section lg:pt-section">
+        <Container width="wide">
+          <p className="type-editorial text-center text-muted-foreground">{error}</p>
+        </Container>
+      </section>
+    );
+  }
+
   // Remount on category change so the preselection seeds filter state cleanly.
-  return <ShopPage key={category ?? "all"} initialCategory={category} />;
+  return <ShopPage key={category ?? "all"} initialCategory={category} products={products} />;
 }
