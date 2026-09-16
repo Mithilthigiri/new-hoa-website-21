@@ -88,12 +88,12 @@ export function normalizeShopifyProduct(
     ),
     currency: node.priceRange.minVariantPrice.currencyCode,
     category: collection?.title ?? "Uncategorised",
-    sizes: sizes.length > 0 
+    sizes: (sizes.length > 0 
       ? sizes 
-      : ["S", "M", "L"],
-    colours: colours.length > 0 
+      : ["S", "M", "L"]) as Product["sizes"],
+    colours: (colours.length > 0 
       ? colours 
-      : ["Default"],
+      : ["Default" as Product["colours"][number]]) as Product["colours"],
     images: images,
     image: images[0] ?? "",
     hoverImage: images[1],
