@@ -96,12 +96,12 @@ export function normalizeShopifyProduct(
       : ["Default" as Product["colours"][number]]) as Product["colours"],
     images: images,
     image: images[0] ?? "",
-    hoverImage: images[1],
     imageAlt: node.images.edges[0]?.node.altText 
       ?? node.title,
-    badge,
     href: `/product/${node.handle}`,
     publishedAt: node.publishedAt,
+    ...(images[1] ? { hoverImage: images[1] } : {}),
+    ...(badge ? { badge } : {}),
   };
 }
 
