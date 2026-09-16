@@ -5,10 +5,7 @@
 
 export function ProductGridSkeleton({ count = 8 }: { count?: number }) {
   return (
-    <div
-      aria-hidden="true"
-      className="grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3"
-    >
+    <div aria-hidden="true" className="grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3">
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} className="animate-pulse">
           <div className="aspect-[3/4] w-full bg-[#E8E0CE]" />

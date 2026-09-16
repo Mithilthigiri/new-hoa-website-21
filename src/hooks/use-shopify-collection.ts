@@ -12,14 +12,12 @@ export type ShopifyCollection = {
 };
 
 type CollectionResponse = {
-  collection:
-    | ({
-        title: string;
-        handle: string;
-        description: string;
-        products: { edges: Parameters<typeof normalizeShopifyProducts>[0] };
-      })
-    | null;
+  collection: {
+    title: string;
+    handle: string;
+    description: string;
+    products: { edges: Parameters<typeof normalizeShopifyProducts>[0] };
+  } | null;
 };
 
 /** Fetches a Shopify collection and its products by handle. */

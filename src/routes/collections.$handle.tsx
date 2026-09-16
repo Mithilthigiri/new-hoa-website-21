@@ -2,6 +2,8 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { CollectionDetailPage } from "@/components/collections/CollectionDetailPage";
 import { FEATURED_COLLECTIONS } from "@/components/home/collections-data";
 import { Container } from "@/components/layout/Container";
+import { ProductGridSkeleton } from "@/components/ui/ProductSkeleton";
+import { useShopifyCollection } from "@/hooks/use-shopify-collection";
 
 export const Route = createFileRoute("/collections/$handle")({
   loader: ({ params }) => {
@@ -42,8 +44,36 @@ export const Route = createFileRoute("/collections/$handle")({
 });
 
 function CollectionRoute() {
-  const { collection } = Route.useLoaderData();
-  return <CollectionDetailPage collection={collection} />;
+  const { handle } = Route.useParams();
+  const { collection: staticCollection } = Route.useLoaderData();
+  const { collection, loading, error } = useShopifyCollection(handle);
+
+  if (loading) {
+    return (
+      <Container width="wide" className="py-section">
+        <ProductGridSkeleton />
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container width="wide" className="py-section text-center">
+        <p className="type-editorial text-muted-foreground">{error}</p>
+      </Container>
+    );
+  }
+
+  /**
+   * The grid resolves products by category, so Shopify products are tagged with
+   * this collection's category before being handed to the presentation layer.
+   */
+  const products = (collection?.products ?? []).map((product) => ({
+    ...product,
+    category: staticCollection.category,
+  }));
+
+  return <CollectionDetailPage collection={staticCollection} products={products} />;
 }
 
 function CollectionNotFound() {
