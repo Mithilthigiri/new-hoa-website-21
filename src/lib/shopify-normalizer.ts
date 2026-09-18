@@ -100,6 +100,11 @@ export function normalizeShopifyProduct(
       ?? node.title,
     href: `/product/${node.handle}`,
     publishedAt: node.publishedAt,
+    variants: variants.map((v) => ({
+      id: v.id,
+      size: v.selectedOptions.find((o) => o.name === "Size")?.value ?? null,
+      availableForSale: v.availableForSale,
+    })),
     ...(images[1] ? { hoverImage: images[1] } : {}),
     ...(badge ? { badge } : {}),
   };

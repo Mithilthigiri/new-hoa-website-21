@@ -1,4 +1,6 @@
-import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { shopifyClient } from "@/lib/shopify";
+import { CREATE_CART, ADD_TO_CART } from "@/lib/shopify-queries";
 
 export type CartItem = {
   id: string;
@@ -17,6 +19,8 @@ export type CartContextValue = {
   isOpen: boolean;
   totalItems: number;
   subtotal: number;
+  shopifyCartId: string | null;
+  checkoutUrl: string | null;
   addItem: (item: CartItem) => void;
   removeItem: (id: string, size: string) => void;
   updateQuantity: (id: string, size: string, quantity: number) => void;
