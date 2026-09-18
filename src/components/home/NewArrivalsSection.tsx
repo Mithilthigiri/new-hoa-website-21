@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
-import { NEW_ARRIVALS, formatPrice, type Product } from "@/components/home/products-data";
+import { formatPrice, type Product } from "@/components/home/products-data";
+import { useShopifyHomepage } from "@/hooks/use-shopify-homepage";
 import editorialImage from "@/assets/DSC03786.jpg.asset.json";
 
 function MiniProductCard({ product }: { product: Product }) {
@@ -60,7 +61,9 @@ type NewArrivalsSectionProps = {
 };
 
 export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
-  const visible = NEW_ARRIVALS.slice(0, 8);
+  const { newArrivals, loading } = useShopifyHomepage();
+
+  if (!loading && newArrivals.length === 0) return null;
 
   return (
     <section
@@ -105,13 +108,23 @@ export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
 
         {/* Product grid — 66% desktop, 2 cols mobile, 4 cols desktop */}
         <div className="w-full lg:w-[66%]">
-          <ul className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4">
-            {visible.map((product) => (
-              <li key={product.id} className="flex min-w-0">
-                <MiniProductCard product={product} />
-              </li>
-            ))}
-          </ul>
+          {loading ? (
+            <ul className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4" aria-busy="true" aria-label="Loading new arrivals">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <li key={i} className="flex min-w-0">
+                  <div className="aspect-[3/4] w-full animate-pulse rounded-[4px] bg-[#DDD5C0]" />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4">
+              {newArrivals.map((product: Product) => (
+                <li key={product.id} className="flex min-w-0">
+                  <MiniProductCard product={product} />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </section>
