@@ -21,7 +21,7 @@ const optionClass =
  */
 export function ProductInfo({ product, className }: ProductInfoProps) {
   const { title, category, price, currency, sizes, colours } = product;
-  const { addItem, openCart } = useCart();
+  const { addItem } = useCart();
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColour, setSelectedColour] = useState<string>(colours[0] ?? "");
@@ -155,6 +155,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
                 onClick={() => {
                   setSelectedSize(size);
                   setSizeError(false);
+                  setVariantError(false);
                 }}
                 className={cn(
                   optionClass,
@@ -169,7 +170,10 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
           })}
         </div>
         {sizeError ? (
-          <p className="type-small mt-space-sm text-rust-deep">Please select a size first.</p>
+          <p className="type-small mt-space-sm text-rust-deep">Please select a size.</p>
+        ) : null}
+        {variantError ? (
+          <p className="type-small mt-space-sm text-rust-deep">This size is unavailable.</p>
         ) : null}
       </div>
 
@@ -182,7 +186,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
           className="h-[52px] w-full rounded-none bg-[#2C1810] px-6 font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] hover:bg-[#1A0F0A] disabled:cursor-not-allowed disabled:opacity-50 sm:flex-1"
           onClick={handleAddToCart}
         >
-          {added ? "Added" : canAdd ? "Add to Cart" : "Select a size"}
+          {added ? "Added to cart ✓" : canAdd ? "Add to Cart" : "Select a size"}
         </AiraButton>
         <AiraButton
           type="button"
