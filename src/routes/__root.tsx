@@ -11,10 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Navbar } from "../components/layout/Navbar";
-import { Footer } from "../components/layout/Footer";
-import { CartProvider } from "../components/cart/CartContext";
-import { CartDrawer } from "../components/cart/CartDrawer";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { CartProvider } from "@/components/cart/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 function NotFoundComponent() {
   return (
