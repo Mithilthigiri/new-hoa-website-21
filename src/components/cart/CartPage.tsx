@@ -6,7 +6,7 @@ import { useCart } from "./useCart";
 const FREE_SHIPPING_THRESHOLD = 2999;
 
 export function CartPage() {
-  const { items, subtotal, removeItem, updateQuantity } = useCart();
+  const { items, subtotal, checkoutUrl, removeItem, updateQuantity } = useCart();
   const totalItems = items.reduce((sum, it) => sum + it.quantity, 0);
   const currency = items[0]?.currency ?? "INR";
 
@@ -146,12 +146,12 @@ export function CartPage() {
                   </span>
                 </div>
 
-                <Link
-                  to="/checkout"
+                <a
+                  href={checkoutUrl ?? "/checkout"}
                   className="font-sans mt-7 flex h-[52px] w-full items-center justify-center bg-[#2C1810] text-center text-[0.6875rem] uppercase tracking-[0.15em] text-[#FAF6EE] transition-colors duration-200 hover:bg-[#1A0F0A]"
                 >
                   Proceed to Checkout
-                </Link>
+                </a>
 
                 <p className="font-sans mt-3 text-center text-[0.5625rem] text-[#7A6855]">
                   Free shipping on orders above {formatPrice(FREE_SHIPPING_THRESHOLD, currency)}

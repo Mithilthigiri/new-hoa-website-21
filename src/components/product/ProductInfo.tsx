@@ -37,6 +37,16 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
     return () => window.clearTimeout(timer);
   }, [added]);
 
+  // Resolve the Shopify variant (merchandise) ID for the selected size.
+  // Shopify-sourced products carry a variants array; local products fall back
+  // to the product id and skip Shopify cart sync (it fails gracefully).
+  const selectedVariant =
+    selectedSize && product.variants
+      ? product.variants.find((variant) => variant.size === selectedSize)
+      : undefined;
+  const hasVariants = (product.variants?.length ?? 0) > 0;
+  const canAdd = Boolean(selectedSize) && (!hasVariants || Boolean(selectedVariant));
+
   const handleAddToCart = () => {
     if (!selectedSize) {
       setSizeError(true);
@@ -44,7 +54,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
     }
     setSizeError(false);
     addItem({
-      id: product.id,
+      id: selectedVariant?.id ?? product.id,
       handle: product.handle,
       title: product.title,
       price: product.price,
@@ -158,10 +168,11 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
         <AiraButton
           type="button"
           size="lg"
-          className="h-[52px] w-full rounded-none bg-[#2C1810] px-6 font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] hover:bg-[#1A0F0A] sm:flex-1"
+          disabled={!canAdd}
+          className="h-[52px] w-full rounded-none bg-[#2C1810] px-6 font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] hover:bg-[#1A0F0A] disabled:cursor-not-allowed disabled:opacity-50 sm:flex-1"
           onClick={handleAddToCart}
         >
-          {added ? "Added" : "Add to Cart"}
+          {added ? "Added" : canAdd ? "Add to Cart" : "Select a size"}
         </AiraButton>
         <AiraButton
           type="button"
