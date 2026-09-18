@@ -52,9 +52,14 @@ export type ProductColour =
 export type ProductVariant = {
   /** Shopify variant GID, e.g. "gid://shopify/ProductVariant/123456". */
   id: string;
-  /** Size option value for this variant, when the product has sizes. */
-  size: string | null;
+  /** Variant option summary, e.g. "M / Rust". */
+  title: string;
   availableForSale: boolean;
+  /** Shopify variant options, e.g. [{ name: "Size", value: "M" }]. */
+  selectedOptions: Array<{
+    name: string;
+    value: string;
+  }>;
 };
 
 /**
