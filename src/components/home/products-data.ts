@@ -48,6 +48,15 @@ export type ProductSize = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" 
 export type ProductColour =
   "Rust" | "Ivory" | "Espresso" | "Gold" | "Black" | "Navy" | "Emerald" | "Purple" | "Indigo";
 
+/** A purchasable Shopify variant (merchandise) for a product. */
+export type ProductVariant = {
+  /** Shopify variant GID, e.g. "gid://shopify/ProductVariant/123456". */
+  id: string;
+  /** Size option value for this variant, when the product has sizes. */
+  size: string | null;
+  availableForSale: boolean;
+};
+
 /**
  * Shape mirrors the fields a Shopify product provides, so this local array can
  * later be replaced by a Storefront API mapper without touching ProductCard:
@@ -82,6 +91,8 @@ export type Product = {
    * copy for now; later mapped from Shopify product.description.
    */
   description?: string;
+  /** Shopify variants (merchandise IDs) — present for Shopify-sourced products. */
+  variants?: ProductVariant[];
 };
 
 export function formatPrice(price: number, currency: string): string {
