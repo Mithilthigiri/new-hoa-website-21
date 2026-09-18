@@ -257,7 +257,7 @@ export const NEW_ARRIVALS: Product[] = [
     publishedAt: "2026-06-18",
   },
   {
-    id: "aira-ikat-panel-palazzo-set",
+    id: "aira-ikat-panel-skirt-set",
     handle: "ikat-panel-skirt-set",
     description: "Wide purple ikat panelled palazzo trousers with a fitted mauve bralette top.",
     title: "Ikat Panel Skirt Set",
@@ -278,11 +278,11 @@ export const NEW_ARRIVALS: Product[] = [
     imageAlt:
       "Model wearing wide purple ikat panelled palazzo trousers with a mauve fitted bralette top.",
     badge: "NEW",
-    href: "/product/ikat-panel-palazzo-set",
+    href: "/product/ikat-panel-skirt-set",
     publishedAt: "2026-05-30",
   },
   {
-    id: "aira-indigo-kantha-set",
+    id: "aira-indigo-kantha-three-piece-set",
     handle: "indigo-kantha-three-piece-set",
     description:
       "An indigo handwoven kurta with an ivory printed waistcoat and a matching dupatta.",
@@ -303,7 +303,7 @@ export const NEW_ARRIVALS: Product[] = [
 
     imageAlt:
       "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
-    href: "/product/indigo-kantha-set",
+    href: "/product/indigo-kantha-three-piece-set",
     publishedAt: "2026-05-05",
   },
 ];
