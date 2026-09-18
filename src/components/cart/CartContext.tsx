@@ -96,6 +96,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items, hydrated]);
 
   const addItem = useCallback((item: CartItem) => {
+    // 1. Update local state as before.
     setItems((current) => {
       const index = current.findIndex((it) => it.id === item.id && it.size === item.size);
       if (index === -1) return [...current, item];
@@ -103,6 +104,50 @@ export function CartProvider({ children }: { children: ReactNode }) {
         i === index ? { ...it, quantity: it.quantity + item.quantity } : it,
       );
     });
+
+    // 2. Sync with Shopify. The local cart keeps working even if this fails.
+    void (async () => {
+      try {
+        const currentCartId = shopifyCartIdRef.current;
+        if (!currentCartId) {
+          const { data } = await shopifyClient.request(CREATE_CART, {
+            variables: {
+              lines: [{ merchandiseId: item.id, quantity: item.quantity }],
+            },
+          });
+          const cart = data?.cartCreate?.cart;
+          if (cart) {
+            shopifyCartIdRef.current = cart.id;
+            setShopifyCartId(cart.id);
+            setCheckoutUrl(cart.checkoutUrl);
+            try {
+              window.localStorage.setItem(SHOPIFY_CART_KEY, cart.id);
+              window.localStorage.setItem(SHOPIFY_CHECKOUT_KEY, cart.checkoutUrl);
+            } catch {
+              /* storage unavailable */
+            }
+          }
+        } else {
+          const { data } = await shopifyClient.request(ADD_TO_CART, {
+            variables: {
+              cartId: currentCartId,
+              lines: [{ merchandiseId: item.id, quantity: item.quantity }],
+            },
+          });
+          const cart = data?.cartLinesAdd?.cart;
+          if (cart?.checkoutUrl) {
+            setCheckoutUrl(cart.checkoutUrl);
+            try {
+              window.localStorage.setItem(SHOPIFY_CHECKOUT_KEY, cart.checkoutUrl);
+            } catch {
+              /* storage unavailable */
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Shopify cart error:", err);
+      }
+    })();
   }, []);
 
   const removeItem = useCallback((id: string, size: string) => {
@@ -117,7 +162,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
-  const clearCart = useCallback(() => setItems([]), []);
+  const clearCart = useCallback(() => {
+    setItems([]);
+    shopifyCartIdRef.current = null;
+    setShopifyCartId(null);
+    setCheckoutUrl(null);
+    try {
+      window.localStorage.removeItem(SHOPIFY_CART_KEY);
+      window.localStorage.removeItem(SHOPIFY_CHECKOUT_KEY);
+    } catch {
+      /* storage unavailable */
+    }
+  }, []);
   const openCart = useCallback(() => setIsOpen(true), []);
   const closeCart = useCallback(() => setIsOpen(false), []);
   const toggleCart = useCallback(() => setIsOpen((open) => !open), []);
@@ -130,6 +186,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       isOpen,
       totalItems,
       subtotal,
+      shopifyCartId,
+      checkoutUrl,
       addItem,
       removeItem,
       updateQuantity,
@@ -141,6 +199,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [
     items,
     isOpen,
+    shopifyCartId,
+    checkoutUrl,
     addItem,
     removeItem,
     updateQuantity,
