@@ -258,9 +258,9 @@ export const NEW_ARRIVALS: Product[] = [
   },
   {
     id: "aira-ikat-panel-palazzo-set",
-    handle: "ikat-panel-palazzo-set",
+    handle: "ikat-panel-skirt-set",
     description: "Wide purple ikat panelled palazzo trousers with a fitted mauve bralette top.",
-    title: "Ikat Panel Palazzo Set",
+    title: "Ikat Panel Skirt Set",
     price: 7499,
     currency: "INR",
     category: "Contemporary",
@@ -283,10 +283,10 @@ export const NEW_ARRIVALS: Product[] = [
   },
   {
     id: "aira-indigo-kantha-set",
-    handle: "indigo-kantha-set",
+    handle: "indigo-kantha-three-piece-set",
     description:
       "An indigo handwoven kurta with an ivory printed waistcoat and a matching dupatta.",
-    title: "Indigo Kantha Set",
+    title: "Indigo Kantha Three Piece Set",
     price: 9499,
     currency: "INR",
     category: "Contemporary",
