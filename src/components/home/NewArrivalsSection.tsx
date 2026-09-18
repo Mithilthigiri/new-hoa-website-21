@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
-import { NEW_ARRIVALS, formatPrice, type Product } from "@/components/home/products-data";
+import { formatPrice, type Product } from "@/components/home/products-data";
+import { useShopifyHomepage } from "@/hooks/use-shopify-homepage";
 import editorialImage from "@/assets/DSC03786.jpg.asset.json";
 
 function MiniProductCard({ product }: { product: Product }) {
