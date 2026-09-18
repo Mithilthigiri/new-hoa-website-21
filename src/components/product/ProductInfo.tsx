@@ -21,12 +21,13 @@ const optionClass =
  */
 export function ProductInfo({ product, className }: ProductInfoProps) {
   const { title, category, price, currency, sizes, colours } = product;
-  const { addItem, openCart } = useCart();
+  const { addItem } = useCart();
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColour, setSelectedColour] = useState<string>(colours[0] ?? "");
   const [added, setAdded] = useState(false);
   const [sizeError, setSizeError] = useState(false);
+  const [variantError, setVariantError] = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
 
   const hasMultipleColours = colours.length > 1;
@@ -37,12 +38,14 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
     return () => window.clearTimeout(timer);
   }, [added]);
 
-  // Resolve the Shopify variant (merchandise) ID for the selected size.
-  // Shopify-sourced products carry a variants array; local products fall back
-  // to the product id and skip Shopify cart sync (it fails gracefully).
+  // Resolve the Shopify variant (merchandise) for the selected size.
+  // Shopify-sourced products carry variants with selectedOptions; local
+  // products have no variants and fall back to the local product id.
   const selectedVariant =
     selectedSize && product.variants
-      ? product.variants.find((variant) => variant.size === selectedSize)
+      ? product.variants.find((v) =>
+          v.selectedOptions.some((o) => o.name === "Size" && o.value === selectedSize),
+        )
       : undefined;
   const hasVariants = (product.variants?.length ?? 0) > 0;
   const canAdd = Boolean(selectedSize) && (!hasVariants || Boolean(selectedVariant));
@@ -53,19 +56,26 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
       return;
     }
     setSizeError(false);
+
+    if (hasVariants && !selectedVariant) {
+      setVariantError(true);
+      return;
+    }
+    setVariantError(false);
+
     addItem({
       id: selectedVariant?.id ?? product.id,
       handle: product.handle,
       title: product.title,
       price: product.price,
-      currency: product.currency,
-      image: product.image,
-      imageAlt: product.imageAlt,
+      currency: product.currency ?? "INR",
+      image: product.images?.[0] ?? product.image ?? "",
+      imageAlt: product.imageAlt ?? product.title,
       size: selectedSize,
       quantity: 1,
     });
     setAdded(true);
-    openCart();
+    // The drawer stays closed; the navbar badge count signals the add.
   };
 
   return (
@@ -145,6 +155,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
                 onClick={() => {
                   setSelectedSize(size);
                   setSizeError(false);
+                  setVariantError(false);
                 }}
                 className={cn(
                   optionClass,
@@ -159,7 +170,10 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
           })}
         </div>
         {sizeError ? (
-          <p className="type-small mt-space-sm text-rust-deep">Please select a size first.</p>
+          <p className="type-small mt-space-sm text-rust-deep">Please select a size.</p>
+        ) : null}
+        {variantError ? (
+          <p className="type-small mt-space-sm text-rust-deep">This size is unavailable.</p>
         ) : null}
       </div>
 
@@ -172,7 +186,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
           className="h-[52px] w-full rounded-none bg-[#2C1810] px-6 font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] hover:bg-[#1A0F0A] disabled:cursor-not-allowed disabled:opacity-50 sm:flex-1"
           onClick={handleAddToCart}
         >
-          {added ? "Added" : canAdd ? "Add to Cart" : "Select a size"}
+          {added ? "Added to cart ✓" : canAdd ? "Add to Cart" : "Select a size"}
         </AiraButton>
         <AiraButton
           type="button"
