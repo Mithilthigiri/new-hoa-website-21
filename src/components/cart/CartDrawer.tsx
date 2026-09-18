@@ -1,12 +1,11 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { ShoppingBag, X } from "lucide-react";
 import { useEffect } from "react";
 import { formatPrice } from "@/components/home/products-data";
 import { useCart } from "./useCart";
 
 export function CartDrawer() {
-  const { items, isOpen, subtotal, closeCart, removeItem, updateQuantity } = useCart();
-  const navigate = useNavigate();
+  const { items, isOpen, subtotal, checkoutUrl, closeCart, removeItem, updateQuantity } = useCart();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -145,16 +144,17 @@ export function CartDrawer() {
             <p className="font-sans mt-1.5 text-[0.5625rem] text-[#7A6855]/70">
               Shipping calculated at checkout
             </p>
-            <button
-              type="button"
+            <a
+              href={checkoutUrl ?? "/checkout"}
+              target="_self"
               onClick={() => {
+                if (!checkoutUrl) return;
                 closeCart();
-                void navigate({ to: "/checkout" });
               }}
-              className="font-sans mt-5 h-[52px] w-full rounded-none bg-[#2C1810] text-[0.6875rem] uppercase tracking-[0.15em] text-[#FAF6EE] transition-colors duration-200 hover:bg-[#1A0F0A]"
+              className="font-sans mt-5 flex h-[52px] w-full items-center justify-center rounded-none bg-[#2C1810] text-[0.6875rem] uppercase tracking-[0.15em] text-[#FAF6EE] transition-colors duration-200 hover:bg-[#1A0F0A]"
             >
               Proceed to Checkout
-            </button>
+            </a>
             <button
               type="button"
               onClick={closeCart}
