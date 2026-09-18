@@ -33,6 +33,8 @@ export type CartContextValue = {
 export const CartContext = createContext<CartContextValue | null>(null);
 
 const STORAGE_KEY = "hoa-cart";
+const SHOPIFY_CART_KEY = "hoa-shopify-cart-id";
+const SHOPIFY_CHECKOUT_KEY = "hoa-shopify-checkout-url";
 
 function isCartItem(value: unknown): value is CartItem {
   if (typeof value !== "object" || value === null) return false;
@@ -63,10 +65,24 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [shopifyCartId, setShopifyCartId] = useState<string | null>(null);
+  const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null);
+  const shopifyCartIdRef = useRef<string | null>(null);
 
   // Read persisted cart after hydration so SSR and client markup match.
   useEffect(() => {
     setItems(readStoredCart());
+    try {
+      const storedCartId = window.localStorage.getItem(SHOPIFY_CART_KEY);
+      const storedCheckoutUrl = window.localStorage.getItem(SHOPIFY_CHECKOUT_KEY);
+      if (storedCartId) {
+        shopifyCartIdRef.current = storedCartId;
+        setShopifyCartId(storedCartId);
+      }
+      if (storedCheckoutUrl) setCheckoutUrl(storedCheckoutUrl);
+    } catch {
+      /* storage unavailable — Shopify cart starts fresh */
+    }
     setHydrated(true);
   }, []);
 
