@@ -61,10 +61,18 @@ export function useShopifyCollection(handle: string) {
       } catch (err) {
         console.error("Shopify collection API blocked:", err);
         if (active) {
-          const localProducts = ALL_PRODUCTS.filter(
-            p => p.category.toLowerCase() === handle.replace("-", " ").toLowerCase(),
-          );
+          const handleToCategoryMap: Record<string, string> = {
+            "ethnic-wear": "Ethnic Wear",
+            contemporary: "Contemporary",
+            western: "Western",
+          };
+
+          const categoryName = handleToCategoryMap[handle] ?? handle;
+
+          const localProducts = ALL_PRODUCTS.filter(p => p.category === categoryName);
+
           const staticCol = FEATURED_COLLECTIONS.find(c => c.handle === handle);
+
           if (staticCol) {
             setCollection({
               title: staticCol.title,
