@@ -40,6 +40,9 @@ export function useShopifyCollection(handle: string) {
           { variables: { handle, first: 50 } },
         );
 
+        console.log("Collection API response:", JSON.stringify(data, null, 2));
+        console.log("Products in collection:", data?.collection?.products?.edges?.length);
+
         if (errors) {
           throw new Error(errors.message ?? "Shopify error");
         }
