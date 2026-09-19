@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { shopifyClient } from "@/lib/shopify";
 import { GET_COLLECTION_BY_HANDLE } from "@/lib/shopify-queries";
 import { normalizeShopifyProducts } from "@/lib/shopify-normalizer";
+import { ALL_PRODUCTS } from "@/components/home/products-data";
+import { FEATURED_COLLECTIONS } from "@/components/home/collections-data";
 import type { Product } from "@/components/home/products-data";
 
 export type ShopifyCollection = {
