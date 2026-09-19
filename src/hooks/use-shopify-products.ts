@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { shopifyClient } from "@/lib/shopify";
 import { GET_ALL_PRODUCTS } from "@/lib/shopify-queries";
 import { normalizeShopifyProducts } from "@/lib/shopify-normalizer";
+import { ALL_PRODUCTS } from "@/components/home/products-data";
 import type { Product } from "@/components/home/products-data";
 
 type ProductsResponse = {
