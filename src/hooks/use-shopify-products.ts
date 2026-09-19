@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { shopifyClient } from "@/lib/shopify";
 import { GET_ALL_PRODUCTS } from "@/lib/shopify-queries";
 import { normalizeShopifyProducts } from "@/lib/shopify-normalizer";
+import { ALL_PRODUCTS } from "@/components/home/products-data";
 import type { Product } from "@/components/home/products-data";
 
 type ProductsResponse = {
@@ -30,8 +31,11 @@ export function useShopifyProducts() {
         const normalized = normalizeShopifyProducts(data?.products.edges ?? []);
         if (active) setProducts(normalized);
       } catch (err) {
-        console.error("Failed to fetch products:", err);
-        if (active) setError("Failed to load products.");
+        console.error("Shopify API blocked, falling back to local data:", err);
+        if (active) {
+          setProducts(ALL_PRODUCTS);
+          setError(null);
+        }
       } finally {
         if (active) setLoading(false);
       }

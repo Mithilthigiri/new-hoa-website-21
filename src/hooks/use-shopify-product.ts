@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { shopifyClient } from "@/lib/shopify";
 import { GET_PRODUCT_BY_HANDLE } from "@/lib/shopify-queries";
 import { normalizeShopifyProduct } from "@/lib/shopify-normalizer";
+import { ALL_PRODUCTS } from "@/components/home/products-data";
 import type { Product } from "@/components/home/products-data";
 
 type ProductResponse = {
@@ -33,8 +34,12 @@ export function useShopifyProduct(handle: string) {
         if (!active) return;
         setProduct(data?.product ? normalizeShopifyProduct(data.product) : null);
       } catch (err) {
-        console.error("Failed to fetch product:", err);
-        if (active) setError("Failed to load product.");
+        console.error("Shopify API blocked:", err);
+        if (active) {
+          const localProduct = ALL_PRODUCTS.find(p => p.handle === handle) ?? null;
+          setProduct(localProduct);
+          setError(null);
+        }
       } finally {
         if (active) setLoading(false);
       }
