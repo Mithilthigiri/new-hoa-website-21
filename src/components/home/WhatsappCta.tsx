@@ -6,7 +6,7 @@ type WhatsappCtaProps = {
   className?: string;
 };
 
-export function WhatsappCta({ phoneNumber = "919384488692", className }: WhatsappCtaProps) {
+export function WhatsappCta({ phoneNumber = "+91 93844 88692", className }: WhatsappCtaProps) {
   return (
     <section aria-labelledby="whatsapp-heading" className={cn("bg-espresso py-20", className)}>
       <div className="mx-auto max-w-[40rem] px-6 text-center">
@@ -30,7 +30,7 @@ export function WhatsappCta({ phoneNumber = "919384488692", className }: Whatsap
         </p>
 
         <a
-          href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+          href={`https://api.whatsapp.com/send?phone=${phoneNumber.replace(/\D/g, "")}&text=${encodeURIComponent(
             "Hi House of Airaa, I'd love some styling help.",
           )}`}
           target="_blank"
