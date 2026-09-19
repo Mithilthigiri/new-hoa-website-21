@@ -59,8 +59,22 @@ export function useShopifyCollection(handle: string) {
           products: normalizeShopifyProducts(node.products.edges),
         });
       } catch (err) {
-        console.error("Failed to fetch collection:", err);
-        if (active) setError("Failed to load collection.");
+        console.error("Shopify collection API blocked:", err);
+        if (active) {
+          const localProducts = ALL_PRODUCTS.filter(
+            p => p.category.toLowerCase() === handle.replace("-", " ").toLowerCase(),
+          );
+          const staticCol = FEATURED_COLLECTIONS.find(c => c.handle === handle);
+          if (staticCol) {
+            setCollection({
+              title: staticCol.title,
+              handle: staticCol.handle,
+              description: staticCol.subtitle ?? "",
+              products: localProducts,
+            });
+          }
+          setError(null);
+        }
       } finally {
         if (active) setLoading(false);
       }
