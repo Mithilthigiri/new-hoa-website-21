@@ -30,7 +30,7 @@ export function WhatsappCta({ phoneNumber = "+91 93844 88692", className }: What
         </p>
 
         <a
-          href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+          href={`https://api.whatsapp.com/send?phone=${phoneNumber.replace(/\D/g, "")}&text=${encodeURIComponent(
             "Hi House of Airaa, I'd love some styling help.",
           )}`}
           target="_blank"
