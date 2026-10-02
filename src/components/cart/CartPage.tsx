@@ -148,6 +148,8 @@ export function CartPage() {
 
                 <a
                   href={checkoutUrl ?? "/checkout"}
+                  target={checkoutUrl ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
                   className="font-sans mt-7 flex h-[52px] w-full items-center justify-center bg-[#2C1810] text-center text-[0.6875rem] uppercase tracking-[0.15em] text-[#FAF6EE] transition-colors duration-200 hover:bg-[#1A0F0A]"
                 >
                   Proceed to Checkout

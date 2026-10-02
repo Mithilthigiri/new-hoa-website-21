@@ -146,7 +146,8 @@ export function CartDrawer() {
             </p>
             <a
               href={checkoutUrl ?? "/checkout"}
-              target="_self"
+              target={checkoutUrl ? "_blank" : "_self"}
+              rel="noopener noreferrer"
               onClick={() => {
                 if (!checkoutUrl) return;
                 closeCart();
