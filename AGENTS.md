@@ -12,3 +12,4 @@
 <!-- LOVABLE:END -->
 
 - Every route must explicitly declare `staticData.sitemap`; the router-derived sitemap uses public, fully paginated Shopify products and supported local collection handles, excluding transactional pages to keep search discovery accurate.
+- JSON-LD is safely serialized through a shared helper in route heads; product metadata loads public Shopify facts server-side and omits fallback offers so search markup never invents prices or availability.

@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AboutPage } from "@/components/about/AboutPage";
+import { publicPageStructuredData, structuredDataScript } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/about")({
   staticData: { sitemap: true },
   head: () => ({
+    scripts: [structuredDataScript(publicPageStructuredData("/about", "About — House of Airaa",
+      "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Airaa.", "AboutPage"))],
     meta: [
       { title: "About — House of Airaa" },
       {

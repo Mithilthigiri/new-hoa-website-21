@@ -4,6 +4,7 @@ import { FEATURED_COLLECTIONS } from "@/components/home/collections-data";
 import { Container } from "@/components/layout/Container";
 import { ProductGridSkeleton } from "@/components/ui/ProductSkeleton";
 import { useShopifyCollection } from "@/hooks/use-shopify-collection";
+import { publicPageStructuredData, structuredDataScript } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/collections/$handle")({
   staticData: { sitemap: true },
@@ -24,6 +25,10 @@ export const Route = createFileRoute("/collections/$handle")({
     const { title, description, image } = loaderData.collection;
     const pageTitle = `${title} — House of Airaa`;
     return {
+      scripts: [structuredDataScript(publicPageStructuredData(
+        `/collections/${loaderData.collection.handle}`, pageTitle, description, "CollectionPage",
+        [{ path: "/collections", name: "Collections" }],
+      ))],
       meta: [
         { title: pageTitle },
         { name: "description", content: description },

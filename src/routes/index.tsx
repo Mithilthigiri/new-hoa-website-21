@@ -9,10 +9,13 @@ import { BrandStorySimple } from "@/components/home/BrandStorySimple";
 import { Testimonials } from "@/components/home/Testimonials";
 import { VideoShowcase } from "@/components/home/VideoShowcase";
 import { WhatsappCta } from "@/components/home/WhatsappCta";
+import { publicPageStructuredData, structuredDataScript } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
+    scripts: [structuredDataScript(publicPageStructuredData("/", "House of Airaa — Luxury Contemporary Ethnic Wear",
+      "House of Airaa: hand-crafted ethnic, contemporary and western pieces for the modern Indian wardrobe."))],
     meta: [
       { title: "House of Airaa — Luxury Contemporary Ethnic Wear" },
       { property: "og:type", content: "website" },
