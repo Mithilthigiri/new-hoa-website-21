@@ -38,13 +38,8 @@ export function BrandStorySimple({ className }: { className?: string }) {
             </p>
           </blockquote>
 
-          <Link
-            to="/about"
-            className="mt-2 inline-flex w-fit items-center gap-2 border-b border-espresso/40 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.18em] text-espresso transition-colors duration-300 hover:border-rust-label hover:text-rust-label focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-          >
-            Discover Our Story →
-          </Link>
         </div>
+
 
         {/* RIGHT — image column, 50% desktop */}
         <div className="relative h-[320px] w-full overflow-hidden rounded-[4px] sm:h-[420px] lg:h-[560px] lg:w-1/2">
