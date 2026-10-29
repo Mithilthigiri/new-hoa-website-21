@@ -1,4 +1,12 @@
-import { createContext, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { shopifyClient } from "@/lib/shopify";
 import {
   ADD_TO_CART,
@@ -6,11 +14,7 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
 } from "@/lib/shopify-queries";
-import {
-  extractCartLineIds,
-  parseCartLineIds,
-  type ShopifyCart,
-} from "@/lib/shopify-cart-lines";
+import { extractCartLineIds, parseCartLineIds, type ShopifyCart } from "@/lib/shopify-cart-lines";
 
 export type CartItem = {
   id: string;
@@ -93,9 +97,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setShopifyCartId(storedCartId);
       }
       if (storedCheckoutUrl) setCheckoutUrl(storedCheckoutUrl);
-      shopifyLineIdsRef.current = parseCartLineIds(
-        window.localStorage.getItem(SHOPIFY_LINES_KEY),
-      );
+      shopifyLineIdsRef.current = parseCartLineIds(window.localStorage.getItem(SHOPIFY_LINES_KEY));
     } catch {
       /* storage unavailable — Shopify cart starts fresh */
     }

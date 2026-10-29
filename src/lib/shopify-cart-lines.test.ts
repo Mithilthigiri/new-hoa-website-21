@@ -53,9 +53,9 @@ describe("extractCartLineIds", () => {
 
 describe("parseCartLineIds", () => {
   it("round-trips a saved map", () => {
-    expect(parseCartLineIds(JSON.stringify({ [VARIANT_M]: "gid://shopify/CartLine/line-m" }))).toEqual(
-      { [VARIANT_M]: "gid://shopify/CartLine/line-m" },
-    );
+    expect(
+      parseCartLineIds(JSON.stringify({ [VARIANT_M]: "gid://shopify/CartLine/line-m" })),
+    ).toEqual({ [VARIANT_M]: "gid://shopify/CartLine/line-m" });
   });
 
   it("drops malformed storage instead of throwing", () => {
