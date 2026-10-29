@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { OrderConfirmationPage } from "@/components/checkout/OrderConfirmationPage";
 
 export const Route = createFileRoute("/order-confirmation")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "Order Confirmation — House of Airaa" },
+      { name: "robots", content: "noindex" },
       { name: "description", content: "Your House of Airaa order is confirmed." },
       { property: "og:title", content: "Order Confirmation — House of Airaa" },
       {

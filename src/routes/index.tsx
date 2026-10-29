@@ -11,9 +11,12 @@ import { VideoShowcase } from "@/components/home/VideoShowcase";
 import { WhatsappCta } from "@/components/home/WhatsappCta";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "House of Airaa — Luxury Contemporary Ethnic Wear" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         name: "description",
         content:

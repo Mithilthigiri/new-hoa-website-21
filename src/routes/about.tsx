@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AboutPage } from "@/components/about/AboutPage";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "About — House of Airaa" },

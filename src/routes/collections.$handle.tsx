@@ -6,6 +6,7 @@ import { ProductGridSkeleton } from "@/components/ui/ProductSkeleton";
 import { useShopifyCollection } from "@/hooks/use-shopify-collection";
 
 export const Route = createFileRoute("/collections/$handle")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const collection = FEATURED_COLLECTIONS.find((item) => item.handle === params.handle);
     if (!collection) throw notFound();

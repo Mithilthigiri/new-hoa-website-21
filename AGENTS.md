@@ -10,3 +10,5 @@
 > the editor, so keep the branch in a working state.
 
 <!-- LOVABLE:END -->
+
+- Every route must explicitly declare `staticData.sitemap`; the router-derived sitemap uses public, fully paginated Shopify products and supported local collection handles, excluding transactional pages to keep search discovery accurate.
