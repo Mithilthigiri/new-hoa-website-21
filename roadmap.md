@@ -8,4 +8,4 @@
 
 # Link card preview
 - [x] Add a non-indexed preview page using shared homepage metadata and footer access.
-- [ ] Verify platform switching, link copying, and narrow-screen layout.
+- [x] Verify platform switching, link copying, and narrow-screen layout.
