@@ -9,6 +9,22 @@ import slide3VideoSmall from "@/assets/house-of-airaa-hero-720.mp4.asset.json";
 import slide4 from "@/assets/banner-12_41_39_AM.png.asset.json";
 import slide5 from "@/assets/house-of-aira-5th-slide.png.asset.json";
 
+// Low-bandwidth detection: slow connections or data-saver mode get the
+// campaign poster image instead of the hero video.
+function isLowBandwidth(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const connection = (
+    navigator as Navigator & {
+      connection?: { effectiveType?: string; saveData?: boolean };
+    }
+  ).connection;
+  return (
+    Boolean(connection?.saveData) ||
+    connection?.effectiveType === "slow-2g" ||
+    connection?.effectiveType === "2g"
+  );
+}
+
 type BannerSlide = {
   id: string;
   image: string;
