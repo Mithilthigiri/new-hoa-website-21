@@ -79,9 +79,25 @@ function SlideMedia({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [src, setSrc] = useState<string | undefined>(undefined);
+  const [usePoster, setUsePoster] = useState(false);
 
   useEffect(() => {
     if (!slide.video) return;
+    // Low-bandwidth fallback: on slow connections or data-saver mode, skip the
+    // video entirely and show the campaign poster image instead.
+    const connection = (
+      navigator as Navigator & {
+        connection?: { effectiveType?: string; saveData?: boolean };
+      }
+    ).connection;
+    const slowConnection =
+      Boolean(connection?.saveData) ||
+      connection?.effectiveType === "slow-2g" ||
+      connection?.effectiveType === "2g";
+    if (slowConnection) {
+      setUsePoster(true);
+      return;
+    }
     const small = window.matchMedia("(max-width: 900px)").matches;
     setSrc(small && slide.videoSmall ? slide.videoSmall : slide.video);
   }, [slide.video, slide.videoSmall]);
