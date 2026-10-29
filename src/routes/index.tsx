@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { VideoShowcase } from "@/components/home/VideoShowcase";
 import { WhatsappCta } from "@/components/home/WhatsappCta";
 import { publicPageStructuredData, structuredDataScript } from "@/lib/structured-data";
+import shareImage from "@/assets/house-of-airaa-share.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -19,7 +20,15 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "House of Airaa — Luxury Contemporary Ethnic Wear" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "House of Airaa" },
+      { property: "og:url", content: "https://www.houseofairaa.in/" },
+      { property: "og:image", content: `https://www.houseofairaa.in${shareImage.url}` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:alt", content: "House of Airaa — navy floral dress campaign" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `https://www.houseofairaa.in${shareImage.url}` },
       {
         name: "description",
         content:
