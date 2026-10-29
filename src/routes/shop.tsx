@@ -7,6 +7,7 @@ import { useShopifyProducts } from "@/hooks/use-shopify-products";
 type ShopSearch = { category?: string };
 
 export const Route = createFileRoute("/shop")({
+  staticData: { sitemap: true },
   /**
    * Optional `?category=` lets Collections hand off to the catalogue with one
    * category preselected. It seeds the existing filter state; the Shop filter
@@ -19,6 +20,8 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop — House of Airaa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         name: "description",
         content: "Browse the House of Airaa shop: new in and signature pieces.",

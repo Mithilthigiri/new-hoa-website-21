@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LookbookPage } from "@/components/lookbook/LookbookPage";
 
 export const Route = createFileRoute("/lookbook")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Lookbook — House of Airaa" },

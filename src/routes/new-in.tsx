@@ -8,6 +8,7 @@ const title = "New In — House of Airaa";
 const description = "The latest House of Airaa pieces, ordered newest first in one evolving edit.";
 
 export const Route = createFileRoute("/new-in")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

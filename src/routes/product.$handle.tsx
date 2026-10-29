@@ -6,6 +6,7 @@ import { ProductDetailSkeleton } from "@/components/ui/ProductSkeleton";
 import { useShopifyProduct } from "@/hooks/use-shopify-product";
 
 export const Route = createFileRoute("/product/$handle")({
+  staticData: { sitemap: true },
   head: ({ params }) => {
     const product = findProductByHandle(params.handle);
     const title = product
