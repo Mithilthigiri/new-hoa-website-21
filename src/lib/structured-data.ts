@@ -64,7 +64,7 @@ export function publicPageStructuredData(
 }
 
 export function productStructuredData(product: {
-  handle: string; title: string; description?: string | undefined; images: string[];
+  handle: string; title: string; description?: string | undefined; images?: string[] | undefined;
 }, pricing?: { amount: string; currencyCode: string }) {
   const path = `/product/${encodeURIComponent(product.handle)}`;
   const page = publicPageStructuredData(path, product.title, product.description ?? "", "WebPage",
@@ -80,7 +80,7 @@ export function productStructuredData(product: {
         url: `${SITE_URL}${path}`,
         name: product.title,
         description: product.description ?? "",
-        image: product.images.filter((image) => image.startsWith("https://")),
+        image: (product.images ?? []).filter((image) => image.startsWith("https://")),
         brand: { "@type": "Brand", name: "House of Airaa" },
         ...(pricing ? { offers: {
           "@type": "AggregateOffer", url: `${SITE_URL}${path}`,

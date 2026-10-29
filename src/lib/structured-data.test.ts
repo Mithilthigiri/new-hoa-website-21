@@ -14,7 +14,7 @@ describe("structured search data", () => {
   it("preserves the authoritative price without claiming unavailable stock details", () => {
     const data = productStructuredData({ handle: "dress", title: "Dress", images: [] },
       { amount: "2999.50", currencyCode: "INR" });
-    const product = data["@graph"].find((item) => item["@type"] === "Product");
+    const product = data["@graph"].find((item) => "@type" in item && item["@type"] === "Product");
     expect(product).toMatchObject({ offers: { lowPrice: "2999.50", priceCurrency: "INR" } });
     expect(JSON.stringify(product)).not.toContain("availability");
   });
