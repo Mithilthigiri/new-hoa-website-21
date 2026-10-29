@@ -1,3 +1,42 @@
+// Shared cart selection. Every cart mutation returns the same fields so the
+// client can keep its checkout link and `merchandiseId -> lineId` map fresh.
+const CART_FIELDS = `
+  id
+  checkoutUrl
+  lines(first: 250) {
+    edges {
+      node {
+        id
+        quantity
+        merchandise {
+          ... on ProductVariant {
+            id
+            title
+            product {
+              title
+              handle
+            }
+            image {
+              url
+              altText
+            }
+            priceV2 {
+              amount
+              currencyCode
+            }
+          }
+        }
+      }
+    }
+  }
+  cost {
+    totalAmount {
+      amount
+      currencyCode
+    }
+  }
+`;
+
 export const GET_ALL_PRODUCTS = `
   query GetAllProducts($first: Int!) {
     products(first: $first) {
@@ -185,40 +224,7 @@ export const CREATE_CART = `
   mutation CreateCart($lines: [CartLineInput!]) {
     cartCreate(input: { lines: $lines }) {
       cart {
-        id
-        checkoutUrl
-        lines(first: 10) {
-          edges {
-            node {
-              id
-              quantity
-              merchandise {
-                ... on ProductVariant {
-                  id
-                  title
-                  product {
-                    title
-                    handle
-                  }
-                  image {
-                    url
-                    altText
-                  }
-                  priceV2 {
-                    amount
-                    currencyCode
-                  }
-                }
-              }
-            }
-          }
-        }
-        cost {
-          totalAmount {
-            amount
-            currencyCode
-          }
-        }
+        ${CART_FIELDS}
       }
       userErrors {
         field
@@ -235,45 +241,55 @@ export const ADD_TO_CART = `
   ) {
     cartLinesAdd(cartId: $cartId, lines: $lines) {
       cart {
-        id
-        checkoutUrl
-        lines(first: 10) {
-          edges {
-            node {
-              id
-              quantity
-              merchandise {
-                ... on ProductVariant {
-                  id
-                  title
-                  product {
-                    title
-                    handle
-                  }
-                  image {
-                    url
-                    altText
-                  }
-                  priceV2 {
-                    amount
-                    currencyCode
-                  }
-                }
-              }
-            }
-          }
-        }
-        cost {
-          totalAmount {
-            amount
-            currencyCode
-          }
-        }
+        ${CART_FIELDS}
       }
       userErrors {
         field
         message
       }
+    }
+  }
+`;
+
+// Needs the cart *line* id (from the line map), not the variant id.
+export const UPDATE_CART_QUANTITY = `
+  mutation UpdateCartQuantity(
+    $cartId: ID!, 
+    $lines: [CartLineInput!]!
+  ) {
+    cartLinesUpdate(cartId: $cartId, lines: $lines) {
+      cart {
+        ${CART_FIELDS}
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+export const REMOVE_FROM_CART = `
+  mutation RemoveFromCart(
+    $cartId: ID!, 
+    $lineIds: [ID!]!
+  ) {
+    cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+      cart {
+        ${CART_FIELDS}
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+export const GET_CART = `
+  query GetCart($cartId: ID!) {
+    cart(cartId: $cartId) {
+      ${CART_FIELDS}
     }
   }
 `;
