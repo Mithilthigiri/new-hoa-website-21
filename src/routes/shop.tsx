@@ -3,6 +3,7 @@ import { ShopPage } from "@/components/shop/ShopPage";
 import { Container } from "@/components/layout/Container";
 import { ProductGridSkeleton } from "@/components/ui/ProductSkeleton";
 import { useShopifyProducts } from "@/hooks/use-shopify-products";
+import { publicPageStructuredData, structuredDataScript } from "@/lib/structured-data";
 
 type ShopSearch = { category?: string };
 
@@ -18,6 +19,8 @@ export const Route = createFileRoute("/shop")({
       ? { category: search["category"] }
       : {},
   head: () => ({
+    scripts: [structuredDataScript(publicPageStructuredData("/shop", "Shop — House of Airaa",
+      "Browse the House of Airaa shop: new in and signature pieces.", "CollectionPage"))],
     meta: [
       { title: "Shop — House of Airaa" },
       { property: "og:type", content: "website" },

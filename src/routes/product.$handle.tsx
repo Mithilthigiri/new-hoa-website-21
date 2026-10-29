@@ -4,19 +4,25 @@ import { findProductByHandle } from "@/components/home/products-data";
 import { Container } from "@/components/layout/Container";
 import { ProductDetailSkeleton } from "@/components/ui/ProductSkeleton";
 import { useShopifyProduct } from "@/hooks/use-shopify-product";
+import { getPublicProductMetadata } from "@/lib/product-metadata.functions";
+import { productStructuredData, structuredDataScript, SITE_URL } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/product/$handle")({
   staticData: { sitemap: true },
-  head: ({ params }) => {
-    const product = findProductByHandle(params.handle);
+  loader: ({ params }) => getPublicProductMetadata({ data: { handle: params.handle } }),
+  head: ({ params, loaderData }) => {
+    const product = loaderData?.product ?? (loaderData?.status === "unavailable"
+      ? findProductByHandle(params.handle) : undefined);
     const title = product
       ? `${product.title} — House of Airaa`
       : "Piece not found — House of Airaa";
     const description = product
       ? (product.description ??
-        `${product.title} from the House of Airaa ${product.category} edit.`)
+        `${product.title} from House of Airaa.`)
       : "This House of Airaa piece could not be found.";
     return {
+      scripts: product ? [structuredDataScript(productStructuredData(product, loaderData?.product?.pricing))] : [],
+      links: [{ rel: "canonical", href: `${SITE_URL}/product/${encodeURIComponent(params.handle)}` }],
       meta: [
         { title },
         { name: "description", content: description },
@@ -24,6 +30,8 @@ export const Route = createFileRoute("/product/$handle")({
         { property: "og:description", content: description },
         { property: "og:type", content: "product" },
         { name: "twitter:card", content: "summary_large_image" },
+        { property: "og:url", content: `${SITE_URL}/product/${encodeURIComponent(params.handle)}` },
+        ...(!product ? [{ name: "robots", content: "noindex" }] : []),
       ],
     };
   },

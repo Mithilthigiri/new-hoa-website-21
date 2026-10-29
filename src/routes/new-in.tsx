@@ -3,6 +3,7 @@ import { NewInPage } from "@/components/new-in/NewInPage";
 import { Container } from "@/components/layout/Container";
 import { ProductGridSkeleton } from "@/components/ui/ProductSkeleton";
 import { useShopifyProducts } from "@/hooks/use-shopify-products";
+import { publicPageStructuredData, structuredDataScript } from "@/lib/structured-data";
 
 const title = "New In — House of Airaa";
 const description = "The latest House of Airaa pieces, ordered newest first in one evolving edit.";
@@ -10,6 +11,7 @@ const description = "The latest House of Airaa pieces, ordered newest first in o
 export const Route = createFileRoute("/new-in")({
   staticData: { sitemap: true },
   head: () => ({
+    scripts: [structuredDataScript(publicPageStructuredData("/new-in", title, description, "CollectionPage"))],
     meta: [
       { title },
       { name: "description", content: description },
