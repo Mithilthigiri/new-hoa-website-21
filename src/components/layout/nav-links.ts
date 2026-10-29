@@ -7,7 +7,6 @@ export type NavLink = {
 
 export const SUPPORT_EMAIL = "support@houseofairaa.in";
 
-
 export const NAV_LINKS: NavLink[] = [
   { label: "Collections", to: "/collections" },
   { label: "New In", to: "/new-in", accent: true },
@@ -33,7 +32,6 @@ export const FOOTER_SERVICE_LINKS: NavLink[] = [
   { label: "Size Guide", to: "/contact" },
   { label: SUPPORT_EMAIL, to: "/contact", href: `mailto:${SUPPORT_EMAIL}` },
 ];
-
 
 export const FOOTER_LEGAL_LINKS: NavLink[] = [
   { label: "Privacy Policy", to: "/contact" },

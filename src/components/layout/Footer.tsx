@@ -34,7 +34,6 @@ function LinkColumn({ title, links }: { title: string; links: NavLink[] }) {
   );
 }
 
-
 export function Footer() {
   return (
     <footer className="bg-espresso text-ivory">

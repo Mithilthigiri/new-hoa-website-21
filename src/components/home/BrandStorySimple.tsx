@@ -37,9 +37,7 @@ export function BrandStorySimple({ className }: { className?: string }) {
               Reimagined for the woman of today.
             </p>
           </blockquote>
-
         </div>
-
 
         {/* RIGHT — image column, 50% desktop */}
         <div className="relative h-[320px] w-full overflow-hidden rounded-[4px] sm:h-[420px] lg:h-[560px] lg:w-1/2">
