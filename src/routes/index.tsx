@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: homepageShareCard.image },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:type", content: "image/png" },
       { property: "og:image:alt", content: homepageShareCard.imageAlt },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: homepageShareCard.image },
