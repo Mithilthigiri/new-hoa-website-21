@@ -163,7 +163,9 @@ export function HeroBanner({
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const isVideoSlide = Boolean(slides[index]?.video);
+  // On low bandwidth the video slide renders its poster, so it advances on the
+  // normal timer like any other image slide.
+  const isVideoSlide = Boolean(slides[index]?.video) && !isLowBandwidth();
 
   useEffect(() => {
     // Video slides advance only once the clip has played through.
