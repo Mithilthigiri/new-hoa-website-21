@@ -10,18 +10,23 @@ import {
 } from "./nav-links";
 
 function LinkColumn({ title, links }: { title: string; links: NavLink[] }) {
+  const linkClass =
+    "font-sans text-[0.6875rem] tracking-[0.06em] text-[#9a8470] uppercase transition-colors duration-200 hover:text-ivory";
   return (
     <div>
       <h3 className="type-label text-gold">{title}</h3>
       <ul className="mt-6 flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.label}>
-            <Link
-              to={link.to}
-              className="font-sans text-[0.6875rem] tracking-[0.06em] text-[#9a8470] uppercase transition-colors duration-200 hover:text-ivory"
-            >
-              {link.label}
-            </Link>
+            {link.href ? (
+              <a href={link.href} className={linkClass}>
+                {link.label}
+              </a>
+            ) : (
+              <Link to={link.to} className={linkClass}>
+                {link.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

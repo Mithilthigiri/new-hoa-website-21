@@ -1,8 +1,11 @@
 export type NavLink = {
   label: string;
   to: string;
+  href?: string;
   accent?: boolean;
 };
+
+export const SUPPORT_EMAIL = "support@houseofairaa.in";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Collections", to: "/collections" },
@@ -23,11 +26,11 @@ export const FOOTER_SHOP_LINKS: NavLink[] = [
 ];
 
 export const FOOTER_SERVICE_LINKS: NavLink[] = [
-  { label: "Link Preview", to: "/link-preview" },
   { label: "Contact", to: "/contact" },
   { label: "Shipping", to: "/contact" },
   { label: "Returns", to: "/contact" },
   { label: "Size Guide", to: "/contact" },
+  { label: SUPPORT_EMAIL, to: "/contact", href: `mailto:${SUPPORT_EMAIL}` },
 ];
 
 export const FOOTER_LEGAL_LINKS: NavLink[] = [

@@ -13,3 +13,9 @@
 # Cart drawer quantity and remove
 - [x] Make the drawer's quantity stepper and remove actually reach the Shopify cart (line-id map, sequential sync).
 - [x] Verify against the live Shopify cart: add, increase, decrease, remove, and a two-outfit basket.
+
+# Footer and homepage contact edits
+- [x] Remove the Link Preview entry from the footer Customer Care column.
+- [x] Add the support@houseofairaa.in domain email to Customer Care as a mailto link.
+- [x] Remove the "Discover Our Story" call-to-action from the homepage brand-story section.
+- [x] Verify on the live page: email present and tappable, both removed items gone, no page errors.

@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+
 import { AiraImage } from "@/components/ui/aira-image";
 import editorialImage from "@/assets/DSC03791.jpg.asset.json";
 
@@ -37,13 +37,6 @@ export function BrandStorySimple({ className }: { className?: string }) {
               Reimagined for the woman of today.
             </p>
           </blockquote>
-
-          <Link
-            to="/about"
-            className="mt-2 inline-flex w-fit items-center gap-2 border-b border-espresso/40 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.18em] text-espresso transition-colors duration-300 hover:border-rust-label hover:text-rust-label focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-          >
-            Discover Our Story →
-          </Link>
         </div>
 
         {/* RIGHT — image column, 50% desktop */}
