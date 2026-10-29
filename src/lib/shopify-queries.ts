@@ -252,10 +252,12 @@ export const ADD_TO_CART = `
 `;
 
 // Needs the cart *line* id (from the line map), not the variant id.
+// cartLinesUpdate takes CartLineUpdateInput, which is a different type from
+// the CartLineInput used by cartCreate / cartLinesAdd.
 export const UPDATE_CART_QUANTITY = `
   mutation UpdateCartQuantity(
     $cartId: ID!, 
-    $lines: [CartLineInput!]!
+    $lines: [CartLineUpdateInput!]!
   ) {
     cartLinesUpdate(cartId: $cartId, lines: $lines) {
       cart {
