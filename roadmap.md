@@ -9,3 +9,7 @@
 # Link card preview
 - [x] Add a non-indexed preview page using shared homepage metadata and footer access.
 - [x] Verify platform switching, link copying, and narrow-screen layout.
+
+# Cart drawer quantity and remove
+- [x] Make the drawer's quantity stepper and remove actually reach the Shopify cart (line-id map, sequential sync).
+- [x] Verify against the live Shopify cart: add, increase, decrease, remove, and a two-outfit basket.
