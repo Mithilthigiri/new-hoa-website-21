@@ -18,6 +18,7 @@ import { Route as LookbookRouteImport } from './routes/lookbook'
 import { Route as NewInRouteImport } from './routes/new-in'
 import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsHandleRouteImport } from './routes/collections.$handle'
 import { Route as ProductHandleRouteImport } from './routes/product.$handle'
@@ -67,6 +68,11 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
   id: '/collections/',
   path: '/collections/',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/collections/$handle': typeof CollectionsHandleRoute
   '/product/$handle': typeof ProductHandleRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/collections/$handle': typeof CollectionsHandleRoute
   '/product/$handle': typeof ProductHandleRoute
   '/collections': typeof CollectionsIndexRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/collections/$handle': typeof CollectionsHandleRoute
   '/product/$handle': typeof ProductHandleRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/new-in'
     | '/order-confirmation'
     | '/shop'
+    | '/sitemap.xml'
     | '/collections/$handle'
     | '/product/$handle'
     | '/collections/'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/new-in'
     | '/order-confirmation'
     | '/shop'
+    | '/sitemap.xml'
     | '/collections/$handle'
     | '/product/$handle'
     | '/collections'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/new-in'
     | '/order-confirmation'
     | '/shop'
+    | '/sitemap.xml'
     | '/collections/$handle'
     | '/product/$handle'
     | '/collections/'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   NewInRoute: typeof NewInRoute
   OrderConfirmationRoute: typeof OrderConfirmationRoute
   ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CollectionsHandleRoute: typeof CollectionsHandleRoute
   ProductHandleRoute: typeof ProductHandleRoute
   CollectionsIndexRoute: typeof CollectionsIndexRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/collections/': {
       id: '/collections/'
       path: '/collections'
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewInRoute: NewInRoute,
   OrderConfirmationRoute: OrderConfirmationRoute,
   ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   CollectionsHandleRoute: CollectionsHandleRoute,
   ProductHandleRoute: ProductHandleRoute,
   CollectionsIndexRoute: CollectionsIndexRoute,
