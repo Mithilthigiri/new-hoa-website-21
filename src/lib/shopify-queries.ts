@@ -288,7 +288,7 @@ export const REMOVE_FROM_CART = `
 
 export const GET_CART = `
   query GetCart($cartId: ID!) {
-    cart(cartId: $cartId) {
+    cart(id: $cartId) {
       ${CART_FIELDS}
     }
   }
