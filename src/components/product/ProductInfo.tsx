@@ -21,7 +21,7 @@ const optionClass =
  */
 export function ProductInfo({ product, className }: ProductInfoProps) {
   const { title, category, price, currency, sizes, colours } = product;
-  const { addItem } = useCart();
+  const { addItem, openCart } = useCart();
 
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColour, setSelectedColour] = useState<string>(colours[0] ?? "");
@@ -75,7 +75,7 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
       quantity: 1,
     });
     setAdded(true);
-    // The drawer stays closed; the navbar badge count signals the add.
+    openCart();
   };
 
   return (
