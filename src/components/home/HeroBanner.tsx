@@ -99,18 +99,7 @@ function SlideMedia({
 
   useEffect(() => {
     if (!slide.video) return;
-    // Low-bandwidth fallback: on slow connections or data-saver mode, skip the
-    // video entirely and show the campaign poster image instead.
-    const connection = (
-      navigator as Navigator & {
-        connection?: { effectiveType?: string; saveData?: boolean };
-      }
-    ).connection;
-    const slowConnection =
-      Boolean(connection?.saveData) ||
-      connection?.effectiveType === "slow-2g" ||
-      connection?.effectiveType === "2g";
-    if (slowConnection) {
+    if (isLowBandwidth()) {
       setUsePoster(true);
       return;
     }
