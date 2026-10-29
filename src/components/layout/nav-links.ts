@@ -23,6 +23,7 @@ export const FOOTER_SHOP_LINKS: NavLink[] = [
 ];
 
 export const FOOTER_SERVICE_LINKS: NavLink[] = [
+  { label: "Link Preview", to: "/link-preview" },
   { label: "Contact", to: "/contact" },
   { label: "Shipping", to: "/contact" },
   { label: "Returns", to: "/contact" },

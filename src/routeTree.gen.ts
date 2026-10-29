@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LinkPreviewRouteImport } from './routes/link-preview'
 import { Route as LookbookRouteImport } from './routes/lookbook'
 import { Route as NewInRouteImport } from './routes/new-in'
 import { Route as OrderConfirmationRouteImport } from './routes/order-confirmation'
@@ -46,6 +47,11 @@ const CheckoutRoute = CheckoutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinkPreviewRoute = LinkPreviewRouteImport.update({
+  id: '/link-preview',
+  path: '/link-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LookbookRoute = LookbookRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/link-preview': typeof LinkPreviewRoute
   '/lookbook': typeof LookbookRoute
   '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/link-preview': typeof LinkPreviewRoute
   '/lookbook': typeof LookbookRoute
   '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/link-preview': typeof LinkPreviewRoute
   '/lookbook': typeof LookbookRoute
   '/new-in': typeof NewInRoute
   '/order-confirmation': typeof OrderConfirmationRoute
@@ -143,6 +152,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/link-preview'
     | '/lookbook'
     | '/new-in'
     | '/order-confirmation'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/link-preview'
     | '/lookbook'
     | '/new-in'
     | '/order-confirmation'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/link-preview'
     | '/lookbook'
     | '/new-in'
     | '/order-confirmation'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
+  LinkPreviewRoute: typeof LinkPreviewRoute
   LookbookRoute: typeof LookbookRoute
   NewInRoute: typeof NewInRoute
   OrderConfirmationRoute: typeof OrderConfirmationRoute
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/link-preview': {
+      id: '/link-preview'
+      path: '/link-preview'
+      fullPath: '/link-preview'
+      preLoaderRoute: typeof LinkPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lookbook': {
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
+  LinkPreviewRoute: LinkPreviewRoute,
   LookbookRoute: LookbookRoute,
   NewInRoute: NewInRoute,
   OrderConfirmationRoute: OrderConfirmationRoute,
