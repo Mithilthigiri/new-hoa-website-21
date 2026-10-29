@@ -117,7 +117,7 @@ function SlideMedia({
     video.pause();
   }, [active, src]);
 
-  if (slide.video) {
+  if (slide.video && !usePoster) {
     return (
       <video
         ref={videoRef}
