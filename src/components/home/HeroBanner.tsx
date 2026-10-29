@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils";
 import slide1 from "@/assets/banner-12_06_52_AM.png.asset.json";
 import slide2 from "@/assets/banner-12_13_09_AM.png.asset.json";
 import slide3 from "@/assets/house-of-aira-red-campaign.png.asset.json";
-import slide3Video from "@/assets/house-of-aira-hero.mp4.asset.json";
+import slide3Video from "@/assets/house-of-airaa-hero-1280.mp4.asset.json";
+import slide3VideoSmall from "@/assets/house-of-airaa-hero-720.mp4.asset.json";
 import slide4 from "@/assets/banner-12_41_39_AM.png.asset.json";
 import slide5 from "@/assets/house-of-aira-5th-slide.png.asset.json";
 
@@ -12,6 +13,7 @@ type BannerSlide = {
   id: string;
   image: string;
   video?: string;
+  videoSmall?: string;
   imageAlt: string;
   eyebrow: string;
   headline: string;
@@ -41,6 +43,7 @@ export const HERO_BANNER_SLIDES: BannerSlide[] = [
     id: "red-kalamkari",
     image: slide3.url,
     video: slide3Video.url,
+    videoSmall: slide3VideoSmall.url,
     imageAlt: "Model wearing a red kalamkari top with denim beside warm sandstone architecture.",
     eyebrow: "Contemporary",
     headline: "Everyday Ceremony",
@@ -75,35 +78,41 @@ function SlideMedia({
   onVideoEnded?: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [src, setSrc] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (!slide.video) return;
+    const small = window.matchMedia("(max-width: 900px)").matches;
+    setSrc(small && slide.videoSmall ? slide.videoSmall : slide.video);
+  }, [slide.video, slide.videoSmall]);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !src) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (active && !reducedMotion) {
-      video.currentTime = 0;
+      if (video.currentTime > 0) video.currentTime = 0;
       void video.play().catch(() => undefined);
       return;
     }
 
     video.pause();
-  }, [active]);
+  }, [active, src]);
 
   if (slide.video) {
     return (
       <video
         ref={videoRef}
-        src={slide.video}
+        {...(src ? { src } : {})}
         poster={slide.image}
         aria-label={slide.imageAlt}
-        autoPlay={active}
         muted
         playsInline
-        preload="auto"
+        preload={active ? "auto" : "metadata"}
         onEnded={onVideoEnded}
-        className="absolute inset-0 h-full w-full object-cover object-top"
+        className="absolute inset-0 h-full w-full transform-gpu object-cover object-top"
       />
     );
   }
