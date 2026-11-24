@@ -37,6 +37,7 @@ import kalamkariGreenSeated from "@/assets/DSC02538.JPG.asset.json";
 import kalamkariGreenSide from "@/assets/DSC02541.JPG.asset.json";
 import kalamkariGreenBack from "@/assets/DSC02549.JPG.asset.json";
 import kalamkariGreenDetail from "@/assets/DSC02533.JPG.asset.json";
+import mustardLotusKurta from "@/assets/mustard-lotus-kurta-set.jpg.asset.json";
 
 /** Reusable badge vocabulary. Later mapped from a Shopify tag/metafield. */
 export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
@@ -46,7 +47,17 @@ export type ProductSize = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" 
 
 /** Colour vocabulary. Later maps to a Shopify variant option named "Colour". */
 export type ProductColour =
-  "Rust" | "Ivory" | "Espresso" | "Gold" | "Black" | "Navy" | "Emerald" | "Purple" | "Indigo";
+  | "Rust"
+  | "Rose Pink"
+  | "Ivory"
+  | "Espresso"
+  | "Gold"
+  | "Black"
+  | "Navy"
+  | "Emerald"
+  | "Purple"
+  | "Indigo"
+  | "Mustard";
 
 /** A purchasable Shopify variant (merchandise) for a product. */
 export type ProductVariant = {
@@ -113,12 +124,12 @@ export const NEW_ARRIVALS: Product[] = [
     id: "aira-black-zari-anarkali",
     handle: "black-zari-anarkali",
     description:
-      "A floor-length black cotton anarkali with a woven zari neckline and waistband, finished with a contrast green and maroon border at the hem and cuffs.",
+      "A timeless classic. A black cotton Anarkali with a square neckline, a defined waist and a flowing, flared skirt. Woven borders in green, maroon and gold trace the neckline, waist, bell sleeves and hem. Simple, graceful and easy to style. Highlights include a square neckline with woven border detail, full-length bell sleeves with green and maroon cuffs, a fitted bodice with a flared, floor-length skirt, a contrast temple-style border along the hem and a lightweight, breathable cotton feel.",
     title: "Black Zari Anarkali",
-    price: 11499,
+    price: 2799,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+    sizes: ["S", "M"],
     colours: ["Black", "Gold"],
     images: [
       blackAnarkaliFront.url,
@@ -163,12 +174,12 @@ export const NEW_ARRIVALS: Product[] = [
     id: "aira-navy-bloom-dress",
     handle: "navy-bloom-dress",
     description:
-      "A navy dress with an ivory floral print and soft pleating, cut for an easy, elongated line.",
+      "Bold prints, easy fit. A navy sleeveless dress with large cream-and-coral floral motifs and rust paisley accents. A fitted bodice, defined waist and a flowing pleated skirt make it flattering and comfortable all day. Highlights include a statement floral and paisley print on navy, a sleeveless round-neck bodice, a defined waist with a pleated, flowy skirt and light, easy-to-wear fabric. Perfect for festive days, brunches and everyday wear.",
     title: "Navy Bloom Dress",
-    price: 6499,
+    price: 2399,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+    sizes: ["S"],
     colours: ["Navy", "Rust"],
     images: [
       navyFloralFront.url,
@@ -189,13 +200,13 @@ export const NEW_ARRIVALS: Product[] = [
     id: "aira-kalamkari-cami-top",
     handle: "kalamkari-cami-top",
     description:
-      "A rust paisley printed cami with a lace-up back, made to sit as easily with denim as with a skirt.",
-    title: "Kalamkari Cami Top",
-    price: 2299,
+      "Vintage rose-pink printed top featuring a structured bodice, delicate shoulder straps and an adjustable lace-up back for a flattering fit.",
+    title: "Rosewood Printed Corset Top",
+    price: 1299,
     currency: "INR",
     category: "Western",
-    sizes: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
-    colours: ["Rust"],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    colours: ["Rose Pink"],
     images: [
       rustCamiFront.url,
       rustCamiBack.url,
@@ -205,7 +216,8 @@ export const NEW_ARRIVALS: Product[] = [
     ],
     image: rustCamiFront.url,
     hoverImage: rustCamiBookshop.url,
-    imageAlt: "Model wearing a rust paisley printed cami top with lace-up back, styled with denim.",
+    imageAlt:
+      "Model wearing a rose-pink printed corset top with delicate straps and a lace-up back, styled with denim.",
     badge: "BESTSELLER",
     href: "/product/kalamkari-cami-top",
     publishedAt: "2026-08-02",
@@ -214,18 +226,18 @@ export const NEW_ARRIVALS: Product[] = [
     id: "aira-emerald-tassel-gown",
     handle: "emerald-tassel-gown",
     description:
-      "A deep emerald gown with a woven zari border bodice and a single gold tassel tie.",
-    title: "Emerald Tassel Gown",
-    price: 8999,
+      "Deep emerald green maxi dress featuring a structured square neckline, statement straps and an elegant antique-gold woven hem border.",
+    title: "Emerald Grace Maxi",
+    price: 1799,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: ["XS", "S", "M", "L", "XL"],
+    sizes: ["S"],
     colours: ["Emerald", "Gold"],
     images: [emeraldStanding.url, emeraldSide.url, emeraldBack.url, emeraldBorder.url],
     image: emeraldStanding.url,
     hoverImage: emeraldBack.url,
     imageAlt:
-      "Model wearing a deep emerald cotton gown with a woven zari border bodice and gold tassel.",
+      "Model wearing a deep emerald green maxi dress with a square neckline and antique-gold woven hem border.",
     badge: "NEW",
     href: "/product/emerald-tassel-gown",
     publishedAt: "2026-07-21",
@@ -301,12 +313,12 @@ export const NEW_ARRIVALS: Product[] = [
     id: "aira-indigo-kantha-three-piece-set",
     handle: "indigo-kantha-three-piece-set",
     description:
-      "An indigo handwoven kurta with an ivory printed waistcoat and a matching dupatta.",
-    title: "Indigo Kantha Three Piece Set",
-    price: 9499,
+      "Not just ethnic. Not just contemporary. A little bit of both. This three-piece set pairs a tailored cream waistcoat with a flowing indigo skirt and a matching dupatta. Geometric ikat-style motifs run through every piece, with a woven border along the dupatta for a classic finish. The V-neck waistcoat gives it a modern edge, while the textured weave keeps it rooted in handloom tradition. Style it together for a polished festive look, or mix the pieces with your own wardrobe: the waistcoat over jeans, the skirt with a plain top, the dupatta as a statement layer.",
+    title: "Indigo Ikat Three Piece Set",
+    price: 2199,
     currency: "INR",
     category: "Contemporary",
-    sizes: ["XS", "S", "M", "L", "XL"],
+    sizes: ["S"],
     colours: ["Indigo", "Ivory"],
     images: [
       indigoKanthaFull.url,
@@ -318,9 +330,28 @@ export const NEW_ARRIVALS: Product[] = [
     hoverImage: indigoKanthaWorkshop.url,
 
     imageAlt:
-      "Model wearing an indigo handwoven kurta with an ivory printed waistcoat and matching dupatta.",
+      "Model wearing a cream V-neck waistcoat, flowing indigo skirt and matching ikat-patterned dupatta.",
     href: "/product/indigo-kantha-three-piece-set",
     publishedAt: "2026-05-05",
+  },
+  {
+    id: "aira-mustard-lotus-kurta-set",
+    handle: "mustard-lotus-kurta-set",
+    description:
+      "Sunshine, hand-blocked. A mustard-yellow cotton kurta with lotus-motif block prints, an elbow-length sleeve and a corset-style tie-up back for a custom fit. Paired with a black-and-cream striped block-print dupatta. Easy, breezy, made for everyday. Highlights include hand block-printed lotus motifs, a corset-style lace-up back, elbow-length sleeves with a flattering neckline, a striped block-print dupatta and soft, breathable cotton.",
+    title: "Mustard Lotus Kurta Set",
+    price: 1799,
+    currency: "INR",
+    category: "Ethnic Wear",
+    sizes: [],
+    colours: ["Mustard", "Black", "Ivory"],
+    images: [mustardLotusKurta.url],
+    image: mustardLotusKurta.url,
+    imageAlt:
+      "Model wearing a mustard-yellow cotton kurta with lotus block prints and a black-and-cream striped dupatta.",
+    badge: "NEW",
+    href: "/product/mustard-lotus-kurta-set",
+    publishedAt: "2026-11-24",
   },
 ];
 

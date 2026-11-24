@@ -19,3 +19,10 @@
 - [x] Add the support@houseofairaa.in domain email to Customer Care as a mailto link.
 - [x] Remove the "Discover Our Story" call-to-action from the homepage brand-story section.
 - [x] Verify on the live page: email present and tappable, both removed items gone, no page errors.
+
+# Product catalogue refresh
+- [x] Apply the supplied names, descriptions, prices, and sizes to the five existing outfits.
+- [x] Add the mustard-yellow kurta set with its clean campaign photo and supplied details.
+- [x] Add concrete product-detail tests and verify the fallback catalogue pages.
+- [ ] Confirm the yellow set's available sizes with the user.
+- [ ] Mirror the confirmed edits in Shopify; the current storefront connection is read-only.
