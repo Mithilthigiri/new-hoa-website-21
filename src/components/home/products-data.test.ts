@@ -53,15 +53,7 @@ describe("supplied product catalogue details", () => {
     expect(product?.description).toContain("contrast temple-style border");
   });
 
-  it("adds Mustard Lotus Kurta Set at ₹1,799 with its campaign photo", () => {
-    const product = findProductByHandle("mustard-lotus-kurta-set");
-    expect(product).toMatchObject({
-      title: "Mustard Lotus Kurta Set",
-      price: 1799,
-      sizes: ["XS", "S", "M", "L", "XL"],
-      colours: ["Mustard", "Black", "Ivory"],
-    });
-    expect(product?.image).toBeTruthy();
-    expect(product?.description).toContain("corset-style tie-up back");
+  it("does not keep a local Mustard Lotus Kurta Set duplicate now that Shopify owns it", () => {
+    expect(findProductByHandle("mustard-lotus-kurta-set")).toBeUndefined();
   });
 });

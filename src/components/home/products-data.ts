@@ -37,7 +37,6 @@ import kalamkariGreenSeated from "@/assets/DSC02538.JPG.asset.json";
 import kalamkariGreenSide from "@/assets/DSC02541.JPG.asset.json";
 import kalamkariGreenBack from "@/assets/DSC02549.JPG.asset.json";
 import kalamkariGreenDetail from "@/assets/DSC02533.JPG.asset.json";
-import mustardLotusKurta from "@/assets/mustard-lotus-kurta-set.jpg.asset.json";
 
 /** Reusable badge vocabulary. Later mapped from a Shopify tag/metafield. */
 export type ProductBadgeKind = "NEW" | "BESTSELLER" | "SALE";
@@ -333,25 +332,6 @@ export const NEW_ARRIVALS: Product[] = [
       "Model wearing a cream V-neck waistcoat, flowing indigo skirt and matching ikat-patterned dupatta.",
     href: "/product/indigo-kantha-three-piece-set",
     publishedAt: "2026-05-05",
-  },
-  {
-    id: "aira-mustard-lotus-kurta-set",
-    handle: "mustard-lotus-kurta-set",
-    description:
-      "Sunshine, hand-blocked. A mustard-yellow cotton kurta with lotus-motif block prints, an elbow-length sleeve and a corset-style tie-up back for a custom fit. Paired with a black-and-cream striped block-print dupatta. Easy, breezy, made for everyday. Highlights include hand block-printed lotus motifs, a corset-style lace-up back, elbow-length sleeves with a flattering neckline, a striped block-print dupatta and soft, breathable cotton.",
-    title: "Mustard Lotus Kurta Set",
-    price: 1799,
-    currency: "INR",
-    category: "Ethnic Wear",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colours: ["Mustard", "Black", "Ivory"],
-    images: [mustardLotusKurta.url],
-    image: mustardLotusKurta.url,
-    imageAlt:
-      "Model wearing a mustard-yellow cotton kurta with lotus block prints and a black-and-cream striped dupatta.",
-    badge: "NEW",
-    href: "/product/mustard-lotus-kurta-set",
-    publishedAt: "2026-11-24",
   },
 ];
 

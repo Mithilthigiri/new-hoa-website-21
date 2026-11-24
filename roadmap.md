@@ -32,7 +32,8 @@
 - [x] Add concrete product-detail tests and verify the fallback catalogue pages.
 - [x] Confirm the yellow set's available sizes with the user: XS to XL.
 - [x] Show the confirmed names, prices, descriptions and sizes on every page, including the yellow kurta set's own page.
-- [ ] Upload the mustard lotus kurta set to Shopify so it can be bought through Shopify checkout; until then its checkout falls back to the backup page.
+- [x] Upload the mustard lotus kurta set to Shopify so it can be bought through Shopify checkout.
+- [x] Remove the duplicate local Mustard Lotus Kurta Set entry so only the Shopify record supplies its frontend details.
 - [ ] Update Shopify's stored titles, descriptions and prices to the confirmed values; the storefront connection is read-only, so this needs the store owner.
 
 # Catalogue readiness

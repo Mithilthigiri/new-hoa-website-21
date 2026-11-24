@@ -50,14 +50,14 @@ describe("confirmed catalogue details over live store data", () => {
     ]);
   });
 
-  it("applies the confirmed size run for the yellow kurta set", () => {
+  it("uses Shopify's yellow kurta details without a local override", () => {
     const product = normalizeShopifyProduct(
-      shopifyNode("mustard-lotus-kurta-set", "Mustard Lotus Kurta Set", "1799.0", ["S"]),
+      shopifyNode("mustard-lotus-kurta-set", "Shopify Mustard Lotus", "1799.0", ["S"]),
     );
     expect(product).toMatchObject({
-      title: "Mustard Lotus Kurta Set",
+      title: "Shopify Mustard Lotus",
       price: 1799,
-      sizes: ["XS", "S", "M", "L", "XL"],
+      sizes: ["S"],
     });
   });
 
@@ -68,17 +68,10 @@ describe("confirmed catalogue details over live store data", () => {
     expect(product).toMatchObject({ title: "Some New Piece", price: 999, sizes: ["M"] });
   });
 
-  it("lists the yellow kurta set as missing from the store when it is not there", () => {
-    const missing = localOnlyProducts(["black-zari-anarkali", "navy-bloom-dress"]);
-    expect(missing.map((p) => p.handle)).toContain("mustard-lotus-kurta-set");
-    expect(missing.map((p) => p.handle)).not.toContain("black-zari-anarkali");
-    expect(missing.find((p) => p.handle === "mustard-lotus-kurta-set")?.sizes).toEqual([
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-    ]);
+  it("does not inject a local yellow kurta duplicate", () => {
+    const missing = localOnlyProducts([]);
+    expect(missing.map((p) => p.handle)).not.toContain("mustard-lotus-kurta-set");
+    expect(missing.map((p) => p.handle)).toContain("black-zari-anarkali");
   });
 
   it("returns nothing extra once every catalogue entry is in the store", () => {
@@ -92,7 +85,6 @@ describe("confirmed catalogue details over live store data", () => {
       "ivory-heritage-lehenga",
       "ikat-panel-skirt-set",
       "indigo-kantha-three-piece-set",
-      "mustard-lotus-kurta-set",
     ];
     expect(localOnlyProducts(all)).toEqual([]);
   });

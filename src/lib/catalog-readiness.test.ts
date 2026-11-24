@@ -100,8 +100,8 @@ describe("catalogue readiness", () => {
     });
   });
 
-  it("flags Mustard Lotus Kurta Set as missing when Shopify has no matching handle", () => {
-    const product = confirmed("mustard-lotus-kurta-set");
+  it("flags a confirmed product as missing when Shopify has no matching handle", () => {
+    const product = confirmed("navy-bloom-dress");
     const report = buildCatalogReadiness([], [product]);
 
     expect(report.products[0]?.status).toBe("missing");
