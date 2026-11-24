@@ -246,7 +246,7 @@ export const NEW_ARRIVALS: Product[] = [
     handle: "purple-garden-skirt-set",
     description: "A purple floral embroidered skirt paired with a green printed halter top.",
     title: "Purple Garden Skirt Set",
-    price: 12499,
+    price: 3499,
     currency: "INR",
     category: "Ethnic Wear",
     sizes: ["XS", "S", "M", "L", "XL"],
