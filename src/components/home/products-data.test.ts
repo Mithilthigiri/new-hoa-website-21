@@ -58,6 +58,7 @@ describe("supplied product catalogue details", () => {
     expect(product).toMatchObject({
       title: "Mustard Lotus Kurta Set",
       price: 1799,
+      sizes: ["XS", "S", "M", "L", "XL"],
       colours: ["Mustard", "Black", "Ivory"],
     });
     expect(product?.image).toBeTruthy();

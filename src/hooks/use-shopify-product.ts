@@ -32,11 +32,17 @@ export function useShopifyProduct(handle: string) {
         }
 
         if (!active) return;
-        setProduct(data?.product ? normalizeShopifyProduct(data.product) : null);
+        // A handle the store does not carry yet still resolves from the
+        // confirmed catalogue, so its page opens instead of "Piece not found".
+        setProduct(
+          data?.product
+            ? normalizeShopifyProduct(data.product)
+            : (ALL_PRODUCTS.find((p) => p.handle === handle) ?? null),
+        );
       } catch (err) {
         console.error("Shopify API blocked:", err);
         if (active) {
-          const localProduct = ALL_PRODUCTS.find(p => p.handle === handle) ?? null;
+          const localProduct = ALL_PRODUCTS.find((p) => p.handle === handle) ?? null;
           setProduct(localProduct);
           setError(null);
         }

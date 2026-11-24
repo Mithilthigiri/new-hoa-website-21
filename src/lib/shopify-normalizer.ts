@@ -1,4 +1,5 @@
 import type { Product } from "@/components/home/products-data";
+import { applyProductOverride } from "@/lib/product-overrides";
 
 type ShopifyProductNode = {
   id: string;
@@ -38,9 +39,7 @@ type ShopifyProductNode = {
   publishedAt: string;
 };
 
-export function normalizeShopifyProduct(
-  node: ShopifyProductNode
-): Product {
+export function normalizeShopifyProduct(node: ShopifyProductNode): Product {
   const images = node.images.edges.map((e) => e.node.url);
   const variants = node.variants.edges.map((e) => e.node);
   const collection = node.collections?.edges[0]?.node;
@@ -48,12 +47,8 @@ export function normalizeShopifyProduct(
   const sizes = [
     ...new Set(
       variants
-        .flatMap((v) =>
-          v.selectedOptions
-            .filter((o) => o.name === "Size")
-            .map((o) => o.value)
-        )
-        .filter(Boolean)
+        .flatMap((v) => v.selectedOptions.filter((o) => o.name === "Size").map((o) => o.value))
+        .filter(Boolean),
     ),
   ] as Product["sizes"];
 
@@ -62,52 +57,44 @@ export function normalizeShopifyProduct(
       variants
         .flatMap((v) =>
           v.selectedOptions
-            .filter((o) => o.name === "Colour" || 
-              o.name === "Color")
-            .map((o) => o.value)
+            .filter((o) => o.name === "Colour" || o.name === "Color")
+            .map((o) => o.value),
         )
-        .filter(Boolean)
+        .filter(Boolean),
     ),
   ] as Product["colours"];
 
   const badge = node.tags.includes("new")
     ? "NEW"
     : node.tags.includes("bestseller")
-    ? "BESTSELLER"
-    : node.tags.includes("sale")
-    ? "SALE"
-    : undefined;
+      ? "BESTSELLER"
+      : node.tags.includes("sale")
+        ? "SALE"
+        : undefined;
 
-  return {
+  return applyProductOverride({
     id: node.id,
     handle: node.handle,
     title: node.title,
     description: node.description,
-    price: Math.round(
-      parseFloat(node.priceRange.minVariantPrice.amount)
-    ),
+    price: Math.round(parseFloat(node.priceRange.minVariantPrice.amount)),
     currency: node.priceRange.minVariantPrice.currencyCode,
     category: collection?.title ?? "Uncategorised",
-    sizes: (sizes.length > 0 
-      ? sizes 
-      : ["S", "M", "L"]) as Product["sizes"],
-    colours: (colours.length > 0 
-      ? colours 
+    sizes: (sizes.length > 0 ? sizes : ["S", "M", "L"]) as Product["sizes"],
+    colours: (colours.length > 0
+      ? colours
       : ["Default" as Product["colours"][number]]) as Product["colours"],
     images: images,
     image: images[0] ?? "",
-    imageAlt: node.images.edges[0]?.node.altText 
-      ?? node.title,
+    imageAlt: node.images.edges[0]?.node.altText ?? node.title,
     href: `/product/${node.handle}`,
     publishedAt: node.publishedAt,
     variants: node.variants.edges.map((e) => e.node),
     ...(images[1] ? { hoverImage: images[1] } : {}),
     ...(badge ? { badge } : {}),
-  };
+  });
 }
 
-export function normalizeShopifyProducts(
-  edges: Array<{ node: ShopifyProductNode }>
-): Product[] {
+export function normalizeShopifyProducts(edges: Array<{ node: ShopifyProductNode }>): Product[] {
   return edges.map((e) => normalizeShopifyProduct(e.node));
 }

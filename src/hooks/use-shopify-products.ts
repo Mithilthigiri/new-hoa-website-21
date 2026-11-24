@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { shopifyClient } from "@/lib/shopify";
 import { GET_ALL_PRODUCTS } from "@/lib/shopify-queries";
 import { normalizeShopifyProducts } from "@/lib/shopify-normalizer";
+import { localOnlyProducts } from "@/lib/product-overrides";
 import { ALL_PRODUCTS } from "@/components/home/products-data";
 import type { Product } from "@/components/home/products-data";
 
@@ -29,7 +30,11 @@ export function useShopifyProducts() {
         }
 
         const normalized = normalizeShopifyProducts(data?.products.edges ?? []);
-        if (active) setProducts(normalized);
+        if (active)
+          setProducts([
+            ...normalized,
+            ...localOnlyProducts(normalized.map((product) => product.handle)),
+          ]);
       } catch (err) {
         console.error("Shopify API blocked, falling back to local data:", err);
         if (active) {

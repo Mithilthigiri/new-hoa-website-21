@@ -343,7 +343,7 @@ export const NEW_ARRIVALS: Product[] = [
     price: 1799,
     currency: "INR",
     category: "Ethnic Wear",
-    sizes: [],
+    sizes: ["XS", "S", "M", "L", "XL"],
     colours: ["Mustard", "Black", "Ivory"],
     images: [mustardLotusKurta.url],
     image: mustardLotusKurta.url,
