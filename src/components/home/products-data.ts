@@ -150,7 +150,7 @@ export const NEW_ARRIVALS: Product[] = [
     description:
       "A hand-printed green kalamkari cap-sleeve top with elephant and figure motifs, worn with a pleated cocoa cotton skirt.",
     title: "Green Kalamkari Skirt Set",
-    price: 8499,
+    price: 2499,
     currency: "INR",
     category: "Contemporary",
     sizes: ["XS", "S", "M", "L", "XL"],
