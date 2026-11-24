@@ -34,3 +34,9 @@
 - [x] Show the confirmed names, prices, descriptions and sizes on every page, including the yellow kurta set's own page.
 - [ ] Upload the mustard lotus kurta set to Shopify so it can be bought through Shopify checkout; until then its checkout falls back to the backup page.
 - [ ] Update Shopify's stored titles, descriptions and prices to the confirmed values; the storefront connection is read-only, so this needs the store owner.
+
+# Catalogue readiness
+
+- [x] Add a dedicated, non-indexed panel comparing raw Shopify records with the confirmed catalogue; keep it direct-link only for now.
+- [x] Flag name, price, size and sellable-variant availability differences, including missing and unconfirmed products.
+- [x] Add comparison tests and verify loading, refresh, mismatch and ready states on desktop and mobile.

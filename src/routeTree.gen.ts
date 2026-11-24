@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as CatalogReadinessRouteImport } from './routes/catalog-readiness'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LinkPreviewRouteImport } from './routes/link-preview'
@@ -37,6 +38,11 @@ const AboutRoute = AboutRouteImport.update({
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatalogReadinessRoute = CatalogReadinessRouteImport.update({
+  id: '/catalog-readiness',
+  path: '/catalog-readiness',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutRoute = CheckoutRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
+  '/catalog-readiness': typeof CatalogReadinessRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/link-preview': typeof LinkPreviewRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
+  '/catalog-readiness': typeof CatalogReadinessRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/link-preview': typeof LinkPreviewRoute
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
+  '/catalog-readiness': typeof CatalogReadinessRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/link-preview': typeof LinkPreviewRoute
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/cart'
+    | '/catalog-readiness'
     | '/checkout'
     | '/contact'
     | '/link-preview'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/cart'
+    | '/catalog-readiness'
     | '/checkout'
     | '/contact'
     | '/link-preview'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/cart'
+    | '/catalog-readiness'
     | '/checkout'
     | '/contact'
     | '/link-preview'
@@ -199,6 +211,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CartRoute: typeof CartRoute
+  CatalogReadinessRoute: typeof CatalogReadinessRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   LinkPreviewRoute: typeof LinkPreviewRoute
@@ -233,6 +246,13 @@ declare module '@tanstack/react-router' {
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catalog-readiness': {
+      id: '/catalog-readiness'
+      path: '/catalog-readiness'
+      fullPath: '/catalog-readiness'
+      preLoaderRoute: typeof CatalogReadinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout': {
@@ -319,6 +339,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CartRoute: CartRoute,
+  CatalogReadinessRoute: CatalogReadinessRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   LinkPreviewRoute: LinkPreviewRoute,
