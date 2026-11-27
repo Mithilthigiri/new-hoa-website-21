@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { findProductByHandle } from "@/components/home/products-data";
+import {
+  findProductByHandle,
+  isProductSoldOut,
+  type Product,
+  type ProductVariant,
+} from "@/components/home/products-data";
 
 describe("supplied product catalogue details", () => {
   it("sets Emerald Grace Maxi to ₹1,799 in size S", () => {
@@ -55,5 +60,58 @@ describe("supplied product catalogue details", () => {
 
   it("does not keep a local Mustard Lotus Kurta Set duplicate now that Shopify owns it", () => {
     expect(findProductByHandle("mustard-lotus-kurta-set")).toBeUndefined();
+  });
+});
+
+function variant(size: string, availableForSale: boolean): ProductVariant {
+  return {
+    id: `gid://shopify/ProductVariant/${size}`,
+    title: size,
+    availableForSale,
+    selectedOptions: [{ name: "Size", value: size }],
+  };
+}
+
+function outfit(overrides: Partial<Product> = {}): Product {
+  return {
+    id: "gid://shopify/Product/1",
+    handle: "test-outfit",
+    title: "Test Outfit",
+    price: 2499,
+    currency: "INR",
+    category: "Ethnic Wear",
+    sizes: ["S"],
+    colours: ["Emerald"],
+    image: "",
+    imageAlt: "Test outfit",
+    href: "/product/test-outfit",
+    publishedAt: "2026-05-01",
+    ...overrides,
+  };
+}
+
+describe("sold-out detection for product cards", () => {
+  it("marks an outfit sold out when Shopify says the product is unavailable", () => {
+    expect(isProductSoldOut(outfit({ availableForSale: false }))).toBe(true);
+  });
+
+  it("marks an outfit sold out when every size is unavailable, even if the product flag says available", () => {
+    const product = outfit({
+      availableForSale: true,
+      variants: [variant("S", false), variant("M", false)],
+    });
+    expect(isProductSoldOut(product)).toBe(true);
+  });
+
+  it("keeps an outfit on sale while at least one size can be bought", () => {
+    const product = outfit({
+      availableForSale: true,
+      variants: [variant("S", false), variant("M", true)],
+    });
+    expect(isProductSoldOut(product)).toBe(false);
+  });
+
+  it("does not mark local fallback outfits sold out when stock is unknown", () => {
+    expect(isProductSoldOut(outfit())).toBe(false);
   });
 });

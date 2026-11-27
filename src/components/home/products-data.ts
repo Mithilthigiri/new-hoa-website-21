@@ -362,3 +362,15 @@ export function getProductImages(product: Product): string[] {
   if (product.images?.length) return product.images;
   return product.hoverImage ? [product.image, product.hoverImage] : [product.image];
 }
+
+/**
+ * True when no size of this outfit can be bought right now. Shopify's
+ * product-level flag is authoritative, but a product can also report itself
+ * available while every variant is out of stock — so both are checked, the same
+ * way the product detail page does.
+ */
+export function isProductSoldOut(product: Product): boolean {
+  if (product.availableForSale === false) return true;
+  if (product.variants?.length) return !product.variants.some((v) => v.availableForSale);
+  return false;
+}

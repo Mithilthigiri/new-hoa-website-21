@@ -1,12 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
-import { formatPrice, type Product } from "@/components/home/products-data";
+import {
+  formatPrice,
+  isProductSoldOut,
+  type Product,
+} from "@/components/home/products-data";
+import { SoldOutTag } from "@/components/product/SoldOutTag";
 import { useShopifyHomepage } from "@/hooks/use-shopify-homepage";
 import editorialImage from "@/assets/DSC03786.jpg.asset.json";
 
 function MiniProductCard({ product }: { product: Product }) {
   const formattedPrice = formatPrice(product.price, product.currency);
+  const soldOut = isProductSoldOut(product);
 
   return (
     <article
@@ -18,7 +24,7 @@ function MiniProductCard({ product }: { product: Product }) {
       <Link
         to="/product/$handle"
         params={{ handle: product.handle }}
-        aria-label={`${product.title} — ${formattedPrice}. View product.`}
+        aria-label={`${product.title} — ${formattedPrice}${soldOut ? ", sold out" : ""}. View product.`}
         className="relative block aspect-[3/4] overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
       >
         <AiraImage
@@ -55,12 +61,10 @@ function MiniProductCard({ product }: { product: Product }) {
               {formatPrice(product.compareAtPrice, product.currency)}
             </s>
           ) : null}
-          {product.availableForSale === false ? (
-            <span className="ml-2 font-sans text-[9px] not-italic uppercase tracking-[0.12em] text-muted-foreground">
-              Sold out
-            </span>
-          ) : null}
         </p>
+        <div className="mt-[6px] flex min-h-[17px] items-center">
+          {soldOut ? <SoldOutTag /> : null}
+        </div>
       </div>
     </article>
   );

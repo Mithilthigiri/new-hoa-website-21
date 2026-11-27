@@ -48,3 +48,7 @@
 - [x] Block out-of-stock sizes and sold-out products; show an error instead of old prices when Shopify can't load.
 - [x] Readiness page: label approved vs live prices; separate out-of-stock from set-up issues.
 - [ ] Store owner: add stock in Shopify for sold-out outfits and confirm Navy Bloom, Rosewood and Ivory prices.
+
+# Sold-out markers
+
+- [x] Show a clear "Sold out" pill on every product card whose outfit has no buyable size, next to the price area.

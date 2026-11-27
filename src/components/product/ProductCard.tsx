@@ -2,7 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { AiraImage } from "@/components/ui/aira-image";
 import { ProductBadge } from "./ProductBadge";
-import { formatPrice, type Product } from "@/components/home/products-data";
+import { SoldOutTag } from "./SoldOutTag";
+import {
+  formatPrice,
+  isProductSoldOut,
+  type Product,
+} from "@/components/home/products-data";
 
 type ProductCardProps = {
   product: Product;
@@ -25,6 +30,7 @@ export function ProductCard({
   const { title, price, currency, category, image, imageAlt, badge, handle } = product;
 
   const formattedPrice = formatPrice(price, currency);
+  const soldOut = isProductSoldOut(product);
   const frameRatio = imageRatio === "2/3" ? "aspect-[2/3]" : "aspect-[3/4]";
 
   return (
@@ -38,7 +44,7 @@ export function ProductCard({
         <Link
           to="/product/$handle"
           params={{ handle }}
-          aria-label={`${title} — ${category}, ${formattedPrice}${badge ? `, ${badge.toLowerCase()}` : ""}. View product.`}
+          aria-label={`${title} — ${category}, ${formattedPrice}${soldOut ? ", sold out" : ""}${badge ? `, ${badge.toLowerCase()}` : ""}. View product.`}
           className={cn(
             "relative block aspect-[3/4] w-full overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
             frameRatio,
@@ -82,16 +88,14 @@ export function ProductCard({
                 {formatPrice(product.compareAtPrice, product.currency)}
               </s>
             ) : null}
-            {product.availableForSale === false ? (
-              <span className="ml-2 font-sans text-[9px] not-italic uppercase tracking-[0.12em] text-muted-foreground">
-                Sold out
-              </span>
-            ) : null}
           </p>
         </div>
-        <p className="mt-[6px] font-sans text-[10px] uppercase tracking-[0.1em] text-[#7A6855]">
-          {category}
-        </p>
+        <div className="mt-[6px] flex flex-wrap items-center justify-between gap-x-2 gap-y-[4px]">
+          <p className="min-w-0 font-sans text-[10px] uppercase tracking-[0.1em] text-[#7A6855]">
+            {category}
+          </p>
+          {soldOut ? <SoldOutTag /> : null}
+        </div>
       </div>
     </article>
   );
