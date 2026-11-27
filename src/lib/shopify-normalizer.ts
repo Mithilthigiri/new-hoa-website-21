@@ -6,6 +6,10 @@ type ShopifyProductNode = {
   title: string;
   handle: string;
   description: string;
+  availableForSale?: boolean;
+  compareAtPriceRange?: {
+    maxVariantPrice: { amount: string; currencyCode: string };
+  };
   priceRange: {
     minVariantPrice: {
       amount: string;
@@ -23,6 +27,8 @@ type ShopifyProductNode = {
         id: string;
         title: string;
         availableForSale: boolean;
+        price?: { amount: string; currencyCode: string };
+        compareAtPrice?: { amount: string; currencyCode: string } | null;
         selectedOptions: Array<{
           name: string;
           value: string;
@@ -72,24 +78,30 @@ export function normalizeShopifyProduct(node: ShopifyProductNode): Product {
         ? "SALE"
         : undefined;
 
+  const price = Math.round(parseFloat(node.priceRange.minVariantPrice.amount));
+  const compareAt = node.compareAtPriceRange
+    ? Math.round(parseFloat(node.compareAtPriceRange.maxVariantPrice.amount))
+    : 0;
+  const availableForSale = node.availableForSale ?? variants.some((v) => v.availableForSale);
+
   return applyProductOverride({
     id: node.id,
     handle: node.handle,
     title: node.title,
     description: node.description,
-    price: Math.round(parseFloat(node.priceRange.minVariantPrice.amount)),
+    price,
+    ...(Number.isFinite(compareAt) && compareAt > price ? { compareAtPrice: compareAt } : {}),
+    availableForSale,
     currency: node.priceRange.minVariantPrice.currencyCode,
     category: collection?.title ?? "Uncategorised",
-    sizes: (sizes.length > 0 ? sizes : ["S", "M", "L"]) as Product["sizes"],
-    colours: (colours.length > 0
-      ? colours
-      : ["Default" as Product["colours"][number]]) as Product["colours"],
+    sizes,
+    colours,
     images: images,
     image: images[0] ?? "",
     imageAlt: node.images.edges[0]?.node.altText ?? node.title,
     href: `/product/${node.handle}`,
     publishedAt: node.publishedAt,
-    variants: node.variants.edges.map((e) => e.node),
+    variants,
     ...(images[1] ? { hoverImage: images[1] } : {}),
     ...(badge ? { badge } : {}),
   });

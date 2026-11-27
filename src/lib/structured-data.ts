@@ -27,15 +27,22 @@ export const businessStructuredData = {
 export function structuredDataScript(data: unknown) {
   return {
     type: "application/ld+json",
-    children: JSON.stringify(data).replace(/</g, "\\u003c").replace(/>/g, "\\u003e")
-      .replace(/&/g, "\\u0026").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029"),
+    children: JSON.stringify(data)
+      .replace(/</g, "\\u003c")
+      .replace(/>/g, "\\u003e")
+      .replace(/&/g, "\\u0026")
+      .replace(/\u2028/g, "\\u2028")
+      .replace(/\u2029/g, "\\u2029"),
   };
 }
 
 type PageType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
 
 export function publicPageStructuredData(
-  path: string, name: string, description: string, type: PageType = "WebPage",
+  path: string,
+  name: string,
+  description: string,
+  type: PageType = "WebPage",
   parents: { path: string; name: string }[] = [],
 ) {
   const url = new URL(path, SITE_URL).href;
@@ -45,30 +52,49 @@ export function publicPageStructuredData(
       {
         "@type": type,
         "@id": `${url}#webpage`,
-        url, name, description, inLanguage: "en",
+        url,
+        name,
+        description,
+        inLanguage: "en",
         isPartOf: { "@id": websiteId },
         about: { "@id": organizationId },
         ...(path === "/" ? {} : { breadcrumb: { "@id": `${url}#breadcrumb` } }),
       },
-      ...(path === "/" ? [] : [{
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [{ path: "/", name: "House of Airaa" }, ...parents, { path, name }]
-          .map((item, index) => ({
-            "@type": "ListItem", position: index + 1,
-            name: item.name, item: new URL(item.path, SITE_URL).href,
-          })),
-      }]),
+      ...(path === "/"
+        ? []
+        : [
+            {
+              "@type": "BreadcrumbList",
+              "@id": `${url}#breadcrumb`,
+              itemListElement: [
+                { path: "/", name: "House of Airaa" },
+                ...parents,
+                { path, name },
+              ].map((item, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                name: item.name,
+                item: new URL(item.path, SITE_URL).href,
+              })),
+            },
+          ]),
     ],
   };
 }
 
-export function productStructuredData(product: {
-  handle: string; title: string; description?: string | undefined; images?: string[] | undefined;
-}, pricing?: { amount: string; currencyCode: string }) {
+export function productStructuredData(
+  product: {
+    handle: string;
+    title: string;
+    description?: string | undefined;
+    images?: string[] | undefined;
+  },
+  pricing?: { amount: string; currencyCode: string },
+) {
   const path = `/product/${encodeURIComponent(product.handle)}`;
-  const page = publicPageStructuredData(path, product.title, product.description ?? "", "WebPage",
-    [{ path: "/shop", name: "Shop" }]);
+  const page = publicPageStructuredData(path, product.title, product.description ?? "", "WebPage", [
+    { path: "/shop", name: "Shop" },
+  ]);
   return {
     ...page,
     "@graph": [
@@ -82,11 +108,17 @@ export function productStructuredData(product: {
         description: product.description ?? "",
         image: (product.images ?? []).filter((image) => image.startsWith("https://")),
         brand: { "@type": "Brand", name: "House of Airaa" },
-        ...(pricing ? { offers: {
-          "@type": "AggregateOffer", url: `${SITE_URL}${path}`,
-          lowPrice: pricing.amount, priceCurrency: pricing.currencyCode,
-          seller: { "@id": organizationId },
-        } } : {}),
+        ...(pricing
+          ? {
+              offers: {
+                "@type": "AggregateOffer",
+                url: `${SITE_URL}${path}`,
+                lowPrice: pricing.amount,
+                priceCurrency: pricing.currencyCode,
+                seller: { "@id": organizationId },
+              },
+            }
+          : {}),
       },
     ],
   };

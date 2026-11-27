@@ -77,6 +77,16 @@ export function ProductCard({
               <span className="type-nav-mini mr-1 text-muted-foreground">{pricePrefix}</span>
             ) : null}
             {formattedPrice}
+            {product.compareAtPrice ? (
+              <s className="ml-2 text-muted-foreground" aria-label="Original price">
+                {formatPrice(product.compareAtPrice, product.currency)}
+              </s>
+            ) : null}
+            {product.availableForSale === false ? (
+              <span className="ml-2 font-sans text-[9px] not-italic uppercase tracking-[0.12em] text-muted-foreground">
+                Sold out
+              </span>
+            ) : null}
           </p>
         </div>
         <p className="mt-[6px] font-sans text-[10px] uppercase tracking-[0.1em] text-[#7A6855]">

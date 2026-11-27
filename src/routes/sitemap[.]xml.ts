@@ -3,8 +3,11 @@ import { getRouterInstance } from "@tanstack/react-start";
 import { FEATURED_COLLECTIONS } from "@/components/home/collections-data";
 import { sitemapProductHandles } from "@/lib/sitemap-shopify";
 import {
-  isSitemapRouteIncluded, sitemapPathForLocation,
-  sitemapStaticPaths, sitemapXML, type SitemapEntry,
+  isSitemapRouteIncluded,
+  sitemapPathForLocation,
+  sitemapStaticPaths,
+  sitemapXML,
+  type SitemapEntry,
 } from "@/lib/sitemap";
 
 const BASE_URL = "https://www.houseofairaa.in";
@@ -22,7 +25,10 @@ export const Route = createFileRoute("/sitemap.xml")({
             const handles = await sitemapProductHandles();
             for (const handle of handles) {
               const location = router.buildLocation({
-                to: "/product/$handle", params: { handle }, search: () => ({}), hash: "",
+                to: "/product/$handle",
+                params: { handle },
+                search: () => ({}),
+                hash: "",
               });
               const path = sitemapPathForLocation(router, location, productRouteId);
               if (path) entries.push({ path });
@@ -32,8 +38,10 @@ export const Route = createFileRoute("/sitemap.xml")({
           if (isSitemapRouteIncluded(router.routesById[collectionRouteId])) {
             for (const collection of FEATURED_COLLECTIONS) {
               const location = router.buildLocation({
-                to: "/collections/$handle", params: { handle: collection.handle },
-                search: () => ({}), hash: "",
+                to: "/collections/$handle",
+                params: { handle: collection.handle },
+                search: () => ({}),
+                hash: "",
               });
               const path = sitemapPathForLocation(router, location, collectionRouteId);
               if (path) entries.push({ path });
@@ -46,7 +54,8 @@ export const Route = createFileRoute("/sitemap.xml")({
         } catch (error) {
           console.error("Sitemap catalog unavailable", error);
           return new Response("Sitemap temporarily unavailable", {
-            status: 503, headers: { "Cache-Control": "no-store" },
+            status: 503,
+            headers: { "Cache-Control": "no-store" },
           });
         }
       },

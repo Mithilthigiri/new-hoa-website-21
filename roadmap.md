@@ -41,3 +41,10 @@
 - [x] Add a dedicated, non-indexed panel comparing raw Shopify records with the confirmed catalogue; keep it direct-link only for now.
 - [x] Flag name, price, size and sellable-variant availability differences, including missing and unconfirmed products.
 - [x] Add comparison tests and verify loading, refresh, mismatch and ready states on desktop and mobile.
+
+# Shopify live data
+
+- [x] Make Shopify the source of truth for prices, compare-at prices, sizes and stock across shop, collections, homepage and product pages.
+- [x] Block out-of-stock sizes and sold-out products; show an error instead of old prices when Shopify can't load.
+- [x] Readiness page: label approved vs live prices; separate out-of-stock from set-up issues.
+- [ ] Store owner: add stock in Shopify for sold-out outfits and confirm Navy Bloom, Rosewood and Ivory prices.

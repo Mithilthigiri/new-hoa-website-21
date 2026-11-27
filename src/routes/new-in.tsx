@@ -11,7 +11,11 @@ const description = "The latest House of Airaa pieces, ordered newest first in o
 export const Route = createFileRoute("/new-in")({
   staticData: { sitemap: true },
   head: () => ({
-    scripts: [structuredDataScript(publicPageStructuredData("/new-in", title, description, "CollectionPage"))],
+    scripts: [
+      structuredDataScript(
+        publicPageStructuredData("/new-in", title, description, "CollectionPage"),
+      ),
+    ],
     meta: [
       { title },
       { name: "description", content: description },

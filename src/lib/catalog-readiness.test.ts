@@ -97,7 +97,30 @@ describe("catalogue readiness", () => {
       label: "Sellable availability",
       expected: "Every confirmed size has a sellable Shopify variant",
       actual: "No sellable variant for: M",
+      detail: "Out of stock: M",
     });
+  });
+
+  it("says a product is not being sold when every size is out of stock", () => {
+    const product = confirmed("black-zari-anarkali");
+    const review = reviewFor(
+      product,
+      shopifyProduct(product, {
+        variants: [
+          { size: "S", availableForSale: false },
+          { size: "M", availableForSale: false },
+        ],
+      }),
+    );
+    const issue = review.issues.find((i) => i.field === "availability");
+    expect(issue?.detail).toContain("Not currently being sold");
+  });
+
+  it("calls a missing Size variant a set-up issue, not a stock issue", () => {
+    const product = confirmed("black-zari-anarkali");
+    const review = reviewFor(product, shopifyProduct(product, { variants: [{ size: "S" }] }));
+    const issue = review.issues.find((i) => i.field === "availability");
+    expect(issue?.detail).toBe('Set-up issue — no Shopify "Size" variant for: M');
   });
 
   it("flags a confirmed product as missing when Shopify has no matching handle", () => {

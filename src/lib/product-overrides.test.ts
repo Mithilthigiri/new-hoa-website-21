@@ -1,14 +1,24 @@
 import { describe, expect, it } from "vitest";
-import { applyProductOverride, localOnlyProducts } from "@/lib/product-overrides";
 import { normalizeShopifyProduct } from "@/lib/shopify-normalizer";
 
-/** A node shaped like the Storefront API response, with the store's original copy. */
-function shopifyNode(handle: string, title: string, amount: string, sizes: string[]) {
+function shopifyNode(
+  handle: string,
+  title: string,
+  amount: string,
+  sizes: string[],
+  opts: { soldOut?: string[]; compareAt?: string } = {},
+) {
   return {
     id: `gid://shopify/Product/${handle}`,
     title,
     handle,
-    description: "Original store copy.",
+    description: "Store copy.",
+    availableForSale: sizes.some((s) => !opts.soldOut?.includes(s)),
+    ...(opts.compareAt
+      ? {
+          compareAtPriceRange: { maxVariantPrice: { amount: opts.compareAt, currencyCode: "INR" } },
+        }
+      : {}),
     priceRange: { minVariantPrice: { amount, currencyCode: "INR" } },
     images: { edges: [] },
     variants: {
@@ -16,86 +26,56 @@ function shopifyNode(handle: string, title: string, amount: string, sizes: strin
         node: {
           id: `gid://shopify/ProductVariant/${handle}-${size}`,
           title: size,
-          availableForSale: true,
+          availableForSale: !opts.soldOut?.includes(size),
+          price: { amount, currencyCode: "INR" },
           selectedOptions: [{ name: "Size", value: size }],
         },
       })),
     },
-    tags: ["new"],
+    tags: [],
     publishedAt: "2026-01-01",
   };
 }
 
-describe("confirmed catalogue details over live store data", () => {
-  it("shows Emerald Grace Maxi at ₹1,799 even though the store still says Emerald Tassel Gown ₹2,999", () => {
+describe("Shopify is the source of truth for selling data", () => {
+  it("shows Shopify's live price and title, not the approved catalogue's", () => {
     const product = normalizeShopifyProduct(
-      shopifyNode("emerald-tassel-gown", "Emerald Tassel Gown", "2999.0", ["XS", "S", "M"]),
+      shopifyNode("purple-garden-skirt-set", "Purple Garden Skirt Set", "3499.0", ["S", "M"]),
     );
-    expect(product).toMatchObject({
-      title: "Emerald Grace Maxi",
-      price: 1799,
-      currency: "INR",
-      description: expect.stringContaining("structured square neckline"),
-    });
+    expect(product.price).toBe(3499);
+    expect(product.title).toBe("Purple Garden Skirt Set");
   });
 
-  it("keeps the Shopify variant ids so checkout still bills the real merchandise", () => {
+  it("uses Shopify's sizes instead of the catalogue size run", () => {
     const product = normalizeShopifyProduct(
-      shopifyNode("emerald-tassel-gown", "Emerald Tassel Gown", "2999.0", ["XS", "S", "M"]),
+      shopifyNode("emerald-tassel-gown", "Emerald Grace Maxi", "1799.0", ["S"]),
     );
-    expect(product.variants?.map((v) => v.id)).toEqual([
-      "gid://shopify/ProductVariant/emerald-tassel-gown-XS",
-      "gid://shopify/ProductVariant/emerald-tassel-gown-S",
-      "gid://shopify/ProductVariant/emerald-tassel-gown-M",
-    ]);
+    expect(product.sizes).toEqual(["S"]);
   });
 
-  it("uses Shopify's yellow kurta details without a local override", () => {
+  it("keeps the original House of Airaa photography and description", () => {
     const product = normalizeShopifyProduct(
-      shopifyNode("mustard-lotus-kurta-set", "Shopify Mustard Lotus", "1799.0", ["S"]),
+      shopifyNode("emerald-tassel-gown", "Emerald Grace Maxi", "1799.0", ["S"]),
     );
-    expect(product).toMatchObject({
-      title: "Shopify Mustard Lotus",
-      price: 1799,
-      sizes: ["S"],
-    });
+    expect(product.images?.length).toBeGreaterThan(0);
+    expect(product.description).toContain("structured square neckline");
   });
 
-  it("leaves a product the catalogue does not mention untouched", () => {
+  it("marks a product with no stock as not available for sale", () => {
     const product = normalizeShopifyProduct(
-      shopifyNode("some-new-piece", "Some New Piece", "999.0", ["M"]),
+      shopifyNode("navy-bloom-dress", "Navy Bloom Dress", "1399.0", ["S"], { soldOut: ["S"] }),
     );
-    expect(product).toMatchObject({ title: "Some New Piece", price: 999, sizes: ["M"] });
+    expect(product.availableForSale).toBe(false);
   });
 
-  it("does not inject a local yellow kurta duplicate", () => {
-    const missing = localOnlyProducts([]);
-    expect(missing.map((p) => p.handle)).not.toContain("mustard-lotus-kurta-set");
-    expect(missing.map((p) => p.handle)).toContain("black-zari-anarkali");
-  });
-
-  it("returns nothing extra once every catalogue entry is in the store", () => {
-    const all = [
-      "black-zari-anarkali",
-      "green-kalamkari-skirt-set",
-      "navy-bloom-dress",
-      "kalamkari-cami-top",
-      "emerald-tassel-gown",
-      "purple-garden-skirt-set",
-      "ivory-heritage-lehenga",
-      "ikat-panel-skirt-set",
-      "indigo-kantha-three-piece-set",
-    ];
-    expect(localOnlyProducts(all)).toEqual([]);
-  });
-
-  it("does not let the override mutate the shared catalogue entry", () => {
-    const product = applyProductOverride(
-      normalizeShopifyProduct(
-        shopifyNode("kalamkari-cami-top", "Kalamkari Cami Top", "1499.0", ["XS"]),
-      ),
+  it("shows a compare-at price only when Shopify's is higher", () => {
+    const higher = normalizeShopifyProduct(
+      shopifyNode("x", "X", "1000.0", ["S"], { compareAt: "1500.0" }),
     );
-    expect(product.title).toBe("Rosewood Printed Corset Top");
-    expect(product.price).toBe(1299);
+    const equal = normalizeShopifyProduct(
+      shopifyNode("y", "Y", "1000.0", ["S"], { compareAt: "1000.0" }),
+    );
+    expect(higher.compareAtPrice).toBe(1500);
+    expect(equal.compareAtPrice).toBeUndefined();
   });
 });

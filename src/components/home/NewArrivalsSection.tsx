@@ -50,6 +50,16 @@ function MiniProductCard({ product }: { product: Product }) {
         </h3>
         <p className="font-editorial mt-1 text-[13px] italic leading-tight text-foreground">
           {formattedPrice}
+          {product.compareAtPrice ? (
+            <s className="ml-2 text-muted-foreground" aria-label="Original price">
+              {formatPrice(product.compareAtPrice, product.currency)}
+            </s>
+          ) : null}
+          {product.availableForSale === false ? (
+            <span className="ml-2 font-sans text-[9px] not-italic uppercase tracking-[0.12em] text-muted-foreground">
+              Sold out
+            </span>
+          ) : null}
         </p>
       </div>
     </article>
@@ -109,7 +119,11 @@ export function NewArrivalsSection({ className }: NewArrivalsSectionProps) {
         {/* Product grid — 66% desktop, 2 cols mobile, 4 cols desktop */}
         <div className="w-full lg:w-[66%]">
           {loading ? (
-            <ul className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4" aria-busy="true" aria-label="Loading new arrivals">
+            <ul
+              className="grid grid-cols-2 items-stretch gap-3 md:grid-cols-4"
+              aria-busy="true"
+              aria-label="Loading new arrivals"
+            >
               {Array.from({ length: 8 }).map((_, i) => (
                 <li key={i} className="flex min-w-0">
                   <div className="aspect-[3/4] w-full animate-pulse rounded-[4px] bg-[#DDD5C0]" />

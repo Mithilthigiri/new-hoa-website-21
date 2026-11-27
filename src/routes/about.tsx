@@ -5,8 +5,16 @@ import { publicPageStructuredData, structuredDataScript } from "@/lib/structured
 export const Route = createFileRoute("/about")({
   staticData: { sitemap: true },
   head: () => ({
-    scripts: [structuredDataScript(publicPageStructuredData("/about", "About — House of Airaa",
-      "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Airaa.", "AboutPage"))],
+    scripts: [
+      structuredDataScript(
+        publicPageStructuredData(
+          "/about",
+          "About — House of Airaa",
+          "Draped in heritage, styled for today — the philosophy, craft and woman behind House of Airaa.",
+          "AboutPage",
+        ),
+      ),
+    ],
     meta: [
       { title: "About — House of Airaa" },
       {

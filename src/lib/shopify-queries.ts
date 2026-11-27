@@ -46,6 +46,8 @@ export const GET_ALL_PRODUCTS = `
           title
           handle
           description
+          availableForSale
+          compareAtPriceRange { maxVariantPrice { amount currencyCode } }
           priceRange {
             minVariantPrice {
               amount
@@ -60,12 +62,14 @@ export const GET_ALL_PRODUCTS = `
               }
             }
           }
-          variants(first: 10) {
+          variants(first: 50) {
             edges {
               node {
                 id
                 title
                 availableForSale
+                price { amount currencyCode }
+                compareAtPrice { amount currencyCode }
                 selectedOptions {
                   name
                   value
@@ -96,6 +100,8 @@ export const GET_PRODUCT_BY_HANDLE = `
       title
       handle
       description
+      availableForSale
+      compareAtPriceRange { maxVariantPrice { amount currencyCode } }
       priceRange {
         minVariantPrice {
           amount
@@ -110,12 +116,14 @@ export const GET_PRODUCT_BY_HANDLE = `
           }
         }
       }
-      variants(first: 20) {
+      variants(first: 50) {
         edges {
           node {
             id
             title
             availableForSale
+            price { amount currencyCode }
+            compareAtPrice { amount currencyCode }
             selectedOptions {
               name
               value
@@ -158,6 +166,8 @@ export const GET_COLLECTION_BY_HANDLE = `
             title
             handle
             description
+            availableForSale
+            compareAtPriceRange { maxVariantPrice { amount currencyCode } }
             priceRange {
               minVariantPrice {
                 amount
@@ -172,12 +182,14 @@ export const GET_COLLECTION_BY_HANDLE = `
                 }
               }
             }
-            variants(first: 10) {
+            variants(first: 50) {
               edges {
                 node {
                   id
                   title
                   availableForSale
+                  price { amount currencyCode }
+                  compareAtPrice { amount currencyCode }
                   selectedOptions {
                     name
                     value

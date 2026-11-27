@@ -15,9 +15,16 @@ type ProductInfoProps = {
 const optionClass =
   "type-button inline-flex h-11 min-w-11 items-center justify-center border px-4 transition-colors duration-300 outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
+/** Size → Shopify variant, matched on the option named "Size". */
+function variantForSize(product: Product, size: string) {
+  return product.variants?.find((v) =>
+    v.selectedOptions.some((o) => o.name.trim().toLowerCase() === "size" && o.value === size),
+  );
+}
+
 /**
- * Purchase-side column. All state is local to the PDP: nothing is persisted, no
- * cart is mutated and no request is made. Variant switching arrives later.
+ * Purchase-side column. Price, sizes and stock all come from the live Shopify
+ * variants; a size whose variant is not available for sale cannot be added.
  */
 export function ProductInfo({ product, className }: ProductInfoProps) {
   const { title, category, price, currency, sizes, colours } = product;
@@ -41,14 +48,24 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
   // Resolve the Shopify variant (merchandise) for the selected size.
   // Shopify-sourced products carry variants with selectedOptions; local
   // products have no variants and fall back to the local product id.
-  const selectedVariant =
-    selectedSize && product.variants
-      ? product.variants.find((v) =>
-          v.selectedOptions.some((o) => o.name === "Size" && o.value === selectedSize),
-        )
-      : undefined;
+  const selectedVariant = selectedSize ? variantForSize(product, selectedSize) : undefined;
   const hasVariants = (product.variants?.length ?? 0) > 0;
-  const canAdd = Boolean(selectedSize) && (!hasVariants || Boolean(selectedVariant));
+  const soldOut =
+    !hasVariants ||
+    product.availableForSale === false ||
+    !product.variants?.some((v) => v.availableForSale);
+  const canAdd = !soldOut && Boolean(selectedVariant?.availableForSale);
+
+  const variantPrice = selectedVariant?.price
+    ? Math.round(parseFloat(selectedVariant.price.amount))
+    : null;
+  const shownPrice = variantPrice !== null && Number.isFinite(variantPrice) ? variantPrice : price;
+  const shownCurrency = selectedVariant?.price?.currencyCode ?? currency;
+  const variantCompareAt = selectedVariant?.compareAtPrice
+    ? Math.round(parseFloat(selectedVariant.compareAtPrice.amount))
+    : null;
+  const compareAt = selectedVariant ? variantCompareAt : (product.compareAtPrice ?? null);
+  const showCompareAt = compareAt !== null && Number.isFinite(compareAt) && compareAt > shownPrice;
 
   const handleAddToCart = () => {
     if (!selectedSize) {
@@ -57,18 +74,18 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
     }
     setSizeError(false);
 
-    if (hasVariants && !selectedVariant) {
+    if (!selectedVariant || !selectedVariant.availableForSale) {
       setVariantError(true);
       return;
     }
     setVariantError(false);
 
     addItem({
-      id: selectedVariant?.id ?? product.id,
+      id: selectedVariant.id,
       handle: product.handle,
       title: product.title,
-      price: product.price,
-      currency: product.currency ?? "INR",
+      price: shownPrice,
+      currency: shownCurrency ?? "INR",
       image: product.images?.[0] ?? product.image ?? "",
       imageAlt: product.imageAlt ?? product.title,
       size: selectedSize,
@@ -85,8 +102,18 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
         {title}
       </h1>
       <p className="mt-3 font-editorial italic text-[22px] text-[#1A0F0A]">
-        {formatPrice(price, currency)}
+        {formatPrice(shownPrice, shownCurrency)}
+        {showCompareAt ? (
+          <s className="ml-3 text-[16px] text-[#7A6855]" aria-label="Original price">
+            {formatPrice(compareAt, shownCurrency)}
+          </s>
+        ) : null}
       </p>
+      {soldOut ? (
+        <p className="mt-2 font-sans text-[10px] uppercase tracking-[0.15em] text-rust-deep">
+          Sold out
+        </p>
+      ) : null}
 
       <div className="mt-5 block h-px w-12 bg-[#C9A84C]" />
 
@@ -146,12 +173,16 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
         >
           {sizes.map((size) => {
             const active = size === selectedSize;
+            const unavailable = !variantForSize(product, size)?.availableForSale;
             return (
               <button
                 key={size}
                 type="button"
                 role="radio"
                 aria-checked={active}
+                aria-disabled={unavailable}
+                disabled={unavailable}
+                title={unavailable ? `${size} is out of stock` : undefined}
                 onClick={() => {
                   setSelectedSize(size);
                   setSizeError(false);
@@ -159,9 +190,11 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
                 }}
                 className={cn(
                   optionClass,
-                  active
-                    ? "border-[#2C1810] bg-[#2C1810] text-[#FAF6EE]"
-                    : "border-[#DDD5C0] text-[#1A0F0A] hover:border-[#2C1810] hover:bg-[#FAF6EE]",
+                  unavailable
+                    ? "cursor-not-allowed border-[#DDD5C0] text-[#7A6855] line-through opacity-50"
+                    : active
+                      ? "border-[#2C1810] bg-[#2C1810] text-[#FAF6EE]"
+                      : "border-[#DDD5C0] text-[#1A0F0A] hover:border-[#2C1810] hover:bg-[#FAF6EE]",
                 )}
               >
                 {size}
@@ -186,7 +219,13 @@ export function ProductInfo({ product, className }: ProductInfoProps) {
           className="h-[52px] w-full rounded-none bg-[#2C1810] px-6 font-sans text-[11px] uppercase tracking-[0.15em] text-[#FAF6EE] hover:bg-[#1A0F0A] disabled:cursor-not-allowed disabled:opacity-50 sm:flex-1"
           onClick={handleAddToCart}
         >
-          {added ? "Added to cart ✓" : canAdd ? "Add to Cart" : "Select a size"}
+          {added
+            ? "Added to cart ✓"
+            : soldOut
+              ? "Sold out"
+              : canAdd
+                ? "Add to Cart"
+                : "Select a size"}
         </AiraButton>
         <AiraButton
           type="button"

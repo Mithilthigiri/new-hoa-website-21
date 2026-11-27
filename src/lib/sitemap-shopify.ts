@@ -8,10 +8,12 @@ const query = `query SitemapProducts($after: String) {
 }`;
 
 type ProductPage = {
-  data?: { products?: {
-    nodes: { handle: string }[];
-    pageInfo: { hasNextPage: boolean; endCursor: string | null };
-  } };
+  data?: {
+    products?: {
+      nodes: { handle: string }[];
+      pageInfo: { hasNextPage: boolean; endCursor: string | null };
+    };
+  };
   errors?: unknown;
 };
 

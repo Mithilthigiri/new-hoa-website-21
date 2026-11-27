@@ -11,20 +11,20 @@ export const Route = createFileRoute("/product/$handle")({
   staticData: { sitemap: true },
   loader: ({ params }) => getPublicProductMetadata({ data: { handle: params.handle } }),
   head: ({ params, loaderData }) => {
-    // Confirmed catalogue copy wins for the name and copy shown to visitors and
-    // search engines; live Shopify data still supplies the real cover image.
+    // Shopify supplies the live name and price; the approved catalogue only
+    // supplies editorial copy. Search markup never carries a non-Shopify price.
     const live = loaderData?.product ?? null;
     const confirmed = findProductByHandle(params.handle);
-    const shown = confirmed ?? live;
+    const shown = live
+      ? { ...live, description: confirmed?.description || live.description }
+      : null;
     const title = shown ? `${shown.title} — House of Airaa` : "Piece not found — House of Airaa";
     const description = shown
       ? shown.description || `${shown.title} from House of Airaa.`
       : "This House of Airaa piece could not be found.";
     const images = live?.images?.length ? live.images : (confirmed?.images ?? []);
     const cover = images.find((url) => url.startsWith("https://"));
-    const pricing = confirmed
-      ? { amount: String(confirmed.price), currencyCode: confirmed.currency }
-      : live?.pricing;
+    const pricing = live?.pricing;
     return {
       scripts: shown
         ? [
@@ -77,6 +77,13 @@ function ProductRoute() {
     );
   }
 
-  if (error || !product) return <ProductNotFound handle={handle} />;
+  if (error) {
+    return (
+      <Container width="wide" className="py-section">
+        <p className="type-editorial text-center text-muted-foreground">{error}</p>
+      </Container>
+    );
+  }
+  if (!product) return <ProductNotFound handle={handle} />;
   return <ProductPage product={product} />;
 }

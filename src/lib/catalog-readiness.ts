@@ -110,11 +110,12 @@ function compareProduct(
     issues.push({
       field: "price",
       label: "Price and currency",
-      expected: formatPrice(confirmed.price, confirmed.currency),
+      expected: `Approved reference ${formatPrice(confirmed.price, confirmed.currency)}`,
       actual:
         shopifyPrice === null
           ? "No valid Shopify price"
-          : formatPrice(shopifyPrice, shopifyCurrency),
+          : `Live Shopify ${formatPrice(shopifyPrice, shopifyCurrency)}`,
+      detail: "Customers see and pay the live Shopify price.",
     });
   }
 
@@ -143,11 +144,26 @@ function compareProduct(
   const availableSizes = availableShopifySizes(shopify);
   const unavailableSizes = expectedSizes.filter((size) => !availableSizes.has(size));
   if (unavailableSizes.length) {
+    const variants = shopify.variants.edges;
+    // Not being sold = sizes exist but have no stock; misconfigured = Shopify
+    // has no matching Size variant at all, so stock alone cannot fix it.
+    const unconfigured = unavailableSizes.filter((size) => !actualSizeSet.has(size));
+    const outOfStock = unavailableSizes.filter((size) => actualSizeSet.has(size));
+    const nothingSellable =
+      variants.length > 0 && !variants.some(({ node }) => node.availableForSale);
+    const details = [
+      nothingSellable ? "Not currently being sold: every Shopify size is out of stock" : "",
+      outOfStock.length && !nothingSellable ? `Out of stock: ${outOfStock.join(", ")}` : "",
+      unconfigured.length
+        ? `Set-up issue — no Shopify "Size" variant for: ${unconfigured.join(", ")}`
+        : "",
+    ].filter(Boolean);
     issues.push({
       field: "availability",
       label: "Sellable availability",
       expected: "Every confirmed size has a sellable Shopify variant",
       actual: `No sellable variant for: ${unavailableSizes.join(", ")}`,
+      detail: details.join(" · "),
     });
   }
 

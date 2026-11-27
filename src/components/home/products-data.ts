@@ -65,6 +65,10 @@ export type ProductVariant = {
   /** Variant option summary, e.g. "M / Rust". */
   title: string;
   availableForSale: boolean;
+  /** Live Shopify variant price. */
+  price?: { amount: string; currencyCode: string };
+  /** Shopify compare-at price; null/absent when the store sets none. */
+  compareAtPrice?: { amount: string; currencyCode: string } | null;
   /** Shopify variant options, e.g. [{ name: "Size", value: "M" }]. */
   selectedOptions: Array<{
     name: string;
@@ -106,6 +110,10 @@ export type Product = {
    * copy for now; later mapped from Shopify product.description.
    */
   description?: string;
+  /** Shopify compare-at price, only when it is higher than `price`. */
+  compareAtPrice?: number;
+  /** Shopify product availability; false means no size can be bought. */
+  availableForSale?: boolean;
   /** Shopify variants (merchandise IDs) — present for Shopify-sourced products. */
   variants?: ProductVariant[];
 };

@@ -6,6 +6,5 @@ export const homepageShareCard = {
   siteName: "House of Airaa",
   url: "https://www.houseofairaa.in/",
   image: `https://www.houseofairaa.in${shareImage.url}`,
-  imageAlt:
-    "House of Airaa — luxury contemporary ethnic wear, brand logo",
+  imageAlt: "House of Airaa — luxury contemporary ethnic wear, brand logo",
 };

@@ -25,10 +25,17 @@ export const Route = createFileRoute("/collections/$handle")({
     const { title, description, image } = loaderData.collection;
     const pageTitle = `${title} — House of Airaa`;
     return {
-      scripts: [structuredDataScript(publicPageStructuredData(
-        `/collections/${loaderData.collection.handle}`, pageTitle, description, "CollectionPage",
-        [{ path: "/collections", name: "Collections" }],
-      ))],
+      scripts: [
+        structuredDataScript(
+          publicPageStructuredData(
+            `/collections/${loaderData.collection.handle}`,
+            pageTitle,
+            description,
+            "CollectionPage",
+            [{ path: "/collections", name: "Collections" }],
+          ),
+        ),
+      ],
       meta: [
         { title: pageTitle },
         { name: "description", content: description },

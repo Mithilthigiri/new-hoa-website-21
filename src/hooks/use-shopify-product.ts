@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { shopifyClient } from "@/lib/shopify";
 import { GET_PRODUCT_BY_HANDLE } from "@/lib/shopify-queries";
 import { normalizeShopifyProduct } from "@/lib/shopify-normalizer";
-import { ALL_PRODUCTS } from "@/components/home/products-data";
+import { SHOPIFY_UNAVAILABLE_MESSAGE } from "@/hooks/use-shopify-products";
 import type { Product } from "@/components/home/products-data";
 
 type ProductResponse = {
   product: Parameters<typeof normalizeShopifyProduct>[0] | null;
 };
 
-/** Fetches a single Shopify product by handle. */
+/** Fetches a single live Shopify product by handle; null when Shopify has none. */
 export function useShopifyProduct(handle: string) {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -19,6 +19,7 @@ export function useShopifyProduct(handle: string) {
     if (!handle) return;
     let active = true;
     setLoading(true);
+    setError(null);
 
     async function fetchProduct() {
       try {
@@ -26,25 +27,13 @@ export function useShopifyProduct(handle: string) {
           GET_PRODUCT_BY_HANDLE,
           { variables: { handle } },
         );
-
-        if (errors) {
-          throw new Error(errors.message ?? "Shopify error");
-        }
-
-        if (!active) return;
-        // A handle the store does not carry yet still resolves from the
-        // confirmed catalogue, so its page opens instead of "Piece not found".
-        setProduct(
-          data?.product
-            ? normalizeShopifyProduct(data.product)
-            : (ALL_PRODUCTS.find((p) => p.handle === handle) ?? null),
-        );
+        if (errors) throw new Error(errors.message ?? "Shopify error");
+        if (active) setProduct(data?.product ? normalizeShopifyProduct(data.product) : null);
       } catch (err) {
-        console.error("Shopify API blocked:", err);
+        console.error("Shopify product failed to load:", err);
         if (active) {
-          const localProduct = ALL_PRODUCTS.find((p) => p.handle === handle) ?? null;
-          setProduct(localProduct);
-          setError(null);
+          setProduct(null);
+          setError(SHOPIFY_UNAVAILABLE_MESSAGE);
         }
       } finally {
         if (active) setLoading(false);

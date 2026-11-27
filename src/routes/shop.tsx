@@ -19,8 +19,16 @@ export const Route = createFileRoute("/shop")({
       ? { category: search["category"] }
       : {},
   head: () => ({
-    scripts: [structuredDataScript(publicPageStructuredData("/shop", "Shop — House of Airaa",
-      "Browse the House of Airaa shop: new in and signature pieces.", "CollectionPage"))],
+    scripts: [
+      structuredDataScript(
+        publicPageStructuredData(
+          "/shop",
+          "Shop — House of Airaa",
+          "Browse the House of Airaa shop: new in and signature pieces.",
+          "CollectionPage",
+        ),
+      ),
+    ],
     meta: [
       { title: "Shop — House of Airaa" },
       { property: "og:type", content: "website" },
